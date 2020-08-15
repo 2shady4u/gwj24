@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Menu.gd" type="Script" id=1]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 24
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 253.0
+margin_right = 1024.0
+margin_bottom = 267.0
+alignment = 1
+
+[node name="FrontSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 416.0
+margin_right = 448.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 32, 0 )
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 452.0
+margin_right = 571.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "Godot Wild Jam 24"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 575.0
+margin_right = 607.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 32, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 291.0
+margin_right = 1024.0
+margin_bottom = 347.0
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_left = 448.0
+margin_right = 576.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../QuitButton")
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_left = 448.0
+margin_top = 36.0
+margin_right = 576.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../StartButton")
+focus_next = NodePath("../StartButton")
+focus_previous = NodePath("../StartButton")
+size_flags_horizontal = 4
+text = "Quit"

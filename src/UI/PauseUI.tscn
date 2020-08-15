@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/UI/PauseUI.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/pause/SettingsPauseTab.gd" type="Script" id=2]
 [ext_resource path="res://src/UI/pause/MainPauseTab.gd" type="Script" id=3]
 [ext_resource path="res://src/UI/pause/PauseTabContainer.gd" type="Script" id=5]
 
@@ -34,35 +35,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainTab" type="Control" parent="TabContainer"]
+[node name="MainTab" type="MarginContainer" parent="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
 custom_constants/separation = 26
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
-margin_left = 457.0
-margin_top = 229.0
-margin_right = 566.0
-margin_bottom = 243.0
+[node name="TitleLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 445.0
+margin_top = 196.0
+margin_right = 578.0
+margin_bottom = 210.0
 size_flags_horizontal = 4
-text = "GAME IS PAUSED"
+text = "~ GAME IS PAUSED ~"
 align = 1
 valign = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
-margin_left = 464.0
-margin_top = 269.0
-margin_right = 560.0
-margin_bottom = 325.0
+margin_left = 448.0
+margin_top = 236.0
+margin_right = 576.0
+margin_bottom = 364.0
 size_flags_horizontal = 4
 custom_constants/separation = 16
 __meta__ = {
@@ -70,13 +71,13 @@ __meta__ = {
 }
 
 [node name="ResumeButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_right = 96.0
+margin_right = 128.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 96, 0 )
-focus_neighbour_top = NodePath("../../QuitButton")
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../QuitButton")
 focus_neighbour_bottom = NodePath("../RestartButton")
 focus_next = NodePath("../RestartButton")
-focus_previous = NodePath("../../QuitButton")
+focus_previous = NodePath("../QuitButton")
 text = "Resume"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,27 +85,272 @@ __meta__ = {
 
 [node name="RestartButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
 margin_top = 36.0
-margin_right = 96.0
+margin_right = 128.0
 margin_bottom = 56.0
-rect_min_size = Vector2( 96, 0 )
+rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../ResumeButton")
-focus_neighbour_bottom = NodePath("../../QuitButton")
-focus_next = NodePath("../../QuitButton")
+focus_neighbour_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath("../ResumeButton")
 text = "Restart"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" type="Button" parent="TabContainer/MainTab/VBoxContainer"]
-margin_left = 464.0
-margin_top = 351.0
-margin_right = 560.0
-margin_bottom = 371.0
-rect_min_size = Vector2( 96, 0 )
-focus_neighbour_top = NodePath("../VBoxContainer/RestartButton")
-focus_neighbour_bottom = NodePath("../VBoxContainer/ResumeButton")
-focus_next = NodePath("../VBoxContainer/ResumeButton")
-focus_previous = NodePath("../VBoxContainer/RestartButton")
-size_flags_horizontal = 4
+[node name="SettingsButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 128.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../RestartButton")
+focus_neighbour_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../RestartButton")
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 108.0
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../SettingsButton")
+focus_neighbour_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../SettingsButton")
 text = "Quit"
+
+[node name="HintLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 407.0
+margin_top = 390.0
+margin_right = 616.0
+margin_bottom = 404.0
+size_flags_horizontal = 4
+text = "Press 'ESCAPE' to pause/unpause"
+align = 1
+valign = 1
+
+[node name="SettingsTab" type="MarginContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+script = ExtResource( 2 )
+tab_type = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SettingsTab"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 568.0
+custom_constants/separation = 24
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer"]
+margin_left = 442.0
+margin_right = 517.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "~ Settings ~"
+align = 1
+valign = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/SettingsTab/VBoxContainer"]
+margin_top = 38.0
+margin_right = 960.0
+margin_bottom = 492.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer"]
+margin_right = 960.0
+margin_bottom = 454.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+alignment = 1
+
+[node name="AudioContainer" type="VBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 960.0
+margin_bottom = 322.0
+custom_constants/separation = 16
+
+[node name="SectionHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
+margin_right = 960.0
+margin_bottom = 14.0
+alignment = 1
+
+[node name="FrontHSeparator" type="HSeparator" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SectionHBox"]
+margin_right = 457.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SectionHBox"]
+margin_left = 461.0
+margin_right = 498.0
+margin_bottom = 14.0
+text = "Audio"
+
+[node name="BackHSeparator" type="HSeparator" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SectionHBox"]
+margin_left = 502.0
+margin_right = 960.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="MasterVolumeHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
+margin_top = 30.0
+margin_right = 960.0
+margin_bottom = 46.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
+margin_top = 1.0
+margin_right = 412.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Master"
+align = 2
+
+[node name="VolumeSlider" type="HSlider" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
+margin_left = 416.0
+margin_right = 544.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../../../../../BackButton")
+focus_neighbour_bottom = NodePath("../../MusicVolumeHBox/VolumeSlider")
+focus_next = NodePath("../../MusicVolumeHBox/VolumeSlider")
+focus_previous = NodePath("../../../../../BackButton")
+value = 100.0
+
+[node name="VolumeLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
+margin_left = 548.0
+margin_top = 1.0
+margin_right = 960.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "(100 %)"
+
+[node name="MusicVolumeHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
+margin_top = 62.0
+margin_right = 960.0
+margin_bottom = 78.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
+margin_top = 1.0
+margin_right = 412.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Music"
+align = 2
+
+[node name="VolumeSlider" type="HSlider" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
+margin_left = 416.0
+margin_right = 544.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../../MasterVolumeHBox/VolumeSlider")
+focus_neighbour_bottom = NodePath("../../MuteMusicCheckBox")
+focus_next = NodePath("../../MuteMusicCheckBox")
+focus_previous = NodePath("../../MasterVolumeHBox/VolumeSlider")
+value = 100.0
+
+[node name="VolumeLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
+margin_left = 548.0
+margin_top = 1.0
+margin_right = 960.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "(100 %)"
+
+[node name="MuteMusicCheckBox" type="CheckBox" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
+margin_left = 428.0
+margin_top = 94.0
+margin_right = 531.0
+margin_bottom = 118.0
+focus_neighbour_top = NodePath("../MusicVolumeHBox/VolumeSlider")
+focus_neighbour_bottom = NodePath("../SFXVolumeHBox/VolumeSlider")
+focus_next = NodePath("../SFXVolumeHBox/VolumeSlider")
+focus_previous = NodePath("../MasterVolumeHBox/VolumeSlider")
+size_flags_horizontal = 4
+text = "Mute Music"
+align = 1
+
+[node name="SFXVolumeHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
+margin_top = 134.0
+margin_right = 960.0
+margin_bottom = 150.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox"]
+margin_top = 1.0
+margin_right = 412.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "SFX"
+align = 2
+
+[node name="VolumeSlider" type="HSlider" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox"]
+margin_left = 416.0
+margin_right = 544.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../../MuteMusicCheckBox")
+focus_neighbour_bottom = NodePath("../../MuteSFXCheckBox")
+focus_next = NodePath("../../MuteSFXCheckBox")
+focus_previous = NodePath("../../MuteMusicCheckBox")
+value = 100.0
+
+[node name="VolumeLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox"]
+margin_left = 548.0
+margin_top = 1.0
+margin_right = 960.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "(100 %)"
+
+[node name="MuteSFXCheckBox" type="CheckBox" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
+margin_left = 436.0
+margin_top = 166.0
+margin_right = 523.0
+margin_bottom = 190.0
+focus_neighbour_top = NodePath("../SFXVolumeHBox/VolumeSlider")
+focus_neighbour_bottom = NodePath("../../../../BackButton")
+focus_next = NodePath("../../../../BackButton")
+focus_previous = NodePath("../SFXVolumeHBox/VolumeSlider")
+size_flags_horizontal = 4
+text = "Mute SFX"
+align = 1
+
+[node name="BackButton" type="Button" parent="TabContainer/SettingsTab/VBoxContainer"]
+margin_left = 432.0
+margin_top = 516.0
+margin_right = 528.0
+margin_bottom = 536.0
+rect_min_size = Vector2( 96, 0 )
+focus_neighbour_top = NodePath("../ScrollContainer/VBoxContainer/AudioContainer/MuteSFXCheckBox")
+focus_neighbour_bottom = NodePath("../ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox/VolumeSlider")
+focus_next = NodePath("../ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox/VolumeSlider")
+focus_previous = NodePath("../ScrollContainer/VBoxContainer/AudioContainer/MuteSFXCheckBox")
+size_flags_horizontal = 4
+text = "Back"

@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 class_name class_pause_tab
 
 enum TABS {MAIN = 0, SETTINGS = 1}

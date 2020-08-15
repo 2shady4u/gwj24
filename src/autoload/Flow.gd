@@ -2,6 +2,7 @@ extends Node
 
 enum STATE {MENU, GAME}
 
+const OPTIONS_PATH := "res://options.cfg"
 const CONTROLS_PATH := "res://controls.json"
 
 ### PUBLIC VARIABLES ###
@@ -12,13 +13,18 @@ var is_in_editor_mode := false
 var verbose_mode := true
 
 var _game_flow := {
+	"menu": {
+		"packed_scene": preload("res://src/Menu.tscn"),
+		"state": STATE.MENU
+		},
 	"game": {
 		"packed_scene": preload("res://src/Game.tscn"),
 		"state": STATE.GAME
 		},
 	}
-var _game_state : int = STATE.GAME
+var _game_state : int = STATE.MENU
 
+onready var _options_loader := $OptionsLoader
 onready var _controls_loader := $ControlsLoader
 
 func _ready():
@@ -26,7 +32,8 @@ func _ready():
 
 func load_settings() -> int:
 	print("----- (Re)loading game settings from file -----")
-	var _error : int = _controls_loader.load_controlsJSON()
+	var _error : int = _options_loader.load_optionsCFG()
+	_error += _controls_loader.load_controlsJSON()
 	if _error == OK:
 		print("----> Succesfully loaded settings!")
 	else:
