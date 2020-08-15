@@ -18,10 +18,28 @@ _global_script_classes=[ {
 "class": "class_pause_tab",
 "language": "GDScript",
 "path": "res://src/UI/pause/PauseTab.gd"
+}, {
+"base": "Reference",
+"class": "class_upgrade",
+"language": "GDScript",
+"path": "res://src/Upgrade.gd"
+}, {
+"base": "Button",
+"class": "class_upgrade_button",
+"language": "GDScript",
+"path": "res://src/UpgradeButton.gd"
+}, {
+"base": "PanelContainer",
+"class": "class_upgrade_slot",
+"language": "GDScript",
+"path": "res://src/UpgradeSlot.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
-"class_pause_tab": ""
+"class_pause_tab": "",
+"class_upgrade": "",
+"class_upgrade_button": "",
+"class_upgrade_slot": ""
 }
 
 [application]

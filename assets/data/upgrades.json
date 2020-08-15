@@ -1,0 +1,36 @@
+{
+    "upgrades": {
+        "more_hp": {
+            "effect": {
+                "hp": 20
+            },
+            "grid": [
+                [
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        "faster_speed_but_decreased_health": {
+            "effect": {
+                "hp": -5,
+                "speed": 20
+            },
+            "grid": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        }
+    }
+}
