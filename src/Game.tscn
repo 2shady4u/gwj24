@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/UI/PauseUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/Canvas.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Game.gd" type="Script" id=3]
+[ext_resource path="res://src/editor/EditorCamera.gd" type="Script" id=4]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -20,6 +21,9 @@ __meta__ = {
 }
 
 [node name="Canvas" parent="ViewportContainer" instance=ExtResource( 2 )]
+
+[node name="EditorCamera" type="Camera2D" parent="."]
+script = ExtResource( 4 )
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
 
