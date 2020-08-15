@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/UI/PauseUI.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/pause/MainPauseTab.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/pause/PauseTabContainer.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="PauseUI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 232.85, 81.3131, 46.3969 ],
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+tabs_visible = false
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainTab" type="Control" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 26
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 457.0
+margin_top = 229.0
+margin_right = 566.0
+margin_bottom = 243.0
+size_flags_horizontal = 4
+text = "GAME IS PAUSED"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 464.0
+margin_top = 269.0
+margin_right = 560.0
+margin_bottom = 325.0
+size_flags_horizontal = 4
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 96, 0 )
+focus_neighbour_top = NodePath("../../QuitButton")
+focus_neighbour_bottom = NodePath("../RestartButton")
+focus_next = NodePath("../RestartButton")
+focus_previous = NodePath("../../QuitButton")
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 96.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 96, 0 )
+focus_neighbour_top = NodePath("../ResumeButton")
+focus_neighbour_bottom = NodePath("../../QuitButton")
+focus_next = NodePath("../../QuitButton")
+focus_previous = NodePath("../ResumeButton")
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 464.0
+margin_top = 351.0
+margin_right = 560.0
+margin_bottom = 371.0
+rect_min_size = Vector2( 96, 0 )
+focus_neighbour_top = NodePath("../VBoxContainer/RestartButton")
+focus_neighbour_bottom = NodePath("../VBoxContainer/ResumeButton")
+focus_next = NodePath("../VBoxContainer/ResumeButton")
+focus_previous = NodePath("../VBoxContainer/RestartButton")
+size_flags_horizontal = 4
+text = "Quit"

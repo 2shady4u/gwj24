@@ -1,0 +1,153 @@
+{
+    "common": [
+        {
+            "action": "toggle_paused",
+            "events": [
+                {
+                    "scancode": "Escape"
+                }
+            ]
+        },
+        {
+            "action": "restart",
+            "events": [
+                {
+                    "scancode": "R"
+                }
+            ]
+        },
+        {
+            "action": "toggle_mode",
+            "events": [
+                {
+                    "scancode": "E",
+                    "alt": true,
+                    "control": true
+                }
+            ]
+        },
+        {
+            "action": "toggle_full_screen",
+            "events": [
+                {
+                    "scancode": "F"
+                }
+            ]
+        },
+        {
+            "action": "move_left",
+            "events": [
+                {
+                    "scancode": "A"
+                },
+                {
+                    "scancode": "Left"
+                },
+                {
+                    "axis": "Left Stick X",
+                    "axis_value": -1
+                }
+            ]
+        },
+        {
+            "action": "move_right",
+            "events": [
+                {
+                    "scancode": "D"
+                },
+                {
+                    "scancode": "Right"
+                },
+                {
+                    "axis": "Left Stick X",
+                    "axis_value": 1
+                }
+            ]
+        },
+        {
+            "action": "move_up",
+            "events": [
+                {
+                    "scancode": "W"
+                },
+                {
+                    "scancode": "Up"
+                },
+                {
+                    "axis": "Left Stick Y",
+                    "axis_value": 1
+                }
+            ]
+        },
+        {
+            "action": "move_down",
+            "events": [
+                {
+                    "scancode": "S"
+                },
+                {
+                    "scancode": "Down"
+                },
+                {
+                    "axis": "Left Stick Y",
+                    "axis_value": -1
+                }
+            ]
+        }
+    ],
+    "editor": [
+        {
+            "action": "zoom_camera_in",
+            "events": [
+                {
+                    "scancode": "O"
+                }
+            ]
+        },
+        {
+            "action": "zoom_camera_out",
+            "events": [
+                {
+                    "scancode": "P"
+                }
+            ]
+        }
+    ],
+    "game": [
+        {
+            "action": "interact",
+            "events": [
+                {
+                    "scancode": "E"
+                },
+				{
+                    "scancode": "Space"
+                }
+            ]
+        },
+        {
+            "action": "confirm",
+            "events": [
+                {
+                    "scancode": "Enter"
+                }
+            ]
+        },
+        {
+            "action": "toggle_inventory",
+            "events": [
+                {
+                    "scancode": "I"
+                }
+            ]
+        },
+        {
+            "action": "sprint",
+            "events": [
+                {
+                    "scancode": "Shift"
+                }
+            ]
+        }
+    ]
+}
