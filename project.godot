@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://src/game/character/Character.gd"
+}, {
 "base": "MarginContainer",
 "class": "class_pause_tab",
 "language": "GDScript",
 "path": "res://src/UI/pause/PauseTab.gd"
 } ]
 _global_script_class_icons={
+"Character": "",
 "class_pause_tab": ""
 }
 
@@ -31,8 +37,36 @@ Flow="*res://src/autoload/Flow.tscn"
 
 [display]
 
+window/size/height=576
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "gut" )
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [rendering]
 

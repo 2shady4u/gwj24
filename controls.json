@@ -126,6 +126,14 @@
             ]
         },
         {
+            "action": "switch",
+            "events": [
+				{
+                    "scancode": "Tab"
+                }
+            ]
+        },
+        {
             "action": "confirm",
             "events": [
                 {
