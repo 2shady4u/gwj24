@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        with:
+          path: $EXPORT_NAME
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/templates
@@ -21,7 +23,6 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          ls
           cd $EXPORT_NAME
           godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
@@ -30,7 +31,7 @@ jobs:
           name: windows
           path: build/windows
       - name: Butler Upload
-        uses: josephbmanley/butler-publish-itchio-action@master
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
         with:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: windows
@@ -46,6 +47,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        with:
+          path: $EXPORT_NAME
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/templates
@@ -61,7 +64,7 @@ jobs:
           name: linux
           path: build/linux
       - name: Butler Upload
-        uses: josephbmanley/butler-publish-itchio-action@master
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
         with:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: linux
@@ -77,6 +80,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        with:
+          path: $EXPORT_NAME
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/templates
@@ -92,7 +97,7 @@ jobs:
           name: web
           path: build/web
       - name: Butler Upload
-        uses: josephbmanley/butler-publish-itchio-action@master
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
         with:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: web
