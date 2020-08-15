@@ -31,7 +31,7 @@ jobs:
           path: ../build/windows
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.2
-        with:
+        env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: windows
           ITCH_GAME: gwj24
@@ -63,7 +63,7 @@ jobs:
           path: ../build/linux
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.2
-        with:
+        env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: linux
           ITCH_GAME: gwj24
@@ -95,7 +95,7 @@ jobs:
           path: ../build/web
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.2
-        with:
+        env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: web
           ITCH_GAME: gwj24
