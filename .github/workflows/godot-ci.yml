@@ -21,6 +21,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
+          ls
           cd $EXPORT_NAME
           godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
