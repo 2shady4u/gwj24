@@ -4,6 +4,7 @@
 [ext_resource path="res://src/autoload/flow/ControlsLoader.gd" type="Script" id=2]
 
 [node name="Flow" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="ControlsLoader" type="Node" parent="."]
