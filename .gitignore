@@ -12,3 +12,5 @@ data_*/
 
 # Build files
 build/*
+
+.vscode
