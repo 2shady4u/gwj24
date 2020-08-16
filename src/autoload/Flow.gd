@@ -3,7 +3,13 @@ extends Node
 enum STATE {MENU, GAME}
 
 const OPTIONS_PATH := "res://options.cfg"
+
 const CONTROLS_PATH := "res://controls.json"
+
+const SAVE_PATH := "user://saves"
+const DEFAULT_SAVE_FILE := "res://default_save.json"
+
+const DATA_PATH := "res://assets/data.json"
 
 ### PUBLIC VARIABLES ###
 var pause_UI : Control = null
@@ -11,6 +17,11 @@ var pause_UI : Control = null
 # Is the game currently in editor mode? or not?
 var is_in_editor_mode := false
 var verbose_mode := true
+
+var upgrades_data := {}
+var orphans_data := {}
+
+var missions_data := []
 
 var _game_flow := {
 	"menu": {
@@ -26,6 +37,8 @@ var _game_state : int = STATE.MENU
 
 onready var _options_loader := $OptionsLoader
 onready var _controls_loader := $ControlsLoader
+onready var _data_loader := $DataLoader
+onready var _state_loader := $StateLoader
 
 func _ready():
 	var _error := load_settings()
@@ -34,6 +47,7 @@ func load_settings() -> int:
 	print("----- (Re)loading game settings from file -----")
 	var _error : int = _options_loader.load_optionsCFG()
 	_error += _controls_loader.load_controlsJSON()
+	_error += _data_loader.load_dataJSON()
 	if _error == OK:
 		print("----> Succesfully loaded settings!")
 	else:

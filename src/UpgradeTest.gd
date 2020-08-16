@@ -1,8 +1,8 @@
 tool
 extends Control
 
-var _upgrade_button_resource := preload("res://src/UpgradeButton.tscn")
-var _upgrade_slot_resource := preload("res://src/UpgradeSlot.tscn")
+var _upgrade_button_resource := preload("res://src/menu/UpgradeButton.tscn")
+var _upgrade_slot_resource := preload("res://src/menu/UpgradeSlot.tscn")
 
 var _upgrade_slots := []
 var _upgrade_buttons := []

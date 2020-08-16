@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/UpgradeTest.gd" type="Script" id=1]
-[ext_resource path="res://src/UpgradeSlot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/UpgradeSlot.gd" type="Script" id=3]
+[ext_resource path="res://src/menu/UpgradeSlot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/EffectsContainer.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -12,6 +11,50 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "tool
+extends PanelContainer
+class_name class_upgrade_slot
+
+export(Vector2) var grid_position := Vector2.ZERO
+
+var upgrade : class_upgrade setget set_upgrade, get_upgrade
+func set_upgrade(value : class_upgrade) -> void:
+	_upgrade = weakref(value)
+	update_slot()
+func get_upgrade() -> class_upgrade:
+	return _upgrade.get_ref()
+
+var active_upgrade : class_upgrade setget set_active_upgrade, get_active_upgrade
+func set_active_upgrade(value : class_upgrade) -> void:
+	_active_upgrade = weakref(value)
+	update_slot()
+func get_active_upgrade() -> class_upgrade:
+	return _active_upgrade.get_ref()
+
+var _upgrade := WeakRef.new()
+var _active_upgrade := WeakRef.new()
+
+signal slot_pressed(class_upgrade)
+
+func update_slot():
+	if self.active_upgrade:
+		modulate = Color.lightblue
+	elif self.upgrade:
+		if self.active_upgrade:
+			modulate = Color.lightblue
+		else:
+			modulate = self.upgrade.color
+	else:
+		modulate = Color.white
+
+func _gui_input(event):
+	if event.is_action_pressed(\"left_mouse_button\"):
+		if self.upgrade:
+			emit_signal(\"slot_pressed\", self.upgrade)
+			self.active_upgrade = self.upgrade
+"
 
 [node name="UpgradeTest" type="Control"]
 anchor_right = 1.0
@@ -32,7 +75,7 @@ __meta__ = {
 
 [node name="Margin" type="MarginContainer" parent="HBox"]
 margin_right = 680.0
-margin_bottom = 600.0
+margin_bottom = 576.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 custom_constants/margin_right = 24
@@ -44,7 +87,7 @@ custom_constants/margin_bottom = 24
 margin_left = 24.0
 margin_top = 24.0
 margin_right = 656.0
-margin_bottom = 576.0
+margin_bottom = 552.0
 size_flags_horizontal = 3
 custom_constants/separation = 24
 alignment = 1
@@ -78,7 +121,7 @@ margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -89,7 +132,7 @@ margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,7 +144,7 @@ margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -113,7 +156,7 @@ margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -125,7 +168,7 @@ margin_right = 336.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -137,7 +180,7 @@ margin_right = 404.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -149,7 +192,7 @@ margin_right = 64.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -162,7 +205,7 @@ margin_right = 132.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -175,7 +218,7 @@ margin_right = 200.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -188,7 +231,7 @@ margin_right = 268.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -201,7 +244,7 @@ margin_right = 336.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -214,7 +257,7 @@ margin_right = 404.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -226,7 +269,7 @@ margin_right = 64.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -239,7 +282,7 @@ margin_right = 132.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -252,7 +295,7 @@ margin_right = 200.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -265,7 +308,7 @@ margin_right = 268.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -278,7 +321,7 @@ margin_right = 336.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -291,7 +334,7 @@ margin_right = 404.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -303,7 +346,7 @@ margin_right = 64.0
 margin_bottom = 268.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -316,7 +359,7 @@ margin_right = 132.0
 margin_bottom = 268.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -329,7 +372,7 @@ margin_right = 200.0
 margin_bottom = 268.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -342,7 +385,7 @@ margin_right = 268.0
 margin_bottom = 268.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -355,7 +398,7 @@ margin_right = 336.0
 margin_bottom = 268.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -368,7 +411,7 @@ margin_right = 404.0
 margin_bottom = 268.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -380,7 +423,7 @@ margin_right = 64.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -393,7 +436,7 @@ margin_right = 132.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -406,7 +449,7 @@ margin_right = 200.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -419,7 +462,7 @@ margin_right = 268.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -432,7 +475,7 @@ margin_right = 336.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -445,7 +488,7 @@ margin_right = 404.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -457,7 +500,7 @@ margin_right = 64.0
 margin_bottom = 404.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -470,7 +513,7 @@ margin_right = 132.0
 margin_bottom = 404.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -483,7 +526,7 @@ margin_right = 200.0
 margin_bottom = 404.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -496,7 +539,7 @@ margin_right = 268.0
 margin_bottom = 404.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -509,7 +552,7 @@ margin_right = 336.0
 margin_bottom = 404.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -522,7 +565,7 @@ margin_right = 404.0
 margin_bottom = 404.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 3 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -531,7 +574,7 @@ grid_position = Vector2( 5, 5 )
 [node name="CumulativeEffects" type="VBoxContainer" parent="HBox/Margin/VBox"]
 margin_top = 466.0
 margin_right = 632.0
-margin_bottom = 552.0
+margin_bottom = 528.0
 size_flags_vertical = 3
 script = ExtResource( 4 )
 
@@ -553,12 +596,12 @@ __meta__ = {
 [node name="InventoryScroll" type="ScrollContainer" parent="HBox"]
 margin_left = 684.0
 margin_right = 1024.0
-margin_bottom = 600.0
+margin_bottom = 576.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBox/InventoryScroll"]
 margin_right = 340.0
-margin_bottom = 600.0
+margin_bottom = 576.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 24

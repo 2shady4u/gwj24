@@ -2,6 +2,8 @@ extends Reference
 class_name class_upgrade
 
 var id := ""
+var text := ""
+var description := ""
 var color := Color.white
 var grid_positions := PoolVector2Array()
 

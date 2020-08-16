@@ -1,0 +1,61 @@
+{
+    "orphans": {
+        "joseph": {
+            "backstory": ""
+        }
+    },
+    "missions": [
+        {
+            "id": "intro",
+            "title": "Yunkyard Bros",
+            "description": "The intro mission that is easy and quaint",
+            "thumbnail_texture": "",
+            "packed_scene": ""
+        },
+        {
+            "id": "first_real_mission",
+            "title": "INLAW in ACTION",
+            "description": "The first real mission that poses an actual threat to the player",
+            "packed_scene": "",
+            "thumbnail_texture": "",
+            "prerequisites": ["intro"] 
+        }
+    ],
+    "upgrades": {
+        "more_hp": {
+            "text": "MXU-1",
+            "effect": {
+                "hp": 20
+            },
+            "grid": [
+                [
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        "faster_speed_but_decreased_health": {
+            "text": "MXU-POWAH",
+            "icon": "",
+            "effect": {
+                "hp": -5,
+                "speed": 20
+            },
+            "grid": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        }
+    }
+}

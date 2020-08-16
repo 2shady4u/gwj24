@@ -20,7 +20,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.392157 )
+color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,7 +42,7 @@ script = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab"]
 margin_right = 1024.0
-margin_bottom = 600.0
+margin_bottom = 576.0
 custom_constants/separation = 26
 alignment = 1
 __meta__ = {
@@ -51,9 +51,9 @@ __meta__ = {
 
 [node name="TitleLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 445.0
-margin_top = 196.0
+margin_top = 146.0
 margin_right = 578.0
-margin_bottom = 210.0
+margin_bottom = 160.0
 size_flags_horizontal = 4
 text = "~ GAME IS PAUSED ~"
 align = 1
@@ -61,9 +61,9 @@ valign = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 448.0
-margin_top = 236.0
+margin_top = 186.0
 margin_right = 576.0
-margin_bottom = 364.0
+margin_bottom = 390.0
 size_flags_horizontal = 4
 custom_constants/separation = 16
 __meta__ = {
@@ -97,36 +97,66 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SettingsButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+[node name="HSeparator1" type="HSeparator" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
 margin_top = 72.0
 margin_right = 128.0
-margin_bottom = 92.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 128.0
+margin_bottom = 112.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../RestartButton")
-focus_neighbour_bottom = NodePath("../QuitButton")
-focus_next = NodePath("../QuitButton")
+focus_neighbour_bottom = NodePath("../AbortButton")
+focus_next = NodePath("../AbortButton")
 focus_previous = NodePath("../RestartButton")
 text = "Settings"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 108.0
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 128.0
 margin_right = 128.0
-margin_bottom = 128.0
+margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbortButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 148.0
+margin_right = 128.0
+margin_bottom = 168.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../SettingsButton")
+focus_neighbour_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../SettingsButton")
+text = "Abort"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 184.0
+margin_right = 128.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../AbortButton")
 focus_neighbour_bottom = NodePath("../ResumeButton")
 focus_next = NodePath("../ResumeButton")
-focus_previous = NodePath("../SettingsButton")
+focus_previous = NodePath("../AbortButton")
 text = "Quit"
 
 [node name="HintLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 407.0
-margin_top = 390.0
+margin_top = 416.0
 margin_right = 616.0
-margin_bottom = 404.0
+margin_bottom = 430.0
 size_flags_horizontal = 4
 text = "Press 'ESCAPE' to pause/unpause"
 align = 1
@@ -147,7 +177,7 @@ tab_type = 1
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 992.0
-margin_bottom = 568.0
+margin_bottom = 544.0
 custom_constants/separation = 24
 alignment = 1
 __meta__ = {
@@ -166,7 +196,7 @@ valign = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/SettingsTab/VBoxContainer"]
 margin_top = 38.0
 margin_right = 960.0
-margin_bottom = 492.0
+margin_bottom = 468.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -174,16 +204,16 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer"]
 margin_right = 960.0
-margin_bottom = 454.0
+margin_bottom = 430.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 16
 alignment = 1
 
 [node name="AudioContainer" type="VBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 132.0
+margin_top = 120.0
 margin_right = 960.0
-margin_bottom = 322.0
+margin_bottom = 310.0
 custom_constants/separation = 16
 
 [node name="SectionHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
@@ -344,9 +374,9 @@ align = 1
 
 [node name="BackButton" type="Button" parent="TabContainer/SettingsTab/VBoxContainer"]
 margin_left = 432.0
-margin_top = 516.0
+margin_top = 492.0
 margin_right = 528.0
-margin_bottom = 536.0
+margin_bottom = 512.0
 rect_min_size = Vector2( 96, 0 )
 focus_neighbour_top = NodePath("../ScrollContainer/VBoxContainer/AudioContainer/MuteSFXCheckBox")
 focus_neighbour_bottom = NodePath("../ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox/VolumeSlider")

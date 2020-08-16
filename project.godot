@@ -20,6 +20,16 @@ _global_script_classes=[ {
 "path": "res://src/game/chips/Chip.gd"
 }, {
 "base": "MarginContainer",
+"class": "class_menu_tab",
+"language": "GDScript",
+"path": "res://src/menu/MenuTab.gd"
+}, {
+"base": "MarginContainer",
+"class": "class_mission_tab",
+"language": "GDScript",
+"path": "res://src/menu/MissionTab.gd"
+}, {
+"base": "MarginContainer",
 "class": "class_pause_tab",
 "language": "GDScript",
 "path": "res://src/UI/pause/PauseTab.gd"
@@ -27,21 +37,23 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "class_upgrade",
 "language": "GDScript",
-"path": "res://src/Upgrade.gd"
+"path": "res://src/autoload/state/Upgrade.gd"
 }, {
 "base": "Button",
 "class": "class_upgrade_button",
 "language": "GDScript",
-"path": "res://src/UpgradeButton.gd"
+"path": "res://src/menu/UpgradeButton.gd"
 }, {
 "base": "PanelContainer",
 "class": "class_upgrade_slot",
 "language": "GDScript",
-"path": "res://src/UpgradeSlot.gd"
+"path": "res://src/menu/UpgradeSlot.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
 "Chip": "",
+"class_menu_tab": "",
+"class_mission_tab": "",
 "class_pause_tab": "",
 "class_upgrade": "",
 "class_upgrade_button": "",
@@ -59,6 +71,7 @@ config/icon="res://icon.png"
 
 ConfigData="*res://src/autoload/ConfigData.tscn"
 Flow="*res://src/autoload/Flow.tscn"
+State="*res://src/autoload/State.tscn"
 
 [display]
 
