@@ -20,20 +20,21 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 253.0
-margin_right = 1024.0
-margin_bottom = 267.0
+margin_left = 416.0
+margin_top = 241.0
+margin_right = 607.0
+margin_bottom = 255.0
+size_flags_horizontal = 4
 alignment = 1
 
 [node name="FrontSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
-margin_left = 416.0
-margin_right = 448.0
+margin_right = 32.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 32, 0 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 452.0
-margin_right = 571.0
+margin_left = 36.0
+margin_right = 155.0
 margin_bottom = 14.0
 size_flags_horizontal = 4
 text = "Godot Wild Jam 24"
@@ -43,15 +44,17 @@ __meta__ = {
 }
 
 [node name="BackSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
-margin_left = 575.0
-margin_right = 607.0
+margin_left = 159.0
+margin_right = 191.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 32, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 291.0
-margin_right = 1024.0
-margin_bottom = 347.0
+margin_left = 448.0
+margin_top = 279.0
+margin_right = 576.0
+margin_bottom = 335.0
+size_flags_horizontal = 4
 custom_constants/separation = 16
 alignment = 1
 __meta__ = {
@@ -59,8 +62,7 @@ __meta__ = {
 }
 
 [node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_left = 448.0
-margin_right = 576.0
+margin_right = 128.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_bottom = NodePath("../QuitButton")
@@ -70,9 +72,8 @@ size_flags_horizontal = 4
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_left = 448.0
 margin_top = 36.0
-margin_right = 576.0
+margin_right = 128.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../StartButton")
