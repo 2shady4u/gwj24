@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tryout.png-c8950a714ea745df2ac01faed93d1c47.stex"
+path="res://.import/HP_bar_end_left-export.png-3a5126b224667b59337edc321bb5d55e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/tryout.png"
-dest_files=[ "res://.import/tryout.png-c8950a714ea745df2ac01faed93d1c47.stex" ]
+source_file="res://assets/graphics/ui/HP_bar_end_left-export.png"
+dest_files=[ "res://.import/HP_bar_end_left-export.png-3a5126b224667b59337edc321bb5d55e.stex" ]
 
 [params]
 

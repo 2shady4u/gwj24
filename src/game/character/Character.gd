@@ -3,6 +3,7 @@ class_name Character
 
 onready var sprite: AnimatedSprite = $Sprite
 onready var tween: Tween = $Tween
+onready var healthbar = $HealthBar
 
 export(String) var team 
 
@@ -13,6 +14,8 @@ var stats = {
 	},
 	"damage": 1,
 	"healing": 1,
+	"actions": 2,
+	"movement": 4
 }
 
 var upgrades = []
@@ -20,7 +23,13 @@ var upgrades = []
 signal death(character)
 
 func _ready():
-	pass # Replace with function body.
+	update_stats(stats)
+
+func update_stats(new_stats):
+	# TODO we're getting this out of state soon
+	stats = new_stats
+	healthbar.set_health(new_stats.health.max)
+	healthbar.update_health(new_stats.health.current)
 
 
 func shake(shake_size: Vector2):
@@ -34,6 +43,7 @@ func heal_up(points: int, direction: Vector2):
 	stats.health.current = min(stats.health.current + points, stats.health.max)
 	print("Healed up!")
 	shake(direction / 4)
+	healthbar.update_health(stats.health.current)
 
 func take_damage(points: int, direction: Vector2):
 	stats.health.current = max(stats.health.current - points, 0)
@@ -43,6 +53,4 @@ func take_damage(points: int, direction: Vector2):
 		emit_signal("death", self)
 	else:
 		shake(direction / 2)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	healthbar.update_health(stats.health.current)

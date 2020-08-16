@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game/chips/ChipLabel.gd" type="Script" id=2]
+[ext_resource path="res://assets/graphics/chips/Chips.tres" type="SpriteFrames" id=3]
+
+[node name="ChipLabel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.00012207
+anchor_right = 0.00012207
+margin_left = -0.125
+margin_right = 100.875
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Plus" type="Label" parent="."]
+margin_left = 3.77007
+margin_top = 2.77795
+margin_right = 43.7701
+margin_bottom = 16.778
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+margin_left = 28.8153
+margin_top = 3.19666
+margin_right = 68.8153
+margin_bottom = 17.1967
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 19.8526, 8.61526 )
+frames = ExtResource( 3 )
+animation = "blue"
+frame = 3
+playing = true

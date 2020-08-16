@@ -14,6 +14,9 @@ animations = [ {
 [node name="BlackRobotRed" instance=ExtResource( 1 )]
 team = "RED"
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="0" groups=[
+"characters",
+]]
+position = Vector2( 0, -3.86494 )
 frames = SubResource( 1 )
 animation = "idle"

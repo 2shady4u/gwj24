@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/game/character/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="Robot" instance=ExtResource( 1 )]
+team = "PLAYER"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -6.97389 )
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="HealthBar" parent="." index="2"]
+position = Vector2( 0, -22.1889 )
