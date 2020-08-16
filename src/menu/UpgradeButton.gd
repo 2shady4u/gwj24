@@ -6,7 +6,7 @@ var _upgrade_resource := preload("res://src/autoload/state/Upgrade.gd")
 var upgrade : class_upgrade setget set_upgrade, get_upgrade
 func set_upgrade(value : class_upgrade) -> void:
 	_upgrade = weakref(value)
-	text = value.text
+	$HBoxContainer/Label.text = value.text
 func get_upgrade() -> class_upgrade:
 	return _upgrade.get_ref()
 

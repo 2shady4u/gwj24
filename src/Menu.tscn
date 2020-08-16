@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/Menu.gd" type="Script" id=1]
 [ext_resource path="res://src/menu/MainMenuTab.gd" type="Script" id=2]
@@ -9,8 +9,17 @@
 [ext_resource path="res://src/UI/base/VolumeHBox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/menu/MissionButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/menu/MissionTab.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/upgrades/Chip_HP.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/upgrades/Chip_Attack.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/upgrades/Chip_Heal.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/upgrades/Chip_Movement.png" type="Texture" id=14]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+content_margin_top = 16.0
+content_margin_bottom = 16.0
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -19,6 +28,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0
@@ -31,6 +43,7 @@ __meta__ = {
 }
 
 [node name="MainTab" type="MarginContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 32
@@ -370,7 +383,6 @@ size_flags_horizontal = 4
 text = "Edit Orphan Layout"
 
 [node name="OrphanTab" type="MarginContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 32
@@ -428,6 +440,322 @@ margin_right = 314.0
 margin_bottom = 476.0
 size_flags_horizontal = 3
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 314.0
+margin_bottom = 170.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 155.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 29.0
+margin_right = 155.0
+margin_bottom = 43.0
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+margin_right = 52.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 56.0
+margin_right = 98.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "Joseph"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 102.0
+margin_right = 155.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 59.0
+margin_right = 155.0
+margin_bottom = 141.0
+text = "Heir to a rich UK family, Joseph is living it up traveling through Asia
+to defeat DIO and cure his daughter."
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 159.0
+margin_right = 314.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+texture = ExtResource( 10 )
+stretch_mode = 6
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 174.0
+margin_right = 314.0
+margin_bottom = 344.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 37.0
+margin_top = 15.0
+margin_right = 117.0
+margin_bottom = 155.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer"]
+margin_left = 48.0
+margin_top = 9.0
+margin_right = 80.0
+margin_bottom = 23.0
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer"]
+margin_top = 36.0
+margin_right = 32.0
+margin_bottom = 68.0
+texture = ExtResource( 12 )
+
+[node name="Label2" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer"]
+margin_left = 48.0
+margin_top = 45.0
+margin_right = 80.0
+margin_bottom = 59.0
+text = "1 + 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer"]
+margin_top = 72.0
+margin_right = 32.0
+margin_bottom = 104.0
+texture = ExtResource( 14 )
+
+[node name="Label3" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer"]
+margin_left = 48.0
+margin_top = 81.0
+margin_right = 80.0
+margin_bottom = 95.0
+text = "5 + 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer"]
+margin_top = 108.0
+margin_right = 32.0
+margin_bottom = 140.0
+texture = ExtResource( 13 )
+
+[node name="Label4" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer"]
+margin_left = 48.0
+margin_top = 117.0
+margin_right = 80.0
+margin_bottom = 131.0
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 159.0
+margin_right = 314.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+margin_right = 155.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 155.0
+margin_bottom = 77.0
+
+[node name="Label" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_right = 155.0
+margin_bottom = 14.0
+text = "Hamon"
+
+[node name="Label3" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 155.0
+margin_bottom = 49.0
+text = "Use the power of the sun to kill vamps"
+autowrap = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 93.0
+margin_right = 155.0
+margin_bottom = 142.0
+
+[node name="Label" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+margin_right = 155.0
+margin_bottom = 14.0
+text = "Purple Hermit"
+
+[node name="Label3" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 155.0
+margin_bottom = 49.0
+text = "Thorny bush to spy and extract information"
+autowrap = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 348.0
+margin_right = 314.0
+margin_bottom = 476.0
+rect_min_size = Vector2( 0, 128 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
+margin_right = 314.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 23.0
+margin_right = 87.0
+margin_bottom = 128.0
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+margin_top = 25.0
+margin_right = 64.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_vertical = 4
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+margin_top = 89.0
+margin_right = 64.0
+margin_bottom = 103.0
+text = "Joseph"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 91.0
+margin_right = 155.0
+margin_bottom = 128.0
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 25.0
+margin_right = 64.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_vertical = 4
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 89.0
+margin_right = 64.0
+margin_bottom = 103.0
+text = "Jonathan"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 159.0
+margin_right = 223.0
+margin_bottom = 128.0
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 25.0
+margin_right = 64.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_vertical = 4
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 89.0
+margin_right = 64.0
+margin_bottom = 103.0
+text = "Dio"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 227.0
+margin_right = 291.0
+margin_bottom = 128.0
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer4"]
+margin_top = 25.0
+margin_right = 64.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_vertical = 4
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer4"]
+margin_top = 89.0
+margin_right = 64.0
+margin_bottom = 103.0
+text = "Koichi"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GridVBox" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer"]
 margin_left = 330.0
 margin_right = 960.0
@@ -443,10 +771,10 @@ margin_bottom = 332.0
 size_flags_vertical = 3
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/GridVBox/GridHBox"]
-margin_left = 86.0
-margin_top = 96.0
-margin_right = 226.0
-margin_bottom = 236.0
+margin_left = 22.0
+margin_top = 32.0
+margin_right = 290.0
+margin_bottom = 300.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 6
@@ -473,12 +801,16 @@ margin_top = 18.0
 margin_right = 313.0
 margin_bottom = 332.0
 size_flags_vertical = 3
+custom_styles/bg = SubResource( 2 )
 
 [node name="AvailableVBox" type="VBoxContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/GridVBox/GridHBox/VBoxContainer/ScrollContainer"]
+margin_top = 16.0
 margin_right = 313.0
-margin_bottom = 314.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 16
+alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="TabContainer/OrphanTab/VBoxContainer/HBoxContainer/GridVBox"]
 margin_top = 348.0
