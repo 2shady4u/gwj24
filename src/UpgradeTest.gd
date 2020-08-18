@@ -60,7 +60,6 @@ func create_buttons():
 		$HBox/InventoryScroll/VBoxContainer.add_child(upgrade_button)
 
 		var _error : int = upgrade_button.connect("button_toggled", self, "_on_button_toggled")
-		upgrade_button.create_upgrade(key, upgrades_dict[key])
 
 		_upgrade_buttons.append(upgrade_button)
 

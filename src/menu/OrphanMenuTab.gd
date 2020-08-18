@@ -1,56 +1,71 @@
-tool
 extends class_menu_tab
 
 onready var _back_button := $BackContainer/BackButton
-onready var _grid_hbox := $VBoxContainer/HBoxContainer/GridVBox/GridHBox
-onready var _grid_container := _grid_hbox.get_node("GridContainer")
-onready var _available_vbox := _grid_hbox.get_node("VBoxContainer/ScrollContainer/AvailableVBox")
+onready var _tab_container := $VBoxContainer/HBoxContainer/TabContainer
+onready var _orphan_selection := $VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/OrphanSelection
+onready var _available_vbox :=  $VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/AvailableVBox
 
+var _orphan_vbox_resource := preload("res://src/menu/OrphanVBox.tscn")
+var _orphan_tab_resource := preload("res://src/menu/OrphanTab.tscn")
 var _upgrade_button_resource := preload("res://src/menu/UpgradeButton.tscn")
-var _upgrade_slot_resource := preload("res://src/menu/UpgradeSlot.tscn")
 
-var _upgrade_slots := []
 var _upgrade_buttons := []
-
-export(int) var columns := 3 setget set_columns
-func set_columns(value : int):
-	columns = value
-	if is_inside_tree():
-		_grid_container = $VBoxContainer/HBoxContainer/GridVBox/GridHBox/GridContainer
-		_grid_container.columns = value
-		update_slots()
+var _orphan_vboxes := []
 
 func _ready():
 	var _error : int = _back_button.connect("pressed", self, "_on_back_button_pressed")
+	_error = connect("visibility_changed", self, "_on_visibility_changed")
+	set_process_input(false)
+
+func _on_visibility_changed():
+	if visible:
+		set_process_input(true)
+	else:
+		set_process_input(false)
 
 func update_tab():
-	update_slots()
-	update_buttons()
+	update_orphans()
+	update_upgrades()
 
-func update_slots():
-	_upgrade_slots.clear()
-	for child in _grid_container.get_children():
-		_grid_container.remove_child(child)
+func update_orphans():
+	_orphan_vboxes.clear()
+	for child in _tab_container.get_children():
+		_tab_container.remove_child(child)
+		child.queue_free()
+	for child in _orphan_selection.get_children():
+		_orphan_selection.remove_child(child)
 		child.queue_free()
 
-	for row_index in range(0, columns):
-		for column_index in range(0, columns):
-			var slot = _upgrade_slot_resource.instance()
-			_grid_container.add_child(slot)
-			slot.owner = self
+	for orphan in State.orphans:
+		var orphan_tab : class_orphan_tab = _orphan_tab_resource.instance()
+		_tab_container.add_child(orphan_tab)
 
-			var _error : int = slot.connect("slot_pressed", self, "_on_slot_pressed")
-			slot.grid_position = Vector2(row_index, column_index)
+		orphan_tab.orphan = orphan
 
-			_upgrade_slots.append(slot)
+		var orphan_vbox : class_orphan_vbox = _orphan_vbox_resource.instance()
+		_orphan_selection.add_child(orphan_vbox)
 
-func update_buttons():
+		orphan_vbox.orphan = orphan
+		orphan_vbox.activated = false
+
+		_orphan_vboxes.append(orphan_vbox)
+	
+	set_current_orphan_tab(0)
+
+func set_current_orphan_tab(index : int) -> void:
+	for i in range(0, _orphan_vboxes.size()):
+		if i == index:
+			_orphan_vboxes[i].activated = true
+		else:
+			_orphan_vboxes[i].activated = false
+
+	_tab_container.current_tab = index
+
+func update_upgrades():
 	_upgrade_buttons.clear()
 	for child in _available_vbox.get_children():
 		_available_vbox.remove_child(child)
 		child.queue_free()
-
-	print(State.upgrades)
 
 	for upgrade in State.upgrades:
 		var upgrade_button : class_upgrade_button = _upgrade_button_resource.instance()
@@ -61,5 +76,19 @@ func update_buttons():
 
 		_upgrade_buttons.append(upgrade_button)
 
+func _on_button_toggled(_pressed_upgrade : class_upgrade, _button_pressed : bool):
+	pass
+
 func _on_back_button_pressed():
 	emit_signal("button_pressed", TABS.MISSION)
+
+func _input(event):
+	if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
+		var index : int = _tab_container.current_tab
+		if event.is_action_pressed("move_left"):
+			index -= 1
+		if event.is_action_pressed("move_right"):
+			index += 1
+
+		index = wrapi(index, 0, _orphan_vboxes.size())
+		set_current_orphan_tab(index)

@@ -1,0 +1,23 @@
+{
+    "orphans": [{
+        "id": "iggy"
+    },
+    {
+        "id": "dio"
+    }],
+    "upgrades": [{
+        "id": "more_hp"
+    },
+    {
+        "id": "faster_speed_but_decreased_health"
+    },
+    {
+        "id": "faster_speed_but_decreased_health"
+    },
+    {
+        "id": "more_hp"
+    },
+    {
+        "id": "more_hp"
+    }]
+}

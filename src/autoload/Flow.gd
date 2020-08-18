@@ -6,8 +6,10 @@ const OPTIONS_PATH := "res://options.cfg"
 
 const CONTROLS_PATH := "res://controls.json"
 
-const SAVE_PATH := "user://saves"
-const DEFAULT_SAVE_FILE := "res://default_save.json"
+const SAVE_FOLDER := "user://saves"
+
+const DEFAULT_CONTEXT_PATH := "res://default_context.json"
+const USER_SAVE_PATH := SAVE_FOLDER + "/user_save.json"
 
 const DATA_PATH := "res://assets/data.json"
 
@@ -20,6 +22,7 @@ var verbose_mode := true
 
 var upgrades_data := {}
 var orphans_data := {}
+var enemies_data := {}
 
 var missions_data := []
 
@@ -48,6 +51,8 @@ func load_settings() -> int:
 	var _error : int = _options_loader.load_optionsCFG()
 	_error += _controls_loader.load_controlsJSON()
 	_error += _data_loader.load_dataJSON()
+	# Also load the default context!?
+	_error += _state_loader.load_stateJSON()
 	if _error == OK:
 		print("----> Succesfully loaded settings!")
 	else:
@@ -59,12 +64,13 @@ func _unhandled_input(event : InputEvent):
 	if InputMap.has_action("toggle_full_screen") and event.is_action_pressed("toggle_full_screen"):
 		OS.window_fullscreen = not OS.window_fullscreen
 
+	if InputMap.has_action("restart") and event.is_action_pressed("restart"):
+		call_deferred("deferred_reload_current_scene")
+
 	match _game_state:
 		STATE.GAME:
 			if InputMap.has_action("toggle_paused") and event.is_action_pressed("toggle_paused"):
 				toggle_paused()
-			if InputMap.has_action("restart") and event.is_action_pressed("restart"):
-				call_deferred("deferred_reload_current_scene")
 
 func toggle_paused():
 	get_tree().paused = not get_tree().paused
@@ -98,6 +104,20 @@ func change_scene_to(key : String) -> void:
 	else:
 		push_error("Requested scene '{0}' was not recognized... ignoring call for changing scene.".format([key]))
 
+func get_upgrade_value(id : String, key : String, default):
+	if upgrades_data.has(id):
+		var data : Dictionary = upgrades_data[id]
+		return data.get(key, default)
+	else:
+		return default
+
+func get_orphan_value(id : String, key : String, default):
+	if orphans_data.has(id):
+		var data : Dictionary = orphans_data[id]
+		return data.get(key, default)
+	else:
+		return default
+
 static func load_JSON(path : String) -> Dictionary:
 # Load a JSON-file, convert it to a dictionary and return it.
 	var file : File = File.new()
@@ -118,3 +138,19 @@ static func load_JSON(path : String) -> Dictionary:
 	else:
 		push_error("Failed to open '{0}', check file availability!".format([path]))
 		return {}
+
+static func save_JSON(path : String, dictionary : Dictionary) -> int:
+## Save a dictionary, in JSON format, to a file.
+	var file : File = File.new()
+	var error : int = file.open(path, File.WRITE)
+	if error == OK:
+		var text : String = to_json(dictionary)
+		text = JSONBeautifier.beautify_json(text)
+		file.store_string(text)
+		file.close()
+
+		print("Succesfully saved '{0}'.".format([path]))
+		return OK
+	else:
+		push_error("Could not open file for writing purposes '{0}', check if file is locked!".format([path]))
+		return error

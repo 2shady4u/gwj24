@@ -13,6 +13,7 @@ func load_dataJSON() -> int:
 		else:
 			Flow.upgrades_data = data.get("upgrades", {})
 			Flow.orphans_data = data.get("orphans", {})
+			Flow.enemies_data = data.get("enemies", {})
 
 			Flow.missions_data = data.get("missions", [])
 	

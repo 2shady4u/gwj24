@@ -1,0 +1,505 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/graphics/upgrades/Chip_Attack.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/upgrades/Chip_Heal.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/upgrades/Chip_HP.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/upgrades/Chip_Movement.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/portraits/portrait_test.png" type="Texture" id=5]
+[ext_resource path="res://src/menu/OrphanTab.gd" type="Script" id=6]
+[ext_resource path="res://assets/graphics/upgrades/Chip_Empty.png" type="Texture" id=7]
+[ext_resource path="res://src/menu/UpgradeSlot.tscn" type="PackedScene" id=8]
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+extends TextureRect
+class_name class_upgrade_slot
+
+export(Vector2) var grid_position := Vector2.ZERO
+
+var upgrade : class_upgrade setget set_upgrade, get_upgrade
+func set_upgrade(value : class_upgrade) -> void:
+	_upgrade = weakref(value)
+	update_slot()
+func get_upgrade() -> class_upgrade:
+	return _upgrade.get_ref()
+
+var active_upgrade : class_upgrade setget set_active_upgrade, get_active_upgrade
+func set_active_upgrade(value : class_upgrade) -> void:
+	_active_upgrade = weakref(value)
+	update_slot()
+func get_active_upgrade() -> class_upgrade:
+	return _active_upgrade.get_ref()
+
+var _upgrade := WeakRef.new()
+var _active_upgrade := WeakRef.new()
+
+signal slot_pressed(class_upgrade)
+
+func update_slot():
+	if self.active_upgrade:
+		modulate = Color.lightblue
+	elif self.upgrade:
+		if self.active_upgrade:
+			modulate = Color.lightblue
+		else:
+			modulate = self.upgrade.color
+	else:
+		modulate = Color.white
+
+func _gui_input(event):
+	if event.is_action_pressed(\"left_mouse_button\"):
+		if self.upgrade:
+			emit_signal(\"slot_pressed\", self.upgrade)
+			self.active_upgrade = self.upgrade
+"
+
+[node name="OrphanTab" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+columns = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 510.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+
+[node name="BioHBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 510.0
+margin_bottom = 286.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BioHBox"]
+margin_right = 253.0
+margin_bottom = 286.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BioHBox/VBoxContainer"]
+margin_top = 104.0
+margin_right = 253.0
+margin_bottom = 118.0
+
+[node name="FrontSeparator" type="HSeparator" parent="VBoxContainer/BioHBox/VBoxContainer/HBoxContainer"]
+margin_right = 101.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/BioHBox/VBoxContainer/HBoxContainer"]
+margin_left = 105.0
+margin_right = 147.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "Joseph"
+
+[node name="BackSeparator" type="HSeparator" parent="VBoxContainer/BioHBox/VBoxContainer/HBoxContainer"]
+margin_left = 151.0
+margin_right = 253.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="BackStoryLabel" type="Label" parent="VBoxContainer/BioHBox/VBoxContainer"]
+margin_top = 134.0
+margin_right = 253.0
+margin_bottom = 182.0
+text = "Heir to a rich UK family, Joseph is living it up traveling through Asia
+to defeat DIO and cure his daughter."
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/BioHBox"]
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 286.0
+size_flags_horizontal = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+flip_h = true
+
+[node name="StatsHBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 290.0
+margin_right = 510.0
+margin_bottom = 576.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/StatsHBox"]
+margin_left = 86.0
+margin_top = 73.0
+margin_right = 166.0
+margin_bottom = 213.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 48.0
+margin_top = 9.0
+margin_right = 80.0
+margin_bottom = 23.0
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_top = 36.0
+margin_right = 32.0
+margin_bottom = 68.0
+texture = ExtResource( 1 )
+
+[node name="Label2" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 48.0
+margin_top = 45.0
+margin_right = 80.0
+margin_bottom = 59.0
+text = "1 + 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_top = 72.0
+margin_right = 32.0
+margin_bottom = 104.0
+texture = ExtResource( 4 )
+
+[node name="Label3" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 48.0
+margin_top = 81.0
+margin_right = 80.0
+margin_bottom = 95.0
+text = "5 + 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_top = 108.0
+margin_right = 32.0
+margin_bottom = 140.0
+texture = ExtResource( 2 )
+
+[node name="Label4" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 48.0
+margin_top = 117.0
+margin_right = 80.0
+margin_bottom = 131.0
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/StatsHBox"]
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 286.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/StatsHBox/ScrollContainer"]
+margin_right = 253.0
+margin_bottom = 286.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/StatsHBox/ScrollContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 253.0
+margin_bottom = 126.0
+
+[node name="Label" type="Label" parent="VBoxContainer/StatsHBox/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_right = 253.0
+margin_bottom = 14.0
+text = "Hamon"
+
+[node name="Label3" type="Label" parent="VBoxContainer/StatsHBox/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 253.0
+margin_bottom = 32.0
+text = "Use the power of the sun to kill vamps"
+autowrap = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/StatsHBox/ScrollContainer/VBoxContainer"]
+margin_top = 142.0
+margin_right = 253.0
+margin_bottom = 191.0
+
+[node name="Label" type="Label" parent="VBoxContainer/StatsHBox/ScrollContainer/VBoxContainer/VBoxContainer2"]
+margin_right = 253.0
+margin_bottom = 14.0
+text = "Purple Hermit"
+
+[node name="Label3" type="Label" parent="VBoxContainer/StatsHBox/ScrollContainer/VBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 253.0
+margin_bottom = 49.0
+text = "Thorny bush to spy and extract information"
+autowrap = true
+
+[node name="GridVBox" type="VBoxContainer" parent="."]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GridVBox"]
+margin_right = 510.0
+margin_bottom = 14.0
+text = "Upgrade Grid"
+align = 1
+valign = 1
+
+[node name="GridContainer" type="GridContainer" parent="GridVBox"]
+margin_left = 121.0
+margin_top = 163.0
+margin_right = 389.0
+margin_bottom = 431.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+columns = 4
+
+[node name="UpgradeSlot" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 0, 0 )
+
+[node name="UpgradeSlot2" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 0, 1 )
+
+[node name="UpgradeSlot3" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 0, 2 )
+
+[node name="UpgradeSlot4" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 0, 3 )
+
+[node name="UpgradeSlot5" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 1, 0 )
+
+[node name="UpgradeSlot6" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 132.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 1, 1 )
+
+[node name="UpgradeSlot7" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 136.0
+margin_top = 68.0
+margin_right = 200.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 1, 2 )
+
+[node name="UpgradeSlot8" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 204.0
+margin_top = 68.0
+margin_right = 268.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 1, 3 )
+
+[node name="UpgradeSlot9" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_top = 136.0
+margin_right = 64.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 2, 0 )
+
+[node name="UpgradeSlot10" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 68.0
+margin_top = 136.0
+margin_right = 132.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 2, 1 )
+
+[node name="UpgradeSlot11" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 136.0
+margin_top = 136.0
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 2, 2 )
+
+[node name="UpgradeSlot12" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 204.0
+margin_top = 136.0
+margin_right = 268.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 2, 3 )
+
+[node name="UpgradeSlot13" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_top = 204.0
+margin_right = 64.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 3, 0 )
+
+[node name="UpgradeSlot14" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 68.0
+margin_top = 204.0
+margin_right = 132.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 3, 1 )
+
+[node name="UpgradeSlot15" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 136.0
+margin_top = 204.0
+margin_right = 200.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 3, 2 )
+
+[node name="UpgradeSlot16" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
+margin_left = 204.0
+margin_top = 204.0
+margin_right = 268.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_position = Vector2( 3, 3 )

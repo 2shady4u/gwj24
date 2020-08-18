@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/UI/PauseUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/Canvas.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Game.gd" type="Script" id=3]
 [ext_resource path="res://src/editor/EditorCamera.gd" type="Script" id=4]
+[ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=5]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -26,6 +27,70 @@ __meta__ = {
 script = ExtResource( 4 )
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
+
+[node name="Overlay" type="Control" parent="UICanvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="UICanvas/Overlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/Overlay/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 560.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvas/Overlay/MarginContainer/VBoxContainer"]
+margin_right = 992.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="UICanvas/Overlay/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 64, 128 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/Overlay/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 68.0
+margin_right = 110.0
+margin_bottom = 128.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UICanvas/Overlay/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 57.0
+margin_right = 42.0
+margin_bottom = 71.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Joseph"
+
+[node name="Control" type="Control" parent="UICanvas/Overlay/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 114.0
+margin_right = 992.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PauseUI" parent="UICanvas" instance=ExtResource( 1 )]
 visible = false

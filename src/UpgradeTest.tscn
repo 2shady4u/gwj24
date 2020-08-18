@@ -96,38 +96,40 @@ align = 1
 [node name="GridVBox" type="VBoxContainer" parent="HBox/Margin/VBox"]
 margin_top = 38.0
 margin_right = 632.0
-margin_bottom = 348.0
+margin_bottom = 442.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="HBox/Margin/VBox/GridVBox"]
-margin_left = 210.0
-margin_top = 49.0
-margin_right = 422.0
-margin_bottom = 261.0
+margin_left = 114.0
+margin_right = 518.0
+margin_bottom = 404.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 6
 
 [node name="UpgradeSlot" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+grid_position = Vector2( 0, 0 )
 
 [node name="UpgradeSlot2" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -135,12 +137,13 @@ __meta__ = {
 grid_position = Vector2( 0, 1 )
 
 [node name="UpgradeSlot3" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 72.0
-margin_right = 104.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -148,12 +151,13 @@ __meta__ = {
 grid_position = Vector2( 0, 2 )
 
 [node name="UpgradeSlot4" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 108.0
-margin_right = 140.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -161,12 +165,13 @@ __meta__ = {
 grid_position = Vector2( 0, 3 )
 
 [node name="UpgradeSlot5" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_right = 176.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -174,12 +179,13 @@ __meta__ = {
 grid_position = Vector2( 0, 4 )
 
 [node name="UpgradeSlot6" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 180.0
-margin_right = 212.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 340.0
+margin_right = 404.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -187,12 +193,13 @@ __meta__ = {
 grid_position = Vector2( 0, 5 )
 
 [node name="UpgradeSlot7" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_top = 36.0
-margin_right = 32.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 32, 32 )
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -200,13 +207,14 @@ __meta__ = {
 grid_position = Vector2( 1, 0 )
 
 [node name="UpgradeSlot8" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 36.0
-margin_top = 36.0
-margin_right = 68.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 132.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -214,13 +222,14 @@ __meta__ = {
 grid_position = Vector2( 1, 1 )
 
 [node name="UpgradeSlot9" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 72.0
-margin_top = 36.0
-margin_right = 104.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 136.0
+margin_top = 68.0
+margin_right = 200.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -228,13 +237,14 @@ __meta__ = {
 grid_position = Vector2( 1, 2 )
 
 [node name="UpgradeSlot10" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 108.0
-margin_top = 36.0
-margin_right = 140.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 204.0
+margin_top = 68.0
+margin_right = 268.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -242,13 +252,14 @@ __meta__ = {
 grid_position = Vector2( 1, 3 )
 
 [node name="UpgradeSlot11" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_top = 36.0
-margin_right = 176.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 272.0
+margin_top = 68.0
+margin_right = 336.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -256,13 +267,14 @@ __meta__ = {
 grid_position = Vector2( 1, 4 )
 
 [node name="UpgradeSlot12" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 180.0
-margin_top = 36.0
-margin_right = 212.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 340.0
+margin_top = 68.0
+margin_right = 404.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -270,12 +282,13 @@ __meta__ = {
 grid_position = Vector2( 1, 5 )
 
 [node name="UpgradeSlot13" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_top = 72.0
-margin_right = 32.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 32, 32 )
+margin_top = 136.0
+margin_right = 64.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -283,13 +296,14 @@ __meta__ = {
 grid_position = Vector2( 2, 0 )
 
 [node name="UpgradeSlot14" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 36.0
-margin_top = 72.0
-margin_right = 68.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 68.0
+margin_top = 136.0
+margin_right = 132.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -297,13 +311,14 @@ __meta__ = {
 grid_position = Vector2( 2, 1 )
 
 [node name="UpgradeSlot15" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 72.0
-margin_top = 72.0
-margin_right = 104.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 136.0
+margin_top = 136.0
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -311,13 +326,14 @@ __meta__ = {
 grid_position = Vector2( 2, 2 )
 
 [node name="UpgradeSlot16" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 108.0
-margin_top = 72.0
-margin_right = 140.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 204.0
+margin_top = 136.0
+margin_right = 268.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -325,13 +341,14 @@ __meta__ = {
 grid_position = Vector2( 2, 3 )
 
 [node name="UpgradeSlot17" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_top = 72.0
-margin_right = 176.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 272.0
+margin_top = 136.0
+margin_right = 336.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -339,13 +356,14 @@ __meta__ = {
 grid_position = Vector2( 2, 4 )
 
 [node name="UpgradeSlot18" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 180.0
-margin_top = 72.0
-margin_right = 212.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 340.0
+margin_top = 136.0
+margin_right = 404.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -353,12 +371,13 @@ __meta__ = {
 grid_position = Vector2( 2, 5 )
 
 [node name="UpgradeSlot19" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_top = 108.0
-margin_right = 32.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 32, 32 )
+margin_top = 204.0
+margin_right = 64.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -366,13 +385,14 @@ __meta__ = {
 grid_position = Vector2( 3, 0 )
 
 [node name="UpgradeSlot20" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 36.0
-margin_top = 108.0
-margin_right = 68.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 68.0
+margin_top = 204.0
+margin_right = 132.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -380,13 +400,14 @@ __meta__ = {
 grid_position = Vector2( 3, 1 )
 
 [node name="UpgradeSlot21" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 72.0
-margin_top = 108.0
-margin_right = 104.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 136.0
+margin_top = 204.0
+margin_right = 200.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -394,13 +415,14 @@ __meta__ = {
 grid_position = Vector2( 3, 2 )
 
 [node name="UpgradeSlot22" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 108.0
-margin_top = 108.0
-margin_right = 140.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 204.0
+margin_top = 204.0
+margin_right = 268.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -408,13 +430,14 @@ __meta__ = {
 grid_position = Vector2( 3, 3 )
 
 [node name="UpgradeSlot23" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_top = 108.0
-margin_right = 176.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 272.0
+margin_top = 204.0
+margin_right = 336.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -422,13 +445,14 @@ __meta__ = {
 grid_position = Vector2( 3, 4 )
 
 [node name="UpgradeSlot24" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 180.0
-margin_top = 108.0
-margin_right = 212.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 340.0
+margin_top = 204.0
+margin_right = 404.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -436,12 +460,13 @@ __meta__ = {
 grid_position = Vector2( 3, 5 )
 
 [node name="UpgradeSlot25" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_top = 144.0
-margin_right = 32.0
-margin_bottom = 176.0
-rect_min_size = Vector2( 32, 32 )
+margin_top = 272.0
+margin_right = 64.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -449,13 +474,14 @@ __meta__ = {
 grid_position = Vector2( 4, 0 )
 
 [node name="UpgradeSlot26" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 36.0
-margin_top = 144.0
-margin_right = 68.0
-margin_bottom = 176.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 68.0
+margin_top = 272.0
+margin_right = 132.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -463,13 +489,14 @@ __meta__ = {
 grid_position = Vector2( 4, 1 )
 
 [node name="UpgradeSlot27" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 72.0
-margin_top = 144.0
-margin_right = 104.0
-margin_bottom = 176.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 136.0
+margin_top = 272.0
+margin_right = 200.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -477,13 +504,14 @@ __meta__ = {
 grid_position = Vector2( 4, 2 )
 
 [node name="UpgradeSlot28" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 108.0
-margin_top = 144.0
-margin_right = 140.0
-margin_bottom = 176.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 204.0
+margin_top = 272.0
+margin_right = 268.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -491,13 +519,14 @@ __meta__ = {
 grid_position = Vector2( 4, 3 )
 
 [node name="UpgradeSlot29" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_top = 144.0
-margin_right = 176.0
-margin_bottom = 176.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 272.0
+margin_top = 272.0
+margin_right = 336.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -505,13 +534,14 @@ __meta__ = {
 grid_position = Vector2( 4, 4 )
 
 [node name="UpgradeSlot30" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 180.0
-margin_top = 144.0
-margin_right = 212.0
-margin_bottom = 176.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 340.0
+margin_top = 272.0
+margin_right = 404.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -519,12 +549,13 @@ __meta__ = {
 grid_position = Vector2( 4, 5 )
 
 [node name="UpgradeSlot31" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_top = 180.0
-margin_right = 32.0
-margin_bottom = 212.0
-rect_min_size = Vector2( 32, 32 )
+margin_top = 340.0
+margin_right = 64.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -532,13 +563,14 @@ __meta__ = {
 grid_position = Vector2( 5, 0 )
 
 [node name="UpgradeSlot32" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 36.0
-margin_top = 180.0
-margin_right = 68.0
-margin_bottom = 212.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 68.0
+margin_top = 340.0
+margin_right = 132.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -546,13 +578,14 @@ __meta__ = {
 grid_position = Vector2( 5, 1 )
 
 [node name="UpgradeSlot33" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 72.0
-margin_top = 180.0
-margin_right = 104.0
-margin_bottom = 212.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 136.0
+margin_top = 340.0
+margin_right = 200.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -560,13 +593,14 @@ __meta__ = {
 grid_position = Vector2( 5, 2 )
 
 [node name="UpgradeSlot34" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 108.0
-margin_top = 180.0
-margin_right = 140.0
-margin_bottom = 212.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 204.0
+margin_top = 340.0
+margin_right = 268.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -574,13 +608,14 @@ __meta__ = {
 grid_position = Vector2( 5, 3 )
 
 [node name="UpgradeSlot35" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_top = 180.0
-margin_right = 176.0
-margin_bottom = 212.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 272.0
+margin_top = 340.0
+margin_right = 336.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -588,13 +623,14 @@ __meta__ = {
 grid_position = Vector2( 5, 4 )
 
 [node name="UpgradeSlot36" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
-margin_left = 180.0
-margin_top = 180.0
-margin_right = 212.0
-margin_bottom = 212.0
-rect_min_size = Vector2( 32, 32 )
+margin_left = 340.0
+margin_top = 340.0
+margin_right = 404.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 3 )
-stretch_mode = 4
+expand = true
+stretch_mode = 6
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -602,7 +638,7 @@ __meta__ = {
 grid_position = Vector2( 5, 5 )
 
 [node name="CumulativeEffects" type="VBoxContainer" parent="HBox/Margin/VBox"]
-margin_top = 372.0
+margin_top = 466.0
 margin_right = 632.0
 margin_bottom = 528.0
 size_flags_vertical = 3

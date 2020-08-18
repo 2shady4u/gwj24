@@ -1,7 +1,60 @@
 {
     "orphans": {
         "joseph": {
-            "backstory": ""
+            "name": "Joseph",
+            "backstory": "Heir to a rich UK family. Joseph is living it up traveling through Asia to defeat DIO and cure his daughter",
+            "base_stats": {
+                "health": 5,
+                "damage": 1,
+                "healing": 1,
+                "actions": 2,
+                "movement": 4
+            }
+        },
+        "jonathan": {
+            "name": "Jonathan",
+            "backstory": "His dog got killed by DIO and now he is fricking pissed!",
+            "base_stats": {
+                "health": 5,
+                "damage": 1,
+                "healing": 1,
+                "actions": 2,
+                "movement": 4
+            }
+        },
+        "dio": {
+            "name": "DIO",
+            "backstory": "He's a vampire that sucks people dry and he killed Jonathan's dog because he was a bit jelly.",
+            "base_stats": {
+                "health": 5,
+                "damage": 1,
+                "healing": 1,
+                "actions": 2,
+                "movement": 4
+            }
+        },
+        "iggy": {
+            "name": "Iggy",
+            "backstory": "This guy is just a dog? Or is he? Maybe he has magic powers or something like that?",
+            "base_stats": {
+                "health": 5,
+                "damage": 1,
+                "healing": 1,
+                "actions": 2,
+                "movement": 4
+            }
+        }
+    },
+    "enemies": {
+        "fish_bot": {
+            "name": "FISHB0T 9000",
+            "base_stats": {
+                "health": 5,
+                "damage": 1,
+                "healing": 1,
+                "actions": 2,
+                "movement": 4
+            }
         }
     },
     "missions": [
@@ -23,7 +76,7 @@
     ],
     "upgrades": {
         "more_hp": {
-            "text": "MXU-1",
+            "name": "MXU-1",
             "effect": {
                 "hp": 20
             },
@@ -39,7 +92,7 @@
             ]
         },
         "faster_speed_but_decreased_health": {
-            "text": "MXU-POWAH",
+            "name": "MXU-POWAH",
             "icon": "",
             "effect": {
                 "hp": -5,
