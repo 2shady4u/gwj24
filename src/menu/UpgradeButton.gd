@@ -19,5 +19,5 @@ func _ready():
 	var _eror := connect("toggled", self, "_on_button_toggled")
 
 func _on_button_toggled(button_pressed : bool):
-	emit_signal("button_toggled", upgrade, button_pressed)
+	emit_signal("button_toggled", button_pressed)
 	release_focus()

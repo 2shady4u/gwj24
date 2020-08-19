@@ -12,6 +12,8 @@ var _upgrade_button_resource := preload("res://src/menu/UpgradeButton.tscn")
 var _upgrade_buttons := []
 var _orphan_vboxes := []
 
+var _pressed_button : class_upgrade_button = null
+
 func _ready():
 	var _error : int = _back_button.connect("pressed", self, "_on_back_button_pressed")
 	_error = connect("visibility_changed", self, "_on_visibility_changed")
@@ -49,7 +51,7 @@ func update_orphans():
 		orphan_vbox.activated = false
 
 		_orphan_vboxes.append(orphan_vbox)
-	
+
 	set_current_orphan_tab(0)
 
 func set_current_orphan_tab(index : int) -> void:
@@ -71,13 +73,37 @@ func update_upgrades():
 		var upgrade_button : class_upgrade_button = _upgrade_button_resource.instance()
 		_available_vbox.add_child(upgrade_button)
 
-		var _error : int = upgrade_button.connect("button_toggled", self, "_on_button_toggled")
+		var _error : int = upgrade_button.connect("button_toggled", self, "_on_button_toggled", [upgrade_button])
 		upgrade_button.upgrade = upgrade
 
 		_upgrade_buttons.append(upgrade_button)
+	
+	_upgrade_buttons[0].grab_focus()
 
-func _on_button_toggled(_pressed_upgrade : class_upgrade, _button_pressed : bool):
-	pass
+func _on_button_toggled(pressed : bool, upgrade_button : class_upgrade_button):
+	if _pressed_button:
+		_pressed_button.pressed = false
+
+	var tab = _tab_container.get_current_tab_control()
+	var upgrade = upgrade_button.upgrade
+	if pressed:
+		tab.active_upgrade = upgrade
+		tab.set_process_input(true)
+
+		_pressed_button = upgrade_button
+		set_process_input(false)
+	else:
+		tab.active_upgrade = null
+		tab.set_process_input(false)
+
+		_pressed_button = null
+		set_process_input(true)
+
+func reset_upgrade_button(upgrade : class_upgrade):
+	for button in _upgrade_buttons:
+		if button.upgrade == upgrade:
+			button.pressed = false
+			return
 
 func _on_back_button_pressed():
 	emit_signal("button_pressed", TABS.MISSION)

@@ -120,7 +120,6 @@ script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-grid_position = Vector2( 0, 0 )
 
 [node name="UpgradeSlot2" type="TextureRect" parent="HBox/Margin/VBox/GridVBox/GridContainer" instance=ExtResource( 2 )]
 margin_left = 68.0

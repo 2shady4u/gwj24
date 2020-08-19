@@ -20,12 +20,12 @@ func _ready():
 	for child in _mission_tab_container.get_children():
 		_mission_tab_container.remove_child(child)
 		child.queue_free()
-	
-	for mission in Flow.missions_data:
+
+	for mission in State.missions:
 		var button := _mission_button_resource.instance()
 		_mission_button_vbox.add_child(button)
 
-		button.text = mission.get("title", "MISSING TITLE")
+		button.text = mission.name
 
 		_error = button.connect("pressed", self, "_on_mission_button_pressed", [mission.id])
 
@@ -33,8 +33,8 @@ func _ready():
 		_mission_tab_container.add_child(tab)
 
 		tab.id = mission.id
-		tab.title = mission.get("title", "MISSING TITLE")
-		tab.description = mission.get("description", "MISSING DESCRIPTION")
+		tab.title = mission.name
+		tab.description = mission.description
 
 func _on_mission_button_pressed(mission_id : String):
 	print(mission_id)

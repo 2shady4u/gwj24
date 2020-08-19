@@ -8,50 +8,7 @@
 [ext_resource path="res://src/menu/OrphanTab.gd" type="Script" id=6]
 [ext_resource path="res://assets/graphics/upgrades/Chip_Empty.png" type="Texture" id=7]
 [ext_resource path="res://src/menu/UpgradeSlot.tscn" type="PackedScene" id=8]
-
-[sub_resource type="GDScript" id=1]
-script/source = "tool
-extends TextureRect
-class_name class_upgrade_slot
-
-export(Vector2) var grid_position := Vector2.ZERO
-
-var upgrade : class_upgrade setget set_upgrade, get_upgrade
-func set_upgrade(value : class_upgrade) -> void:
-	_upgrade = weakref(value)
-	update_slot()
-func get_upgrade() -> class_upgrade:
-	return _upgrade.get_ref()
-
-var active_upgrade : class_upgrade setget set_active_upgrade, get_active_upgrade
-func set_active_upgrade(value : class_upgrade) -> void:
-	_active_upgrade = weakref(value)
-	update_slot()
-func get_active_upgrade() -> class_upgrade:
-	return _active_upgrade.get_ref()
-
-var _upgrade := WeakRef.new()
-var _active_upgrade := WeakRef.new()
-
-signal slot_pressed(class_upgrade)
-
-func update_slot():
-	if self.active_upgrade:
-		modulate = Color.lightblue
-	elif self.upgrade:
-		if self.active_upgrade:
-			modulate = Color.lightblue
-		else:
-			modulate = self.upgrade.color
-	else:
-		modulate = Color.white
-
-func _gui_input(event):
-	if event.is_action_pressed(\"left_mouse_button\"):
-		if self.upgrade:
-			emit_signal(\"slot_pressed\", self.upgrade)
-			self.active_upgrade = self.upgrade
-"
+[ext_resource path="res://src/menu/UpgradeSlot.gd" type="Script" id=9]
 
 [node name="OrphanTab" type="HBoxContainer"]
 anchor_right = 1.0
@@ -279,11 +236,10 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-grid_position = Vector2( 0, 0 )
 
 [node name="UpgradeSlot2" type="TextureRect" parent="GridVBox/GridContainer" instance=ExtResource( 8 )]
 margin_left = 68.0
@@ -293,7 +249,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -307,7 +263,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -321,7 +277,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -335,7 +291,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -350,7 +306,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -365,7 +321,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -380,7 +336,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -394,7 +350,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -409,7 +365,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -424,7 +380,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -439,7 +395,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -453,7 +409,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -468,7 +424,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -483,7 +439,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -498,7 +454,7 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

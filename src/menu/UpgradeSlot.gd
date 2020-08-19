@@ -1,5 +1,5 @@
 tool
-extends PanelContainer
+extends TextureRect
 class_name class_upgrade_slot
 
 export(Vector2) var grid_position := Vector2.ZERO
@@ -21,18 +21,26 @@ func get_active_upgrade() -> class_upgrade:
 var _upgrade := WeakRef.new()
 var _active_upgrade := WeakRef.new()
 
+onready var _upgrade_rect := $UpgradeRect
+onready var _active_rect := $ActiveControl/TextureRect
+
 signal slot_pressed(class_upgrade)
+
+func _ready():
+	$ActiveControl.set("z", 100)
 
 func update_slot():
 	if self.active_upgrade:
-		modulate = Color.lightblue
-	elif self.upgrade:
-		if self.active_upgrade:
-			modulate = Color.lightblue
-		else:
-			modulate = self.upgrade.color
+		_active_rect.visible = true
+		_active_rect.texture = load(self.active_upgrade.grid_texture)
 	else:
-		modulate = Color.white
+		_active_rect.visible = false
+
+	if self.upgrade:
+		_upgrade_rect.visible = true
+		_upgrade_rect.texture = load(self.upgrade.grid_texture)
+	else:
+		_upgrade_rect.visible = false
 
 func _gui_input(event):
 	if event.is_action_pressed("left_mouse_button"):

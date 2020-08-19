@@ -2,18 +2,8 @@ extends Reference
 class_name class_orphan
 
 var id := ""
-
 var grid_positions := PoolVector2Array()
-
-func move(movement_direction : Vector2, columns : int):
-	var new_positions := grid_positions
-	for i in range(0, new_positions.size()):
-		new_positions[i] += movement_direction
-		if new_positions[i].x < 0 or new_positions[i].x > columns-1:
-			return
-		if new_positions[i].y < 0 or new_positions[i].y > columns-1:
-			return
-	grid_positions = new_positions
+var upgrades := []
 
 var grid : Array = [] setget set_grid
 func set_grid(value : Array) -> void:

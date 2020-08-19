@@ -24,7 +24,11 @@ var upgrades_data := {}
 var orphans_data := {}
 var enemies_data := {}
 
-var missions_data := []
+# WHY is this an array? Missions need there order to be preserved!!!
+var missions_data := [] setget set_missions_data
+func set_missions_data(value : Array):
+	missions_data = value
+	State.init_missions()
 
 var _game_flow := {
 	"menu": {
@@ -117,6 +121,13 @@ func get_orphan_value(id : String, key : String, default):
 		return data.get(key, default)
 	else:
 		return default
+
+func get_mission_value(id : String, key : String, default):
+	for data in missions_data:
+		if data.get("id", "MISSING ID") == id:
+			return data.get(key, default)
+
+	return default
 
 static func load_JSON(path : String) -> Dictionary:
 # Load a JSON-file, convert it to a dictionary and return it.

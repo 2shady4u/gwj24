@@ -14,9 +14,9 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="StyleBoxEmpty" id=3]
-
 [sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
 content_margin_top = 16.0
 content_margin_bottom = 16.0
 
@@ -42,7 +42,6 @@ __meta__ = {
 }
 
 [node name="MainTab" type="MarginContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 32
@@ -382,6 +381,7 @@ size_flags_horizontal = 4
 text = "Edit Orphan Layout"
 
 [node name="OrphanageTab" type="MarginContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 32
@@ -438,7 +438,7 @@ margin_right = 637.0
 margin_bottom = 332.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 2 )
 tabs_visible = false
 
 [node name="OrphanTab" parent="TabContainer/OrphanageTab/VBoxContainer/HBoxContainer/TabContainer" instance=ExtResource( 11 )]
@@ -463,7 +463,7 @@ margin_top = 18.0
 margin_right = 319.0
 margin_bottom = 332.0
 size_flags_vertical = 3
-custom_styles/bg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 
 [node name="AvailableVBox" type="VBoxContainer" parent="TabContainer/OrphanageTab/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
 margin_top = 16.0

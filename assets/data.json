@@ -60,14 +60,14 @@
     "missions": [
         {
             "id": "intro",
-            "title": "Yunkyard Bros",
+            "name": "Yunkyard Bros",
             "description": "The intro mission that is easy and quaint",
             "thumbnail_texture": "",
             "packed_scene": ""
         },
         {
             "id": "first_real_mission",
-            "title": "INLAW in ACTION",
+            "name": "INLAW in ACTION",
             "description": "The first real mission that poses an actual threat to the player",
             "packed_scene": "",
             "thumbnail_texture": "",
@@ -77,6 +77,7 @@
     "upgrades": {
         "more_hp": {
             "name": "MXU-1",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_HP.png",
             "effect": {
                 "hp": 20
             },
@@ -93,7 +94,7 @@
         },
         "faster_speed_but_decreased_health": {
             "name": "MXU-POWAH",
-            "icon": "",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
             "effect": {
                 "hp": -5,
                 "speed": 20

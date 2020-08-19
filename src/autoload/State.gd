@@ -3,6 +3,7 @@ extends Node
 
 var _upgrade_resource := preload("res://src/autoload/state/Upgrade.gd")
 var _orphan_resource := preload("res://src/autoload/state/Orphan.gd")
+var _mission_resource := preload("res://src/autoload/state/Mission.gd")
 
 ### GLOBAL CONSTANTS ##########################################################
 
@@ -16,17 +17,17 @@ func load_state_from_context(context : Dictionary):
 
 	for upgrade_context in context.get("upgrades", {}):
 		add_upgrade_from_context(upgrade_context)
-	
+
+	for mission_context in context.get("missions", {}):
+		set_mission_from_context(mission_context)
+
 func save_state_to_context() -> Dictionary:
 	var context := {}
 
-	context["orphans"] = []
-	for orphan in orphans:
-		context["orphans"].append(orphan.context)
-
-	context["upgrades"] = []
-	for upgrade in upgrades:
-		context["upgrades"].append(upgrade.context)
+	for key in ["orphans", "upgrades", "missions"]:
+		context[key] = []
+		for context_owner in [orphans, upgrades, missions]:
+			context[key].append(context_owner.context)
 
 	return context
 
@@ -43,7 +44,7 @@ func add_new_orphan(orphan_id : String) -> void:
 func add_orphan_from_context(orphan_context : Dictionary) -> void:
 	var orphan := _orphan_resource.new()
 	orphan.context = orphan_context
-	
+
 	orphans.append(orphan)
 
 func get_orphan_by_id(orphan_id : String):
@@ -74,3 +75,22 @@ func get_upgrades_by_id() -> Array:
 	for upgrade in upgrades:
 		upgrade_ids.append(upgrade.id)
 	return upgrade_ids
+
+## MISSIONS ####################################################################
+var missions := []
+
+func init_missions() -> void:
+	for data in Flow.missions_data:
+		var mission := _mission_resource.new()
+		mission.id = data.get("id", "MISSING ID")
+
+		print_debug("adding registered mission with id '{0}' to State!".format([data.get("id", "MISSING ID")]))
+		missions.append(mission)
+
+func set_mission_from_context(mission_context : Dictionary) -> void:
+	if mission_context.has("id"):
+		var mission_id = mission_context.id
+		for mission in missions:
+			if mission.id == mission_id:
+				mission.context = mission_context
+				break
