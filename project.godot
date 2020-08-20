@@ -103,6 +103,10 @@ ConfigData="*res://src/autoload/ConfigData.tscn"
 Flow="*res://src/autoload/Flow.tscn"
 State="*res://src/autoload/State.tscn"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/height=576

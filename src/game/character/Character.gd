@@ -5,19 +5,13 @@ onready var sprite: AnimatedSprite = $Sprite
 onready var tween: Tween = $Tween
 onready var healthbar = $HealthBar
 
-export(String) var team 
+export(String, "PLAYER", "ENEMY") var team = "PLAYER"
+export(String) var type
 
 var stats = {
-	"health": {
-		"current": 5,
-		"max": 5,
-	},
-	"damage": 1,
-	"healing": 1,
-	"actions": 2,
-	"movement": 4
 }
 
+var current_health = 0
 var action_counter = 0
 var moves_counter = 0
 var last_action = "movement"
@@ -27,13 +21,29 @@ var upgrades = []
 signal death(character)
 
 func _ready():
-	update_stats(stats)
+	update_stats(get_stats())
+	
+func get_stats():
+	print("Getting stats for ", type, " of group ", team)
+	if team == "PLAYER":
+		return State.get_orphan_by_id(type).get_stats()
+	elif team == "ENEMY":
+		return Flow.get_enemy_value(type, "base_stats", {
+			"health": 4,
+			"damage": 1,
+			"healing": 1,
+			"healing_charges": 2,
+			"actions": 2,
+			"movement": 4
+		})
+		
 
 func update_stats(new_stats):
 	# TODO we're getting this out of state soon
 	stats = new_stats
-	healthbar.set_health(new_stats.health.max)
-	healthbar.update_health(new_stats.health.current)
+	current_health = stats.health
+	healthbar.set_health(stats.health)
+	healthbar.update_health(current_health)
 
 func shake(shake_size: Vector2):
 	var original_position = position
@@ -43,20 +53,20 @@ func shake(shake_size: Vector2):
 	tween.interpolate_property(self, "position", null, original_position, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN)
 
 func heal_up(points: int, direction: Vector2):
-	stats.health.current = min(stats.health.current + points, stats.health.max)
+	current_health = min(current_health + points, stats.health)
 	print("Healed up!")
 	shake(direction / 4)
-	healthbar.update_health(stats.health.current)
+	healthbar.update_health(current_health)
 
 func take_damage(points: int, direction: Vector2):
-	stats.health.current = max(stats.health.current - points, 0)
-	if stats.health.current == 0:
+	current_health = max(current_health - points, 0)
+	if current_health == 0:
 		print("I died!")
 		self.queue_free()
 		emit_signal("death", self)
 	else:
 		shake(direction / 2)
-	healthbar.update_health(stats.health.current)
+	healthbar.update_health(current_health)
 
 func perform_action():
 	action_counter += 1

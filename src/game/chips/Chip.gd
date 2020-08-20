@@ -11,8 +11,8 @@ func _ready():
 	set_color(color)
 
 
-func set_color(color: String):
-	if not color in sprite.frames.get_animation_names():
-		printerr("Color ", color, " is not possible for chip")
+func set_color(new_color: String):
+	if not new_color in sprite.frames.get_animation_names():
+		printerr("Color ", new_color, " is not possible for chip")
 		return
-	sprite.animation = color
+	sprite.animation = new_color

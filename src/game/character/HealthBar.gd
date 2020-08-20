@@ -17,7 +17,7 @@ func set_health(health: int):
 	for segment in segments:
 		segment.queue_free()
 	segments = []
-	var y_offset = -5 * int(health / segments_per_row) / 2
+	var y_offset = -2 * int(health / segments_per_row)
 	var pointer = Vector2(0, y_offset)
 	for i in range(int(health / segments_per_row) + 1):
 		var remaining_health = min(health - i * segments_per_row, segments_per_row)

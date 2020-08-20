@@ -7,6 +7,7 @@
                 "health": 5,
                 "damage": 1,
                 "healing": 1,
+                "healing_charges": 2,
                 "actions": 2,
                 "movement": 4
             }
@@ -18,6 +19,7 @@
                 "health": 5,
                 "damage": 1,
                 "healing": 1,
+                "healing_charges": 2,
                 "actions": 2,
                 "movement": 4
             }
@@ -29,31 +31,57 @@
                 "health": 5,
                 "damage": 1,
                 "healing": 1,
+                "healing_charges": 2,
                 "actions": 2,
                 "movement": 4
             }
         },
-        "iggy": {
-            "name": "Iggy",
-            "backstory": "This guy is just a dog? Or is he? Maybe he has magic powers or something like that?",
+        "fiston": {
+            "name": "F15STON",
+            "backstory": "Strong, built with the frame of a scrapped wrestling bot. The tactical mastermind of the ORPH4N group.",
             "base_stats": {
                 "health": 5,
                 "damage": 1,
                 "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 4
+            }
+        },
+        "sorella": {
+            "name": "S0R3114",
+            "backstory": "Rebooted with an Italian Catholic AI, you don't want to mess with S0R3114.",
+            "base_stats": {
+                "health": 5,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
                 "actions": 2,
                 "movement": 4
             }
         }
     },
     "enemies": {
+        "bad_bot": {
+            "name": "B4DB0T",
+            "base_stats": {
+                "health": 4,
+                "damage": 2,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 4
+            }
+        },
         "fish_bot": {
             "name": "FISHB0T 9000",
             "base_stats": {
-                "health": 5,
+                "health": 4,
                 "damage": 1,
                 "healing": 1,
+                "healing_charges": 2,
                 "actions": 2,
-                "movement": 4
+                "movement": 6
             }
         }
     },
@@ -77,9 +105,11 @@
     "upgrades": {
         "more_hp": {
             "name": "MXU-1",
+            "type": "HP",
+            "description": "Allows you to move around with more junk to your body.",
             "grid_texture": "res://assets/graphics/upgrades/Chip_HP.png",
             "effect": {
-                "hp": 20
+                "health": 2
             },
             "grid": [
                 [
@@ -93,11 +123,13 @@
             ]
         },
         "faster_speed_but_decreased_health": {
-            "name": "MXU-POWAH",
+            "name": "MXS-SPD-1",
+            "type": "SPEED",
+            "description": "Allows you to move faster, though you'll need to give up some armor.",
             "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
             "effect": {
-                "hp": -5,
-                "speed": 20
+                "health": -1,
+                "movement": 1
             },
             "grid": [
                 [

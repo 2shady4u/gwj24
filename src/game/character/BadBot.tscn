@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/game/character/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="BadBot" instance=ExtResource( 1 )]
+modulate = Color( 1, 0, 0, 1 )
+team = "ENEMY"
+type = "bad_bot"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -6.97287 )
+frames = SubResource( 1 )
+animation = "idle"

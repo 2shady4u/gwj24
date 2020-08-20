@@ -19,7 +19,7 @@ func get_orphan():
 
 var active_upgrade : class_upgrade setget set_active_upgrade, get_active_upgrade
 func set_active_upgrade(value : class_upgrade) -> void:
-	var old_upgrade = self.active_upgrade
+	# var old_upgrade = self.active_upgrade
 	_active_upgrade = weakref(value)
 
 	for slot in _upgrade_slots:

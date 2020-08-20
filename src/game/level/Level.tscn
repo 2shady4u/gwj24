@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/game/level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/game/level/tiles/Tiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/graphics/ui/healing-particle-custom.png" type="Texture" id=3]
 [ext_resource path="res://src/game/level/Healing.gd" type="Script" id=4]
-[ext_resource path="res://src/game/character/Robot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game/character/F15T0N.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/game/chips/Chip.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/game/chips/ChipLabel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game/character/S0R3114.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game/character/BadBot.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1
@@ -39,31 +41,17 @@ position = Vector2( 121.187, 23.4465 )
 color = "rainbow"
 identifier = "MDX-SPD"
 
-[node name="Robot" parent="Entities" instance=ExtResource( 5 )]
-position = Vector2( 102.582, 88.8108 )
+[node name="S0R3114" parent="Entities" instance=ExtResource( 8 )]
+position = Vector2( 72.3084, 89.7895 )
 
-[node name="Robot3" parent="Entities" instance=ExtResource( 5 )]
-position = Vector2( 70.9047, 87.6022 )
+[node name="F15T0N" parent="Entities" instance=ExtResource( 5 )]
+position = Vector2( 104.887, 89.9492 )
 
-[node name="Robot2" parent="Entities" instance=ExtResource( 5 )]
-position = Vector2( 71.9489, -21.8691 )
-team = "ENEMY"
+[node name="BadBot" parent="Entities" instance=ExtResource( 9 )]
+position = Vector2( 71.5137, 42.3785 )
 
-[node name="Sprite" parent="Entities/Robot2" index="0"]
-modulate = Color( 0.996078, 0.772549, 0.243137, 1 )
-
-[node name="HealthBar" parent="Entities/Robot2" index="2"]
-modulate = Color( 0.752941, 1, 0.360784, 1 )
-
-[node name="Robot4" parent="Entities" instance=ExtResource( 5 )]
-position = Vector2( 214.901, 25.2211 )
-team = "ENEMY"
-
-[node name="Sprite" parent="Entities/Robot4" index="0"]
-modulate = Color( 0.996078, 0.772549, 0.243137, 1 )
-
-[node name="HealthBar" parent="Entities/Robot4" index="2"]
-modulate = Color( 0.752941, 1, 0.360784, 1 )
+[node name="BadBot2" parent="Entities" instance=ExtResource( 9 )]
+position = Vector2( 121.309, -5.29731 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
@@ -81,7 +69,3 @@ emitting = false
 process_material = SubResource( 1 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
-
-[editable path="Entities/Robot2"]
-
-[editable path="Entities/Robot4"]
