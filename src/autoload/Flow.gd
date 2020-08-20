@@ -122,6 +122,13 @@ func get_orphan_value(id : String, key : String, default):
 	else:
 		return default
 
+func get_enemy_value(id : String, key : String, default):
+	if enemies_data.has(id):
+		var data : Dictionary = enemies_data[id]
+		return data.get(key, default)
+	else:
+		return default
+
 func get_mission_value(id : String, key : String, default):
 	for data in missions_data:
 		if data.get("id", "MISSING ID") == id:

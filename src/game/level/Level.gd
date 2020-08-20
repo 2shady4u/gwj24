@@ -99,8 +99,8 @@ func move_character(character, location: Vector2):
 	var transition_time = 0.15
 	tween.interpolate_property(character, "position", character.position, location, transition_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	tween.start()
-
 	yield(tween, "tween_completed")
+	
 	if character.team == "PLAYER":
 		for chip in chips():
 			if chip.position == location:
@@ -139,7 +139,6 @@ func bump(character: Character, other_character: Character):
 	set_process(false)
 	var transition_time = 0.2
 	var original_position = character.position
-	var original_other_position = other_character.position
 	var direction = (other_character.position - character.position) / 2
 	var halfway_position = (other_character.position + character.position) / 2 + direction / 2
 
@@ -159,7 +158,7 @@ func bump(character: Character, other_character: Character):
 	yield(tween, "tween_completed")
 	set_process(true)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("switch"):
 		print("Switch pressed!")
 		var characters = characters()
@@ -212,13 +211,13 @@ func ai_decision():
 				current_character.finish_turn()
 				set_process(false)
 				return yield(get_tree().create_timer(0.1), "timeout")
-				set_process(true)
 		var point_to_travel = min_path[1]
 		yield(move_action(current_character, point_to_travel - current_character.position), "completed")
 		set_process(false)
 		yield(get_tree().create_timer(0.1), "timeout")
 		set_process(true)
 	else:
+		yield(get_tree().create_timer(0.1), "timeout")
 		print("This should never happen!!! So it's okay if it crashes here.")
 		
 		

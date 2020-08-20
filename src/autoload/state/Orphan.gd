@@ -27,6 +27,14 @@ func get_context() -> Dictionary:
 	
 	return _context
 
+func get_stats() -> Dictionary:
+	var stats: Dictionary = get_base_stats().duplicate(true)
+	for upgrade in upgrades:
+		var effect = upgrade.effect
+		for key in effect:
+			stats[key] += effect[key]
+	return stats
+
 # These are all constants derived from data.JSON and should be treated as such!
 var name : String setget , get_name
 func get_name():
@@ -44,6 +52,7 @@ const DEFAULT_BASE_STATS := {
 	"health": 5,
 	"damage": 1,
 	"healing": 1,
+	"healing_charges": 2,
 	"actions": 2,
 	"movement": 4
 }
