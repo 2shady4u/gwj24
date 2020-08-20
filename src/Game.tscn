@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/UI/PauseUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/Canvas.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Game.gd" type="Script" id=3]
 [ext_resource path="res://src/editor/EditorCamera.gd" type="Script" id=4]
 [ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=5]
-[ext_resource path="res://assets/graphics/ui/energy_ui_segment.png" type="Texture" id=6]
-[ext_resource path="res://assets/graphics/ui/energy_ui_start.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/ui/move_ui_start.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/ui/move_ui_segment.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/ui/move_ui_end.png" type="Texture" id=8]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -37,9 +38,151 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TurnInfo" type="HBoxContainer" parent="UICanvas/HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 100
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Moves" type="HBoxContainer" parent="UICanvas/HUD/TurnInfo"]
+margin_left = 220.0
+margin_right = 348.0
+margin_bottom = 64.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 16, 28 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 16, 28 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves"]
+margin_left = 96.0
+margin_right = 128.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="Moves2" type="HBoxContainer" parent="UICanvas/HUD/TurnInfo"]
+margin_left = 448.0
+margin_right = 576.0
+margin_bottom = 64.0
+size_flags_horizontal = 9
+size_flags_vertical = 0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves2"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves2"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 16, 28 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves2"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 16, 28 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves2"]
+margin_left = 96.0
+margin_right = 128.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="Moves3" type="HBoxContainer" parent="UICanvas/HUD/TurnInfo"]
+margin_left = 676.0
+margin_right = 804.0
+margin_bottom = 64.0
+size_flags_vertical = 0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves3"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves3"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 16, 28 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves3"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 16, 28 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves3"]
+margin_left = 96.0
+margin_right = 128.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
 [node name="MarginContainer" type="MarginContainer" parent="UICanvas/HUD"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.105103
+margin_right = -0.105103
 custom_constants/margin_right = 16
 custom_constants/margin_top = 16
 custom_constants/margin_left = 16
@@ -48,20 +191,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/HUD/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvas/HUD/MarginContainer"]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 1008.0
-margin_bottom = 560.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UICanvas/HUD/MarginContainer/VBoxContainer"]
-margin_right = 992.0
-margin_bottom = 128.0
+margin_bottom = 144.0
+size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/MarginContainer/HBoxContainer"]
 margin_right = 64.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 64, 128 )
@@ -69,7 +209,7 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/HUD/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/HUD/MarginContainer/HBoxContainer"]
 margin_left = 68.0
 margin_right = 110.0
 margin_bottom = 128.0
@@ -78,14 +218,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UICanvas/HUD/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="UICanvas/HUD/MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 57.0
 margin_right = 42.0
 margin_bottom = 71.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Joseph"
 
-[node name="Control" type="Control" parent="UICanvas/HUD/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="UICanvas/HUD/MarginContainer/HBoxContainer"]
 margin_left = 114.0
 margin_right = 992.0
 margin_bottom = 128.0
@@ -93,18 +233,6 @@ size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="energy_ui_start" type="Sprite" parent="UICanvas/HUD/MarginContainer/VBoxContainer/HBoxContainer/Control"]
-position = Vector2( 241.11, 67.9229 )
-texture = ExtResource( 7 )
-
-[node name="energy_ui_segment" type="Sprite" parent="UICanvas/HUD/MarginContainer/VBoxContainer/HBoxContainer/Control"]
-position = Vector2( 261.102, 59.6799 )
-texture = ExtResource( 6 )
-
-[node name="energy_ui_segment" type="Sprite" parent="UICanvas/HUD/MarginContainer/VBoxContainer/HBoxContainer/Control/energy_ui_segment"]
-position = Vector2( 7.49149, -0.374573 )
-texture = ExtResource( 6 )
 
 [node name="PauseUI" parent="UICanvas" instance=ExtResource( 1 )]
 visible = false

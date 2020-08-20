@@ -1,11 +1,11 @@
 shader_type canvas_item;
 
-const float ABER_THRESHOLD = 0.25;
-const float DISTORT_THRESHOLD = 0.5;
-const float INVERT_THRESHOLD = 0.6;
-const float FRAME_RATE = 20.0;
-
 uniform float distort_amount = 1.0;
+uniform float ABER_THRESHOLD = 0.5;
+uniform float DISTORT_THRESHOLD = 0.1;
+uniform float INVERT_THRESHOLD = 0.8;
+uniform float FRAME_RATE = 60.0;
+
 
 void fragment() {
 	float noise_time = round(TIME * FRAME_RATE) / FRAME_RATE;
@@ -19,10 +19,10 @@ void fragment() {
 	}
 	vec3 screen_c = texture(SCREEN_TEXTURE, screen_uv).rgb;
 	if (noise * distort_amount > INVERT_THRESHOLD) {
-		screen_c = vec3(1.0 - (screen_c.r + screen_c.g + screen_c.b) / 2.0);
+		screen_c = vec3(1.0 - (screen_c.r + screen_c.g + screen_c.b) / 1.0);
 	}
 	else if (noise * distort_amount > ABER_THRESHOLD) {
-		float aber = noise / 100.0;
+		float aber = noise / 10.0;
 		screen_c = vec3(
 			texture(SCREEN_TEXTURE, screen_uv - aber).r,
 			texture(SCREEN_TEXTURE, screen_uv).g,
