@@ -6,6 +6,7 @@ onready var tween: Tween = $Tween
 onready var tiles = $Tiles/Tiles
 onready var chip_label = $ChipLabel
 onready var healing_particles = $HealingParticles
+onready var distortion = $Distortion
 
 var current_character : Character = null
 var astar: AStar2D = AStar2D.new()
@@ -73,6 +74,7 @@ func switch_character(new_character: Character):
 		tween.stop_all()
 		camera.position = Vector2(0, 0)
 		set_process(false)
+
 		add_child(camera)
 		camera.smoothing_enabled = false
 		tween.interpolate_property(camera, "position", null, new_character.position - current_character.position, 0.6, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
@@ -153,12 +155,21 @@ func bump(character: Character, other_character: Character):
 		character.perform_action()
 	elif other_character.team != character.team:
 		other_character.take_damage(character.stats.damage, direction)
+		if other_character.team == "PLAYER":
+			play_damage(other_character.position)
 		character.perform_action()
 	
 	tween.interpolate_property(character, "position", null, original_position, transition_time / 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	tween.start()
 	yield(tween, "tween_completed")
 	set_process(true)
+	
+func play_damage(damage_position: Vector2):
+	distortion.position = damage_position
+	distortion.visible = true
+	yield(get_tree().create_timer(0.2), "timeout")
+	distortion.visible = false
+	
 	
 func play_healing(healing_position: Vector2):
 	healing_particles.position = healing_position - Vector2(0, 4)
@@ -255,3 +266,9 @@ func validate_turn():
 		var new_character = character_turns[(index + 1) % character_turns.size()]
 		print("Switching to ", new_character, new_character.name)
 		switch_character(new_character)
+
+
+func on_character_death(character: Character):
+	if character.team == "ENEMY":
+		print_debug("Enemy dieded!")
+		Flow.get_enemy_value(character.type, "drops", {})

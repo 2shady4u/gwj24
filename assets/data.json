@@ -65,8 +65,8 @@
         "bad_bot": {
             "name": "B4DB0T",
             "base_stats": {
-                "health": 4,
-                "damage": 2,
+                "health": 1,
+                "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
                 "actions": 2,

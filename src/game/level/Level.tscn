@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/game/level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/game/level/tiles/Tiles.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://src/game/chips/ChipLabel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/character/S0R3114.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/game/character/BadBot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/shaders/distortion.shader" type="Shader" id=10]
+[ext_resource path="res://assets/graphics/noise.png" type="Texture" id=11]
 
 [sub_resource type="ParticlesMaterial" id=1]
 lifetime_randomness = 0.22
@@ -23,6 +25,14 @@ initial_velocity_random = 0.51
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 10.0
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 10 )
+shader_param/distort_amount = 1.0
+shader_param/ABER_THRESHOLD = 0.5
+shader_param/DISTORT_THRESHOLD = 0.3
+shader_param/INVERT_THRESHOLD = 0.6
+shader_param/FRAME_RATE = 20.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -80,3 +90,11 @@ visibility_rect = Rect2( -10, -10, 20, 20 )
 process_material = SubResource( 1 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
+
+[node name="Distortion" type="Sprite" parent="."]
+visible = false
+material = SubResource( 2 )
+position = Vector2( -1.22969, 0.500083 )
+rotation = 0.0010775
+scale = Vector2( 0.59767, 0.383446 )
+texture = ExtResource( 11 )
