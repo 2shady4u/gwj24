@@ -4,7 +4,7 @@ class_name class_orphan_tab
 
 onready var _grid_container := $GridVBox/GridContainer
 
-var _upgrade_slot_resource := preload("res://src/menu/UpgradeSlot.tscn")
+var _upgrade_slot_resource := preload("res://src/menu/orphanage/UpgradeSlot.tscn")
 
 var _upgrade_slots := []
 
