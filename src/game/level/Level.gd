@@ -5,6 +5,7 @@ onready var camera: Camera2D = $Camera
 onready var tween: Tween = $Tween
 onready var tiles = $Tiles/Tiles
 onready var chip_label = $ChipLabel
+onready var healing_particles = $HealingParticles
 
 var current_character : Character = null
 var astar: AStar2D = AStar2D.new()
@@ -146,10 +147,11 @@ func bump(character: Character, other_character: Character):
 	tween.start()
 	yield(tween, "tween_completed")
 	
-	if other_character.team == character.team:
+	if other_character.team == character.team and other_character.current_health < other_character.stats.health:
 		other_character.heal_up(character.stats.healing, direction)
+		play_healing(other_character.position)
 		character.perform_action()
-	else:
+	elif other_character.team != character.team:
 		other_character.take_damage(character.stats.damage, direction)
 		character.perform_action()
 	
@@ -157,6 +159,10 @@ func bump(character: Character, other_character: Character):
 	tween.start()
 	yield(tween, "tween_completed")
 	set_process(true)
+	
+func play_healing(healing_position: Vector2):
+	healing_particles.position = healing_position - Vector2(0, 4)
+	healing_particles.emitting = true
 
 func _process(_delta):
 	if Input.is_action_just_pressed("switch"):

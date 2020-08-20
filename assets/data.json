@@ -71,6 +71,10 @@
                 "healing_charges": 2,
                 "actions": 2,
                 "movement": 4
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
             }
         },
         "fish_bot": {
@@ -82,6 +86,10 @@
                 "healing_charges": 2,
                 "actions": 2,
                 "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
             }
         }
     },
