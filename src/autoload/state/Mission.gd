@@ -34,6 +34,12 @@ var description : String setget , get_description
 func get_description():
 	return Flow.get_mission_value(id, "description", "MISSING DESCRIPTION")
 
-var prerequisites : String setget , get_prerequisites
+var thumbnail_texture : Array setget , get_thumbnail_texture
+func get_thumbnail_texture():
+	return Flow.get_mission_value(id, "thumbnail_texture", DEFAULT_THUMBNAIL_TEXTURE)
+
+const DEFAULT_THUMBNAIL_TEXTURE := "res://assets/graphics/thumbnails/thumbnail_intro.png"
+
+var prerequisites : Array setget , get_prerequisites
 func get_prerequisites():
 	return Flow.get_mission_value(id, "prerequisites", [])

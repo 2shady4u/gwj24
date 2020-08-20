@@ -7,8 +7,8 @@ onready var _orphan_button := $VBoxContainer/OrphanButton
 onready var _mission_button_vbox := $VBoxContainer/HBoxContainer/ScrollContainer/MissionButtonVBox
 onready var _mission_tab_container := $VBoxContainer/HBoxContainer/VBoxContainer/MissionTabContainer
 
-var _mission_button_resource := preload("res://src/menu/MissionButton.tscn")
-var _mission_tab_resource := preload("res://src/menu/MissionTab.tscn")
+var _mission_button_resource := preload("res://src/menu/mission/MissionButton.tscn")
+var _mission_tab_resource := preload("res://src/menu/mission/MissionTab.tscn")
 
 func _ready():
 	var _error : int = _back_button.connect("pressed", self, "_on_back_button_pressed")
@@ -27,7 +27,10 @@ func _ready():
 
 		button.text = mission.name
 
-		_error = button.connect("pressed", self, "_on_mission_button_pressed", [mission.id])
+		if State.check_mission_prerequisites(mission):
+			_error = button.connect("pressed", self, "_on_mission_button_pressed", [mission.id])
+		else:
+			button.disabled = true
 
 		var tab := _mission_tab_resource.instance()
 		_mission_tab_container.add_child(tab)

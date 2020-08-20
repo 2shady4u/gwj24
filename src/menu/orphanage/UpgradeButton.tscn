@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/menu/UpgradeButton.gd" type="Script" id=1]
+[ext_resource path="res://src/menu/orphanage/UpgradeButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/chips/Chip_Blue_solo.png" type="Texture" id=2]
 
 [node name="UpgradeButton" type="Button"]

@@ -5,9 +5,9 @@ onready var _tab_container := $VBoxContainer/HBoxContainer/TabContainer
 onready var _orphan_selection := $VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/OrphanSelection
 onready var _available_vbox :=  $VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/AvailableVBox
 
-var _orphan_vbox_resource := preload("res://src/menu/OrphanVBox.tscn")
-var _orphan_tab_resource := preload("res://src/menu/OrphanTab.tscn")
-var _upgrade_button_resource := preload("res://src/menu/UpgradeButton.tscn")
+var _orphan_vbox_resource := preload("res://src/menu/orphanage/OrphanVBox.tscn")
+var _orphan_tab_resource := preload("res://src/menu/orphanage/OrphanTab.tscn")
+var _upgrade_button_resource := preload("res://src/menu/orphanage/UpgradeButton.tscn")
 
 var _upgrade_buttons := []
 var _orphan_vboxes := []

@@ -1,0 +1,142 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menu/main/MainMenuTab.gd" type="Script" id=1]
+
+[node name="MainMenuTab" type="MarginContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 544.0
+custom_constants/separation = 24
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_left = 385.0
+margin_right = 575.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="FrontSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 32, 0 )
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 36.0
+margin_right = 154.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "An Orphan Orange"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 158.0
+margin_right = 190.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 32, 0 )
+
+[node name="SubtitleLabel" type="Label" parent="VBoxContainer"]
+margin_left = 392.0
+margin_top = 38.0
+margin_right = 568.0
+margin_bottom = 52.0
+size_flags_horizontal = 4
+text = "Welcome to the Orphanage"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_left = 416.0
+margin_top = 76.0
+margin_right = 544.0
+margin_bottom = 468.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MissionButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 150.0
+margin_right = 128.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../QuitButton")
+focus_neighbour_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../QuitButton")
+size_flags_horizontal = 4
+text = "Select Mission"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 186.0
+margin_right = 128.0
+margin_bottom = 206.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../MissionButton")
+focus_neighbour_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../MissionButton")
+size_flags_horizontal = 4
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 222.0
+margin_right = 128.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../SettingsButton")
+focus_neighbour_bottom = NodePath("../MissionButton")
+focus_next = NodePath("../MissionButton")
+focus_previous = NodePath("../SettingsButton")
+size_flags_horizontal = 4
+text = "Quit"
+
+[node name="StateHBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 492.0
+margin_right = 960.0
+margin_bottom = 512.0
+custom_constants/separation = 64
+alignment = 1
+
+[node name="NewButton" type="Button" parent="VBoxContainer/StateHBox"]
+margin_left = 224.0
+margin_right = 352.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 0 )
+text = "New"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/StateHBox"]
+margin_left = 416.0
+margin_right = 544.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 0 )
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer/StateHBox"]
+margin_left = 608.0
+margin_right = 736.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 0 )
+text = "Load"

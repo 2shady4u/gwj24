@@ -98,7 +98,7 @@
             "id": "intro",
             "name": "Yunkyard Bros",
             "description": "The intro mission that is easy and quaint",
-            "thumbnail_texture": "",
+            "thumbnail_texture": "res://assets/graphics/",
             "packed_scene": ""
         },
         {

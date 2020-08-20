@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/menu/MissionTab.gd" type="Script" id=1]
+[ext_resource path="res://src/menu/mission/MissionTab.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/thumbnails/thumbnail_intro.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void fragment(){
+  
+	COLOR = texture(TEXTURE, UV);
+	//New grayscale image = ( (0.3 * R) + (0.59 * G) + (0.11 * B) )
+	float grayscale = 0.3*COLOR.r + 0.59*COLOR.g + 0.11*COLOR.b;
+	COLOR.rgb = vec3(grayscale);
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
@@ -62,3 +78,18 @@ margin_right = 984.0
 margin_bottom = 80.0
 text = "The intro mission that is easy and quaint"
 align = 1
+
+[node name="ThumbnailRect" type="TextureRect" parent="VBoxContainer"]
+material = SubResource( 2 )
+margin_left = 321.0
+margin_top = 96.0
+margin_right = 662.333
+margin_bottom = 352.0
+rect_min_size = Vector2( 341.333, 256 )
+size_flags_horizontal = 4
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}

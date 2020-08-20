@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/menu/mission/MissionButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/menu/mission/MissionTab.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/menu/mission/MissionMenuTab.gd" type="Script" id=3]
+
+[node name="MissionMenuTab" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+tab_type = 2
+
+[node name="BackContainer" type="VBoxContainer" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 544.0
+mouse_filter = 2
+
+[node name="BackButton" type="Button" parent="BackContainer"]
+margin_right = 128.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 0 )
+size_flags_horizontal = 0
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 544.0
+mouse_filter = 2
+custom_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+margin_left = 421.0
+margin_right = 538.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_horizontal = 4
+text = "~ Mission Select ~"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 960.0
+margin_bottom = 476.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 478.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MissionButtonVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer"]
+margin_right = 478.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+alignment = 1
+
+[node name="MissionButton" parent="VBoxContainer/HBoxContainer/ScrollContainer/MissionButtonVBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 175.0
+margin_top = 192.0
+margin_right = 303.0
+margin_bottom = 212.0
+
+[node name="MissionButton2" parent="VBoxContainer/HBoxContainer/ScrollContainer/MissionButtonVBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 175.0
+margin_top = 228.0
+margin_right = 303.0
+margin_bottom = 248.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 482.0
+margin_right = 960.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+
+[node name="MissionTabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 478.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tabs_visible = false
+
+[node name="MissionTab" parent="VBoxContainer/HBoxContainer/VBoxContainer/MissionTabContainer" instance=ExtResource( 2 )]
+
+[node name="OrphanButton" type="Button" parent="VBoxContainer"]
+margin_left = 413.0
+margin_top = 492.0
+margin_right = 546.0
+margin_bottom = 512.0
+size_flags_horizontal = 4
+text = "Edit Orphan Layout"
