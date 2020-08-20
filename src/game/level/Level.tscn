@@ -11,12 +11,18 @@
 [ext_resource path="res://src/game/character/BadBot.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.22
 emission_shape = 1
-emission_sphere_radius = 5.0
+emission_sphere_radius = 7.0
 flag_disable_z = true
-gravity = Vector3( 0, -98, 0 )
+direction = Vector3( 1, -100, 0 )
+spread = 0.0
+gravity = Vector3( 0, -20, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 0.51
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+damping = 10.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -64,8 +70,13 @@ smoothing_speed = 8.0
 [node name="ChipLabel" parent="." instance=ExtResource( 7 )]
 visible = false
 
-[node name="Healing" type="Particles2D" parent="."]
+[node name="HealingParticles" type="Particles2D" parent="."]
+position = Vector2( 72.4252, 37.5339 )
 emitting = false
+amount = 12
+lifetime = 0.8
+one_shot = true
+visibility_rect = Rect2( -10, -10, 20, 20 )
 process_material = SubResource( 1 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
