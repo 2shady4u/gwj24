@@ -45,7 +45,7 @@
                 "healing": 1,
                 "healing_charges": 2,
                 "actions": 2,
-                "movement": 4
+                "movement": 3
             }
         },
         "sorella": {
@@ -55,9 +55,9 @@
                 "health": 5,
                 "damage": 2,
                 "healing": 1,
-                "healing_charges": 1,
+                "healing_charges": 2,
                 "actions": 2,
-                "movement": 3
+                "movement": 4
             }
         }
     },

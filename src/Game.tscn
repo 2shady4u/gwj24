@@ -5,9 +5,9 @@
 [ext_resource path="res://src/Game.gd" type="Script" id=3]
 [ext_resource path="res://src/editor/EditorCamera.gd" type="Script" id=4]
 [ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=5]
-[ext_resource path="res://assets/graphics/ui/move_ui_start.png" type="Texture" id=6]
-[ext_resource path="res://assets/graphics/ui/move_ui_segment.png" type="Texture" id=7]
-[ext_resource path="res://assets/graphics/ui/move_ui_end.png" type="Texture" id=8]
+[ext_resource path="res://src/UI/TurnInfo.gd" type="Script" id=6]
+[ext_resource path="res://src/UI/HUD.gd" type="Script" id=7]
+[ext_resource path="res://src/UI/ChargesBar.tscn" type="PackedScene" id=9]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -17,23 +17,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Canvas" parent="ViewportContainer" instance=ExtResource( 2 )]
-
-[node name="EditorCamera" type="Camera2D" parent="."]
-script = ExtResource( 4 )
-
 [node name="UICanvas" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="UICanvas"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,146 +32,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 100
 alignment = 1
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Moves" type="HBoxContainer" parent="UICanvas/HUD/TurnInfo"]
-margin_left = 220.0
-margin_right = 348.0
-margin_bottom = 64.0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-custom_constants/separation = 0
-alignment = 1
+[node name="Moves" parent="UICanvas/HUD/TurnInfo" instance=ExtResource( 9 )]
+type = "moves"
 
-[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves"]
-margin_left = 64.0
-margin_right = 80.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 16, 28 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves"]
-margin_left = 80.0
-margin_right = 96.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 16, 28 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect4" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves"]
-margin_left = 96.0
-margin_right = 128.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 5
-
-[node name="Moves2" type="HBoxContainer" parent="UICanvas/HUD/TurnInfo"]
+[node name="Actions" parent="UICanvas/HUD/TurnInfo" instance=ExtResource( 9 )]
 margin_left = 448.0
 margin_right = 576.0
-margin_bottom = 64.0
-size_flags_horizontal = 9
-size_flags_vertical = 0
-custom_constants/separation = 0
-alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves2"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves2"]
-margin_left = 64.0
-margin_right = 80.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 16, 28 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves2"]
-margin_left = 80.0
-margin_right = 96.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 16, 28 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect4" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves2"]
-margin_left = 96.0
-margin_right = 128.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 5
-
-[node name="Moves3" type="HBoxContainer" parent="UICanvas/HUD/TurnInfo"]
+[node name="HealingCharges" parent="UICanvas/HUD/TurnInfo" instance=ExtResource( 9 )]
 margin_left = 676.0
 margin_right = 804.0
-margin_bottom = 64.0
-size_flags_vertical = 0
-custom_constants/separation = 0
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves3"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves3"]
-margin_left = 64.0
-margin_right = 80.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 16, 28 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves3"]
-margin_left = 80.0
-margin_right = 96.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 16, 28 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="TextureRect4" type="TextureRect" parent="UICanvas/HUD/TurnInfo/Moves3"]
-margin_left = 96.0
-margin_right = 128.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 5
+type = "healing_charges"
 
 [node name="MarginContainer" type="MarginContainer" parent="UICanvas/HUD"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -0.105103
+margin_top = -0.890869
 margin_right = -0.105103
+margin_bottom = -0.890869
 custom_constants/margin_right = 16
 custom_constants/margin_top = 16
 custom_constants/margin_left = 16
@@ -218,7 +91,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UICanvas/HUD/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="NameLabel" type="Label" parent="UICanvas/HUD/MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 57.0
 margin_right = 42.0
 margin_bottom = 71.0
@@ -236,3 +109,15 @@ __meta__ = {
 
 [node name="PauseUI" parent="UICanvas" instance=ExtResource( 1 )]
 visible = false
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Canvas" parent="ViewportContainer" instance=ExtResource( 2 )]
+
+[node name="EditorCamera" type="Camera2D" parent="."]
+script = ExtResource( 4 )

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/game/character/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/characters/Children/F1ST0N.png" type="Texture" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -12,11 +12,13 @@ animations = [ {
 } ]
 
 [node name="F15T0N" instance=ExtResource( 1 )]
-modulate = Color( 0.415686, 0.254902, 1, 1 )
 position = Vector2( 0, -0.105112 )
 type = "fiston"
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( 0, -6.98894 )
+position = Vector2( 0, -9.23064 )
 frames = SubResource( 1 )
 animation = "idle"
+
+[node name="HealthBar" parent="." index="2"]
+position = Vector2( 0, -25.6518 )

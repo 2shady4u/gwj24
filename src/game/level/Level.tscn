@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/game/level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/game/level/tiles/Tiles.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://src/game/character/F15T0N.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/game/chips/ChipLabel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/character/S0R3114.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/game/character/BadBot.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/shaders/distortion.shader" type="Shader" id=10]
 [ext_resource path="res://assets/graphics/noise.png" type="Texture" id=11]
 
@@ -48,12 +47,6 @@ position = Vector2( 72.3084, 89.7895 )
 
 [node name="F15T0N" parent="Entities" instance=ExtResource( 5 )]
 position = Vector2( 104.887, 89.9492 )
-
-[node name="BadBot" parent="Entities" instance=ExtResource( 9 )]
-position = Vector2( 71.5137, 42.3785 )
-
-[node name="BadBot2" parent="Entities" instance=ExtResource( 9 )]
-position = Vector2( 121.309, -5.29731 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
