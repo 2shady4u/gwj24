@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/game/character/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/graphics/characters/Children/S0R3LL4.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/characters/Children/S0HN.png" type="Texture" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -11,13 +11,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="S0R3114" instance=ExtResource( 1 )]
-type = "sorella"
+[node name="S0HN" instance=ExtResource( 1 )]
+type = "sohn"
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( 0, -8.88497 )
+position = Vector2( 0, -8.88049 )
 frames = SubResource( 1 )
 animation = "idle"
-
-[node name="HealthBar" parent="." index="2"]
-position = Vector2( 0, -23.3813 )

@@ -14,11 +14,13 @@ var stats = {
 var current_health = 0
 var action_counter = 0
 var moves_counter = 0
+var healing_charges_left = 0
 var last_action = "movement"
 
 var upgrades = []
 
 signal death(character)
+signal updated_turn_info
 
 func _ready():
 	update_stats(get_stats())
@@ -44,6 +46,7 @@ func update_stats(new_stats):
 	current_health = stats.health
 	healthbar.set_health(stats.health)
 	healthbar.update_health(current_health)
+	healing_charges_left = stats.healing_charges
 
 func shake(shake_size: Vector2):
 	var original_position = position
@@ -71,6 +74,7 @@ func take_damage(points: int, direction: Vector2):
 func perform_action():
 	action_counter += 1
 	last_action = "action"
+	emit_signal("updated_turn_info")
 
 func move():
 	if moves_counter == stats.movement:
@@ -81,6 +85,7 @@ func move():
 	moves_counter += 1
 	
 	last_action = "movement"
+	emit_signal("updated_turn_info")
 
 func turn_finished():
 	if last_action == "finish":
@@ -92,6 +97,9 @@ func turn_finished():
 			return moves_counter >= stats.movement
 		return false
 
+func can_heal():
+	return healing_charges_left > 0
+
 func finish_turn():
 	last_action = "finish"
 
@@ -102,3 +110,4 @@ func can_perform_action():
 func reset_turn():
 	moves_counter = 0
 	action_counter = 0
+	emit_signal("updated_turn_info")

@@ -46,7 +46,6 @@ func _ready():
 			astar_id_map[get_snapped_position_in_grid(world_position)] = i
 			for added_point in tile_mapping.keys():
 				if used_tile.distance_to(added_point) == 1:
-					print("Connecting ", used_tile, " to ", added_point)
 					astar.connect_points(tile_mapping[added_point], i)
 			i += 1
 
@@ -77,20 +76,21 @@ func switch_character(new_character: Character):
 		tween.stop_all()
 		camera.position = Vector2(0, 0)
 		set_process(false)
-
-		add_child(camera)
+		
+		# add_child(camera)
 		camera.smoothing_enabled = false
 		tween.interpolate_property(camera, "position", null, new_character.position - current_character.position, 0.6, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 		tween.start()
 		yield(tween, "tween_completed")
 		current_character.remove_child(camera)
 
-	
 	current_character = new_character
 	camera.position = Vector2(0, 0)
 	current_character.add_child(camera)
 	camera.smoothing_enabled = true
 	current_character.reset_turn()
+	print("Using the current character setter!")
+	LevelFlow.current_character = current_character
 
 	set_process(true)
 
@@ -142,8 +142,6 @@ func pickup_chip(chip: Chip):
 	chip_label.show()
 	yield(chip_label.start_animation(), "completed")
 
-
-	
 
 func bump(character: Character, other_character: Character):
 	tween.stop_all()

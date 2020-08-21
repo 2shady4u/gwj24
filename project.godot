@@ -102,6 +102,7 @@ config/icon="res://icon.png"
 ConfigData="*res://src/autoload/ConfigData.tscn"
 Flow="*res://src/autoload/Flow.tscn"
 State="*res://src/autoload/State.tscn"
+LevelFlow="*res://src/autoload/LevelFlow.tscn"
 
 [debug]
 
