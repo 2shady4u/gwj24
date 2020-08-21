@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/menu/orphanage/OrphanTab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/menu/orphanage/OrphanVBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/theme.tres" type="Theme" id=3]
 [ext_resource path="res://src/menu/orphanage/OrphanMenuTab.gd" type="Script" id=4]
+[ext_resource path="res://assets/fonts/header.tres" type="DynamicFont" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -11,14 +13,17 @@ content_margin_top = 16.0
 content_margin_bottom = 16.0
 
 [node name="OrphanageMenuTab" type="MarginContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
 custom_constants/margin_bottom = 32
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 tab_type = 3
 
 [node name="BackContainer" type="VBoxContainer" parent="."]
@@ -30,7 +35,7 @@ mouse_filter = 2
 
 [node name="BackButton" type="Button" parent="BackContainer"]
 margin_right = 128.0
-margin_bottom = 20.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 128, 0 )
 size_flags_horizontal = 0
 text = "Back"
@@ -44,11 +49,12 @@ mouse_filter = 2
 custom_constants/separation = 16
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer"]
-margin_left = 433.0
-margin_right = 526.0
+margin_left = 426.0
+margin_right = 534.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 5 )
 text = "~ Orphanage ~"
 align = 1
 valign = 1
@@ -80,16 +86,16 @@ margin_bottom = 332.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_left = 98.0
-margin_right = 220.0
-margin_bottom = 14.0
+margin_left = 87.0
+margin_right = 231.0
+margin_bottom = 16.0
 size_flags_horizontal = 4
 text = "Available Upgrades"
 align = 1
 valign = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 18.0
+margin_top = 20.0
 margin_right = 319.0
 margin_bottom = 332.0
 size_flags_vertical = 3
@@ -98,7 +104,7 @@ custom_styles/bg = SubResource( 2 )
 [node name="AvailableVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
 margin_top = 16.0
 margin_right = 319.0
-margin_bottom = 298.0
+margin_bottom = 296.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 16
@@ -127,6 +133,8 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="OrphanVBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/OrphanSelection" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 127.0
 margin_right = 191.0
 margin_bottom = 128.0
