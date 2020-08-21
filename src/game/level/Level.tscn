@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/game/level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/game/level/tiles/Tiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/graphics/ui/healing-particle-custom.png" type="Texture" id=3]
 [ext_resource path="res://src/game/level/Healing.gd" type="Script" id=4]
 [ext_resource path="res://src/game/character/F15T0N.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/game/chips/Chip.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/game/chips/ChipLabel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/character/S0R3114.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/game/character/BadBot.tscn" type="PackedScene" id=9]
@@ -44,19 +43,6 @@ tile_data = PoolIntArray( -262146, 1, 65536, -262145, 1, 65537, -327680, 1, 6553
 
 [node name="Entities" type="YSort" parent="."]
 
-[node name="Chip" parent="Entities" instance=ExtResource( 6 )]
-position = Vector2( -8.53137, -25.3338 )
-
-[node name="Chip2" parent="Entities" instance=ExtResource( 6 )]
-position = Vector2( 198.436, 74.7645 )
-color = "blue"
-identifier = "MDX-SPD"
-
-[node name="Chip3" parent="Entities" instance=ExtResource( 6 )]
-position = Vector2( 121.187, 23.4465 )
-color = "rainbow"
-identifier = "MDX-SPD"
-
 [node name="S0R3114" parent="Entities" instance=ExtResource( 8 )]
 position = Vector2( 72.3084, 89.7895 )
 
@@ -71,7 +57,7 @@ position = Vector2( 121.309, -5.29731 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.25, 0.25 )
+zoom = Vector2( 0.333, 0.333 )
 smoothing_enabled = true
 smoothing_speed = 8.0
 
@@ -94,7 +80,7 @@ script = ExtResource( 4 )
 [node name="Distortion" type="Sprite" parent="."]
 visible = false
 material = SubResource( 2 )
-position = Vector2( -1.22969, 0.500083 )
+position = Vector2( 2.9748, 1.34097 )
 rotation = 0.0010775
-scale = Vector2( 0.59767, 0.383446 )
+scale = Vector2( 1.04793, 0.612893 )
 texture = ExtResource( 11 )
