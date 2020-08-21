@@ -1,12 +1,15 @@
 extends Node2D
 
 
+onready var entities: YSort = $Entities
 onready var camera: Camera2D = $Camera
 onready var tween: Tween = $Tween
 onready var tiles = $Tiles/Tiles
 onready var chip_label = $ChipLabel
 onready var healing_particles = $HealingParticles
 onready var distortion = $Distortion
+
+onready var chip_scene = preload("res://src/game/chips/Chip.tscn")
 
 var current_character : Character = null
 var astar: AStar2D = AStar2D.new()
@@ -105,9 +108,12 @@ func move_character(character, location: Vector2):
 	yield(tween, "tween_completed")
 	
 	if character.team == "PLAYER":
+		var picked_up_chips = []
 		for chip in chips():
 			if chip.position == location:
-				pickup_chip(chip)
+				picked_up_chips.append(chip)
+		for picked_up_chip in picked_up_chips:
+			yield(pickup_chip(picked_up_chip), "completed")
 	set_process(true)
 	
 
@@ -132,9 +138,11 @@ func move_action(character: Character, direction: Vector2):
 func pickup_chip(chip: Chip):
 	chip_label.set_chip(chip)
 	chip_label.rect_position = chip.position - Vector2(20, 16)
-	chip_label.start_animation()
-	chip_label.show()
 	chip.queue_free()
+	chip_label.show()
+	yield(chip_label.start_animation(), "completed")
+
+
 	
 
 func bump(character: Character, other_character: Character):
@@ -238,8 +246,6 @@ func ai_decision():
 		print("This should never happen!!! So it's okay if it crashes here.")
 		
 		
-		
-		
 func filter_characters_team(team: String):
 	var all_characters = characters()
 	var filtered = []
@@ -268,7 +274,38 @@ func validate_turn():
 		switch_character(new_character)
 
 
+func get_drop(drops):
+	var dropped = []
+	for drop in drops:
+		if randf() < drops[drop]:
+			dropped.append(drop)
+	
+	if len(dropped) > 0:
+		var rarest_drop = null
+		var lowest_rarity = 1.0
+		for drop in dropped:
+			if drops[drop] < lowest_rarity:
+				rarest_drop = drop
+				lowest_rarity = drops[drop]
+		return rarest_drop
+	return null
+
+
+func spawn_drop(drop: String, drop_position: Vector2):
+	var chip = chip_scene.instance()
+	var chip_type = Flow.get_upgrade_value(drop, "type", "HP")
+	var chip_name = Flow.get_upgrade_value(drop, "name", "NONE")
+
+	entities.add_child(chip)
+	chip.position = get_snapped_position_in_grid(drop_position)
+	chip.identifier = chip_name
+	chip.set_type(chip_type)
+
+
 func on_character_death(character: Character):
 	if character.team == "ENEMY":
 		print_debug("Enemy dieded!")
-		Flow.get_enemy_value(character.type, "drops", {})
+		var drops = Flow.get_enemy_value(character.type, "drops", {})
+		var drop = get_drop(drops)
+		if drop:
+			spawn_drop(drop, character.position)

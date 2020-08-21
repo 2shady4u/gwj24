@@ -50,14 +50,14 @@
         },
         "sorella": {
             "name": "S0R3114",
-            "backstory": "Rebooted with an Italian Catholic AI, you don't want to mess with S0R3114.",
+            "backstory": "A repurposed Italian Catholic Nunbot, you don't want to mess with S0R3114.",
             "base_stats": {
                 "health": 5,
-                "damage": 1,
+                "damage": 2,
                 "healing": 1,
-                "healing_charges": 2,
+                "healing_charges": 1,
                 "actions": 2,
-                "movement": 4
+                "movement": 3
             }
         }
     },
@@ -73,8 +73,8 @@
                 "movement": 4
             },
             "drops": {
-                "more_hp": 0.2,
-                "faster_speed_but_decreased_health": 0.2
+                "more_hp": 0.1,
+                "faster_speed_but_decreased_health": 0.99
             }
         },
         "fish_bot": {

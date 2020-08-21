@@ -15,3 +15,4 @@ func start_animation():
 	tween.interpolate_property(self, "rect_position", null, rect_position + Vector2(0, -20), 0.8, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.8, Tween.TRANS_CUBIC, Tween.EASE_IN)
 	tween.start()
+	yield(tween, "tween_completed")
