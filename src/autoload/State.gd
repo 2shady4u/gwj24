@@ -94,10 +94,3 @@ func set_mission_from_context(mission_context : Dictionary) -> void:
 			if mission.id == mission_id:
 				mission.context = mission_context
 				break
-
-func check_mission_prerequisites(mission : class_mission) -> bool:
-	var prerequisites : Array = mission.prerequisites
-	for _mission in missions:
-		if _mission.id in prerequisites and  not _mission.completed:
-			return false
-	return true

@@ -25,6 +25,15 @@ func get_context() -> Dictionary:
 
 	return _context
 
+var locked : bool setget , get_locked
+func get_locked():
+	# Check if the mission is locked or unlocked depending on prereq!
+	var _prerequisites : Array = self.prerequisites
+	for mission in State.missions:
+		if mission.id in _prerequisites and not mission.completed:
+			return true
+	return false
+
 # These are all constants derived from data.JSON and should be treated as such!
 var name : String setget , get_name
 func get_name():
