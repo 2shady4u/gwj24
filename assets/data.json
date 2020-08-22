@@ -15,7 +15,7 @@
             }
         },
         "sonic": {
-            "name": "SAN1C",
+            "name": "S0NIC",
             "backstory": "His dog got killed by DIO and now he is fricking pissed!",
             "portrait_texture": "res://assets/graphics/portraits/fast.png",
             "icon_texture": "res://assets/graphics/characters/Children/Z00N.png",
@@ -109,15 +109,15 @@
             "name": "Yunkyard Bros",
             "description": "The intro mission that is easy and quaint",
             "thumbnail_texture": "res://assets/graphics/",
-            "packed_scene": ""
+            "packed_scene": "res://src/game/mission/TestMission.tscn"
         },
         {
             "id": "first_real_mission",
             "name": "INLAW in ACTION",
             "description": "The first real mission that poses an actual threat to the player",
-            "packed_scene": "",
             "thumbnail_texture": "",
-            "prerequisites": ["intro"] 
+            "packed_scene": "res://src/game/mission/TestMission.tscn",
+            "prerequisites": ["intro"]
         }
     ],
     "upgrades": {

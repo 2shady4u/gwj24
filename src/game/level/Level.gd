@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Level
 
 onready var entities: YSort = $Entities
 onready var camera: Camera2D = $Camera
@@ -21,6 +21,10 @@ const directions = {
 	"RIGHT": Vector2(16, 0),
 	"LEFT": Vector2(-16, 0),
 }
+
+signal complete
+signal failed
+signal chip_pickup
 
 func characters():
 	return get_tree().get_nodes_in_group("characters")
@@ -137,6 +141,7 @@ func move_action(character: Character, direction: Vector2):
 
 func pickup_chip(chip: Chip):
 	chip_label.set_chip(chip)
+	emit_signal("chip_pickup", chip.identifier)
 	chip_label.rect_position = chip.position - Vector2(20, 16)
 	chip.queue_free()
 	chip_label.show()
@@ -209,6 +214,16 @@ func _process(_delta):
 			current_character.sprite.flip_h = false
 			yield(move_action(current_character, directions.RIGHT), "completed")
 			validate_turn()
+		if Input.is_action_just_pressed("interact"):
+			level_complete()
+		if Input.is_action_just_pressed("toggle_inventory"):
+			level_failed()
+			
+func level_complete():
+	emit_signal("complete")
+	
+func level_failed():
+	emit_signal("failed")
 			
 func ai_decision():
 	# can't wait for this hacked together mess

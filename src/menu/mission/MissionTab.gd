@@ -45,6 +45,8 @@ func _ready():
 	var _error : int = _start_button.connect("pressed", self, "_on_start_button_pressed")
 
 func _on_start_button_pressed():
+	print("Setting value ", self.mission.packed_scene)
+	LevelFlow.current_mission_packed_scene_path = self.mission.packed_scene
 	Flow.change_scene_to("game")
 
 func encrypt_with_ceaser_cipher(input : String) -> String:

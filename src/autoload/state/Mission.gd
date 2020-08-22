@@ -52,3 +52,7 @@ const DEFAULT_THUMBNAIL_TEXTURE := "res://assets/graphics/thumbnails/thumbnail_i
 var prerequisites : Array setget , get_prerequisites
 func get_prerequisites():
 	return Flow.get_mission_value(id, "prerequisites", [])
+
+var packed_scene : String setget , get_packed_scene
+func get_packed_scene():
+	return Flow.get_mission_value(id, "packed_scene",  "res://src/game/mission/TestMission.tscn")

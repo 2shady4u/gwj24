@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/json_beautifier/json_beautifier.gd"
 }, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://src/game/level/Level.gd"
+}, {
+"base": "Node2D",
+"class": "Mission",
+"language": "GDScript",
+"path": "res://src/game/mission/Mission.gd"
+}, {
 "base": "MarginContainer",
 "class": "class_menu_tab",
 "language": "GDScript",
@@ -78,6 +88,8 @@ _global_script_class_icons={
 "Character": "",
 "Chip": "",
 "JSONBeautifier": "",
+"Level": "",
+"Mission": "",
 "class_menu_tab": "",
 "class_mission": "",
 "class_mission_tab": "",

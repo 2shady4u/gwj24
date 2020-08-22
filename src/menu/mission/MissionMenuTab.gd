@@ -50,5 +50,3 @@ func _on_back_button_pressed():
 func _on_orphan_button_pressed():
 	emit_signal("button_pressed", TABS.ORPHAN)
 
-func _on_start_button_pressed():
-	Flow.change_scene_to("game")

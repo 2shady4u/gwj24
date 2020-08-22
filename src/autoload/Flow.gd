@@ -133,6 +133,12 @@ func get_mission_value(id : String, key : String, default):
 
 	return default
 
+func does_mission_exist(id: String):
+	for data in missions_data:
+		if data.get("id", "MISSING ID") == id:
+			return true
+	return false
+
 static func load_JSON(path : String) -> Dictionary:
 # Load a JSON-file, convert it to a dictionary and return it.
 	var file : File = File.new()

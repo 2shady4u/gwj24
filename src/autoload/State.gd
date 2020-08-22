@@ -37,7 +37,7 @@ func save_state_to_context() -> Dictionary:
 
 	return context
 
-## UPGRADES ####################################################################
+## ORPHANS ####################################################################
 var orphans := []
 
 func add_new_orphan(orphan_id : String) -> void:

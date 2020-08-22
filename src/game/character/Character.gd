@@ -5,13 +5,21 @@ onready var sprite: AnimatedSprite = $Sprite
 onready var tween: Tween = $Tween
 onready var healthbar = $HealthBar
 
-export(String, "PLAYER", "ENEMY") var team = "PLAYER"
+export(String, "PLAYER", "ENEMY", "OBSTACLE") var team = "PLAYER"
 export(String) var type
 
 var stats = {
 }
 
-var current_health = 0
+var _current_health := 0
+var current_health : int setget set_current_health, get_current_health
+func set_current_health(value: int):
+	print("Setting current health!")
+	_current_health = value
+	healthbar.update_health(_current_health)
+func get_current_health() -> int:
+	return _current_health
+
 var action_counter = 0
 var moves_counter = 0
 var healing_charges_left = 0
@@ -43,9 +51,8 @@ func get_stats():
 func update_stats(new_stats):
 	# TODO we're getting this out of state soon
 	stats = new_stats
-	current_health = stats.health
 	healthbar.set_health(stats.health)
-	healthbar.update_health(current_health)
+	self.current_health = stats.health
 	healing_charges_left = stats.healing_charges
 
 func shake(shake_size: Vector2):
@@ -56,20 +63,18 @@ func shake(shake_size: Vector2):
 	tween.interpolate_property(self, "position", null, original_position, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN)
 
 func heal_up(points: int, direction: Vector2):
-	current_health = min(current_health + points, stats.health)
+	self.current_health = min(self.current_health + points, stats.health)
 	print("Healed up!")
 	shake(direction / 4)
-	healthbar.update_health(current_health)
 
 func take_damage(points: int, direction: Vector2):
-	current_health = max(current_health - points, 0)
-	if current_health == 0:
+	self.current_health = max(self.current_health - points, 0)
+	if self.current_health == 0:
 		print("I died!")
 		self.queue_free()
 		emit_signal("death", self)
 	else:
 		shake(direction / 2)
-	healthbar.update_health(current_health)
 
 func perform_action():
 	action_counter += 1
