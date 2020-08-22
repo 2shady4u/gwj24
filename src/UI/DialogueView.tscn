@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/graphics/ui/dialogue.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/portraits/biggie.png" type="Texture" id=3]
+[ext_resource path="res://src/UI/DialogueView.gd" type="Script" id=5]
+
+[node name="DialogueView" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Underlayer" type="TextureRect" parent="VBoxContainer"]
+margin_top = 376.0
+margin_right = 1024.0
+margin_bottom = 576.0
+texture = ExtResource( 2 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="VBoxContainer/Underlayer"]
+anchor_top = 0.00353546
+anchor_bottom = 0.00353546
+margin_left = 443.025
+margin_top = 56.3186
+margin_right = 981.025
+margin_bottom = 172.319
+rect_pivot_offset = Vector2( -557.674, -280.686 )
+text = "Let's fuck these guys up!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PressEnter" type="Label" parent="VBoxContainer/Underlayer"]
+anchor_top = 0.00353546
+anchor_bottom = 0.00353546
+margin_left = 486.0
+margin_top = 167.237
+margin_right = 1008.0
+margin_bottom = 190.237
+rect_pivot_offset = Vector2( -557.674, -280.686 )
+text = "Press Enter to continue"
+align = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speaker" type="Label" parent="VBoxContainer/Underlayer"]
+margin_left = 440.947
+margin_top = 16.9207
+margin_right = 702.947
+margin_bottom = 59.9207
+text = "F1ST0N"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Portrait" type="TextureRect" parent="VBoxContainer/Underlayer"]
+margin_left = -219.0
+margin_top = -519.0
+margin_right = 490.0
+margin_bottom = 427.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
