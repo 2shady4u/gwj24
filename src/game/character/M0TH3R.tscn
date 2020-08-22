@@ -1,29 +1,29 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/game/character/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/graphics/characters/Children/TV_Head.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/characters/Children/M0TH3R.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 32 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "idle",
 "speed": 2.0
 } ]
 
-[node name="S0HN" instance=ExtResource( 1 )]
-type = "sohn"
+[node name="M0TH3R" instance=ExtResource( 1 )]
+type = "mother"
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -9 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "idle"
 playing = true
