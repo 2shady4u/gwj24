@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/menu/settings/SettingsMenuTab.gd" type="Script" id=1]
-[ext_resource path="res://src/UI/base/VolumeHBox.gd" type="Script" id=2]
-[ext_resource path="res://src/UI/base/VolumeHBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/menu/settings/SettingsMenuTab.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/base/VolumeHBox.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/paragraph_small.tres" type="DynamicFont" id=4]
 
-
-[node name="SettingsTab" type="MarginContainer"]
-visible = false
+[node name="SettingsMenuTab" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
 custom_constants/margin_bottom = 32
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 tab_type = 1
 
 [node name="BackContainer" type="VBoxContainer" parent="."]
@@ -94,29 +98,74 @@ margin_right = 960.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 
-[node name="MasterVolumeHBox" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer" instance=ExtResource( 3 )]
+[node name="MasterVolumeHBox" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
 margin_top = 30.0
 margin_right = 960.0
 margin_bottom = 46.0
+theme = ExtResource( 1 )
 alignment = 1
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
+margin_right = 412.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
 text = "Master"
+align = 2
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
+margin_left = 416.0
+margin_right = 544.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 0 )
 value = 100.0
 
-[node name="MusicVolumeHBox" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer" instance=ExtResource( 3 )]
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
+margin_left = 548.0
+margin_top = 2.0
+margin_right = 960.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "100%"
+
+[node name="MusicVolumeHBox" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
 margin_top = 62.0
 margin_right = 960.0
 margin_bottom = 78.0
+theme = ExtResource( 1 )
 alignment = 1
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-text = "Master"
+text = "Music"
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
+margin_right = 412.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+text = "Music"
+align = 2
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
+margin_left = 416.0
+margin_right = 544.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 0 )
 value = 100.0
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
+margin_left = 548.0
+margin_top = 2.0
+margin_right = 960.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "100%"
 
 [node name="MuteMusicCheckBox" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
 margin_left = 428.0
@@ -127,17 +176,40 @@ size_flags_horizontal = 4
 text = "Mute Music"
 align = 1
 
-[node name="SFXVolumeHBox" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer" instance=ExtResource( 3 )]
+[node name="SFXVolumeHBox" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
 margin_top = 134.0
 margin_right = 960.0
 margin_bottom = 150.0
+theme = ExtResource( 1 )
 alignment = 1
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-text = "Master"
+text = "SFX"
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox"]
+margin_right = 412.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+text = "SFX"
+align = 2
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox"]
+margin_left = 416.0
+margin_right = 544.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 128, 0 )
 value = 100.0
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox"]
+margin_left = 548.0
+margin_top = 2.0
+margin_right = 960.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "100%"
 
 [node name="MuteSFXCheckBox" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
 margin_left = 436.0

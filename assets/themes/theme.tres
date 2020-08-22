@@ -16,9 +16,6 @@
 [ext_resource path="res://assets/graphics/ui/elements/radiobox_ticked.png" type="Texture" id=14]
 [ext_resource path="res://assets/graphics/ui/elements/tickbox_ticked.png" type="Texture" id=15]
 
-
-
-
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 24, 24 )
@@ -68,16 +65,12 @@ texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 24, 16 )
 margin_left = 8.0
 margin_right = 8.0
-margin_top = 6.0
-margin_bottom = 6.0
 
 [sub_resource type="StyleBoxTexture" id=12]
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 24, 16 )
 margin_left = 8.0
 margin_right = 8.0
-margin_top = 6.0
-margin_bottom = 6.0
 
 [resource]
 default_font = ExtResource( 6 )

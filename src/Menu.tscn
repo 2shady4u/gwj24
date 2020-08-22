@@ -3,7 +3,7 @@
 [ext_resource path="res://src/Menu.gd" type="Script" id=1]
 [ext_resource path="res://src/menu/main/MainMenuTab.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/menu/MenuTabContainer.gd" type="Script" id=3]
-[ext_resource path="res://src/menu/settings/SettingsTab.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/menu/settings/SettingsMenuTab.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/menu/mission/MissionMenuTab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/menu/orphan/OrphanMenuTab.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/themes/theme.tres" type="Theme" id=7]
@@ -33,9 +33,9 @@ __meta__ = {
 }
 
 [node name="MainMenuTab" parent="TabContainer" instance=ExtResource( 2 )]
-visible = true
 
 [node name="SettingsMenuTab" parent="TabContainer" instance=ExtResource( 4 )]
+visible = false
 
 [node name="MissionMenuTab" parent="TabContainer" instance=ExtResource( 5 )]
 visible = false
