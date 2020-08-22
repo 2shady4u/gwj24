@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ui_blocked.ogg-c5f8a90f91e868ce689b5a0e3e67e108.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/ui/ui_blocked.ogg"
+dest_files=[ "res://.import/ui_blocked.ogg-c5f8a90f91e868ce689b5a0e3e67e108.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
