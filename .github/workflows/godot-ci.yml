@@ -3,7 +3,7 @@ on: push
 
 env:
   GODOT_VERSION: 3.2.2
-  EXPORT_NAME: gwj24
+  EXPORT_NAME: M0TH3R
 
 jobs:
   export-windows:
@@ -38,7 +38,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: windows
-          ITCH_GAME: gwj24
+          ITCH_GAME: m0th3r
           ITCH_USER: 2shady4u
           PACKAGE: build/windows
 
@@ -74,7 +74,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: linux
-          ITCH_GAME: gwj24
+          ITCH_GAME: m0th3r
           ITCH_USER: 2shady4u
           PACKAGE: build/linux
 
@@ -110,6 +110,6 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: web
-          ITCH_GAME: gwj24
+          ITCH_GAME: m0th3r
           ITCH_USER: 2shady4u
           PACKAGE: build/web
