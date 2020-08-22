@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ui_menu_frame.png-4916066efbcd688fc3d86f275267fe8b.stex"
+path="res://.import/radiobox_ticked.png-cbc45e9332e5b0fbf136a9d3ab503c22.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ui/ui_menu_frame.png"
-dest_files=[ "res://.import/ui_menu_frame.png-4916066efbcd688fc3d86f275267fe8b.stex" ]
+source_file="res://assets/graphics/ui/elements/radiobox_ticked.png"
+dest_files=[ "res://.import/radiobox_ticked.png-cbc45e9332e5b0fbf136a9d3ab503c22.stex" ]
 
 [params]
 

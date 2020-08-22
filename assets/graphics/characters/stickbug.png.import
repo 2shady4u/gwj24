@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stickbug.png-7dc9d4ffef252a6a595471ad616cc865.stex"
+path="res://.import/stickbug.png-f13b5216a670558ede21f1be10070c47.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stickbug.png"
-dest_files=[ "res://.import/stickbug.png-7dc9d4ffef252a6a595471ad616cc865.stex" ]
+source_file="res://assets/graphics/characters/stickbug.png"
+dest_files=[ "res://.import/stickbug.png-f13b5216a670558ede21f1be10070c47.stex" ]
 
 [params]
 

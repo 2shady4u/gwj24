@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/radiobox_unticked.png-b4eda9264326c53cd938e996a73635d5.stex"
+path="res://.import/button_frame_pressed.png-24699c2402036ea2c58e1a5a48180362.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ui/radiobox_unticked.png"
-dest_files=[ "res://.import/radiobox_unticked.png-b4eda9264326c53cd938e996a73635d5.stex" ]
+source_file="res://assets/graphics/ui/elements/button_frame_pressed.png"
+dest_files=[ "res://.import/button_frame_pressed.png-24699c2402036ea2c58e1a5a48180362.stex" ]
 
 [params]
 

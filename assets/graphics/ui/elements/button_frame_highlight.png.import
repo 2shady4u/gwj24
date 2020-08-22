@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slider_back_normal.png-687e2b18e9b3520efc2d1877c33bcf74.stex"
+path="res://.import/button_frame_highlight.png-b6805d16015d2cb653feb7099457b03a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ui/slider_back_normal.png"
-dest_files=[ "res://.import/slider_back_normal.png-687e2b18e9b3520efc2d1877c33bcf74.stex" ]
+source_file="res://assets/graphics/ui/elements/button_frame_highlight.png"
+dest_files=[ "res://.import/button_frame_highlight.png-b6805d16015d2cb653feb7099457b03a.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tickbox_unticked.png-d6a80c6995954a0f97bb6e75b36f46df.stex"
+path="res://.import/tickbox_unticked.png-ca7167b9812db37feccf08d11de225ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ui/tickbox_unticked.png"
-dest_files=[ "res://.import/tickbox_unticked.png-d6a80c6995954a0f97bb6e75b36f46df.stex" ]
+source_file="res://assets/graphics/ui/elements/tickbox_unticked.png"
+dest_files=[ "res://.import/tickbox_unticked.png-ca7167b9812db37feccf08d11de225ce.stex" ]
 
 [params]
 
