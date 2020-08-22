@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/upgrid.ogg-2022cdfff67a0b911750f7db412411dc.oggstr"
+
+[deps]
+
+source_file="res://assets/music/upgrid.ogg"
+dest_files=[ "res://.import/upgrid.ogg-2022cdfff67a0b911750f7db412411dc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=3.6
