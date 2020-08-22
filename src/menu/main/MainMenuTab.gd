@@ -11,8 +11,6 @@ onready var _save_button := $VBoxContainer/StateHBox/SaveButton
 onready var _load_button := $VBoxContainer/StateHBox/LoadButton
 
 func _ready():
-	_status_label.text = ""
-
 	var _error : int = _mission_button.connect("pressed", self, "_on_mission_button_pressed")
 	_error = _settings_button.connect("pressed", self, "_on_settings_button_pressed")
 
@@ -27,6 +25,7 @@ func _ready():
 	_error =_load_button.connect("pressed", self, "_on_load_button_pressed")
 
 func update_tab():
+	_status_label.text = ""
 	_mission_button.grab_focus()
 
 func _on_settings_button_pressed():

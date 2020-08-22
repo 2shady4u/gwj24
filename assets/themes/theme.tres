@@ -1,6 +1,10 @@
-[gd_resource type="Theme" load_steps=15 format=2]
+[gd_resource type="Theme" load_steps=28 format=2]
 
 [ext_resource path="res://assets/fonts/button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/graphics/ui/elements/button_frame_normal.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/ui/elements/button_frame_disabled.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/ui/elements/button_frame_highlight.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/ui/elements/button_frame_pressed.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/paragraph.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/graphics/ui/elements/slider_back_highlight.png" type="Texture" id=7]
 [ext_resource path="res://assets/graphics/ui/elements/slider_back_normal.png" type="Texture" id=8]
@@ -13,6 +17,7 @@
 [ext_resource path="res://assets/graphics/ui/elements/tickbox_ticked.png" type="Texture" id=15]
 
 [sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 24, 24 )
 margin_left = 8.0
 margin_right = 8.0
@@ -20,6 +25,7 @@ margin_top = 8.0
 margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 24, 24 )
 margin_left = 8.0
 margin_right = 8.0
@@ -27,6 +33,7 @@ margin_top = 8.0
 margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 24, 24 )
 margin_left = 8.0
 margin_right = 8.0
@@ -34,6 +41,7 @@ margin_top = 8.0
 margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 24, 24 )
 margin_left = 8.0
 margin_right = 8.0
@@ -53,11 +61,13 @@ margin_bottom = 8.0
 [sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 24, 16 )
 margin_left = 8.0
 margin_right = 8.0
 
 [sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 24, 16 )
 margin_left = 8.0
 margin_right = 8.0
@@ -83,19 +93,19 @@ CheckBox/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 CheckBox/constants/check_vadjust = 0
 CheckBox/constants/hseparation = 4
 CheckBox/fonts/font = null
-CheckBox/icons/checked = null
-CheckBox/icons/radio_checked = null
-CheckBox/icons/radio_unchecked = null
-CheckBox/icons/unchecked = null
+CheckBox/icons/checked = ExtResource( 15 )
+CheckBox/icons/radio_checked = ExtResource( 13 )
+CheckBox/icons/radio_unchecked = ExtResource( 14 )
+CheckBox/icons/unchecked = ExtResource( 12 )
 CheckBox/styles/disabled = SubResource( 5 )
 CheckBox/styles/focus = SubResource( 6 )
 CheckBox/styles/hover = SubResource( 7 )
 CheckBox/styles/hover_pressed = SubResource( 8 )
 CheckBox/styles/normal = SubResource( 9 )
 CheckBox/styles/pressed = SubResource( 10 )
-HSlider/icons/grabber = null
-HSlider/icons/grabber_disabled = null
-HSlider/icons/grabber_highlight = null
+HSlider/icons/grabber = ExtResource( 9 )
+HSlider/icons/grabber_disabled = ExtResource( 10 )
+HSlider/icons/grabber_highlight = ExtResource( 11 )
 HSlider/icons/tick = null
 HSlider/styles/grabber_area = SubResource( 11 )
 HSlider/styles/grabber_area_highlight = SubResource( 12 )
