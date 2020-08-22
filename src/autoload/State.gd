@@ -30,10 +30,18 @@ func load_state_from_context(context : Dictionary):
 func save_state_to_context() -> Dictionary:
 	var context := {}
 
-	for key in ["orphans", "upgrades", "missions"]:
+	var context_dict := {
+		"orphans": orphans,
+		"upgrades": upgrades,
+		"missions": missions
+	}
+
+	for key in context_dict.keys():
 		context[key] = []
-		for context_owner in [orphans, upgrades, missions]:
-			context[key].append(context_owner.context)
+		for context_owner in context_dict[key]:
+			var subcontext : Dictionary = context_owner.context
+			if not subcontext.empty():
+				context[key].append(subcontext)
 
 	return context
 

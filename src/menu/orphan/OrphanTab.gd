@@ -47,6 +47,9 @@ var _active_upgrade := WeakRef.new()
 
 signal upgrade_placed()
 
+func _ready():
+	set_process_input(false)
+
 func update_tab():
 	clear_tab()
  

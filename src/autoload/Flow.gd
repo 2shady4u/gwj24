@@ -139,6 +139,16 @@ func does_mission_exist(id: String):
 			return true
 	return false
 
+func new_game() -> void:
+	_state_loader.load_stateJSON()
+
+func save_game() -> void:
+	print("Saving game context to '{0}'".format([Flow.USER_SAVE_PATH]))
+	_state_loader.save_stateJSON()
+
+func load_game():
+	_state_loader.load_stateJSON(Flow.USER_SAVE_PATH)
+
 static func load_JSON(path : String) -> Dictionary:
 # Load a JSON-file, convert it to a dictionary and return it.
 	var file : File = File.new()

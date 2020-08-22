@@ -67,7 +67,7 @@ __meta__ = {
 margin_left = 416.0
 margin_top = 76.0
 margin_right = 544.0
-margin_bottom = 468.0
+margin_bottom = 430.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 custom_constants/separation = 16
@@ -77,9 +77,9 @@ __meta__ = {
 }
 
 [node name="MissionButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 150.0
+margin_top = 131.0
 margin_right = 128.0
-margin_bottom = 170.0
+margin_bottom = 151.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../QuitButton")
 focus_neighbour_bottom = NodePath("../SettingsButton")
@@ -89,9 +89,9 @@ size_flags_horizontal = 4
 text = "Select Mission"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 186.0
+margin_top = 167.0
 margin_right = 128.0
-margin_bottom = 206.0
+margin_bottom = 187.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../MissionButton")
 focus_neighbour_bottom = NodePath("../QuitButton")
@@ -101,9 +101,9 @@ size_flags_horizontal = 4
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 222.0
+margin_top = 203.0
 margin_right = 128.0
-margin_bottom = 242.0
+margin_bottom = 223.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../SettingsButton")
 focus_neighbour_bottom = NodePath("../MissionButton")
@@ -111,6 +111,14 @@ focus_next = NodePath("../MissionButton")
 focus_previous = NodePath("../SettingsButton")
 size_flags_horizontal = 4
 text = "Quit"
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+margin_top = 454.0
+margin_right = 960.0
+margin_bottom = 468.0
+text = "Loaded..."
+align = 1
+valign = 1
 
 [node name="StateHBox" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 492.0
