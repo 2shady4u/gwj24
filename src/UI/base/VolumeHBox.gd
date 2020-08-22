@@ -12,7 +12,7 @@ export(float) var value := 100.0 setget set_value, get_value
 func set_value(val : float) -> void:
 	if is_inside_tree():
 		$VolumeSlider.value = val
-		$VolumeLabel.text = "(%3d %%)" % val
+		$VolumeLabel.text = "%3d%%" % val
 func get_value() -> float:
 	return $VolumeSlider.value
 
