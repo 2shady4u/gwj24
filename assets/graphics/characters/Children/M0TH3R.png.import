@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy_bikebot.png-1cff214cf4ed3c2ec2a4d6e90768d3ab.stex"
+path="res://.import/M0TH3R.png-a25d3f0384e06aa80126294c622013b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/characters/Enemies/enemy_bikebot.png"
-dest_files=[ "res://.import/enemy_bikebot.png-1cff214cf4ed3c2ec2a4d6e90768d3ab.stex" ]
+source_file="res://assets/graphics/characters/Children/M0TH3R.png"
+dest_files=[ "res://.import/M0TH3R.png-a25d3f0384e06aa80126294c622013b4.stex" ]
 
 [params]
 

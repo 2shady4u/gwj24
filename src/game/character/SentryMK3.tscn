@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/game/character/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/graphics/characters/Children/Dash.png" type="Texture" id=2]
+[ext_resource path="res://src/game/character/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/graphics/characters/Enemies/Enemy_Sentry_MK3.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -16,14 +16,12 @@ animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "idle",
-"speed": 4.0
+"speed": 2.0
 } ]
 
-[node name="S0N1C" instance=ExtResource( 1 )]
-type = "sonic"
+[node name="SentryMK3" instance=ExtResource( 1 )]
+type = "sentry_mk3"
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -9 )
 frames = SubResource( 3 )
-animation = "idle"
-playing = true

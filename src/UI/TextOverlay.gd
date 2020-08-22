@@ -11,22 +11,21 @@ var type := "start"
 
 func _ready():
 	LevelFlow.text_overlay_UI = self
+
+func set_text(text: String):
+	show()
+	container.show()
+	title.text = text.to_upper()
+	color_rect.color = Color(0, 0, 0, 0.8)
+	set_process(true)
 	
 func start(text: String):
 	type = "start"
-	show()
-	container.show()
-	title.text = text
-	color_rect.color = Color(0, 0, 0, 0.8)
-	set_process(true)
+	set_text(text)
 
 func end(text: String):
 	type = "end"
-	show()
-	container.show()
-	title.text = text
-	color_rect.color = Color(0, 0, 0, 0.8)
-	set_process(true)
+	set_text(text)
 
 func fade_to_clear():
 	container.hide()
