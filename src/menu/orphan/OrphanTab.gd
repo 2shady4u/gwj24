@@ -1,11 +1,18 @@
 extends HBoxContainer
 class_name class_orphan_tab
 
-onready var _grid_container := $GridVBox/GridContainer
+onready var _grid_container := $GridVBox/PanelContainer/GridContainer
 
 onready var _name_label := $VBoxContainer/BioHBox/VBoxContainer/HBoxContainer/NameLabel
 onready var _back_story_label := $VBoxContainer/BioHBox/VBoxContainer/BackStoryLabel
 onready var _portrait_rect := $VBoxContainer/BioHBox/Control/PortraitRect
+
+onready var _health_label := $VBoxContainer/StatsHBox/GridContainer/HealthLabel
+onready var _damage_label := $VBoxContainer/StatsHBox/GridContainer/DamageLabel
+onready var _healing_label := $VBoxContainer/StatsHBox/GridContainer/HealingLabel
+onready var _movement_label := $VBoxContainer/StatsHBox/GridContainer/MovementLabel
+onready var _actions_label := $VBoxContainer/StatsHBox/GridContainer/ActionsLabel
+onready var _healing_charges_label := $VBoxContainer/StatsHBox/GridContainer/HealingChargesLabel
 
 var _upgrade_slot_resource := preload("res://src/menu/orphan/UpgradeSlot.tscn")
 
@@ -17,6 +24,7 @@ func set_orphan(value : class_orphan) -> void:
 	_back_story_label.text = value.backstory
 	_portrait_rect.texture = load(value.portrait_texture)
 
+	update_stats()
 	update_tab()
 func get_orphan():
 	return _orphan.get_ref()
@@ -50,6 +58,38 @@ signal upgrade_placed()
 func _ready():
 	set_process_input(false)
 
+func update_stats():
+	var base_stats := self.orphan.base_stats
+	var stats := self.orphan.get_stats()
+
+	for key in base_stats.keys():
+		var base_stat = base_stats[key]
+		var stat = stats.get(key, base_stats[key])
+		match key:
+			"health":
+				update_stat_label(_health_label, base_stat, stat)
+			"damage":
+				update_stat_label(_damage_label, base_stat, stat)
+			"healing":
+				update_stat_label(_healing_label, base_stat, stat)
+			"movement":
+				update_stat_label(_movement_label, base_stat, stat)
+			"actions":
+				update_stat_label(_actions_label, base_stat, stat)
+			"healing_charges":
+				update_stat_label(_healing_charges_label, base_stat, stat)
+
+func update_stat_label(label : Label, base_stat : float, stat : float):
+	label.text = str(base_stat)
+	var stat_diff = base_stat - stat
+	if stat_diff == 0.0:
+		return
+	elif stat_diff > 0:
+		label.text += " + "
+	else:
+		label.text += " - "
+	label.text += str(abs(stat_diff))
+
 func update_tab():
 	clear_tab()
  
@@ -61,6 +101,11 @@ func update_tab():
 			_grid_container.add_child(slot)
 
 			slot.grid_position = Vector2(row_index, column_index)
+			match columns:
+				3:
+					slot.rect_min_size = 64*Vector2.ONE
+				4:
+					slot.rect_min_size = 32*Vector2.ONE
 
 	# Place the orphan's upgrades in its grid!
 	for upgrade in self.orphan.upgrades:

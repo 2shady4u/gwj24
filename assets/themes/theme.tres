@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=28 format=2]
+[gd_resource type="Theme" load_steps=31 format=2]
 
 [ext_resource path="res://assets/fonts/button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/graphics/ui/elements/button_frame_normal.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/graphics/ui/elements/radiobox_unticked.png" type="Texture" id=13]
 [ext_resource path="res://assets/graphics/ui/elements/radiobox_ticked.png" type="Texture" id=14]
 [ext_resource path="res://assets/graphics/ui/elements/tickbox_ticked.png" type="Texture" id=15]
+[ext_resource path="res://assets/graphics/ui/elements/ui_menu_frame.png" type="Texture" id=16]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
@@ -72,6 +73,22 @@ region_rect = Rect2( 0, 0, 24, 16 )
 margin_left = 8.0
 margin_right = 8.0
 
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 6.0
+margin_right = 6.0
+margin_top = 6.0
+margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 6.0
+margin_right = 6.0
+margin_top = 6.0
+margin_bottom = 6.0
+
 [resource]
 default_font = ExtResource( 6 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
@@ -119,3 +136,23 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 6 )
 Label/styles/normal = null
+PanelContainer/styles/panel = SubResource( 13 )
+TabContainer/colors/font_color_bg = Color( 0.69, 0.69, 0.69, 1 )
+TabContainer/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+TabContainer/colors/font_color_fg = Color( 0.94, 0.94, 0.94, 1 )
+TabContainer/constants/hseparation = 4
+TabContainer/constants/label_valign_bg = 2
+TabContainer/constants/label_valign_fg = 0
+TabContainer/constants/side_margin = 8
+TabContainer/constants/top_margin = 24
+TabContainer/fonts/font = null
+TabContainer/icons/decrement = null
+TabContainer/icons/decrement_highlight = null
+TabContainer/icons/increment = null
+TabContainer/icons/increment_highlight = null
+TabContainer/icons/menu = null
+TabContainer/icons/menu_highlight = null
+TabContainer/styles/panel = SubResource( 14 )
+TabContainer/styles/tab_bg = null
+TabContainer/styles/tab_disabled = null
+TabContainer/styles/tab_fg = null

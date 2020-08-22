@@ -1,12 +1,25 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/menu/orphan/OrphanTab.gd" type="Script" id=1]
-[ext_resource path="res://assets/graphics/upgrades/Chip_Heal.png" type="Texture" id=2]
-[ext_resource path="res://assets/graphics/upgrades/Chip_Attack.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/upgrades/Icon_Heal.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/upgrades/Icon_HP.png" type="Texture" id=3]
 [ext_resource path="res://assets/graphics/portraits/biggie.png" type="Texture" id=4]
-[ext_resource path="res://assets/graphics/upgrades/Chip_Movement.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/upgrades/Icon_Movement.png" type="Texture" id=5]
 [ext_resource path="res://src/menu/orphan/UpgradeSlot.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/graphics/upgrades/Chip_HP.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/upgrades/Icon_Attack.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/ui/Upgrid_Tileset.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/upgrades/Icon_Energy.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/upgrades/Icon_Heal_Charge_1.png" type="Texture" id=10]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 160, 160 )
+margin_left = 64.0
+margin_right = 64.0
+margin_top = 64.0
+margin_bottom = 64.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="OrphanTab" type="HBoxContainer"]
 anchor_right = 1.0
@@ -93,53 +106,98 @@ margin_bottom = 576.0
 size_flags_vertical = 3
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/StatsHBox"]
-margin_left = 86.0
-margin_top = 73.0
-margin_right = 166.0
-margin_bottom = 213.0
+margin_left = 167.0
+margin_top = 91.0
+margin_right = 343.0
+margin_bottom = 195.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 custom_constants/hseparation = 16
-columns = 2
+columns = 4
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+[node name="DamageRect" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
 margin_right = 32.0
 margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 7 )
+stretch_mode = 6
 
-[node name="Label" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+[node name="DamageLabel" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
 margin_left = 48.0
 margin_top = 9.0
 margin_right = 80.0
+margin_bottom = 23.0
+text = "1 + 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthRect" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 96.0
+margin_right = 128.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 3 )
+stretch_mode = 6
+
+[node name="HealthLabel" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 144.0
+margin_top = 9.0
+margin_right = 176.0
 margin_bottom = 23.0
 text = "5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+[node name="MovementRect" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
 margin_top = 36.0
 margin_right = 32.0
 margin_bottom = 68.0
-texture = ExtResource( 3 )
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
 
-[node name="Label2" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+[node name="MovementLabel" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
 margin_left = 48.0
 margin_top = 45.0
 margin_right = 80.0
 margin_bottom = 59.0
-text = "1 + 2"
+text = "5 + 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+[node name="HealingRect" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 96.0
+margin_top = 36.0
+margin_right = 128.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="HealingLabel" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 144.0
+margin_top = 45.0
+margin_right = 176.0
+margin_bottom = 59.0
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionsRect" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
 margin_top = 72.0
 margin_right = 32.0
 margin_bottom = 104.0
-texture = ExtResource( 5 )
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
 
-[node name="Label3" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+[node name="ActionsLabel" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
 margin_left = 48.0
 margin_top = 81.0
 margin_right = 80.0
@@ -149,29 +207,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
-margin_top = 108.0
-margin_right = 32.0
-margin_bottom = 140.0
-texture = ExtResource( 2 )
+[node name="HealingChargesRect" type="TextureRect" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 96.0
+margin_top = 72.0
+margin_right = 128.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
 
-[node name="Label4" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
-margin_left = 48.0
-margin_top = 117.0
-margin_right = 80.0
-margin_bottom = 131.0
-text = "2"
+[node name="HealingChargesLabel" type="Label" parent="VBoxContainer/StatsHBox/GridContainer"]
+margin_left = 144.0
+margin_top = 81.0
+margin_right = 176.0
+margin_bottom = 95.0
+text = "5 + 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/StatsHBox"]
+visible = false
 margin_left = 257.0
 margin_right = 510.0
 margin_bottom = 286.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/StatsHBox/ScrollContainer"]
+visible = false
 margin_right = 253.0
 margin_bottom = 286.0
 size_flags_horizontal = 3
@@ -214,6 +278,7 @@ text = "Thorny bush to spy and extract information"
 autowrap = true
 
 [node name="GridVBox" type="VBoxContainer" parent="."]
+show_behind_parent = true
 margin_left = 514.0
 margin_right = 1024.0
 margin_bottom = 576.0
@@ -226,24 +291,36 @@ text = "Upgrade Grid"
 align = 1
 valign = 1
 
-[node name="GridContainer" type="GridContainer" parent="GridVBox"]
-margin_left = 121.0
-margin_top = 163.0
-margin_right = 389.0
-margin_bottom = 431.0
+[node name="PanelContainer" type="PanelContainer" parent="GridVBox"]
+margin_left = 57.0
+margin_top = 99.0
+margin_right = 453.0
+margin_bottom = 495.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="GridVBox/PanelContainer"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 332.0
+margin_bottom = 332.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 columns = 4
 
-[node name="UpgradeSlot" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 64.0
 margin_bottom = 64.0
 
-[node name="UpgradeSlot2" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot2" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 68.0
@@ -251,7 +328,7 @@ margin_right = 132.0
 margin_bottom = 64.0
 grid_position = Vector2( 0, 1 )
 
-[node name="UpgradeSlot3" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot3" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 136.0
@@ -259,7 +336,7 @@ margin_right = 200.0
 margin_bottom = 64.0
 grid_position = Vector2( 0, 2 )
 
-[node name="UpgradeSlot4" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot4" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 204.0
@@ -267,7 +344,7 @@ margin_right = 268.0
 margin_bottom = 64.0
 grid_position = Vector2( 0, 3 )
 
-[node name="UpgradeSlot5" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot5" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 68.0
@@ -275,7 +352,7 @@ margin_right = 64.0
 margin_bottom = 132.0
 grid_position = Vector2( 1, 0 )
 
-[node name="UpgradeSlot6" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot6" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 68.0
@@ -284,7 +361,7 @@ margin_right = 132.0
 margin_bottom = 132.0
 grid_position = Vector2( 1, 1 )
 
-[node name="UpgradeSlot7" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot7" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 136.0
@@ -293,7 +370,7 @@ margin_right = 200.0
 margin_bottom = 132.0
 grid_position = Vector2( 1, 2 )
 
-[node name="UpgradeSlot8" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot8" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 204.0
@@ -302,7 +379,7 @@ margin_right = 268.0
 margin_bottom = 132.0
 grid_position = Vector2( 1, 3 )
 
-[node name="UpgradeSlot9" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot9" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 136.0
@@ -310,7 +387,7 @@ margin_right = 64.0
 margin_bottom = 200.0
 grid_position = Vector2( 2, 0 )
 
-[node name="UpgradeSlot10" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot10" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 68.0
@@ -319,7 +396,7 @@ margin_right = 132.0
 margin_bottom = 200.0
 grid_position = Vector2( 2, 1 )
 
-[node name="UpgradeSlot11" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot11" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 136.0
@@ -328,7 +405,7 @@ margin_right = 200.0
 margin_bottom = 200.0
 grid_position = Vector2( 2, 2 )
 
-[node name="UpgradeSlot12" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot12" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 204.0
@@ -337,7 +414,7 @@ margin_right = 268.0
 margin_bottom = 200.0
 grid_position = Vector2( 2, 3 )
 
-[node name="UpgradeSlot13" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot13" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 204.0
@@ -345,7 +422,7 @@ margin_right = 64.0
 margin_bottom = 268.0
 grid_position = Vector2( 3, 0 )
 
-[node name="UpgradeSlot14" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot14" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 68.0
@@ -354,7 +431,7 @@ margin_right = 132.0
 margin_bottom = 268.0
 grid_position = Vector2( 3, 1 )
 
-[node name="UpgradeSlot15" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot15" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 136.0
@@ -363,7 +440,7 @@ margin_right = 200.0
 margin_bottom = 268.0
 grid_position = Vector2( 3, 2 )
 
-[node name="UpgradeSlot16" parent="GridVBox/GridContainer" instance=ExtResource( 6 )]
+[node name="UpgradeSlot16" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 204.0
