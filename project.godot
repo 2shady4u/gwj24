@@ -47,12 +47,12 @@ _global_script_classes=[ {
 "base": "HBoxContainer",
 "class": "class_orphan_tab",
 "language": "GDScript",
-"path": "res://src/menu/orphanage/OrphanTab.gd"
+"path": "res://src/menu/orphan/OrphanTab.gd"
 }, {
 "base": "VBoxContainer",
 "class": "class_orphan_vbox",
 "language": "GDScript",
-"path": "res://src/menu/orphanage/OrphanVBox.gd"
+"path": "res://src/menu/orphan/OrphanVBox.gd"
 }, {
 "base": "MarginContainer",
 "class": "class_pause_tab",
@@ -67,12 +67,12 @@ _global_script_classes=[ {
 "base": "Button",
 "class": "class_upgrade_button",
 "language": "GDScript",
-"path": "res://src/menu/orphanage/UpgradeButton.gd"
+"path": "res://src/menu/orphan/UpgradeButton.gd"
 }, {
 "base": "TextureRect",
 "class": "class_upgrade_slot",
 "language": "GDScript",
-"path": "res://src/menu/orphanage/UpgradeSlot.gd"
+"path": "res://src/menu/orphan/UpgradeSlot.gd"
 } ]
 _global_script_class_icons={
 "Character": "",

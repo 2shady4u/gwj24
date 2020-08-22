@@ -12,12 +12,18 @@ var _mission_resource := preload("res://src/autoload/state/Mission.gd")
 func load_state_from_context(context : Dictionary):
 	print_debug("Loading state from the context...")
 
-	for orphan_context in context.get("orphans", {}):
-		add_orphan_from_context(orphan_context)
+	orphans.clear()
+	upgrades.clear()
+	missions.clear()
 
+	# UPGRADES NEEDS TO BE CREATED FIRST!!!
 	for upgrade_context in context.get("upgrades", {}):
 		add_upgrade_from_context(upgrade_context)
 
+	for orphan_context in context.get("orphans", {}):
+		add_orphan_from_context(orphan_context)
+
+	init_missions()
 	for mission_context in context.get("missions", {}):
 		set_mission_from_context(mission_context)
 
@@ -84,7 +90,7 @@ func init_missions() -> void:
 		var mission := _mission_resource.new()
 		mission.id = data.get("id", "MISSING ID")
 
-		print_debug("adding registered mission with id '{0}' to State!".format([data.get("id", "MISSING ID")]))
+		print_debug("Adding registered mission with id '{0}' to State!".format([data.get("id", "MISSING ID")]))
 		missions.append(mission)
 
 func set_mission_from_context(mission_context : Dictionary) -> void:

@@ -5,7 +5,7 @@
 [ext_resource path="res://src/menu/MenuTabContainer.gd" type="Script" id=3]
 [ext_resource path="res://src/menu/settings/SettingsTab.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/menu/mission/MissionMenuTab.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/menu/orphanage/OrphanageMenuTab.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/menu/orphan/OrphanMenuTab.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -38,4 +38,5 @@ visible = true
 [node name="MissionMenuTab" parent="TabContainer" instance=ExtResource( 5 )]
 visible = false
 
-[node name="OrphanageMenuTab" parent="TabContainer" instance=ExtResource( 6 )]
+[node name="OrphanMenuTab" parent="TabContainer" instance=ExtResource( 6 )]
+visible = false

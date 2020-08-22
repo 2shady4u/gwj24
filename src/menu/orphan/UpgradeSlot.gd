@@ -22,28 +22,17 @@ var _upgrade := WeakRef.new()
 var _active_upgrade := WeakRef.new()
 
 onready var _upgrade_rect := $UpgradeRect
-onready var _active_rect := $ActiveControl/TextureRect
-
-signal slot_pressed(class_upgrade)
-
-func _ready():
-	$ActiveControl.set("z", 100)
+onready var _active_upgrade_rect := $ActiveUpgradeRect
 
 func update_slot():
 	if self.active_upgrade:
-		_active_rect.visible = true
-		_active_rect.texture = load(self.active_upgrade.grid_texture)
+		_active_upgrade_rect.visible = true
+		_active_upgrade_rect.texture = load(self.active_upgrade.grid_texture)
 	else:
-		_active_rect.visible = false
+		_active_upgrade_rect.visible = false
 
 	if self.upgrade:
 		_upgrade_rect.visible = true
 		_upgrade_rect.texture = load(self.upgrade.grid_texture)
 	else:
 		_upgrade_rect.visible = false
-
-func _gui_input(event):
-	if event.is_action_pressed("left_mouse_button"):
-		if self.upgrade:
-			emit_signal("slot_pressed", self.upgrade)
-			self.active_upgrade = self.upgrade

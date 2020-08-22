@@ -3,7 +3,7 @@
 [ext_resource path="res://src/menu/mission/MissionTab.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/thumbnails/thumbnail_intro.png" type="Texture" id=2]
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform bool locked = true;
@@ -22,7 +22,7 @@ custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
-shader = SubResource( 3 )
+shader = SubResource( 1 )
 shader_param/locked = false
 
 [node name="MarginContainer" type="MarginContainer"]
@@ -97,9 +97,9 @@ autowrap = true
 [node name="ThumbnailRect" type="TextureRect" parent="VBoxContainer"]
 material = SubResource( 2 )
 margin_left = 325.0
-margin_top = 204.0
+margin_top = 205.0
 margin_right = 666.333
-margin_bottom = 404.0
+margin_bottom = 405.0
 rect_min_size = Vector2( 341.333, 200 )
 size_flags_horizontal = 4
 size_flags_vertical = 4

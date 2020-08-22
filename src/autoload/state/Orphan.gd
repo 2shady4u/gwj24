@@ -2,30 +2,40 @@ extends Reference
 class_name class_orphan
 
 var id := ""
-var grid_positions := PoolVector2Array()
+var columns := 3
 var upgrades := []
-
-var grid : Array = [] setget set_grid
-func set_grid(value : Array) -> void:
-	grid = value
-	for row_index in range(0, grid.size()):
-		for column_index in range(0, grid[row_index].size()):
-			if grid[row_index][column_index] == 1:
-				grid_positions.append(Vector2(row_index, column_index))
 
 var context : Dictionary setget set_context, get_context
 func set_context(value : Dictionary) -> void:
 	if not value.has("id"):
-		push_error("Upgrade context requires id!")
+		push_error("Orphan context requires id!")
+		return
 
 	id = value.id
+	# Try to find all upgrades that are owned by this orphan!
+	for upgrade in State.upgrades:
+		if upgrade.orphan_id == id:
+			upgrades.append(upgrade)
 
 func get_context() -> Dictionary:
 	var _context := {}
 	
 	_context.id = id
-	
+
 	return _context
+
+func add_upgrade(upgrade : class_upgrade, topmost_grid_position : Vector2 = Vector2.ZERO):
+	if not upgrades.has(upgrade):
+		upgrades.append(upgrade)
+
+	upgrade.orphan_id = id
+	upgrade.topmost_grid_position = topmost_grid_position
+
+func remove_upgrade(upgrade : class_upgrade):
+	upgrades.erase(upgrade)
+
+	upgrade.orphan_id = ""
+	upgrade.topmost_grid_position = Vector2.ZERO
 
 func get_stats() -> Dictionary:
 	var stats: Dictionary = get_base_stats().duplicate(true)
@@ -43,6 +53,14 @@ func get_name():
 var backstory : String setget , get_backstory
 func get_backstory():
 	return Flow.get_orphan_value(id, "backstory", "MISSING BACKSTORY")
+
+var portrait_texture : String setget , get_portrait_texture
+func get_portrait_texture():
+	return Flow.get_orphan_value(id, "portrait_texture", "res://assets/graphics/portraits/regular.png")
+
+var icon_texture : String setget , get_icon_texture
+func get_icon_texture():
+	return Flow.get_orphan_value(id, "icon_texture", "res://assetsgraphics/characters/Children/S0HN.png")
 
 var base_stats : Dictionary setget , get_base_stats
 func get_base_stats():

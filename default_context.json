@@ -1,32 +1,46 @@
 {
-    "orphans": [{
-        "id": "sorella"
-    },
-    {
-        "id": "fiston"
-    },
-    {
-        "id": "joseph"
-    },
-    {
-        "id": "jonathan"
-    },
-    {
-        "id": "dio"
-    }],
-    "upgrades": [{
-        "id": "more_hp"
-    },
-    {
-        "id": "faster_speed_but_decreased_health"
-    },
-    {
-        "id": "faster_speed_but_decreased_health"
-    },
-    {
-        "id": "more_hp"
-    },
-    {
-        "id": "more_hp"
-    }]
+    "orphans": [
+        {
+            "id": "sorella"
+        },
+        {
+            "id": "fiston"
+        },
+        {
+            "id": "bebe"
+        },
+        {
+            "id": "sonic"
+        },
+        {
+            "id": "sohn"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "more_hp",
+            "orphan_id": "sohn",
+            "topmost_grid_position": [
+                0,
+                0
+            ]
+        },
+        {
+            "id": "faster_speed_but_decreased_health",
+            "orphan_id": "sohn",
+            "topmost_grid_position": [
+                0,
+                2
+            ]
+        },
+        {
+            "id": "faster_speed_but_decreased_health"
+        },
+        {
+            "id": "more_hp"
+        },
+        {
+            "id": "more_hp"
+        }
+    ]
 }

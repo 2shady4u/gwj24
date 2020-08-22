@@ -1,0 +1,180 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/menu/orphan/OrphanVBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/menu/orphan/OrphanTab.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/menu/orphan/OrphanMenuTab.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+
+[node name="OrphanMenuTab" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+tab_type = 3
+
+[node name="BackContainer" type="VBoxContainer" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 544.0
+mouse_filter = 2
+
+[node name="BackButton" type="Button" parent="BackContainer"]
+margin_right = 128.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 0 )
+size_flags_horizontal = 0
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 544.0
+mouse_filter = 2
+custom_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+margin_left = 433.0
+margin_right = 526.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_horizontal = 4
+text = "~ Orphanage ~"
+align = 1
+valign = 1
+
+[node name="TopHBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 960.0
+margin_bottom = 368.0
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/TopHBox"]
+margin_right = 637.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+custom_styles/panel = SubResource( 1 )
+tabs_visible = false
+
+[node name="OrphanTab" parent="VBoxContainer/TopHBox/TabContainer" instance=ExtResource( 2 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TopHBox"]
+margin_left = 641.0
+margin_right = 960.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TopHBox/VBoxContainer"]
+margin_left = 98.0
+margin_right = 220.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "Available Upgrades"
+align = 1
+valign = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TopHBox/VBoxContainer"]
+margin_top = 18.0
+margin_right = 319.0
+margin_bottom = 332.0
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 2 )
+
+[node name="AvailableVBox" type="VBoxContainer" parent="VBoxContainer/TopHBox/VBoxContainer/ScrollContainer"]
+margin_top = 16.0
+margin_right = 319.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+alignment = 1
+
+[node name="BottomHBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 384.0
+margin_right = 960.0
+margin_bottom = 512.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BottomHBox"]
+margin_right = 478.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/BottomHBox/VBoxContainer"]
+margin_right = 478.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 128 )
+
+[node name="OrphanSelection" type="HBoxContainer" parent="VBoxContainer/BottomHBox/VBoxContainer/ScrollContainer"]
+margin_right = 478.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="OrphanVBox" parent="VBoxContainer/BottomHBox/VBoxContainer/ScrollContainer/OrphanSelection" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 71.0
+margin_right = 135.0
+margin_bottom = 128.0
+
+[node name="OrphanVBox3" parent="VBoxContainer/BottomHBox/VBoxContainer/ScrollContainer/OrphanSelection" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 139.0
+margin_right = 203.0
+margin_bottom = 128.0
+
+[node name="OrphanVBox4" parent="VBoxContainer/BottomHBox/VBoxContainer/ScrollContainer/OrphanSelection" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 207.0
+margin_right = 271.0
+margin_bottom = 128.0
+
+[node name="OrphanVBox5" parent="VBoxContainer/BottomHBox/VBoxContainer/ScrollContainer/OrphanSelection" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 275.0
+margin_right = 339.0
+margin_bottom = 128.0
+
+[node name="OrphanVBox2" parent="VBoxContainer/BottomHBox/VBoxContainer/ScrollContainer/OrphanSelection" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 343.0
+margin_right = 407.0
+margin_bottom = 128.0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/BottomHBox"]
+margin_left = 482.0
+margin_right = 960.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_horizontal = 3
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer/BottomHBox/PanelContainer"]
+margin_left = 7.0
+margin_top = 57.0
+margin_right = 471.0
+margin_bottom = 71.0
+align = 1
+valign = 1
+autowrap = true

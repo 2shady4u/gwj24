@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/UpgradeTest.gd" type="Script" id=1]
-[ext_resource path="res://src/menu/orphanage/UpgradeSlot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/menu/orphan/UpgradeSlot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/graphics/upgrades/Chip_Empty.png" type="Texture" id=3]
 [ext_resource path="res://src/EffectsContainer.gd" type="Script" id=4]
+
 
 
 [sub_resource type="GDScript" id=1]

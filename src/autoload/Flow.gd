@@ -25,10 +25,7 @@ var orphans_data := {}
 var enemies_data := {}
 
 # WHY is this an array? Missions need their order to be preserved!!!
-var missions_data := [] setget set_missions_data
-func set_missions_data(value : Array):
-	missions_data = value
-	State.init_missions()
+var missions_data := []
 
 var _game_flow := {
 	"menu": {
