@@ -1,6 +1,9 @@
 extends Node2D
 class_name Level
 
+export var intro_text = ""
+export var outro_text = ""
+
 onready var entities: YSort = $Entities
 onready var camera: Camera2D = $Camera
 onready var tween: Tween = $Tween
@@ -56,6 +59,11 @@ func _ready():
 			
 	for character in characters():
 		character.connect("death", self, "on_character_death")
+		
+	set_process(false)
+	
+func start():
+	set_process(true)
 
 func get_snapped_position_in_grid(position_to_snap: Vector2):
 	return Vector2(floor(position_to_snap.x / 16) * 16 + 8, floor(position_to_snap.y / 16) * 16 + 8)
@@ -263,7 +271,7 @@ func filter_characters_team(team: String):
 	var all_characters = characters()
 	var filtered = []
 	for character in all_characters:
-		if character.team == team:
+		if character.team == team and not character.is_queued_for_deletion(): 
 			filtered.append(character)
 	return filtered
 
@@ -285,6 +293,7 @@ func validate_turn():
 		var new_character = character_turns[(index + 1) % character_turns.size()]
 		print("Switching to ", new_character, new_character.name)
 		switch_character(new_character)
+	check_level_complete()
 
 
 func get_drop(drops):
@@ -322,3 +331,19 @@ func on_character_death(character: Character):
 		var drop = get_drop(drops)
 		if drop:
 			spawn_drop(drop, character.position)
+	elif character.team == "PLAYER":
+		print_debug("Player character dieded!")
+
+
+func check_level_complete():
+	var player_characters = get_player_characters()
+	var enemy_characters = get_enemy_characters()
+
+	if len(player_characters) == 0:
+		emit_signal("failed")
+	
+	# TODO should replace this with the door...
+	if len(enemy_characters) == 0:
+		print("END END END")
+		emit_signal("complete")
+		

@@ -22,8 +22,6 @@ func _ready():
 	elif not Flow.does_mission_exist(identifier):
 		printerr("Mission identifier does not exist")
 	
-	print(levels)
-	print(levels[0])
 	load_level(levels[0])
 	
 func update_surviving_characters():
@@ -70,6 +68,15 @@ func load_level(level_scene: PackedScene) -> Level:
 	current_level.connect("complete", self, "on_level_complete")
 	current_level.connect("chip_pickup", self, "on_chip_pickup")
 	load_surviving_characters()
+
+	# play the intro text
+	if current_level.intro_text != "":
+		LevelFlow.text_overlay_UI.start(current_level.intro_text)
+		yield(LevelFlow.text_overlay_UI, "finished")
+		print_debug("Finished with overlay")
+
+	current_level.start()
+	
 	return level
 
 func on_chip_pickup(chip: String):
@@ -80,8 +87,9 @@ func restart_level():
 
 func on_level_failed():
 	print("Level failed")
-	load_level(current_level_scene)
-	
+	current_level.set_process(false)
+	LevelFlow.game_over_UI.show()
+
 func transfer_chips_from_level():
 	for chip in chips_picked_up_in_level:
 		chips_stored.append(chip)
@@ -91,10 +99,11 @@ func transfer_chips_to_save():
 	# TODO
 	pass
 	
-func set_mission_completed():
+func mission_completed():
 	print("Mission is finished!!")
 	transfer_chips_to_save()
-	set_mission_completed()
+
+	# TODO set mission completed in state context
 	Flow.change_scene_to("menu")
 	
 func on_level_complete():
@@ -103,9 +112,14 @@ func on_level_complete():
 	var index = levels.find(current_level_scene)
 	
 	transfer_chips_from_level()
+
+	if current_level.outro_text != "":
+		LevelFlow.text_overlay_UI.end(current_level.outro_text)
+		yield(LevelFlow.text_overlay_UI, "finished")
+		print_debug("Finished with overlay")
 	
 	if index == len(levels) - 1:
-		set_mission_completed()
+		mission_completed()
 	else:
 		load_level(levels[index + 1])
 

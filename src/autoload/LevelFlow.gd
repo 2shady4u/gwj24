@@ -1,8 +1,12 @@
 extends Node
 
 
+
 signal current_character_changed(character)
 
+var game_over_UI : Control = null
+var text_overlay_UI : Control = null
+var dialogue_overlay_UI : Control = null
 
 var current_mission_packed_scene_path: String = ""
 

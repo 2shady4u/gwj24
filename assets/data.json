@@ -90,7 +90,7 @@
         "fish_bot": {
             "name": "FISHB0T 9000",
             "base_stats": {
-                "health": 4,
+                "health": 2,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,

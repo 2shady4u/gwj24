@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/game/level/Level.gd" type="Script" id=1]
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/graphics/ui/healing-particle-custom.png" type="Texture" id=3]
 [ext_resource path="res://src/game/level/Healing.gd" type="Script" id=4]
 [ext_resource path="res://src/game/chips/ChipLabel.tscn" type="PackedScene" id=7]
@@ -46,6 +47,7 @@ smoothing_speed = 8.0
 
 [node name="ChipLabel" parent="." instance=ExtResource( 7 )]
 visible = false
+theme = ExtResource( 2 )
 
 [node name="HealingParticles" type="Particles2D" parent="."]
 position = Vector2( 72.4252, 37.5339 )

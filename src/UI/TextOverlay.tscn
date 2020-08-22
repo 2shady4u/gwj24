@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/UI/TextOverlay.gd" type="Script" id=2]
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="TextOverlay" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 232.85, 81.3131, 46.3969 ],
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.701961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+tabs_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainTab" type="MarginContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab"]
+margin_right = 1024.0
+margin_bottom = 576.0
+custom_constants/separation = 26
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 440.0
+margin_top = 280.0
+margin_right = 584.0
+margin_bottom = 296.0
+size_flags_horizontal = 4
+text = "~ MISSION FAILED ~"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/MainTab"]
+margin_right = 1024.0
+margin_bottom = 576.0
+
+[node name="TitleLabel2" type="Label" parent="TabContainer/MainTab/MarginContainer"]
+margin_left = 408.0
+margin_top = 560.0
+margin_right = 616.0
+margin_bottom = 576.0
+size_flags_horizontal = 4
+size_flags_vertical = 12
+custom_constants/shadow_offset_y = 0
+text = "Press Enter to continue..."
+align = 1
+valign = 1
+
+[node name="Tween" type="Tween" parent="."]

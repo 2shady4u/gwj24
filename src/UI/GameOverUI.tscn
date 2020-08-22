@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UI/pause/PauseTabContainer.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/GameOverUI.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/MainGameOverTab.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="GameOverUI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 232.85, 81.3131, 46.3969 ],
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+tabs_visible = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainTab" type="MarginContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab"]
+margin_right = 1024.0
+margin_bottom = 576.0
+custom_constants/separation = 26
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 440.0
+margin_top = 155.0
+margin_right = 584.0
+margin_bottom = 171.0
+size_flags_horizontal = 4
+text = "~ MISSION FAILED ~"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 448.0
+margin_top = 197.0
+margin_right = 576.0
+margin_bottom = 340.0
+size_flags_horizontal = 4
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../ResumeButton")
+focus_neighbour_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../ResumeButton")
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator1" type="HSeparator" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 72.0
+margin_right = 128.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbortButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 53.0
+margin_right = 128.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../SettingsButton")
+focus_neighbour_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../SettingsButton")
+text = "Abort"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
+margin_top = 106.0
+margin_right = 128.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 128, 0 )
+focus_neighbour_top = NodePath("../AbortButton")
+focus_neighbour_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../AbortButton")
+text = "Quit"
+
+[node name="HintLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 240.0
+margin_top = 366.0
+margin_right = 784.0
+margin_bottom = 420.0
+size_flags_horizontal = 4
+text = "If you restart, you will resume in the last room
+you entered. Aborting will return you to mission select.
+Note that you will lose all the UPGRID chips you found if you abort."
+align = 1
+valign = 1

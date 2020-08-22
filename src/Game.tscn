@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/UI/PauseUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/Canvas.tscn" type="PackedScene" id=2]
@@ -7,7 +7,9 @@
 [ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=5]
 [ext_resource path="res://src/UI/TurnInfo.gd" type="Script" id=6]
 [ext_resource path="res://src/UI/HUD.gd" type="Script" id=7]
+[ext_resource path="res://src/UI/GameOverUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/UI/ChargesBar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/UI/TextOverlay.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -107,7 +109,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextOverlay" parent="UICanvas/HUD" instance=ExtResource( 10 )]
+visible = false
+
 [node name="PauseUI" parent="UICanvas" instance=ExtResource( 1 )]
+visible = false
+
+[node name="GameOverUI" parent="UICanvas" instance=ExtResource( 8 )]
 visible = false
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
