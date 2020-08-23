@@ -2,7 +2,7 @@
     "orphans": {
         "sohn": {
             "name": "S0HN",
-            "backstory": "Heir to a rich UK family. Joseph is living it up traveling through Asia to defeat DIO and cure his daughter",
+            "backstory": "He may seem like a fairly ordinary bot, but his potential to grow is far beyond his siblings.",
             "portrait_texture": "res://assets/graphics/portraits/regular.png",
             "icon_texture": "res://assets/graphics/characters/Children/TV_Head.png",
             "perk_ids": [
@@ -19,7 +19,7 @@
         },
         "sonic": {
             "name": "S0NIC",
-            "backstory": "His dog got killed by DIO and now he is fricking pissed!",
+            "backstory": "Agile and quick. What he lacks in strength, he more then makes up for in speed.",
             "portrait_texture": "res://assets/graphics/portraits/fast.png",
             "icon_texture": "res://assets/graphics/characters/Children/Dash.png",
             "perk_ids": [
@@ -31,12 +31,12 @@
                 "healing": 1,
                 "healing_charges": 2,
                 "actions": 2,
-                "movement": 4
+                "movement": 6
             }
         },
         "bebe": {
             "name": "B3B3",
-            "backstory": "He's a vampire that sucks people dry and he killed Jonathan's dog because he was a bit jelly.",
+            "backstory": "He is the youngest of his siblings. Though his aptitude for mechanics is unmatched.",
             "portrait_texture": "res://assets/graphics/portraits/littleguy2.png",
             "icon_texture": "res://assets/graphics/characters/Children/Baby.png",
             "perk_ids": [
@@ -47,14 +47,14 @@
                 "health": 5,
                 "damage": 1,
                 "healing": 1,
-                "healing_charges": 2,
+                "healing_charges": 6,
                 "actions": 2,
                 "movement": 4
             }
         },
         "fiston": {
-            "name": "F15STON",
-            "backstory": "Strong, built with the frame of a scrapped wrestling bot. The tactical mastermind of the ORPH4N group.",
+            "name": "F1STON",
+            "backstory": "A large and powerful bot. Of his siblings, he towers above them all. His brute force and reinforced frame make him excellent on the front line.",
             "portrait_texture": "res://assets/graphics/portraits/biggie.png",
             "icon_texture": "res://assets/graphics/characters/Children/F1ST0N.png",
             "perk_ids": [
@@ -62,7 +62,7 @@
                 "armor"
             ],
             "base_stats": {
-                "health": 5,
+                "health": 7,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
@@ -72,7 +72,7 @@
         },
         "sorella": {
             "name": "S0R3114",
-            "backstory": "A repurposed Italian Catholic Nunbot, you don't want to mess with S0R3114.",
+            "backstory": "S0r3114 is by far the most offensively capable of her siblings. Armed with razor sharp claws and a razor sharp wit, she can easily hold her own in the face of danger.",
             "portrait_texture": "res://assets/graphics/portraits/sorella.png",
             "icon_texture": "res://assets/graphics/characters/Children/S0R3LL4.png",
             "perk_ids": [
@@ -110,7 +110,7 @@
             "name": "Bl1tzMK1",
             "perk_ids": [],
             "base_stats": {
-                "health": 1,
+                "health": 4,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
@@ -142,7 +142,7 @@
             "name": "L1L CL4M",
             "perk_ids": [],
             "base_stats": {
-                "health": 2,
+                "health": 5,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
@@ -174,12 +174,12 @@
             "name": "BlitzMK2",
             "perk_ids": [],
             "base_stats": {
-                "health": 2,
-                "damage": 1,
+                "health": 4,
+                "damage": 2,
                 "healing": 1,
                 "healing_charges": 2,
                 "actions": 2,
-                "movement": 6
+                "movement": 5
             },
             "drops": {
                 "more_hp": 0.2,
@@ -191,8 +191,8 @@
             "name": "B1G_CL4M",
             "perk_ids": [],
             "base_stats": {
-                "health": 2,
-                "damage": 1,
+                "health": 6,
+                "damage": 2,
                 "healing": 1,
                 "healing_charges": 2,
                 "actions": 2,
@@ -207,12 +207,12 @@
             "name": "0BLIVI0N",
             "perk_ids": [],
             "base_stats": {
-                "health": 2,
-                "damage": 1,
+                "health": 10,
+                "damage": 4,
                 "healing": 1,
                 "healing_charges": 2,
-                "actions": 2,
-                "movement": 6
+                "actions": 1,
+                "movement": 4
             },
             "drops": {
                 "nun_bot": 0.4,
@@ -259,12 +259,12 @@
             "name": "S3NTRY MK2",
             "perk_ids": [],
             "base_stats": {
-                "health": 2,
+                "health": 3,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
                 "actions": 2,
-                "movement": 6
+                "movement": 5
             },
             "drops": {
                 "more_hp": 0.4,
@@ -277,12 +277,12 @@
             "name": "S3NTRY MK3",
             "perk_ids": [],
             "base_stats": {
-                "health": 2,
-                "damage": 1,
+                "health": 4,
+                "damage": 2,
                 "healing": 1,
                 "healing_charges": 2,
-                "actions": 2,
-                "movement": 6
+                "actions": 1,
+                "movement": 4
             },
             "drops": {
                 "nun_bot": 0.4,
@@ -297,26 +297,26 @@
     "missions": [
         {
             "id": "first_junk_yard_mission",
-            "name": "Yunkyard Bros",
-            "description": "The intro mission that is easy and quaint",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/1.png",
+            "name": "Home, Sweet Home",
+            "description": "Rise and shine, today is the day!",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/1",
             "packed_scene": "res://src/game/mission/FirstJunkYardMission.tscn"
         },
         {
             "id": "first_hi_tec_mission",
             "name": "Intel I",
             "description": "MOTH3R's whereabouts seem to linger in a data center nearby. We should infiltrate and retrieve the data.",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/2.png",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/2",
             "packed_scene": "res://src/game/mission/FirstHiTecMission.tscn",
             "prerequisites": [
-                
+                "first_junk_yard_mission"
             ]
         },
         {
             "id": "second_junk_yard_mission",
             "name": "Retalliation",
             "description": "There seems to be a lot of activity in the junkyard we're calling home, could INLAW have snuffed us out?",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/3.png",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/3",
             "packed_scene": "res://src/game/mission/SecondJunkYardMission.tscn",
             "prerequisites": [
                 "first_hi_tec_mission"
@@ -326,7 +326,7 @@
             "id": "second_hi_tec_mission",
             "name": "Operation UPGRID",
             "description": "We need to become stronger, we need to increase our UPGRID potential. INLAW's UPGRID research facility is nearby, though I'm sure they've increased security.",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/4.png",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/4",
             "packed_scene": "res://src/game/mission/SecondHiTecMission.tscn",
             "prerequisites": [
                 "second_junk_yard_mission"
@@ -336,7 +336,7 @@
             "id": "third_hi_tec_mission",
             "name": "RESCUE M0TH3R",
             "description": "We're finally strong enough, we're saving M0TH3R!",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/5.png",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/5",
             "packed_scene": "res://src/game/mission/ThirdHiTecMission.tscn",
             "prerequisites": [
                 "second_hi_tec_mission"
@@ -346,7 +346,7 @@
             "id": "fourth_hi_tec_mission",
             "name": "INLAW IN HELL",
             "description": "With M0TH3R in our team, we're going to take down INLAW!",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/6.png",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/6",
             "packed_scene": "res://src/game/mission/FourthHiTecMission.tscn",
             "prerequisites": [
                 "third_hi_tec_mission"

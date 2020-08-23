@@ -108,9 +108,9 @@ func take_damage(points: int):
 func get_perks():
 	var perks = []
 	if team == "PLAYER":
-		perks = Flow.get_orphan_value(type, "perks", [])
+		perks = Flow.get_orphan_value(type, "perk_ids", [])
 	elif team == "PLAYER":
-		perks = Flow.get_enemy_value(type, "perks", [])
+		perks = Flow.get_enemy_value(type, "perk_ids", [])
 	return perks
 
 func recharge():
