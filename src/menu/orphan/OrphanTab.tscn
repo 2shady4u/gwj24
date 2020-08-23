@@ -295,10 +295,10 @@ align = 1
 valign = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="GridVBox"]
-margin_left = 57.0
-margin_top = 99.0
-margin_right = 453.0
-margin_bottom = 495.0
+margin_left = 91.0
+margin_top = 133.0
+margin_right = 419.0
+margin_bottom = 461.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_styles/panel = SubResource( 1 )
@@ -309,20 +309,19 @@ __meta__ = {
 [node name="GridContainer" type="GridContainer" parent="GridVBox/PanelContainer"]
 margin_left = 64.0
 margin_top = 64.0
-margin_right = 332.0
-margin_bottom = 332.0
+margin_right = 264.0
+margin_bottom = 264.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-columns = 4
+columns = 3
 
 [node name="UpgradeSlot" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 64.0
 margin_bottom = 64.0
-grid_position = Vector2( 0, 0 )
 
 [node name="UpgradeSlot2" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
@@ -343,112 +342,51 @@ grid_position = Vector2( 0, 2 )
 [node name="UpgradeSlot4" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 204.0
-margin_right = 268.0
-margin_bottom = 64.0
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
 grid_position = Vector2( 0, 3 )
 
 [node name="UpgradeSlot5" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 68.0
 margin_top = 68.0
-margin_right = 64.0
+margin_right = 132.0
 margin_bottom = 132.0
 grid_position = Vector2( 1, 0 )
 
 [node name="UpgradeSlot6" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 68.0
+margin_left = 136.0
 margin_top = 68.0
-margin_right = 132.0
+margin_right = 200.0
 margin_bottom = 132.0
 grid_position = Vector2( 1, 1 )
 
 [node name="UpgradeSlot7" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 136.0
-margin_top = 68.0
-margin_right = 200.0
-margin_bottom = 132.0
+margin_top = 136.0
+margin_right = 64.0
+margin_bottom = 200.0
 grid_position = Vector2( 1, 2 )
 
 [node name="UpgradeSlot8" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 204.0
-margin_top = 68.0
-margin_right = 268.0
-margin_bottom = 132.0
+margin_left = 68.0
+margin_top = 136.0
+margin_right = 132.0
+margin_bottom = 200.0
 grid_position = Vector2( 1, 3 )
 
 [node name="UpgradeSlot9" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 136.0
 margin_top = 136.0
-margin_right = 64.0
+margin_right = 200.0
 margin_bottom = 200.0
 grid_position = Vector2( 2, 0 )
-
-[node name="UpgradeSlot10" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 68.0
-margin_top = 136.0
-margin_right = 132.0
-margin_bottom = 200.0
-grid_position = Vector2( 2, 1 )
-
-[node name="UpgradeSlot11" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 136.0
-margin_top = 136.0
-margin_right = 200.0
-margin_bottom = 200.0
-grid_position = Vector2( 2, 2 )
-
-[node name="UpgradeSlot12" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 204.0
-margin_top = 136.0
-margin_right = 268.0
-margin_bottom = 200.0
-grid_position = Vector2( 2, 3 )
-
-[node name="UpgradeSlot13" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 204.0
-margin_right = 64.0
-margin_bottom = 268.0
-grid_position = Vector2( 3, 0 )
-
-[node name="UpgradeSlot14" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 68.0
-margin_top = 204.0
-margin_right = 132.0
-margin_bottom = 268.0
-grid_position = Vector2( 3, 1 )
-
-[node name="UpgradeSlot15" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 136.0
-margin_top = 204.0
-margin_right = 200.0
-margin_bottom = 268.0
-grid_position = Vector2( 3, 2 )
-
-[node name="UpgradeSlot16" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 204.0
-margin_top = 204.0
-margin_right = 268.0
-margin_bottom = 268.0
-grid_position = Vector2( 3, 3 )

@@ -14,12 +14,12 @@ func get_text() -> String:
 
 var texture : Texture setget set_texture, get_texture
 func set_texture(value: Texture):
-	print("Setting texture to", value)
+	#print("Setting texture to", value)
 	var atlas = AtlasTexture.new()
 	atlas.atlas = value
 	atlas.region = Rect2(0, 0, 16, 32)
 	_icon_rect.texture = atlas
-	print(_icon_rect.texture.atlas)
+	#print(_icon_rect.texture.atlas)
 func get_texture() -> Texture:
 	return _icon_rect.texture.atlas
 

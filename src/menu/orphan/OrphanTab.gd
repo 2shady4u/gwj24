@@ -81,7 +81,7 @@ func update_stats():
 
 func update_stat_label(label : Label, base_stat : float, stat : float):
 	label.text = str(base_stat)
-	var stat_diff = base_stat - stat
+	var stat_diff = stat - base_stat
 	if stat_diff == 0.0:
 		return
 	elif stat_diff > 0:
@@ -157,6 +157,7 @@ func place_upgrade_on_grid(upgrade : class_upgrade) -> bool:
 		slot.upgrade = upgrade
 	var topmost_grid_position = upgrade.topmost_grid_position
 	self.orphan.add_upgrade(upgrade, topmost_grid_position)
+	update_stats()
 	return true
 
 func remove_upgrade_from_grid(upgrade : class_upgrade) -> bool:
@@ -165,6 +166,7 @@ func remove_upgrade_from_grid(upgrade : class_upgrade) -> bool:
 			var slot := get_slot_at_grid_position(grid_position)
 			slot.upgrade = null
 		self.orphan.remove_upgrade(upgrade)
+		update_stats()
 		return true
 	else:
 		return false
