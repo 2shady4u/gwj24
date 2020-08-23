@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/menu/mission/MissionButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/menu/mission/MissionTab.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/menu/mission/MissionMenuTab.gd" type="Script" id=3]
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=4]
 
 [node name="MissionMenuTab" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 4 )
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -26,7 +28,7 @@ mouse_filter = 2
 
 [node name="BackButton" type="Button" parent="BackContainer"]
 margin_right = 128.0
-margin_bottom = 20.0
+margin_bottom = 31.0
 rect_min_size = Vector2( 128, 0 )
 size_flags_horizontal = 0
 text = "BACK"
@@ -40,21 +42,21 @@ mouse_filter = 2
 custom_constants/separation = 16
 
 [node name="TitleHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_left = 415.0
-margin_right = 545.0
+margin_left = 412.0
+margin_right = 548.0
 margin_bottom = 20.0
 size_flags_horizontal = 4
 alignment = 1
 
 [node name="FrontLabel" type="Label" parent="VBoxContainer/TitleHBox"]
-margin_top = 3.0
+margin_top = 2.0
 margin_right = 8.0
-margin_bottom = 17.0
+margin_bottom = 18.0
 text = "~"
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer/TitleHBox"]
 margin_left = 12.0
-margin_right = 118.0
+margin_right = 124.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 4
@@ -63,28 +65,30 @@ align = 1
 valign = 1
 
 [node name="BackLabel" type="Label" parent="VBoxContainer/TitleHBox"]
-margin_left = 122.0
-margin_top = 3.0
-margin_right = 130.0
-margin_bottom = 17.0
+margin_left = 128.0
+margin_top = 2.0
+margin_right = 136.0
+margin_bottom = 18.0
 text = "~"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 36.0
 margin_right = 960.0
-margin_bottom = 476.0
+margin_bottom = 465.0
+mouse_filter = 2
 size_flags_vertical = 3
 alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 478.0
-margin_bottom = 440.0
+margin_bottom = 429.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MissionButtonVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer"]
 margin_right = 478.0
-margin_bottom = 440.0
+margin_bottom = 429.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 16
@@ -93,37 +97,38 @@ alignment = 1
 [node name="MissionButton" parent="VBoxContainer/HBoxContainer/ScrollContainer/MissionButtonVBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 175.0
-margin_top = 192.0
-margin_right = 303.0
-margin_bottom = 212.0
+margin_left = 111.0
+margin_top = 175.0
+margin_right = 367.0
+margin_bottom = 206.0
 
 [node name="MissionButton2" parent="VBoxContainer/HBoxContainer/ScrollContainer/MissionButtonVBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 175.0
-margin_top = 228.0
-margin_right = 303.0
-margin_bottom = 248.0
+margin_left = 111.0
+margin_top = 222.0
+margin_right = 367.0
+margin_bottom = 253.0
 
 [node name="MissionTabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 482.0
 margin_right = 960.0
-margin_bottom = 440.0
+margin_bottom = 429.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tabs_visible = false
 
 [node name="MissionTab" parent="VBoxContainer/HBoxContainer/MissionTabContainer" instance=ExtResource( 2 )]
-margin_left = 4.0
-margin_top = 8.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = -6.0
+margin_bottom = -6.0
 
 [node name="OrphanButton" type="Button" parent="VBoxContainer"]
-margin_left = 413.0
-margin_top = 492.0
-margin_right = 546.0
+margin_left = 405.0
+margin_top = 481.0
+margin_right = 554.0
 margin_bottom = 512.0
 size_flags_horizontal = 4
 text = "Edit Orphan Layout"

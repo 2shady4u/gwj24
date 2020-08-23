@@ -17,6 +17,9 @@ msgstr ""
 msgid "RESUME"
 msgstr ""
 
+msgid "START_MISSION"
+msgstr ""
+
 msgid "RESTART"
 msgstr ""
 
@@ -36,6 +39,15 @@ msgid "LOAD"
 msgstr ""
 
 msgid "SAVE"
+msgstr ""
+
+msgid "NEW_NOTIFICATION"
+msgstr ""
+
+msgid "LOAD_NOTIFICATION"
+msgstr ""
+
+msgid "SAVE_NOTIFICATION"
 msgstr ""
 
 msgid "SETTINGS"
