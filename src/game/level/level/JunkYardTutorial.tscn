@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/game/level/NewJunkYardLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/level/tiles/JunkyardTiles.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/game/character/DummySentry.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/level/events/DialogueEvent.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/game/level/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game/chips/Chip.tscn" type="PackedScene" id=10]
 
 [node name="Level" instance=ExtResource( 1 )]
 intro_text = "Good morning S0HN"
@@ -55,7 +56,12 @@ position = Vector2( -224, 240 )
 position = Vector2( -251.632, 258.525 )
 
 [node name="DummySentry" parent="Entities" index="9" instance=ExtResource( 7 )]
-position = Vector2( 40.2237, 346.61 )
+position = Vector2( 38.3359, 237.357 )
+
+[node name="Chip" parent="Entities" index="10" instance=ExtResource( 10 )]
+position = Vector2( 41.9965, 342.672 )
+color = "blue"
+identifier = "more_hp"
 
 [node name="SORELLA" parent="Events" index="0" instance=ExtResource( 8 )]
 position = Vector2( -328.256, 264.217 )
@@ -75,10 +81,27 @@ position = Vector2( -0.0681152, -0.744873 )
 [node name="Position2D5" type="Position2D" parent="Events/SORELLA" index="2"]
 position = Vector2( 17.0646, -22.422 )
 
-[node name="SORELLA2" parent="Events" index="1" instance=ExtResource( 8 )]
+[node name="SORELLA3" parent="Events" index="1" instance=ExtResource( 8 )]
+position = Vector2( -322.482, 283.829 )
+speaker = "sorella"
+text = "Remember, press TAB when you're out of moves!"
+
+[node name="Position2D" type="Position2D" parent="Events/SORELLA3" index="0"]
+position = Vector2( -15.721, 0.732319 )
+
+[node name="Position2D2" type="Position2D" parent="Events/SORELLA3" index="1"]
+position = Vector2( -0.142212, -0.409454 )
+
+[node name="Position2D5" type="Position2D" parent="Events/SORELLA3" index="2"]
+position = Vector2( 13.227, -19.7523 )
+
+[node name="Position2D6" type="Position2D" parent="Events/SORELLA3" index="3"]
+position = Vector2( 26.3029, -38.6386 )
+
+[node name="SORELLA2" parent="Events" index="2" instance=ExtResource( 8 )]
 position = Vector2( -281.4, 296.049 )
 speaker = "sorella"
-text = "Remember. S0N1C found a data center containing M0TH3R's whereabouts, and we're going to find those. These past weeks have been torture for all of us, but we're finally able to take action.
+text = "As we discussed last night, S0N1C found a data center containing M0TH3R's whereabouts, and we're going to find those. These past weeks have been torture for all of us, but we're finally able to take action.
 
 Why don't you walk around the junk yard so we can start, or, you know, pet D0G like you always do."
 
@@ -97,7 +120,7 @@ position = Vector2( -0.0681152, -0.744873 )
 [node name="Position2D5" type="Position2D" parent="Events/SORELLA2" index="4"]
 position = Vector2( 17.0646, -22.422 )
 
-[node name="FISTON" parent="Events" index="2" instance=ExtResource( 8 )]
+[node name="FISTON" parent="Events" index="3" instance=ExtResource( 8 )]
 position = Vector2( -325.442, 337.498 )
 text = "Greetings, brother. Remember how M0TH3R always said sometimes you've just got to walk through dirt to reach the junk yard exit? This is one of times. Use those arrow keys!"
 
@@ -110,12 +133,11 @@ position = Vector2( 14.6945, -13.1287 )
 [node name="Position2D4" type="Position2D" parent="Events/FISTON" index="2"]
 position = Vector2( 43.2892, -11.3911 )
 
-[node name="SONIC" parent="Events" index="3" instance=ExtResource( 8 )]
+[node name="SONIC" parent="Events" index="4" instance=ExtResource( 8 )]
 position = Vector2( 8.93526, 277.097 )
 speaker = "sonic"
-text = "If you've disposed of the Dummy Sentry MK1, head out through the gate. We've all been waiting for you... And for this... We're taking back M0TH3R!
-
-Kill the dummy. Exit through the gate. We're all waiting."
+text = "How's your drive to destroy INLAW? M0TH3R left behind one of the practice dummies, why don't you try to kill it? Just bump into it with the arrow keys.
+If you've disposed of the Dummy Sentry MK1, head out through the gate. We've all been waiting for you... And for this... We're taking back M0TH3R!"
 
 [node name="Position2D" type="Position2D" parent="Events/SONIC" index="0"]
 position = Vector2( 26.2676, -13.2893 )
@@ -126,10 +148,25 @@ position = Vector2( 14.6945, -13.1287 )
 [node name="Position2D4" type="Position2D" parent="Events/SONIC" index="2"]
 position = Vector2( 43.2892, -11.3911 )
 
-[node name="BEBE" parent="Events" index="4" instance=ExtResource( 8 )]
+[node name="SONIC2" parent="Events" index="5" instance=ExtResource( 8 )]
+position = Vector2( 6.85415, 212.88 )
+speaker = "sohn"
+text = "Let's do this!"
+
+[node name="Position2D" type="Position2D" parent="Events/SONIC2" index="0"]
+position = Vector2( 26.2676, -13.2893 )
+
+[node name="Position2D2" type="Position2D" parent="Events/SONIC2" index="1"]
+position = Vector2( 14.6945, -13.1287 )
+
+[node name="Position2D4" type="Position2D" parent="Events/SONIC2" index="2"]
+position = Vector2( 43.2892, -11.3911 )
+
+[node name="BEBE" parent="Events" index="6" instance=ExtResource( 8 )]
 position = Vector2( -101.982, 376.171 )
 speaker = "bebe"
-text = "Hey there, big bro (though I'm actually running an older firmware than you are, your hardware is much older than mine). Remember when M0TH3R taught us how to destroy INLAW? She left behind one of the practice dummies, why don't you try to kill it? Just bump into it with the arrow keys."
+text = "Hey there, big bro (though I'm actually running an older firmware than you are, your hardware is much older than mine).
+ Remember when M0TH3R taught us how we could upgrade ourselves... Why don't you pick up the chip over there. I'd do it myself but this wrench is pretty heavy. We'll be able to equip it after the mission!"
 
 [node name="Position2D" type="Position2D" parent="Events/BEBE" index="0"]
 position = Vector2( 0.0472031, -0.179108 )

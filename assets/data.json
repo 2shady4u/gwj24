@@ -239,9 +239,6 @@
                 "movement": 0
             },
             "drops": {
-                "more_hp": 0.2,
-                "more_damage": 0.2,
-                "faster_speed_but_decreased_health": 0.2
             }
         },
         "sentry_mk1": {
