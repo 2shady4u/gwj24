@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/pause/PauseTab.gd"
 }, {
+"base": "TextureRect",
+"class": "class_perk_rect",
+"language": "GDScript",
+"path": "res://src/UI/PerkRect.gd"
+}, {
 "base": "VBoxContainer",
 "class": "class_perk_vbox",
 "language": "GDScript",
@@ -108,6 +113,7 @@ _global_script_class_icons={
 "class_orphan_tab": "",
 "class_orphan_vbox": "",
 "class_pause_tab": "",
+"class_perk_rect": "",
 "class_perk_vbox": "",
 "class_upgrade": "",
 "class_upgrade_button": "",

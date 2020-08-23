@@ -1,0 +1,2 @@
+extends TextureRect
+class_name class_perk_rect

@@ -79,3 +79,6 @@ msgstr ""
 
 msgid "MISSION_SELECT"
 msgstr ""
+
+msgid "MISSION_FAILED"
+msgstr ""
