@@ -50,15 +50,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
-margin_left = 440.0
+[node name="TitleHBox" type="HBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 448.0
 margin_top = 126.0
-margin_right = 584.0
+margin_right = 576.0
 margin_bottom = 142.0
 size_flags_horizontal = 4
-text = "~ GAME IS PAUSED ~"
+alignment = 1
+
+[node name="FrontLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer/TitleHBox"]
+margin_right = 8.0
+margin_bottom = 16.0
+text = "~"
+
+[node name="TitleLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer/TitleHBox"]
+margin_left = 12.0
+margin_right = 116.0
+margin_bottom = 16.0
+size_flags_horizontal = 4
+text = "PAUSE_MESSAGE"
 align = 1
 valign = 1
+
+[node name="BackLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer/TitleHBox"]
+margin_left = 120.0
+margin_right = 128.0
+margin_bottom = 16.0
+text = "~"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 448.0
@@ -79,7 +97,7 @@ focus_neighbour_top = NodePath("../QuitButton")
 focus_neighbour_bottom = NodePath("../RestartButton")
 focus_next = NodePath("../RestartButton")
 focus_previous = NodePath("../QuitButton")
-text = "Resume"
+text = "RESUME"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -93,7 +111,7 @@ focus_neighbour_top = NodePath("../ResumeButton")
 focus_neighbour_bottom = NodePath("../SettingsButton")
 focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath("../ResumeButton")
-text = "Restart"
+text = "RESTART"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,7 +133,7 @@ focus_neighbour_top = NodePath("../RestartButton")
 focus_neighbour_bottom = NodePath("../AbortButton")
 focus_next = NodePath("../AbortButton")
 focus_previous = NodePath("../RestartButton")
-text = "Settings"
+text = "SETTINGS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -137,7 +155,7 @@ focus_neighbour_top = NodePath("../SettingsButton")
 focus_neighbour_bottom = NodePath("../QuitButton")
 focus_next = NodePath("../QuitButton")
 focus_previous = NodePath("../SettingsButton")
-text = "Abort"
+text = "ABORT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -151,15 +169,15 @@ focus_neighbour_top = NodePath("../AbortButton")
 focus_neighbour_bottom = NodePath("../ResumeButton")
 focus_next = NodePath("../ResumeButton")
 focus_previous = NodePath("../AbortButton")
-text = "Quit"
+text = "QUIT"
 
 [node name="HintLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
-margin_left = 388.0
+margin_left = 472.0
 margin_top = 433.0
-margin_right = 636.0
+margin_right = 552.0
 margin_bottom = 449.0
 size_flags_horizontal = 4
-text = "Press 'ESCAPE' to pause/unpause"
+text = "PAUSE_HINT"
 align = 1
 valign = 1
 
@@ -185,19 +203,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer"]
-margin_left = 442.0
-margin_right = 517.0
-margin_bottom = 14.0
+[node name="TitleHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer"]
+margin_left = 436.0
+margin_right = 524.0
+margin_bottom = 16.0
 size_flags_horizontal = 4
-text = "~ Settings ~"
+alignment = 1
+
+[node name="FrontLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/TitleHBox"]
+margin_right = 8.0
+margin_bottom = 16.0
+text = "~"
+
+[node name="TitleLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/TitleHBox"]
+margin_left = 12.0
+margin_right = 76.0
+margin_bottom = 16.0
+size_flags_horizontal = 4
+text = "SETTINGS"
 align = 1
 valign = 1
 
+[node name="BackLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/TitleHBox"]
+margin_left = 80.0
+margin_right = 88.0
+margin_bottom = 16.0
+text = "~"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/SettingsTab/VBoxContainer"]
-margin_top = 38.0
+margin_top = 40.0
 margin_right = 960.0
-margin_bottom = 468.0
+margin_bottom = 461.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -205,55 +241,54 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer"]
 margin_right = 960.0
-margin_bottom = 430.0
+margin_bottom = 421.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 16
 alignment = 1
 
 [node name="AudioContainer" type="VBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 120.0
+margin_top = 85.0
 margin_right = 960.0
-margin_bottom = 310.0
+margin_bottom = 261.0
 custom_constants/separation = 16
 
 [node name="SectionHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
 margin_right = 960.0
-margin_bottom = 14.0
+margin_bottom = 16.0
 alignment = 1
 
 [node name="FrontHSeparator" type="HSeparator" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SectionHBox"]
-margin_right = 457.0
-margin_bottom = 14.0
+margin_right = 456.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SectionHBox"]
-margin_left = 461.0
-margin_right = 498.0
-margin_bottom = 14.0
-text = "Audio"
+margin_left = 460.0
+margin_right = 500.0
+margin_bottom = 16.0
+text = "AUDIO"
 
 [node name="BackHSeparator" type="HSeparator" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SectionHBox"]
-margin_left = 502.0
+margin_left = 504.0
 margin_right = 960.0
-margin_bottom = 14.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 
 [node name="MasterVolumeHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
-margin_top = 30.0
+margin_top = 32.0
 margin_right = 960.0
-margin_bottom = 46.0
+margin_bottom = 48.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
-margin_top = 1.0
 margin_right = 412.0
-margin_bottom = 15.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
-text = "Master"
+text = "MASTER"
 align = 2
 
 [node name="VolumeSlider" type="HSlider" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
@@ -269,27 +304,25 @@ value = 100.0
 
 [node name="VolumeLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox"]
 margin_left = 548.0
-margin_top = 1.0
 margin_right = 960.0
-margin_bottom = 15.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 text = "(100 %)"
 
 [node name="MusicVolumeHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
-margin_top = 62.0
+margin_top = 64.0
 margin_right = 960.0
-margin_bottom = 78.0
+margin_bottom = 80.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
-margin_top = 1.0
 margin_right = 412.0
-margin_bottom = 15.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
-text = "Music"
+text = "MUSIC"
 align = 2
 
 [node name="VolumeSlider" type="HSlider" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
@@ -305,38 +338,36 @@ value = 100.0
 
 [node name="VolumeLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox"]
 margin_left = 548.0
-margin_top = 1.0
 margin_right = 960.0
-margin_bottom = 15.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 text = "(100 %)"
 
 [node name="MuteMusicCheckBox" type="CheckBox" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
-margin_left = 428.0
-margin_top = 94.0
-margin_right = 531.0
-margin_bottom = 118.0
+margin_left = 430.0
+margin_top = 96.0
+margin_right = 530.0
+margin_bottom = 112.0
 focus_neighbour_top = NodePath("../MusicVolumeHBox/VolumeSlider")
 focus_neighbour_bottom = NodePath("../SFXVolumeHBox/VolumeSlider")
 focus_next = NodePath("../SFXVolumeHBox/VolumeSlider")
 focus_previous = NodePath("../MasterVolumeHBox/VolumeSlider")
 size_flags_horizontal = 4
-text = "Mute Music"
+text = "MUTE_MUSIC"
 align = 1
 
 [node name="SFXVolumeHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
-margin_top = 134.0
+margin_top = 128.0
 margin_right = 960.0
-margin_bottom = 150.0
+margin_bottom = 144.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox"]
-margin_top = 1.0
 margin_right = 412.0
-margin_bottom = 15.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 text = "SFX"
 align = 2
@@ -354,28 +385,83 @@ value = 100.0
 
 [node name="VolumeLabel" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox"]
 margin_left = 548.0
-margin_top = 1.0
 margin_right = 960.0
-margin_bottom = 15.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 text = "(100 %)"
 
 [node name="MuteSFXCheckBox" type="CheckBox" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer"]
-margin_left = 436.0
-margin_top = 166.0
-margin_right = 523.0
-margin_bottom = 190.0
+margin_left = 438.0
+margin_top = 160.0
+margin_right = 522.0
+margin_bottom = 176.0
 focus_neighbour_top = NodePath("../SFXVolumeHBox/VolumeSlider")
 focus_neighbour_bottom = NodePath("../../../../BackButton")
 focus_next = NodePath("../../../../BackButton")
 focus_previous = NodePath("../SFXVolumeHBox/VolumeSlider")
 size_flags_horizontal = 4
-text = "Mute SFX"
+text = "MUTE_SFX"
 align = 1
+
+[node name="LocaleContainer" type="VBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 277.0
+margin_right = 960.0
+margin_bottom = 336.0
+custom_constants/separation = 16
+
+[node name="SectionHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer"]
+margin_right = 960.0
+margin_bottom = 16.0
+alignment = 1
+
+[node name="FrontHSeparator" type="HSeparator" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer/SectionHBox"]
+margin_right = 444.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer/SectionHBox"]
+margin_left = 448.0
+margin_right = 512.0
+margin_bottom = 16.0
+text = "LANGUAGE"
+
+[node name="BackHSeparator" type="HSeparator" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer/SectionHBox"]
+margin_left = 516.0
+margin_right = 960.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="LanguageHBox" type="HBoxContainer" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer"]
+margin_top = 32.0
+margin_right = 960.0
+margin_bottom = 59.0
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer/LanguageHBox"]
+margin_left = 390.0
+margin_right = 412.0
+margin_bottom = 27.0
+text = "<"
+
+[node name="Label" type="Label" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer/LanguageHBox"]
+margin_left = 416.0
+margin_top = 5.0
+margin_right = 544.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 128, 0 )
+text = "LOCALE"
+align = 1
+valign = 1
+
+[node name="NextButton" type="Button" parent="TabContainer/SettingsTab/VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer/LanguageHBox"]
+margin_left = 548.0
+margin_right = 570.0
+margin_bottom = 27.0
+text = ">"
 
 [node name="BackButton" type="Button" parent="TabContainer/SettingsTab/VBoxContainer"]
 margin_left = 432.0
-margin_top = 492.0
+margin_top = 485.0
 margin_right = 528.0
 margin_bottom = 512.0
 rect_min_size = Vector2( 96, 0 )
@@ -384,4 +470,4 @@ focus_neighbour_bottom = NodePath("../ScrollContainer/VBoxContainer/AudioContain
 focus_next = NodePath("../ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox/VolumeSlider")
 focus_previous = NodePath("../ScrollContainer/VBoxContainer/AudioContainer/MuteSFXCheckBox")
 size_flags_horizontal = 4
-text = "Back"
+text = "BACK"

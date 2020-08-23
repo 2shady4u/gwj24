@@ -9,7 +9,10 @@ var mute_music := false setget set_mute_music
 var sfx_volume := 100.0 setget set_sfx_volume
 var mute_sfx := false setget set_mute_sfx
 
-## COMMON CONFIG #################################################################
+## LANGUAGE SETTINGS ###########################################################
+var locale := "en" setget set_locale
+
+## COMMON CONFIG ###############################################################
 var skip_menu := false
 var verbose_mode := true
 
@@ -38,3 +41,8 @@ func set_sfx_volume(value : float):
 func set_mute_sfx(value : bool):
 	mute_sfx = value
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), value)
+
+func set_locale(value : String):
+	if value in TranslationServer.get_loaded_locales():
+		locale = value
+		TranslationServer.set_locale(locale)

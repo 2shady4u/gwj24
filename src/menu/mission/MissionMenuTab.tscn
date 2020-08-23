@@ -29,7 +29,7 @@ margin_right = 128.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 128, 0 )
 size_flags_horizontal = 0
-text = "Back"
+text = "BACK"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 32.0
@@ -39,15 +39,35 @@ margin_bottom = 544.0
 mouse_filter = 2
 custom_constants/separation = 16
 
-[node name="TitleLabel" type="Label" parent="VBoxContainer"]
-margin_left = 421.0
-margin_right = 538.0
+[node name="TitleHBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_left = 415.0
+margin_right = 545.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="FrontLabel" type="Label" parent="VBoxContainer/TitleHBox"]
+margin_top = 3.0
+margin_right = 8.0
+margin_bottom = 17.0
+text = "~"
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/TitleHBox"]
+margin_left = 12.0
+margin_right = 118.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 4
-text = "~ Mission Select ~"
+text = "MISSION_SELECT"
 align = 1
 valign = 1
+
+[node name="BackLabel" type="Label" parent="VBoxContainer/TitleHBox"]
+margin_left = 122.0
+margin_top = 3.0
+margin_right = 130.0
+margin_bottom = 17.0
+text = "~"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 36.0

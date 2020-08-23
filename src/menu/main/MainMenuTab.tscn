@@ -79,7 +79,7 @@ focus_neighbour_bottom = NodePath("../SettingsButton")
 focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath("../QuitButton")
 size_flags_horizontal = 4
-text = "Select Mission"
+text = "SELECT_MISSION"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 177.0
@@ -91,7 +91,7 @@ focus_neighbour_bottom = NodePath("../QuitButton")
 focus_next = NodePath("../QuitButton")
 focus_previous = NodePath("../MissionButton")
 size_flags_horizontal = 4
-text = "Settings"
+text = "SETTINGS"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 220.0
@@ -103,7 +103,7 @@ focus_neighbour_bottom = NodePath("../MissionButton")
 focus_next = NodePath("../MissionButton")
 focus_previous = NodePath("../SettingsButton")
 size_flags_horizontal = 4
-text = "Quit"
+text = "QUIT"
 
 [node name="StatusLabel" type="Label" parent="VBoxContainer"]
 margin_top = 445.0
@@ -125,18 +125,18 @@ margin_left = 224.0
 margin_right = 352.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 128, 0 )
-text = "New"
+text = "NEW"
 
 [node name="SaveButton" type="Button" parent="VBoxContainer/StateHBox"]
 margin_left = 416.0
 margin_right = 544.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 128, 0 )
-text = "Save"
+text = "SAVE"
 
 [node name="LoadButton" type="Button" parent="VBoxContainer/StateHBox"]
 margin_left = 608.0
 margin_right = 736.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 128, 0 )
-text = "Load"
+text = "LOAD"

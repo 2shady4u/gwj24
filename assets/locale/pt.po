@@ -1,0 +1,77 @@
+# Don't remove the two lines below, they're required for gettext to work correctly.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CP1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Hello world!"
+msgstr "Hello world!"
+
+msgid "PAUSE_MESSAGE"
+msgstr "JOGO ESTA PAUSADO"
+
+msgid "PAUSE_HINT"
+msgstr "Pressione 'ESCAPE' para pausar/retomar"
+
+msgid "BACK"
+msgstr "Voltar"
+
+msgid "RESUME"
+msgstr "Resumo"
+
+msgid "RESTART"
+msgstr "Reiniciar"
+
+msgid "ABORT"
+msgstr "Abortar"
+
+msgid "SELECT_MISSION"
+msgstr "Selecionar Missão"
+
+msgid "QUIT"
+msgstr "Sair"
+
+msgid "NEW"
+msgstr "Novo"
+
+msgid "LOAD"
+msgstr "Carga"
+
+msgid "SAVE"
+msgstr "Salve"
+
+msgid "SETTINGS"
+msgstr "Configurações"
+
+msgid "AUDIO"
+msgstr "Áudio"
+
+msgid "MASTER"
+msgstr "Mestre"
+
+msgid "MUSIC"
+msgstr "Música"
+
+msgid "MUTE_MUSIC"
+msgstr "Música Muda"
+
+msgid "SFX"
+msgstr "SFX"
+
+msgid "MUTE_SFX"
+msgstr "SFX Muda"
+
+msgid "LANGUAGE"
+msgstr "Língua"
+
+msgid "LOCALE"
+msgstr "Português"
+
+msgid "MISSION_SELECT"
+msgstr ""

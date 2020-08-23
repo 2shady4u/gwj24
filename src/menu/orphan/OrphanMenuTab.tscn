@@ -28,7 +28,7 @@ tab_type = 3
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 992.0
-margin_bottom = 558.0
+margin_bottom = 574.0
 mouse_filter = 2
 
 [node name="BackButton" type="Button" parent="BackContainer"]
@@ -36,31 +36,51 @@ margin_right = 128.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 128, 0 )
 size_flags_horizontal = 0
-text = "Back"
+text = "BACK"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 992.0
-margin_bottom = 558.0
+margin_bottom = 574.0
 mouse_filter = 2
 custom_constants/separation = 16
 
-[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+[node name="TitleHBox" type="HBoxContainer" parent="VBoxContainer"]
 margin_left = 442.0
 margin_right = 517.0
 margin_bottom = 20.0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="FrontLabel" type="Label" parent="VBoxContainer/TitleHBox"]
+margin_top = 3.0
+margin_right = 8.0
+margin_bottom = 17.0
+text = "~"
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/TitleHBox"]
+margin_left = 12.0
+margin_right = 63.0
+margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 4
-text = "~ UPGRID ~"
+text = "UPGRID"
 align = 1
 valign = 1
 uppercase = true
 
+[node name="BackLabel" type="Label" parent="VBoxContainer/TitleHBox"]
+margin_left = 67.0
+margin_top = 3.0
+margin_right = 75.0
+margin_bottom = 17.0
+text = "~"
+
 [node name="TopHBox" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 36.0
 margin_right = 960.0
-margin_bottom = 382.0
+margin_bottom = 398.0
 size_flags_vertical = 3
 alignment = 1
 __meta__ = {
@@ -69,7 +89,7 @@ __meta__ = {
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/TopHBox"]
 margin_right = 834.0
-margin_bottom = 346.0
+margin_bottom = 362.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 custom_styles/panel = SubResource( 1 )
@@ -80,7 +100,7 @@ tabs_visible = false
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TopHBox"]
 margin_left = 838.0
 margin_right = 960.0
-margin_bottom = 346.0
+margin_bottom = 362.0
 size_flags_horizontal = 12
 size_flags_vertical = 5
 
@@ -95,14 +115,14 @@ valign = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TopHBox/VBoxContainer"]
 margin_top = 18.0
 margin_right = 122.0
-margin_bottom = 346.0
+margin_bottom = 362.0
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 2 )
 
 [node name="AvailableVBox" type="VBoxContainer" parent="VBoxContainer/TopHBox/VBoxContainer/ScrollContainer"]
 margin_top = 16.0
 margin_right = 122.0
-margin_bottom = 312.0
+margin_bottom = 328.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 16
@@ -111,21 +131,21 @@ alignment = 1
 [node name="UpgradeButton" parent="VBoxContainer/TopHBox/VBoxContainer/ScrollContainer/AvailableVBox" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 108.0
+margin_top = 116.0
 margin_right = 122.0
-margin_bottom = 140.0
+margin_bottom = 148.0
 
 [node name="UpgradeButton2" parent="VBoxContainer/TopHBox/VBoxContainer/ScrollContainer/AvailableVBox" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 156.0
+margin_top = 164.0
 margin_right = 122.0
-margin_bottom = 188.0
+margin_bottom = 196.0
 
 [node name="BottomHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 398.0
+margin_top = 414.0
 margin_right = 960.0
-margin_bottom = 526.0
+margin_bottom = 542.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BottomHBox"]
 margin_right = 478.0

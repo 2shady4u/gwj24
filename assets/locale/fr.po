@@ -1,0 +1,77 @@
+# Don't remove the two lines below, they're required for gettext to work correctly.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CP1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Hello world!"
+msgstr "Hello world!"
+
+msgid "PAUSE_MESSAGE"
+msgstr "CREME EST BRULEE"
+
+msgid "PAUSE_HINT"
+msgstr "Qu'ils mangent de la brioche"
+
+msgid "BACK"
+msgstr "Éclair"
+
+msgid "RESUME"
+msgstr "Crêpe"
+
+msgid "RESTART"
+msgstr "Champagne"
+
+msgid "ABORT"
+msgstr "Choucroute"
+
+msgid "SELECT_MISSION"
+msgstr "Sélectionner La Brie"
+
+msgid "QUIT"
+msgstr "Foie Gras"
+
+msgid "NEW"
+msgstr "Flute"
+
+msgid "LOAD"
+msgstr "Baguette"
+
+msgid "SAVE"
+msgstr "Croissant"
+
+msgid "SETTINGS"
+msgstr "Omellete du Fromage"
+
+msgid "AUDIO"
+msgstr "Macaron"
+
+msgid "MASTER"
+msgstr "Robespierre"
+
+msgid "MUSIC"
+msgstr "Guillotine"
+
+msgid "MUTE_MUSIC"
+msgstr "Croisser Guillotine"
+
+msgid "SFX"
+msgstr "SFX"
+
+msgid "MUTE_SFX"
+msgstr "Croisser SFX"
+
+msgid "LANGUAGE"
+msgstr "Pétanque"
+
+msgid "LOCALE"
+msgstr "Drapeau Blanc"
+
+msgid "MISSION_SELECT"
+msgstr "Brie Sélection"
