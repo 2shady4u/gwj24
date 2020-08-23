@@ -74,4 +74,4 @@ msgid "LOCALE"
 msgstr "English"
 
 msgid "MISSION_SELECT"
-msgstr "Missão Selecionada"
+msgstr "Mission Select"

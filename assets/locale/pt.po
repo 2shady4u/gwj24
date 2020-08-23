@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Hello world!"
-msgstr "Hello world!"
+msgstr "Olá Mundo!"
 
 msgid "PAUSE_MESSAGE"
 msgstr "JOGO ESTA PAUSADO"
@@ -74,4 +74,4 @@ msgid "LOCALE"
 msgstr "Português"
 
 msgid "MISSION_SELECT"
-msgstr ""
+msgstr "Missão Selecionada"

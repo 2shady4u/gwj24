@@ -11,67 +11,67 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Hello world!"
-msgstr "Hello world!"
+msgstr "Bonjour monde!"
 
 msgid "PAUSE_MESSAGE"
-msgstr "CREME EST BRULEE"
+msgstr "JEU EST EN PAUSE"
 
 msgid "PAUSE_HINT"
-msgstr "Qu'ils mangent de la brioche"
+msgstr "Appuyez sur 'ESCAPE' pour mettre en pause/reprendre"
 
 msgid "BACK"
-msgstr "Éclair"
+msgstr "Retour"
 
 msgid "RESUME"
-msgstr "Crêpe"
+msgstr "Reprendre"
 
 msgid "RESTART"
-msgstr "Champagne"
+msgstr "Redémarrer"
 
 msgid "ABORT"
-msgstr "Choucroute"
+msgstr "Abandonner"
 
 msgid "SELECT_MISSION"
-msgstr "Sélectionner La Brie"
+msgstr "Sélectionnez une Mission"
 
 msgid "QUIT"
-msgstr "Foie Gras"
+msgstr "Quitter"
 
 msgid "NEW"
-msgstr "Flute"
+msgstr "Nouveau"
 
 msgid "LOAD"
-msgstr "Baguette"
+msgstr "Charger"
 
 msgid "SAVE"
-msgstr "Croissant"
+msgstr "Sauver"
 
 msgid "SETTINGS"
-msgstr "Omellete du Fromage"
+msgstr "Paramètres"
 
 msgid "AUDIO"
-msgstr "Macaron"
+msgstr "Audio"
 
 msgid "MASTER"
-msgstr "Robespierre"
+msgstr "Maître"
 
 msgid "MUSIC"
-msgstr "Guillotine"
+msgstr "Musique"
 
 msgid "MUTE_MUSIC"
-msgstr "Croisser Guillotine"
+msgstr "Muet de la Musique"
 
 msgid "SFX"
 msgstr "SFX"
 
 msgid "MUTE_SFX"
-msgstr "Croisser SFX"
+msgstr "Muet de la SFX"
 
 msgid "LANGUAGE"
-msgstr "Pétanque"
+msgstr "Langue"
 
 msgid "LOCALE"
-msgstr "Drapeau Blanc"
+msgstr "Français"
 
 msgid "MISSION_SELECT"
-msgstr "Brie Sélection"
+msgstr "Sélection de Mission"

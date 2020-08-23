@@ -2,16 +2,13 @@ extends MarginContainer
 class_name class_mission_tab
 
 onready var _name_label := $VBoxContainer/HBoxContainer/NameLabel
-onready var _start_button := $VBoxContainer/HBoxContainer/StartButton
+onready var _start_button := $VBoxContainer/StartButton
 
-onready var _description_label := $VBoxContainer/ScrollContainer/DescriptionLabel
-
-onready var _thumbnail_rect := $VBoxContainer/ThumbnailRect
+onready var _description_label := $VBoxContainer/ScrollContainer/VBoxContainer/DescriptionLabel
+onready var _thumbnail_rect := $VBoxContainer/ScrollContainer/VBoxContainer/ThumbnailRect
 
 onready var _status_label := $VBoxContainer/StatusLabel
 
-const COMPLETED_TEXT := "You have previously completed this mission!"
-const UNLOCKED_TEXT := "This mission is ready to be started!"
 const LOCKED_TEXT := "You do not meet the proper prerequisites...\nCome back later!"
 
 var mission : class_mission setget set_mission, get_mission
@@ -23,18 +20,17 @@ func set_mission(value : class_mission) -> void:
 	if value.locked:
 		_thumbnail_rect.material.set_shader_param("locked", true)
 		_start_button.disabled = true
+		_start_button.visible = false
 
 		_description_label.text = encrypt_with_ceaser_cipher(value.description)
-		_status_label.text = LOCKED_TEXT
+		_status_label.visible = true
 	else:
 		_thumbnail_rect.material.set_shader_param("locked", false)
 		_start_button.disabled = false
+		_start_button.visible = true
 
 		_description_label.text = value.description
-		if value.completed:
-			_status_label.text = COMPLETED_TEXT
-		else:
-			_status_label.text = UNLOCKED_TEXT
+		_status_label.visible = false
 
 func get_mission() -> class_mission:
 	return _mission.get_ref()
