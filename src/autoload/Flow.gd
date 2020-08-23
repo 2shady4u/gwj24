@@ -55,8 +55,15 @@ func load_settings() -> int:
 	var _error : int = _options_loader.load_optionsCFG()
 	_error += _controls_loader.load_controlsJSON()
 	_error += _data_loader.load_dataJSON()
-	# Also load the default context!?
-	_error += _state_loader.load_stateJSON()
+	# Also load the default context!? If the user context doesnt exist?
+	var file := File.new()
+	if file.file_exists(Flow.USER_SAVE_PATH):
+		print("Found existing save file! Loading it automagically...")
+		_error = _state_loader.load_stateJSON(Flow.USER_SAVE_PATH)
+		if _error != OK:
+			_error += _state_loader.load_stateJSON()
+	else:
+		_error += _state_loader.load_stateJSON()
 	if _error == OK:
 		print("----> Succesfully loaded settings!")
 	else:

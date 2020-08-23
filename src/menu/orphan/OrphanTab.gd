@@ -1,7 +1,7 @@
 extends HBoxContainer
 class_name class_orphan_tab
 
-onready var _grid_container := $GridVBox/PanelContainer/GridContainer
+onready var _grid_container := $GridVBox/Control/PanelContainer/GridContainer
 
 onready var _name_label := $VBoxContainer/BioHBox/ScrollContainer/VBoxContainer/HBoxContainer/NameLabel
 onready var _back_story_label := $VBoxContainer/BioHBox/ScrollContainer/VBoxContainer/BackStoryLabel
@@ -121,7 +121,8 @@ func update_tab():
 				3:
 					slot.rect_min_size = 64*Vector2.ONE
 				4:
-					slot.rect_min_size = 32*Vector2.ONE
+					slot.rect_min_size = 48*Vector2.ONE
+			
 
 	# Place the orphan's upgrades in its grid!
 	for upgrade in self.orphan.upgrades:
