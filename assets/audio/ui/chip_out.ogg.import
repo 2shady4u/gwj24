@@ -11,5 +11,5 @@ dest_files=[ "res://.import/chip_out.ogg-c9208d5502dc8beed3a11eff6b020dfa.oggstr
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

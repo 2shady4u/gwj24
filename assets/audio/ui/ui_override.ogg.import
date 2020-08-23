@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ui_override.ogg-4468542955a2c290f49270314ef87b6c.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
