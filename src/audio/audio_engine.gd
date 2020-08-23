@@ -24,7 +24,19 @@ const tracks = {
 }
 
 const sfx = {
-	"facility": "res://assets/music/facility.ogg",
+	"ui_chip_in": "res://assets/audio/ui/chip_in.ogg",
+	"ui_chip_out": "res://assets/audio/ui/chip_out.ogg",
+	"ui_back": "res://assets/audio/ui/ui_back.ogg",
+	"ui_back2": "res://assets/audio/ui/ui_back2.ogg",
+	"ui_blocked": "res://assets/audio/ui/ui_blocked.ogg",
+	"ui_confirm": "res://assets/audio/ui/ui_confirm.ogg",
+	"ui_danger": "res://assets/audio/ui/ui_danger.ogg",
+	"ui_move": "res://assets/audio/ui/ui_move.ogg",
+	"ui_override": "res://assets/audio/ui/ui_override.ogg",
+	"ui_select": "res://assets/audio/ui/ui_select.ogg",
+	"heal": "res://assets/audio/heal.ogg",
+	"move1": "res://assets/audio/move1.ogg",
+	"move2": "res://assets/audio/move2.ogg",
 }
 
 
@@ -48,11 +60,11 @@ func _ready():
 		effects.add_effect()
 
 
-func play_effect(track_path: String):
-	play_positioned_effect(track_path, get_viewport().get_visible_rect().size / 2)
+func play_effect(track_name: String):
+	play_positioned_effect(tracks[track_name], get_viewport().get_visible_rect().size / 2)
 
-func play_positioned_effect(track_path: String, position: Vector2 = Vector2(0, 0)):
-	effects.play_effect(track_path, position)
+func play_positioned_effect(effect_name: String, position: Vector2 = Vector2(0, 0)):
+	effects.play_effect(sfx[effect_name], position)
 
 func reset():
 #	effects.reset()
