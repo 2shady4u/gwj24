@@ -9,6 +9,7 @@ onready var _status_label := $VBoxContainer/StatusLabel
 onready var _new_button := $VBoxContainer/StateHBox/NewButton
 onready var _save_button := $VBoxContainer/StateHBox/SaveButton
 onready var _load_button := $VBoxContainer/StateHBox/LoadButton
+onready var _audio_hover := $Audio_Hover
 
 const NEW_TEXT := "NEW_NOTIFICATION"
 const SAVE_TEXT := "SAVE_NOTIFICATION"
@@ -56,3 +57,6 @@ func _on_load_button_pressed():
 	AudioEngine.play_effect("ui_select")
 	_status_label.text = LOAD_TEXT
 	Flow.load_game()
+
+func _on_button_mouse_entered():
+	_audio_hover.play()

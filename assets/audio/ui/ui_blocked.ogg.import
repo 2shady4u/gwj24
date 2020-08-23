@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ui_blocked.ogg-c5f8a90f91e868ce689b5a0e3e67e108.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

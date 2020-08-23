@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ui_danger.ogg-5728c528647a7d8d0083ba880cacb017.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
