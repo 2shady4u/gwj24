@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/game/character/SentryMK1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/character/F1SHBOT9000.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/game/character/SentryMK2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/level/MyNewLevel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/game/character/BlitzMK1.tscn" type="PackedScene" id=5]
 
 [node name="TestLevel" instance=ExtResource( 4 )]
 
@@ -29,50 +28,35 @@ position = Vector2( 72, 72 )
 [node name="B3B3" parent="Entities" index="4"]
 position = Vector2( 88, 88 )
 
-[node name="BlitzMK1" parent="Entities" index="5" instance=ExtResource( 5 )]
-position = Vector2( 152, -40 )
+[node name="Enemy5" parent="Entities" index="5" instance=ExtResource( 2 )]
+position = Vector2( 181.172, -184.083 )
 
-[node name="BlitzMK2" parent="Entities" index="6" instance=ExtResource( 5 )]
-position = Vector2( 232, -40 )
+[node name="Enemy6" parent="Entities" index="6" instance=ExtResource( 2 )]
+position = Vector2( 198.586, -232.52 )
 
-[node name="Enemy" parent="Entities" index="7" instance=ExtResource( 2 )]
-position = Vector2( 168, -40 )
-
-[node name="Enemy2" parent="Entities" index="8" instance=ExtResource( 2 )]
-position = Vector2( 216, -40 )
-
-[node name="Enemy5" parent="Entities" index="9" instance=ExtResource( 2 )]
-position = Vector2( 184, -136 )
-
-[node name="Enemy6" parent="Entities" index="10" instance=ExtResource( 2 )]
-position = Vector2( 200, -136 )
-
-[node name="Enemy3" parent="Entities" index="11" instance=ExtResource( 2 )]
-position = Vector2( 232, 56 )
-
-[node name="Enemy4" parent="Entities" index="12" instance=ExtResource( 2 )]
-position = Vector2( 152, 56 )
-
-[node name="SentryMK2" parent="Entities" index="13" instance=ExtResource( 3 )]
+[node name="SentryMK2" parent="Entities" index="7" instance=ExtResource( 3 )]
 position = Vector2( 184, -232 )
 
-[node name="SentryMK3" parent="Entities" index="14" instance=ExtResource( 3 )]
-position = Vector2( 200, -232 )
+[node name="SentryMK3" parent="Entities" index="8" instance=ExtResource( 3 )]
+position = Vector2( 232.173, -38.6063 )
 
-[node name="SentryMK4" parent="Entities" index="15" instance=ExtResource( 3 )]
+[node name="SentryMK4" parent="Entities" index="9" instance=ExtResource( 3 )]
 position = Vector2( 200, -184 )
 
-[node name="SentryMK5" parent="Entities" index="16" instance=ExtResource( 3 )]
-position = Vector2( 184, -184 )
+[node name="SentryMK5" parent="Entities" index="10" instance=ExtResource( 3 )]
+position = Vector2( 152.18, -41.1644 )
 
-[node name="SentryMK1" parent="Entities" index="17" instance=ExtResource( 1 )]
+[node name="SentryMK1" parent="Entities" index="11" instance=ExtResource( 1 )]
 position = Vector2( 136, 40 )
 
-[node name="SentryMK6" parent="Entities" index="18" instance=ExtResource( 1 )]
+[node name="SentryMK6" parent="Entities" index="12" instance=ExtResource( 1 )]
 position = Vector2( 248, 40 )
 
 [node name="Camera" parent="." index="3"]
 position = Vector2( 0, 16 )
 
-[node name="Events" parent="." index="8"]
+[node name="Events" parent="." index="9"]
 position = Vector2( 0, 16 )
+
+[node name="BG" parent="." index="10"]
+visible = false

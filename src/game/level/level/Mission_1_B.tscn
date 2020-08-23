@@ -31,20 +31,17 @@ position = Vector2( 87.4057, 89.3959 )
 [node name="SentryMK1" parent="Entities" index="5" instance=ExtResource( 1 )]
 position = Vector2( 152.614, 43.9105 )
 
-[node name="SentryMK5" parent="Entities" index="6" instance=ExtResource( 1 )]
-position = Vector2( 201.826, 43.7596 )
-
-[node name="SentryMK8" parent="Entities" index="7" instance=ExtResource( 1 )]
+[node name="SentryMK8" parent="Entities" index="6" instance=ExtResource( 1 )]
 position = Vector2( 249.445, -88.2467 )
 
-[node name="SentryMK9" parent="Entities" index="8" instance=ExtResource( 1 )]
+[node name="SentryMK9" parent="Entities" index="7" instance=ExtResource( 1 )]
 position = Vector2( 200.263, -86.8593 )
 
-[node name="SentryMK3" parent="Entities" index="9" instance=ExtResource( 1 )]
+[node name="SentryMK3" parent="Entities" index="8" instance=ExtResource( 1 )]
 position = Vector2( 151.753, 6.52233 )
 
-[node name="SentryMK4" parent="Entities" index="10" instance=ExtResource( 1 )]
-position = Vector2( 200.084, 6.29961 )
-
-[node name="SentryMK7" parent="Entities" index="11" instance=ExtResource( 2 )]
+[node name="SentryMK7" parent="Entities" index="9" instance=ExtResource( 2 )]
 position = Vector2( 216.502, 23.4111 )
+
+[node name="BG" parent="." index="10"]
+visible = false

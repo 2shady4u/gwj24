@@ -31,35 +31,29 @@ position = Vector2( 104, 88 )
 [node name="SentryMK2" parent="Entities" index="5" instance=ExtResource( 2 )]
 position = Vector2( 72, 24 )
 
-[node name="SentryMK3" parent="Entities" index="6" instance=ExtResource( 2 )]
-position = Vector2( 120, 24 )
-
-[node name="SentryMK4" parent="Entities" index="7" instance=ExtResource( 2 )]
+[node name="SentryMK4" parent="Entities" index="6" instance=ExtResource( 2 )]
 position = Vector2( 168, -8 )
 
-[node name="SentryMK5" parent="Entities" index="8" instance=ExtResource( 2 )]
+[node name="SentryMK5" parent="Entities" index="7" instance=ExtResource( 2 )]
 position = Vector2( 216, -8 )
 
-[node name="SentryMK6" parent="Entities" index="9" instance=ExtResource( 2 )]
-position = Vector2( 264, 24 )
-
-[node name="SentryMK7" parent="Entities" index="10" instance=ExtResource( 2 )]
+[node name="SentryMK7" parent="Entities" index="8" instance=ExtResource( 2 )]
 position = Vector2( 312, 24 )
 
-[node name="Enemy" parent="Entities" index="11" instance=ExtResource( 1 )]
+[node name="Enemy" parent="Entities" index="9" instance=ExtResource( 1 )]
 position = Vector2( 152, -72 )
 
-[node name="Enemy2" parent="Entities" index="12" instance=ExtResource( 1 )]
+[node name="Enemy2" parent="Entities" index="10" instance=ExtResource( 1 )]
 position = Vector2( 232, -72 )
 
-[node name="SentryMK8" parent="Entities" index="13" instance=ExtResource( 4 )]
-position = Vector2( 168, -88 )
-
-[node name="SentryMK9" parent="Entities" index="14" instance=ExtResource( 4 )]
-position = Vector2( 216, -88 )
+[node name="SentryMK8" parent="Entities" index="11" instance=ExtResource( 4 )]
+position = Vector2( 185.353, -88.3337 )
 
 [node name="Camera" parent="." index="3"]
 position = Vector2( -16, 24 )
 
-[node name="Events" parent="." index="8"]
+[node name="Events" parent="." index="9"]
 position = Vector2( -16, 24 )
+
+[node name="BG" parent="." index="10"]
+visible = false
