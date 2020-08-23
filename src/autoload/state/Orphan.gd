@@ -2,7 +2,6 @@ extends Reference
 class_name class_orphan
 
 var id := ""
-var columns := 3
 var upgrades := []
 
 var context : Dictionary setget set_context, get_context
@@ -45,6 +44,10 @@ func get_stats() -> Dictionary:
 			stats[key] += effect[key]
 	return stats
 
+var columns : int setget , get_columns
+func get_columns() -> int:
+	return self.base_columns
+
 # These are all constants derived from data.JSON and should be treated as such!
 var name : String setget , get_name
 func get_name():
@@ -65,6 +68,10 @@ func get_portrait_texture():
 var icon_texture : String setget , get_icon_texture
 func get_icon_texture():
 	return Flow.get_orphan_value(id, "icon_texture", "res://assetsgraphics/characters/Children/S0HN.png")
+
+var base_columns : int setget , get_base_columns
+func get_base_columns():
+	return Flow.get_orphan_value(id, "base_columns", 3)
 
 var base_stats : Dictionary setget , get_base_stats
 func get_base_stats():

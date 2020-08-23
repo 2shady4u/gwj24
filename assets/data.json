@@ -8,6 +8,7 @@
             "perk_ids": [
                 "upgrid"
             ],
+            "base_columns": 4,
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -25,6 +26,7 @@
             "perk_ids": [
                 "dash"
             ],
+            "base_columns": 3,
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -43,6 +45,7 @@
                 "disengage",
                 "healer"
             ],
+            "base_columns": 3,
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -61,6 +64,7 @@
                 "push",
                 "armor"
             ],
+            "base_columns": 3,
             "base_stats": {
                 "health": 7,
                 "damage": 1,
@@ -78,6 +82,7 @@
             "perk_ids": [
                 "recharge"
             ],
+            "base_columns": 3,
             "base_stats": {
                 "health": 5,
                 "damage": 2,
@@ -95,6 +100,7 @@
             "perk_ids": [
                 "armor"
             ],
+            "base_columns": 3,
             "base_stats": {
                 "health": 20,
                 "damage": 4,
