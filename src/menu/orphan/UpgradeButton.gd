@@ -17,8 +17,13 @@ var _upgrade := WeakRef.new()
 
 signal button_toggled()
 
+signal button_mouse_entered(class_upgrade)
+signal button_mouse_exited()
+
 func _ready():
 	var _error := connect("pressed", self, "_on_button_pressed")
+	_error = connect("mouse_entered", self, "_on_mouse_entered")
+	_error = connect("mouse_exited", self, "_on_mouse_exited")
 
 func reset_button(orphan_id : String):
 	if self.upgrade.orphan_id.empty():
@@ -43,3 +48,9 @@ func update_button(orphan_id : String, active_upgrade : class_upgrade):
 func _on_button_pressed():
 	emit_signal("button_toggled", pressed)
 	release_focus()
+
+func _on_mouse_entered():
+	emit_signal("button_mouse_entered", self.upgrade)
+
+func _on_mouse_exited():
+	emit_signal("button_mouse_exited")

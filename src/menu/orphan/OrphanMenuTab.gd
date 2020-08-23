@@ -14,7 +14,7 @@ var _upgrade_button_resource := preload("res://src/menu/orphan/UpgradeButton.tsc
 var active_upgrade : class_upgrade setget set_active_upgrade, get_active_upgrade
 func set_active_upgrade(value : class_upgrade) -> void:
 	_active_upgrade = weakref(value)
-	
+
 	if value:
 		_description_label.text = value.description
 	else:
@@ -65,7 +65,9 @@ func update_orphans():
 		var orphan_tab : class_orphan_tab = _orphan_tab_resource.instance()
 		_tab_container.add_child(orphan_tab)
 
-		orphan_tab.connect("upgrade_placed", self, "_on_upgrade_placed", [orphan_tab])
+		var _error : int = orphan_tab.connect("upgrade_placed", self, "_on_upgrade_placed", [orphan_tab])
+		_error = orphan_tab.connect("upgrade_mouse_entered", self, "_on_upgrade_mouse_entered")
+		_error = orphan_tab.connect("upgrade_mouse_exited", self, "_on_upgrade_mouse_exited")
 		orphan_tab.orphan = orphan
 
 		# Add orphan vbox
@@ -84,6 +86,8 @@ func update_upgrades():
 		_available_vbox.add_child(upgrade_button)
 
 		var _error : int = upgrade_button.connect("button_toggled", self, "_on_button_pressed", [upgrade_button])
+		_error = upgrade_button.connect("button_mouse_entered", self, "_on_upgrade_mouse_entered")
+		_error = upgrade_button.connect("button_mouse_exited", self, "_on_upgrade_mouse_exited")
 		upgrade_button.upgrade = upgrade
 
 	if _available_vbox.get_child_count() > 0:
@@ -120,6 +124,15 @@ func _on_button_pressed(pressed : bool, upgrade_button : class_upgrade_button):
 	# Update the buttons as well!!
 	for button in _available_vbox.get_children():
 		button.update_button(orphan.id, self.active_upgrade)
+
+func _on_upgrade_mouse_entered(upgrade : class_upgrade):
+	if upgrade:
+		_description_label.text = upgrade.description
+	else:
+		_description_label.text = ""
+
+func _on_upgrade_mouse_exited():
+	_description_label.text = ""
 
 func _on_back_button_pressed():
 	AudioEngine.play_effect("ui_back")

@@ -24,6 +24,13 @@ var _active_upgrade := WeakRef.new()
 onready var _upgrade_rect := $UpgradeRect
 onready var _active_upgrade_rect := $ActiveUpgradeRect
 
+signal slot_mouse_entered(class_upgrade)
+signal slot_mouse_exited()
+
+func _ready():
+	var _error : int = connect("mouse_entered", self, "_on_mouse_entered")
+	_error = connect("mouse_exited", self, "_on_mouse_exited")
+
 func update_slot():
 	if self.active_upgrade:
 		_active_upgrade_rect.visible = true
@@ -36,3 +43,9 @@ func update_slot():
 		_upgrade_rect.texture = load(self.upgrade.grid_texture)
 	else:
 		_upgrade_rect.visible = false
+
+func _on_mouse_entered():
+	emit_signal("slot_mouse_entered", self.upgrade)
+
+func _on_mouse_exited():
+	emit_signal("slot_mouse_exited")

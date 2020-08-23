@@ -58,6 +58,9 @@ var _active_upgrade := WeakRef.new()
 
 signal upgrade_placed()
 
+signal upgrade_mouse_entered(class_upgrade)
+signal upgrade_mouse_exited()
+
 func _ready():
 	set_process_input(false)
 
@@ -109,6 +112,9 @@ func update_tab():
 		for column_index in range(0, columns):
 			var slot = _upgrade_slot_resource.instance()
 			_grid_container.add_child(slot)
+			
+			var _error : int = slot.connect("slot_mouse_entered", self, "_on_slot_mouse_entered")
+			_error = slot.connect("slot_mouse_exited", self, "_on_slot_mouse_exited")
 
 			slot.grid_position = Vector2(row_index, column_index)
 			match columns:
@@ -129,6 +135,12 @@ func clear_tab():
 	for child in _perk_container.get_children():
 		_perk_container.remove_child(child)
 		child.queue_free()
+
+func _on_slot_mouse_entered(upgrade : class_upgrade):
+	emit_signal("upgrade_mouse_entered", upgrade)
+
+func _on_slot_mouse_exited():
+	emit_signal("upgrade_mouse_exited")
 
 func _input(event : InputEvent):
 	var movement_direction := Vector2.ZERO

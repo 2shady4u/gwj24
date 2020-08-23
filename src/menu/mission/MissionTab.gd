@@ -16,6 +16,7 @@ func set_mission(value : class_mission) -> void:
 	_mission = weakref(value)
 
 	_name_label.text = value.name
+	_thumbnail_rect.texture = load(value.thumbnail_texture)
 
 	if value.locked:
 		_thumbnail_rect.material.set_shader_param("locked", true)
