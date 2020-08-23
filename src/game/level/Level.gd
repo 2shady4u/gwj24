@@ -17,6 +17,9 @@ onready var chip_scene = preload("res://src/game/chips/Chip.tscn")
 
 var current_character : Character = null
 
+
+var door_ids_to_open = ["default"]
+
 # AI
 var astar: AStar2D = AStar2D.new()
 var astar_id_map = {}
@@ -30,6 +33,9 @@ const directions = {
 	"RIGHT": Vector2(16, 0),
 	"LEFT": Vector2(-16, 0),
 }
+
+var victory = false
+var opened_doors = false
 
 signal complete
 signal failed
@@ -56,6 +62,7 @@ func _ready():
 	snap_chips()
 	snap_events()
 	snap_obstacles()
+	snap_doors()
 	
 	var used_tiles = tiles.get_used_cells()
 	var tile_mapping = {}
@@ -83,29 +90,30 @@ func start():
 func get_snapped_position_in_grid(position_to_snap: Vector2):
 	return Vector2(floor(position_to_snap.x / 16) * 16 + 8, floor(position_to_snap.y / 16) * 16 + 8)
 
+func snap_doors():
+	for door in get_tree().get_nodes_in_group("door"):
+		var current_position = door.position
+		door.position =get_snapped_position_in_grid(current_position) + Vector2(8, 8)
+
 func snap_obstacles():
 	for obstacle in obstacles():
 		var current_position = obstacle.position
 		obstacle.position =get_snapped_position_in_grid(current_position)
-		print("set character on ", obstacle.position, " from ", current_position)
 		
 func snap_events():
 	for event in events():
 		var current_position = event.position
 		event.position =get_snapped_position_in_grid(current_position)
-		print("set character on ", event.position, " from ", current_position)
 		
 func snap_chips():
 	for chip in chips():
 		var current_position = chip.position
 		chip.position =get_snapped_position_in_grid(current_position)
-		print("set character on ", chip.position, " from ", current_position)
 		
 func snap_characters():
 	for character in characters():
 		var current_position = character.position
 		character.position =get_snapped_position_in_grid(current_position)
-		print("set character on ", character.position, " from ", current_position)
 
 func switch_character(new_character: Character):
 	snap_characters()
@@ -153,6 +161,8 @@ func move_action(character: Character, direction: Vector2):
 	if "dash" in perks:
 		if not is_tile_occupied(new_position):
 			new_position = get_snapped_position_in_grid(character.position + 2 * direction)
+			if get_tile(new_position) != "floor":
+				new_position = get_snapped_position_in_grid(character.position + direction)
 
 	if get_tile(new_position) == "floor":
 		for other_character in characters():
@@ -170,6 +180,12 @@ func move_action(character: Character, direction: Vector2):
 		else:
 			yield(shake_character_paused(character, direction / 8), "completed")
 	else:
+		if opened_doors:
+			for door in get_tree().get_nodes_in_group("door"):
+				if door.state == "open":
+					if door.point_in_door(new_position):
+						yield(shake_character_paused(character, direction / 4), "completed")
+						emit_signal("complete")
 		yield(shake_character_paused(character, direction / 8), "completed")
 	snap_characters()
 		
@@ -310,13 +326,8 @@ func play_healing(healing_position: Vector2):
 
 func _process(_delta):
 	if Input.is_action_just_pressed("switch"):
-		print("Switch pressed!")
-		var characters = characters()
-		for character in characters:
-			print(character.name)
-		print("These are the characters ", characters)
-		var index = characters.find(current_character)
-		switch_character(characters[(index + 1) % characters.size()])
+		current_character.finish_turn()
+		yield(validate_turn(), "completed")
 		
 	if current_character.team != "PLAYER":
 		yield(ai_decision(), "completed")
@@ -324,22 +335,24 @@ func _process(_delta):
 	else:
 		if Input.is_action_just_pressed("move_up"):
 			yield(move_action(current_character, directions.UP), "completed")
-			validate_turn()
+			yield(validate_turn(), "completed")
 		if Input.is_action_just_pressed("move_down"):
 			yield(move_action(current_character, directions.DOWN), "completed")
-			validate_turn()
+			yield(validate_turn(), "completed")
 		if Input.is_action_just_pressed("move_left"):
 			current_character.sprite.flip_h = true
 			yield(move_action(current_character, directions.LEFT), "completed")
-			validate_turn()
+			yield(validate_turn(), "completed")
 		if Input.is_action_just_pressed("move_right"):
 			current_character.sprite.flip_h = false
 			yield(move_action(current_character, directions.RIGHT), "completed")
-			validate_turn()
+			yield(validate_turn(), "completed")
 		if Input.is_action_just_pressed("interact"):
 			level_complete()
 		if Input.is_action_just_pressed("toggle_inventory"):
 			level_failed()
+
+
 			
 func level_complete():
 	emit_signal("complete")
@@ -375,14 +388,67 @@ func character_turns():
 
 func validate_turn():
 	print(current_character.turn_finished())
+	if check_level_complete():
+		print("Level complete!")
+		if not opened_doors:
+			print("Opening doors")
+			yield(open_doors(), "completed")
+		
 	if current_character.turn_finished():
 		var character_turns = character_turns()
+		print(character_turns())
 		var index = character_turns.find(current_character)
 		var new_character = character_turns[(index + 1) % character_turns.size()]
 		print("Switching to ", new_character, new_character.name)
-		switch_character(new_character)
-	check_level_complete()
+		yield(switch_character(new_character), "completed")
+	else:
+		yield()
 
+func move_camera_to_node(node: Node):
+	var parent = camera.get_parent()
+	tween.stop_all()
+	camera.position = Vector2(0, 0)
+	set_process(false)
+	
+	# add_child(camera)
+	camera.smoothing_enabled = false
+	tween.interpolate_property(camera, "position", null, node.position - parent.position, 0.6, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.start()
+	yield(tween, "tween_completed")
+	parent.remove_child(camera)
+
+	camera.position = Vector2(0, 0)
+	node.add_child(camera)
+	camera.smoothing_enabled = true
+
+func open_door(door):
+	yield(move_camera_to_node(door), "completed")
+	door.open()
+	yield(door, "animation_finished")
+	yield(get_tree().create_timer(0.5), "timeout")
+
+
+func open_doors():
+	print("Opening doors!!")
+	var doors = get_tree().get_nodes_in_group("door")
+	opened_doors = true
+	var doors_to_open = []
+	for door in doors:
+		print(door.identifier)
+		if door.identifier in door_ids_to_open:
+			doors_to_open.append(door)
+	
+	if doors_to_open.size() == 0:
+		print("No doors to open")
+		return yield()
+	else:
+		set_process(false)
+		for door in doors_to_open:
+			yield(open_door(door), "completed")
+
+		yield(move_camera_to_node(current_character), "completed")
+		set_process(true)
+		
 
 func get_drop(drops):
 	var dropped = []
@@ -423,18 +489,20 @@ func on_character_death(character: Character):
 		print_debug("Player character dieded!")
 
 
-func check_level_complete():
+func check_level_complete() -> bool:
 	var player_characters = get_player_characters()
 	var enemy_characters = get_enemy_characters()
 
 	if len(player_characters) == 0:
 		emit_signal("failed")
+		return true
 	
-	# TODO should replace this with the door...
 	if len(enemy_characters) == 0:
+		victory = true
 		print("END END END")
-		emit_signal("complete")
-		
+		# emit_signal("complete")
+		return true
+	return false
 
 
 ### AI
