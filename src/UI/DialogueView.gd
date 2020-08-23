@@ -1,23 +1,35 @@
 extends Control
 
+onready var text_label = $VBoxContainer/Underlayer/Text
+onready var speaker_label = $VBoxContainer/Underlayer/Speaker
+onready var portrait_texture = $VBoxContainer/Underlayer/Portrait
+onready var timer: Timer = $Timer
 
-onready var portraits = {
-	"fiston": preload("res://assets/graphics/portraits/biggie.png"), 
-	"sonic": preload("res://assets/graphics/portraits/fast.png"), 
-	"bebe": preload("res://assets/graphics/portraits/littleguy2.png"), 
-	"sohn": preload("res://assets/graphics/portraits/regular.png"), 
-	"sorella": preload("res://assets/graphics/portraits/sorella.png"), 
-}
 
-onready var text = $VBoxContainer/Underlayer/Text
-onready var Speaker = $VBoxContainer/Underlayer/Speaker
-onready var portrait = $VBoxContainer/Underlayer/Portrait
+signal finished
 
 func _ready():
 	pass
-	
-	
-func set_conversation(speaker, text):
+
+func set_conversation(speaker_id, text):
 	# TODO only characters can speak now
-	var name = Flow.get_orphan_value(speaker, "name", "NO NAME")
-	portrait.set_text
+	var portrait = Flow.get_orphan_value(speaker_id, "portrait_texture", "")
+	var name = Flow.get_orphan_value(speaker_id, "name", "NO NAME")
+	portrait_texture.texture = load(portrait)
+	speaker_label.text = name
+	text_label.text = text
+	show()
+	set_process(true)
+
+
+func end():
+	set_process(false)
+	timer.start(0.1)
+	yield(timer, "timeout")
+	hide()
+	emit_signal("finished")
+
+
+func _process(_delta):
+	if Input.is_action_just_pressed("confirm"):
+		end()

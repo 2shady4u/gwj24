@@ -83,11 +83,13 @@ __meta__ = {
 }
 
 [node name="Portrait" type="TextureRect" parent="VBoxContainer/Underlayer"]
-margin_left = -219.0
-margin_top = -519.0
-margin_right = 490.0
-margin_bottom = 427.0
+margin_left = -212.75
+margin_top = -507.419
+margin_right = 496.25
+margin_bottom = 438.581
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]

@@ -4,7 +4,7 @@
             "name": "S0HN",
             "backstory": "Heir to a rich UK family. Joseph is living it up traveling through Asia to defeat DIO and cure his daughter",
             "portrait_texture": "res://assets/graphics/portraits/regular.png",
-            "icon_texture": "res://assets/graphics/characters/Children/S0HN.png",
+            "icon_texture": "res://assets/graphics/characters/Children/TV_Head.png",
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -18,7 +18,7 @@
             "name": "S0NIC",
             "backstory": "His dog got killed by DIO and now he is fricking pissed!",
             "portrait_texture": "res://assets/graphics/portraits/fast.png",
-            "icon_texture": "res://assets/graphics/characters/Children/Z00N.png",
+            "icon_texture": "res://assets/graphics/characters/Children/Dash.png",
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -32,7 +32,7 @@
             "name": "B3B3",
             "backstory": "He's a vampire that sucks people dry and he killed Jonathan's dog because he was a bit jelly.",
             "portrait_texture": "res://assets/graphics/portraits/littleguy2.png",
-            "icon_texture": "res://assets/graphics/characters/Children/B3B3.png",
+            "icon_texture": "res://assets/graphics/characters/Children/Baby.png",
             "base_stats": {
                 "health": 5,
                 "damage": 1,

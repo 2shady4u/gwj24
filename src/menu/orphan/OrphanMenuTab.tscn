@@ -46,14 +46,15 @@ mouse_filter = 2
 custom_constants/separation = 16
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer"]
-margin_left = 433.0
-margin_right = 526.0
+margin_left = 442.0
+margin_right = 517.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 4
-text = "~ Orphanage ~"
+text = "~ UPGRID ~"
 align = 1
 valign = 1
+uppercase = true
 
 [node name="TopHBox" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 36.0
@@ -66,7 +67,7 @@ __meta__ = {
 }
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/TopHBox"]
-margin_right = 670.0
+margin_right = 834.0
 margin_bottom = 414.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -76,14 +77,14 @@ tabs_visible = false
 [node name="OrphanTab" parent="VBoxContainer/TopHBox/TabContainer" instance=ExtResource( 2 )]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TopHBox"]
-margin_left = 674.0
+margin_left = 838.0
 margin_right = 960.0
 margin_bottom = 414.0
-size_flags_horizontal = 3
+size_flags_horizontal = 12
+size_flags_vertical = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/TopHBox/VBoxContainer"]
-margin_left = 82.0
-margin_right = 204.0
+margin_right = 122.0
 margin_bottom = 14.0
 size_flags_horizontal = 4
 text = "Available Upgrades"
@@ -92,14 +93,14 @@ valign = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TopHBox/VBoxContainer"]
 margin_top = 18.0
-margin_right = 286.0
+margin_right = 122.0
 margin_bottom = 414.0
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 2 )
 
 [node name="AvailableVBox" type="VBoxContainer" parent="VBoxContainer/TopHBox/VBoxContainer/ScrollContainer"]
 margin_top = 16.0
-margin_right = 286.0
+margin_right = 122.0
 margin_bottom = 380.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/menu/orphan/OrphanVBox.gd" type="Script" id=1]
-[ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/characters/Children/TV_Head.png" type="Texture" id=2]
 [ext_resource path="res://assets/graphics/ui/indicator.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 32 )
 
 [node name="OrphanVBox" type="VBoxContainer"]
 anchor_right = 1.0
@@ -30,8 +34,9 @@ margin_top = 259.0
 margin_right = 1024.0
 margin_bottom = 323.0
 rect_min_size = Vector2( 64, 64 )
+rect_clip_content = true
 size_flags_vertical = 4
-texture = ExtResource( 2 )
+texture = SubResource( 1 )
 expand = true
 stretch_mode = 6
 

@@ -37,79 +37,82 @@ size_flags_horizontal = 3
 
 [node name="BioHBox" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 510.0
-margin_bottom = 286.0
+margin_bottom = 372.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BioHBox"]
-margin_right = 253.0
-margin_bottom = 286.0
-size_flags_horizontal = 3
+margin_right = 200.0
+margin_bottom = 372.0
+rect_min_size = Vector2( 200, 0 )
 custom_constants/separation = 16
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BioHBox/VBoxContainer"]
-margin_top = 104.0
-margin_right = 253.0
-margin_bottom = 118.0
+margin_top = 130.0
+margin_right = 200.0
+margin_bottom = 144.0
 
 [node name="FrontSeparator" type="HSeparator" parent="VBoxContainer/BioHBox/VBoxContainer/HBoxContainer"]
-margin_right = 101.0
+margin_right = 75.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 
 [node name="NameLabel" type="Label" parent="VBoxContainer/BioHBox/VBoxContainer/HBoxContainer"]
-margin_left = 105.0
-margin_right = 147.0
+margin_left = 79.0
+margin_right = 121.0
 margin_bottom = 14.0
 size_flags_horizontal = 4
 text = "Joseph"
 
 [node name="BackSeparator" type="HSeparator" parent="VBoxContainer/BioHBox/VBoxContainer/HBoxContainer"]
-margin_left = 151.0
-margin_right = 253.0
+margin_left = 125.0
+margin_right = 200.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 
 [node name="BackStoryLabel" type="Label" parent="VBoxContainer/BioHBox/VBoxContainer"]
-margin_top = 134.0
-margin_right = 253.0
-margin_bottom = 182.0
+margin_top = 160.0
+margin_right = 200.0
+margin_bottom = 242.0
 text = "Heir to a rich UK family, Joseph is living it up traveling through Asia
 to defeat DIO and cure his daughter."
 autowrap = true
 
 [node name="Control" type="Control" parent="VBoxContainer/BioHBox"]
-margin_left = 257.0
+margin_left = 204.0
 margin_right = 510.0
-margin_bottom = 286.0
+margin_bottom = 372.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PortraitRect" type="TextureRect" parent="VBoxContainer/BioHBox/Control"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -143.0
-margin_right = 256.0
-margin_bottom = 143.0
+margin_left = -50.818
+margin_top = -202.546
+margin_right = 314.182
+margin_bottom = 166.454
 rect_min_size = Vector2( 256, 256 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
-stretch_mode = 5
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StatsHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 290.0
+margin_top = 376.0
 margin_right = 510.0
 margin_bottom = 576.0
-size_flags_vertical = 3
+rect_min_size = Vector2( 0, 200 )
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/StatsHBox"]
 margin_left = 167.0
-margin_top = 91.0
+margin_top = 48.0
 margin_right = 343.0
-margin_bottom = 195.0
+margin_bottom = 152.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 custom_constants/hseparation = 16
@@ -319,6 +322,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 64.0
 margin_bottom = 64.0
+grid_position = Vector2( 0, 0 )
 
 [node name="UpgradeSlot2" parent="GridVBox/PanelContainer/GridContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
