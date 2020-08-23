@@ -299,14 +299,14 @@
             "id": "first_junk_yard_mission",
             "name": "Home, Sweet Home",
             "description": "Rise and shine, today is the day!",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/1",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/1.png",
             "packed_scene": "res://src/game/mission/FirstJunkYardMission.tscn"
         },
         {
             "id": "first_hi_tec_mission",
             "name": "Intel I",
             "description": "MOTH3R's whereabouts seem to linger in a data center nearby. We should infiltrate and retrieve the data.",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/2",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/2.png",
             "packed_scene": "res://src/game/mission/FirstHiTecMission.tscn",
             "prerequisites": [
                 "first_junk_yard_mission"
@@ -316,7 +316,7 @@
             "id": "second_junk_yard_mission",
             "name": "Retalliation",
             "description": "There seems to be a lot of activity in the junkyard we're calling home, could INLAW have snuffed us out?",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/3",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/3.png",
             "packed_scene": "res://src/game/mission/SecondJunkYardMission.tscn",
             "prerequisites": [
                 "first_hi_tec_mission"
@@ -326,7 +326,7 @@
             "id": "second_hi_tec_mission",
             "name": "Operation UPGRID",
             "description": "We need to become stronger, we need to increase our UPGRID potential. INLAW's UPGRID research facility is nearby, though I'm sure they've increased security.",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/4",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/4.png",
             "packed_scene": "res://src/game/mission/SecondHiTecMission.tscn",
             "prerequisites": [
                 "second_junk_yard_mission"
@@ -336,7 +336,7 @@
             "id": "third_hi_tec_mission",
             "name": "RESCUE M0TH3R",
             "description": "We're finally strong enough, we're saving M0TH3R!",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/5",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/5.png",
             "packed_scene": "res://src/game/mission/ThirdHiTecMission.tscn",
             "prerequisites": [
                 "second_hi_tec_mission"
@@ -346,7 +346,7 @@
             "id": "fourth_hi_tec_mission",
             "name": "INLAW IN HELL",
             "description": "With M0TH3R in our team, we're going to take down INLAW!",
-            "thumbnail_texture": "res://assets/graphics/thumbnails/6",
+            "thumbnail_texture": "res://assets/graphics/thumbnails/6.png",
             "packed_scene": "res://src/game/mission/FourthHiTecMission.tscn",
             "prerequisites": [
                 "third_hi_tec_mission"
