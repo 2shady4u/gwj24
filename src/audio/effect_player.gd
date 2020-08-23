@@ -1,4 +1,4 @@
-extends AudioStreamPlayer2D
+extends AudioStreamPlayer
 
 onready var audio_stream_random_pitch = AudioStreamRandomPitch.new()
 
@@ -18,11 +18,8 @@ func _on_finished():
 func is_available():
 	return currently_playing == null
 	
-func play_effect(track_path: String, effect_position: Vector2 = Vector2(0, 0)):
-	# TODO might not be always desired...
-	if effect_position != null:
-		position = effect_position
-		
+func play_effect(track_path: String):
+	# TODO might not be always desired...		
 	var effect_audio_stream = load(track_path)
 	effect_audio_stream.loop = false
 	stream.audio_stream = effect_audio_stream

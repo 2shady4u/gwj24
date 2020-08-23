@@ -201,7 +201,7 @@ func move_character(character, location: Vector2):
 	tween.interpolate_property(character, "position", character.position, location, transition_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween, "tween_completed")
-	
+	AudioEngine.play_effect("move1")
 	if character.team == "PLAYER":
 		var events = get_events(location)
 		for event in events:
@@ -217,6 +217,7 @@ func move_character(character, location: Vector2):
 			if chip.position == location:
 				picked_up_chips.append(chip)
 		for picked_up_chip in picked_up_chips:
+			AudioEngine.play_effect("ui_chip_out")
 			yield(pickup_chip(picked_up_chip), "completed")
 	set_process(true)
 

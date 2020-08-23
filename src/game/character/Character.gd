@@ -38,7 +38,7 @@ signal updated_turn_info
 
 func _ready():
 	if team != "PLAYER" and team != "ENEMY":
-		pass
+		healthbar.hide()
 	else:
 		update_stats(get_stats().duplicate(true))
 	
