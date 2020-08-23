@@ -309,7 +309,7 @@
             "thumbnail_texture": "res://assets/graphics/thumbnails/2.png",
             "packed_scene": "res://src/game/mission/FirstHiTecMission.tscn",
             "prerequisites": [
-                "first_junk_yard_mission"
+                
             ]
         },
         {

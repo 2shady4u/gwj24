@@ -23,7 +23,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 10.0
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=2]
 lifetime_randomness = 0.22
 emission_shape = 1
 emission_sphere_radius = 7.0
@@ -37,7 +37,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 10.0
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 10 )
 shader_param/distort_amount = 1.0
 shader_param/ABER_THRESHOLD = 0.5
@@ -82,13 +82,13 @@ amount = 6
 lifetime = 0.8
 one_shot = true
 visibility_rect = Rect2( -10, -10, 20, 20 )
-process_material = SubResource( 3 )
+process_material = SubResource( 2 )
 texture = ExtResource( 5 )
 script = ExtResource( 4 )
 
 [node name="Distortion" type="Sprite" parent="."]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 3 )
 position = Vector2( 2.9748, 1.34097 )
 rotation = 0.0010775
 scale = Vector2( 1.04793, 0.612893 )

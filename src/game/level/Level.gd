@@ -531,6 +531,24 @@ func check_level_complete() -> bool:
 
 ### AI
 
+func refresh_pathfinding(character_position: Vector2):
+	astar.clear()
+	astar_id_map = {}
+	
+	var used_tiles = tiles.get_used_cells()
+	var tile_mapping = {}
+	var i = 0
+	for used_tile in used_tiles:
+		var world_position = get_snapped_position_in_grid(tiles.map_to_world(used_tile))
+		if not is_tile_occupied(world_position) or world_position == get_snapped_position_in_grid(character_position):
+			tile_mapping[used_tile] = i
+			astar.add_point(i, world_position)
+			astar_id_map[world_position] = i
+			for added_point in tile_mapping.keys():
+				if used_tile.distance_to(added_point) == 1:
+					astar.connect_points(tile_mapping[added_point], i)
+			i += 1
+
 func remove_occupied_spots():
 	for character in characters():
 		var character_position = get_snapped_position_in_grid(character.position)
@@ -550,6 +568,7 @@ func get_tiles_next_to_character(character: Character):
 		if considered_position in astar_id_map:
 			if not astar.is_point_disabled(astar_id_map[considered_position]):
 				tiles_next.append(considered_position)
+	print("Considering these")
 	return tiles_next
 
 
@@ -574,7 +593,9 @@ func get_minimum_path_for_character(character: Character):
 	var current_position: int = astar_id_map[current_character.position]
 	for possible_position in possible_positions:
 		var other_position: int = astar_id_map[possible_position]
-		paths.append(astar.get_point_path(current_position, other_position))
+		var path = astar.get_point_path(current_position, other_position)
+		if path.size() > 0:
+			paths.append(path)
 
 	return minimum_path(paths)
 
@@ -611,7 +632,6 @@ func target_selection():
 		current_target_position = path[path.size() - 1]
 			
 
-	
 func target_recalculation():
 	var min_path_to_character = get_minimum_path_for_character(current_target)
 	current_target_position = min_path_to_character[min_path_to_character.size() - 1]
@@ -653,20 +673,24 @@ func ai_decision():
 	# can't wait for this hacked together mess
 	snap_characters()
 
-	remove_occupied_spots()
+#	remove_occupied_spots()
+	refresh_pathfinding(current_character.position)
 	# enables the ai's spot, since it's no obstacle to itself
 	var current_position: int = astar_id_map[current_character.position]
+	
 	astar.set_point_disabled(current_position, false)
 
 	if not current_target:
 		target_selection()
 	else:
 		target_recalculation()
+		
+#	add_occupied_spots()
 
 	# no players left...
-	if not current_character:
+	if not current_target:
 		yield(get_tree().create_timer(0.1), "timeout")
-		print("This should never happen!!! So it's okay if it crashes here.")
+		current_character.finish_turn()
 		return
 	
 	yield(move_or_attack(), "completed")
