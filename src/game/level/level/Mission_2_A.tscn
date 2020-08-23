@@ -7,6 +7,7 @@
 [ext_resource path="res://src/game/level/events/DialogueEvent.tscn" type="PackedScene" id=5]
 
 [node name="TestLevel" instance=ExtResource( 2 )]
+intro_text = "Kids, K1ds, Kiddos. I prefer \"My Children\"."
 
 [node name="Tiles" parent="Tiles" index="0"]
 position = Vector2( -16, -16 )
@@ -62,6 +63,8 @@ position = Vector2( -1, 0 )
 
 [node name="DialogueEvent" parent="Events" index="0" instance=ExtResource( 5 )]
 position = Vector2( 90.4507, 54.1643 )
+speaker = "sonic"
+text = "Who'd think the UPGRID facility would be this close to our Junk Yard."
 
 [node name="Position2D" type="Position2D" parent="Events/DialogueEvent" index="0"]
 
@@ -81,6 +84,31 @@ position = Vector2( -17.4178, 16.6687 )
 position = Vector2( -34.8356, 34.8356 )
 
 [node name="Position2D7" type="Position2D" parent="Events/DialogueEvent" index="6"]
+position = Vector2( -34.8356, 34.8356 )
+
+[node name="DialogueEvent2" parent="Events" index="1" instance=ExtResource( 5 )]
+position = Vector2( 90.4507, 54.1643 )
+speaker = "sorella"
+text = "We all have bugs, S0N1C. Let's make sure we don't today."
+
+[node name="Position2D" type="Position2D" parent="Events/DialogueEvent2" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Events/DialogueEvent2" index="1"]
+position = Vector2( 14.9831, 0.561863 )
+
+[node name="Position2D3" type="Position2D" parent="Events/DialogueEvent2" index="2"]
+position = Vector2( 31.6517, 17.4178 )
+
+[node name="Position2D4" type="Position2D" parent="Events/DialogueEvent2" index="3"]
+position = Vector2( 48.3204, 34.0865 )
+
+[node name="Position2D5" type="Position2D" parent="Events/DialogueEvent2" index="4"]
+position = Vector2( -17.4178, 16.6687 )
+
+[node name="Position2D6" type="Position2D" parent="Events/DialogueEvent2" index="5"]
+position = Vector2( -34.8356, 34.8356 )
+
+[node name="Position2D7" type="Position2D" parent="Events/DialogueEvent2" index="6"]
 position = Vector2( -34.8356, 34.8356 )
 
 [node name="BG" parent="." index="10"]
