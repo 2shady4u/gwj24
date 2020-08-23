@@ -120,6 +120,7 @@ visible = false
 visible = false
 
 [node name="DialogueOverlay" parent="UICanvas" instance=ExtResource( 11 )]
+visible = false
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0

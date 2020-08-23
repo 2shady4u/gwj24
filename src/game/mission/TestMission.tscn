@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/game/mission/Mission.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/level/TestLevel2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/game/level/TestLevel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game/level/BaseHiTecLevel.tscn" type="PackedScene" id=3]
 
 [node name="TestMission" instance=ExtResource( 1 )]
 levels = [ ExtResource( 3 ), ExtResource( 2 ) ]

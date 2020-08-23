@@ -31,7 +31,10 @@ signal death(character)
 signal updated_turn_info
 
 func _ready():
-	update_stats(get_stats())
+	if team == "OBSTACLE":
+		pass
+	else:
+		update_stats(get_stats())
 	
 func get_stats():
 	print("Getting stats for ", type, " of group ", team)
@@ -46,7 +49,7 @@ func get_stats():
 			"actions": 2,
 			"movement": 4
 		})
-		
+	
 
 func update_stats(new_stats):
 	# TODO we're getting this out of state soon

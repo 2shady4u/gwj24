@@ -34,7 +34,9 @@ func characters():
 	
 func chips():
 	return get_tree().get_nodes_in_group("chips")
-	
+
+func obstacles():
+	return get_tree().get_nodes_in_group("obstacles")
 
 func events():
 	return get_tree().get_nodes_in_group("events")
@@ -46,6 +48,7 @@ func _ready():
 	snap_characters()
 	snap_chips()
 	snap_events()
+	snap_obstacles()
 	
 	var used_tiles = tiles.get_used_cells()
 	var tile_mapping = {}
@@ -73,7 +76,12 @@ func start():
 func get_snapped_position_in_grid(position_to_snap: Vector2):
 	return Vector2(floor(position_to_snap.x / 16) * 16 + 8, floor(position_to_snap.y / 16) * 16 + 8)
 
-
+func snap_obstacles():
+	for obstacle in obstacles():
+		var current_position = obstacle.position
+		obstacle.position =get_snapped_position_in_grid(current_position)
+		print("set character on ", obstacle.position, " from ", current_position)
+		
 func snap_events():
 	for event in events():
 		var current_position = event.position
@@ -308,7 +316,7 @@ func get_enemy_characters():
 
 func character_turns():
 	# TODO make turn order respectively in here
-	return characters()
+	return get_player_characters() + get_enemy_characters()
 
 func validate_turn():
 	print(current_character.turn_finished())
