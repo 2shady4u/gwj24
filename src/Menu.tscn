@@ -20,9 +20,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = "Music"
-
 [node name="CircuitBackground" parent="." instance=ExtResource( 8 )]
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 

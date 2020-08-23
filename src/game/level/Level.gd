@@ -4,6 +4,7 @@ class_name Level
 export var intro_text = ""
 export var outro_text = ""
 export var bg_texture: Texture
+export(String, "facility", "junkyard")  var music_track = "facility"
 
 onready var entities: YSort = $Entities
 onready var camera: Camera2D = $Camera
@@ -14,6 +15,7 @@ onready var healing_particles = $HealingParticles
 onready var distortion = $Distortion
 
 onready var chip_scene = preload("res://src/game/chips/Chip.tscn")
+
 
 var current_character : Character = null
 

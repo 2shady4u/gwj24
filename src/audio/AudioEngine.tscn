@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/audio/audio_engine.gd" type="Script" id=1]
+[ext_resource path="res://src/audio/effects.gd" type="Script" id=3]
+
+[node name="AudioEngine" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+MAX_SIMULTANEOUS_EFFECTS = 20
+
+[node name="BackgroundPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = "Music"
+
+[node name="Effects" type="Node" parent="."]
+script = ExtResource( 3 )
