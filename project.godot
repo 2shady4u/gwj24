@@ -126,6 +126,7 @@ config/name="M0TH3R"
 run/main_scene="res://src/Menu.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
