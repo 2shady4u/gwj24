@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/game/level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/character/B3B3.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/game/objects/SwingLeft.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/game/objects/SwingCenter.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/game/level/Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/game/character/Character.gd" type="Script" id=12]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 outro_text = "Until I wanted to leave..."
@@ -27,8 +28,11 @@ position = Vector2( 120.31, 56.6495 )
 [node name="F1ST0N" parent="Entities" index="1" instance=ExtResource( 3 )]
 position = Vector2( 186.07, 73.0973 )
 
-[node name="F1SHBOT9000" parent="Entities" index="2" instance=ExtResource( 6 )]
+[node name="F1SHBOT9000" parent="Entities" index="2" groups=[
+"characters",
+] instance=ExtResource( 6 )]
 position = Vector2( 185.64, 54.0232 )
+script = ExtResource( 12 )
 
 [node name="SwingLeft" parent="Entities" index="3" instance=ExtResource( 9 )]
 position = Vector2( 7.15137, 68.8651 )

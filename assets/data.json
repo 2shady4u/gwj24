@@ -5,7 +5,7 @@
             "backstory": "Heir to a rich UK family. Joseph is living it up traveling through Asia to defeat DIO and cure his daughter",
             "portrait_texture": "res://assets/graphics/portraits/regular.png",
             "icon_texture": "res://assets/graphics/characters/Children/TV_Head.png",
-            "perks": [],
+            "perks": ["upgrid"],
             "base_stats": {
                 "health": 5,
                 "damage": 1,
