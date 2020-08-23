@@ -28,6 +28,8 @@ func update_tab():
 	_status_label.text = ""
 	_mission_button.grab_focus()
 
+	AudioEngine.play_background_music("title")
+		
 func _on_settings_button_pressed():
 	emit_signal("button_pressed", TABS.SETTINGS)
 

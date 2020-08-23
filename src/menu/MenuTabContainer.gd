@@ -11,5 +11,6 @@ func set_current_tab(type : int):
 		if child.tab_type == type:
 			child.update_tab()
 			current_tab = index
+			
 			return
 		index += 1

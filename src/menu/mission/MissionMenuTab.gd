@@ -33,6 +33,10 @@ func update_tab():
 		var tab_idx = _mission_tab_container.get_tab_count() - 1
 		var _error : int = button.connect("pressed", self, "_on_mission_button_pressed", [tab_idx])
 
+
+	AudioEngine.play_background_music("sneaking")
+
+
 func clear_tab():
 	for child in _mission_button_vbox.get_children():
 		_mission_button_vbox.remove_child(child)

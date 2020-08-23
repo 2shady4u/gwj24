@@ -35,3 +35,5 @@ func set_color(new_color: String):
 		return
 	color = new_color
 	sprite.animation = new_color
+
+

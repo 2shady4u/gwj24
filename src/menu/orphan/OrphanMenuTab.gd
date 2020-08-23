@@ -43,6 +43,8 @@ func update_tab():
 	update_upgrades()
 	update_orphans()
 
+	AudioEngine.play_background_music("upgrid")
+
 func clear_tab():
 	# Related to orphans
 	for child in _tab_container.get_children():

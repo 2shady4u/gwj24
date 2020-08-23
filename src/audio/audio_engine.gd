@@ -20,7 +20,7 @@ const tracks = {
 	"secret": "res://assets/music/secret.ogg",
 	"sneaking": "res://assets/music/sneaking.ogg",
 	"title": "res://assets/music/title.ogg",
-	"upgrid": "res://assets/music/facility.ogg",
+	"upgrid": "res://assets/music/upgrid.ogg",
 }
 
 const sfx = {
@@ -37,11 +37,15 @@ const sfx = {
 	"heal": "res://assets/audio/heal.ogg",
 	"move1": "res://assets/audio/move1.ogg",
 	"move2": "res://assets/audio/move2.ogg",
+	"glitch": "res://assets/audio/glitch.ogg",
+	"enemy_hit": "res://assets/audio/enemy_hit.ogg",
+	"explode": "res://assets/audio/explode.ogg",
+	"explode1": "res://assets/audio/explode1.ogg",
+	"explode2": "res://assets/audio/explode2.ogg",
 }
 
 
 onready var background_player: AudioStreamPlayer = get_node("BackgroundPlayer")
-onready var speech_player: AudioStreamPlayer = get_node("SpeechPlayer")
 onready var effects: Node = get_node("Effects")
 
 
@@ -60,8 +64,8 @@ func _ready():
 		effects.add_effect()
 
 
-func play_effect(track_name: String):
-	play_positioned_effect(tracks[track_name], get_viewport().get_visible_rect().size / 2)
+func play_effect(effect_name: String):
+	play_positioned_effect(sfx[effect_name], get_viewport().get_visible_rect().size / 2)
 
 func play_positioned_effect(effect_name: String, position: Vector2 = Vector2(0, 0)):
 	effects.play_effect(sfx[effect_name], position)
@@ -70,7 +74,8 @@ func reset():
 #	effects.reset()
 	stop_background_music()
 
-func play_background_music(track_path: String):
+func play_background_music(track_name: String):
+	var track_path = tracks[track_name]
 	"""Initiates a track to play as background music"""
 	if background_audio != track_path:
 		background_audio = track_path
@@ -80,7 +85,7 @@ func play_background_music(track_path: String):
 func stop_background_music():
 	"""Stops the background music track"""
 	if background_player.playing:
-		background_player.stream()
+		background_player.stop()
 		background_audio = null
 
 
