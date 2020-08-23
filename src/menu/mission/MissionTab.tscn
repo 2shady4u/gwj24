@@ -127,3 +127,4 @@ text = "You do not meet the proper prerequisites...
 Come back later!"
 align = 1
 autowrap = true
+[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_button_mouse_entered"]

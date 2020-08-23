@@ -87,3 +87,6 @@ msgstr "English"
 
 msgid "MISSION_SELECT"
 msgstr "Mission Select"
+
+msgid "MISSION_FAILED"
+msgstr "Mission Failed"

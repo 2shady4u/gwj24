@@ -138,6 +138,9 @@ func _on_back_button_pressed():
 	AudioEngine.play_effect("ui_back")
 	emit_signal("button_pressed", TABS.MISSION)
 
+func _on_button_mouse_entered():
+	AudioEngine.play_effect("ui_move")
+
 func _input(event):
 	if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
 		var index : int = _tab_container.current_tab

@@ -50,21 +50,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
-margin_left = 440.0
-margin_top = 155.0
-margin_right = 584.0
-margin_bottom = 171.0
+[node name="TitleHBox" type="HBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
+margin_left = 444.0
+margin_top = 164.0
+margin_right = 580.0
+margin_bottom = 180.0
 size_flags_horizontal = 4
-text = "~ MISSION FAILED ~"
+alignment = 1
+
+[node name="FrontLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer/TitleHBox"]
+margin_right = 8.0
+margin_bottom = 16.0
+text = "~"
+
+[node name="TitleLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer/TitleHBox"]
+margin_left = 12.0
+margin_right = 124.0
+margin_bottom = 16.0
+size_flags_horizontal = 4
+text = "MISSION_FAILED"
 align = 1
 valign = 1
 
+[node name="BackLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer/TitleHBox"]
+margin_left = 128.0
+margin_right = 136.0
+margin_bottom = 16.0
+text = "~"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 448.0
-margin_top = 197.0
+margin_top = 206.0
 margin_right = 576.0
-margin_bottom = 340.0
+margin_bottom = 331.0
 size_flags_horizontal = 4
 custom_constants/separation = 16
 __meta__ = {
@@ -73,13 +91,13 @@ __meta__ = {
 
 [node name="RestartButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
 margin_right = 128.0
-margin_bottom = 37.0
+margin_bottom = 31.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../ResumeButton")
 focus_neighbour_bottom = NodePath("../SettingsButton")
 focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath("../ResumeButton")
-text = "Restart"
+text = "RESTART"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -94,35 +112,35 @@ __meta__ = {
 }
 
 [node name="AbortButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 53.0
+margin_top = 47.0
 margin_right = 128.0
-margin_bottom = 90.0
+margin_bottom = 78.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../SettingsButton")
 focus_neighbour_bottom = NodePath("../QuitButton")
 focus_next = NodePath("../QuitButton")
 focus_previous = NodePath("../SettingsButton")
-text = "Abort"
+text = "ABORT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="QuitButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 106.0
+margin_top = 94.0
 margin_right = 128.0
-margin_bottom = 143.0
+margin_bottom = 125.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../AbortButton")
 focus_neighbour_bottom = NodePath("../ResumeButton")
 focus_next = NodePath("../ResumeButton")
 focus_previous = NodePath("../AbortButton")
-text = "Quit"
+text = "QUIT"
 
 [node name="HintLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 240.0
-margin_top = 366.0
+margin_top = 357.0
 margin_right = 784.0
-margin_bottom = 420.0
+margin_bottom = 411.0
 size_flags_horizontal = 4
 text = "If you restart, you will resume in the last room
 you entered. Aborting will return you to mission select.

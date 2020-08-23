@@ -32,7 +32,7 @@ func update_tab():
 
 		var tab_idx = _mission_tab_container.get_tab_count() - 1
 		var _error : int = button.connect("pressed", self, "_on_mission_button_pressed", [tab_idx])
-
+		_error = button.connect("mouse_entered", self, "_on_button_mouse_entered")
 
 	AudioEngine.play_background_music("mission_select")
 
@@ -57,3 +57,5 @@ func _on_orphan_button_pressed():
 	AudioEngine.play_effect("ui_select")
 	emit_signal("button_pressed", TABS.ORPHAN)
 
+func _on_button_mouse_entered():
+	AudioEngine.play_effect("ui_move")

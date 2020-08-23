@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/graphics/perks/armor.png" type="Texture" id=1]
+[ext_resource path="res://src/UI/PerkRect.gd" type="Script" id=2]
+
+[node name="PerkRect" type="TextureRect"]
+margin_left = 30.0
+margin_right = 62.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 2 )

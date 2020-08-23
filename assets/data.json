@@ -108,7 +108,7 @@
     "enemies": {
         "blitz_mk1": {
             "name": "Bl1tzMK1",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 1,
                 "damage": 1,
@@ -124,7 +124,7 @@
         },
         "fish_bot": {
             "name": "FISHB0T 9000",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -140,7 +140,7 @@
         },
         "clam": {
             "name": "L1L CL4M",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -156,7 +156,7 @@
         },
         "BugBot": {
             "name": "BUGB0T",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -172,7 +172,7 @@
         },
         "blitz_mk2": {
             "name": "BlitzMK2",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -189,7 +189,7 @@
         },
         "big_clam": {
             "name": "B1G_CL4M",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -205,7 +205,7 @@
         },
         "oblivion": {
             "name": "0BLIVI0N",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -240,7 +240,7 @@
         },
         "sentry_mk1": {
             "name": "S3NTRY MK1",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -257,7 +257,7 @@
         },
         "sentry_mk2": {
             "name": "S3NTRY MK2",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -275,7 +275,7 @@
         },
         "sentry_mk3": {
             "name": "S3NTRY MK3",
-            "perks": [],
+            "perk_ids": [],
             "base_stats": {
                 "health": 2,
                 "damage": 1,
@@ -576,31 +576,38 @@
     "perks": {
         "dash": {
             "name": "Dash",
-            "description": "Its a dash!!!"
+            "description": "Its a dash!!!",
+            "icon_texture": "res://assets/graphics/perks/dash.png"
         },
         "upgrid": {
             "name": "Upgrid",
-            "description": "Its an upgrid!!!"
+            "description": "Its an upgrid!!!",
+            "icon_texture": "res://assets/graphics/perks/upgrid.png"
         },
         "disengage": {
             "name": "Disengage",
-            "description": "Its a disengage!!!"
+            "description": "Its a disengage!!!",
+            "icon_texture": "res://assets/graphics/perks/disengage.png"
         },
         "healer": {
             "name": "Healer",
-            "description": "Its a healer!!!"
+            "description": "Its a healer!!!",
+            "icon_texture": "res://assets/graphics/perks/healer.png"
         },
         "push": {
             "name": "Push",
-            "description": "Its a push!!!"
+            "description": "Its a push!!!",
+            "icon_texture": "res://assets/graphics/perks/push.png"
         },
         "armor": {
             "name": "Armor",
-            "description": "Its an armor!!!"
+            "description": "Its an armor!!!",
+            "icon_texture": "res://assets/graphics/perks/armor.png"
         },
         "recharge": {
             "name": "Recharge",
-            "description": "Its a recharge!!!"
+            "description": "Its a recharge!!!",
+            "icon_texture": "res://assets/graphics/perks/recharge.png"
         }
     }
 }

@@ -1,16 +1,28 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/UI/PauseUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/Canvas.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Game.gd" type="Script" id=3]
 [ext_resource path="res://src/editor/EditorCamera.gd" type="Script" id=4]
-[ext_resource path="res://assets/graphics/characters/orphan_wip.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/upgrades/Icon_Attack.png" type="Texture" id=5]
 [ext_resource path="res://src/UI/TurnInfo.gd" type="Script" id=6]
 [ext_resource path="res://src/UI/HUD.gd" type="Script" id=7]
 [ext_resource path="res://src/UI/GameOverUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/UI/ChargesBar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/UI/TextOverlay.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/UI/DialogueView.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/graphics/ui/elements/ui_menu_frame_times2.png" type="Texture" id=12]
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=13]
+[ext_resource path="res://assets/graphics/upgrades/Icon_Heal.png" type="Texture" id=15]
+[ext_resource path="res://src/UI/PerkRect.tscn" type="PackedScene" id=16]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 12.0
+margin_right = 12.0
+margin_top = 12.0
+margin_bottom = 12.0
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -25,6 +37,7 @@ __meta__ = {
 [node name="HUD" type="Control" parent="UICanvas"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 13 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,48 +80,111 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UICanvas/HUD/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="UICanvas/HUD/MarginContainer"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 1008.0
-margin_bottom = 144.0
+margin_right = 208.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 192, 124 )
+size_flags_horizontal = 0
 size_flags_vertical = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 1 )
 
-[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/MarginContainer/HBoxContainer"]
-margin_right = 64.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 64, 128 )
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/HUD/MarginContainer/HBoxContainer"]
-margin_left = 68.0
-margin_right = 110.0
-margin_bottom = 128.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvas/HUD/MarginContainer/PanelContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 180.0
+margin_bottom = 112.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NameLabel" type="Label" parent="UICanvas/HUD/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 57.0
-margin_right = 42.0
-margin_bottom = 71.0
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Joseph"
-
-[node name="Control" type="Control" parent="UICanvas/HUD/MarginContainer/HBoxContainer"]
-margin_left = 114.0
-margin_right = 992.0
-margin_bottom = 128.0
+[node name="BioVBox" type="VBoxContainer" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer"]
+margin_right = 82.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+size_flags_vertical = 3
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/BioVBox"]
+margin_top = 16.0
+margin_right = 82.0
+margin_bottom = 32.0
+size_flags_vertical = 6
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Joseph"
+align = 1
+valign = 1
+
+[node name="PerksHBox" type="HBoxContainer" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/BioVBox"]
+margin_top = 52.0
+margin_right = 82.0
+margin_bottom = 84.0
+size_flags_vertical = 2
+alignment = 1
+
+[node name="PerkRect" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/BioVBox/PerksHBox" instance=ExtResource( 16 )]
+margin_left = 7.0
+margin_right = 39.0
+
+[node name="PerkRect2" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/BioVBox/PerksHBox" instance=ExtResource( 16 )]
+margin_left = 43.0
+margin_right = 75.0
+
+[node name="StatsVBox" type="VBoxContainer" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer"]
+margin_left = 86.0
+margin_right = 168.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="AttackHBox" type="HBoxContainer" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/StatsVBox"]
+margin_top = 16.0
+margin_right = 82.0
+margin_bottom = 48.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/StatsVBox/AttackHBox"]
+margin_left = 19.0
+margin_right = 51.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="AttackLabel" type="Label" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/StatsVBox/AttackHBox"]
+margin_left = 55.0
+margin_top = 8.0
+margin_right = 63.0
+margin_bottom = 24.0
+text = "5"
+
+[node name="HealingHBox" type="HBoxContainer" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/StatsVBox"]
+margin_top = 52.0
+margin_right = 82.0
+margin_bottom = 84.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/StatsVBox/HealingHBox"]
+margin_left = 19.0
+margin_right = 51.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="HealingLabel" type="Label" parent="UICanvas/HUD/MarginContainer/PanelContainer/HBoxContainer/StatsVBox/HealingHBox"]
+margin_left = 55.0
+margin_top = 8.0
+margin_right = 63.0
+margin_bottom = 24.0
+text = "5"
 
 [node name="TextOverlay" parent="UICanvas/HUD" instance=ExtResource( 10 )]
 visible = false

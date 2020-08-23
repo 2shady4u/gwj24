@@ -301,3 +301,9 @@ margin_left = 160.0
 margin_right = 184.0
 margin_bottom = 31.0
 text = ">"
+[connection signal="mouse_entered" from="BackContainer/BackButton" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MasterVolumeHBox/VolumeSlider" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/MusicVolumeHBox/VolumeSlider" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/ScrollContainer/VBoxContainer/AudioContainer/SFXVolumeHBox/VolumeSlider" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer/LanguageHBox/PreviousButton" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/ScrollContainer/VBoxContainer/LocaleContainer/LanguageHBox/NextButton" to="." method="_on_button_mouse_entered"]
