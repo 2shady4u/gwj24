@@ -54,6 +54,10 @@ var backstory : String setget , get_backstory
 func get_backstory():
 	return Flow.get_orphan_value(id, "backstory", "MISSING BACKSTORY")
 
+var perk_ids : Array setget , get_perk_ids
+func get_perk_ids():
+	return Flow.get_orphan_value(id, "perk_ids", [])
+
 var portrait_texture : String setget , get_portrait_texture
 func get_portrait_texture():
 	return Flow.get_orphan_value(id, "portrait_texture", "res://assets/graphics/portraits/regular.png")

@@ -14,7 +14,10 @@ onready var _movement_label := $VBoxContainer/StatsHBox/GridContainer/MovementLa
 onready var _actions_label := $VBoxContainer/StatsHBox/GridContainer/ActionsLabel
 onready var _healing_charges_label := $VBoxContainer/StatsHBox/GridContainer/HealingChargesLabel
 
+onready var _perk_container := $VBoxContainer/StatsHBox/ScrollContainer/PerkContainer
+
 var _upgrade_slot_resource := preload("res://src/menu/orphan/UpgradeSlot.tscn")
+var _perk_vbox_resource := preload("res://src/menu/orphan/PerkVBox.tscn")
 
 var orphan : class_orphan setget set_orphan, get_orphan
 func set_orphan(value : class_orphan) -> void:
@@ -93,6 +96,13 @@ func update_stat_label(label : Label, base_stat : float, stat : float):
 func update_tab():
 	clear_tab()
  
+	for perk_id in self.orphan.perk_ids:
+		var perk_vbox = _perk_vbox_resource.instance()
+		_perk_container.add_child(perk_vbox)
+
+		perk_vbox.text = Flow.get_perk_value(perk_id, "name", "MISSING NAME")
+		perk_vbox.description = Flow.get_perk_value(perk_id, "description", "MISSING DESCRIPTION")
+
 	var columns := self.orphan.columns
 	_grid_container.columns = columns
 	for row_index in range(0, columns):
@@ -114,6 +124,10 @@ func update_tab():
 func clear_tab():
 	for child in _grid_container.get_children():
 		_grid_container.remove_child(child)
+		child.queue_free()
+	
+	for child in _perk_container.get_children():
+		_perk_container.remove_child(child)
 		child.queue_free()
 
 func _input(event : InputEvent):

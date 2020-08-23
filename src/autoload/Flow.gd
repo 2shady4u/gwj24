@@ -25,6 +25,7 @@ var verbose_mode := true
 var upgrades_data := {}
 var orphans_data := {}
 var enemies_data := {}
+var perks_data := {}
 
 # WHY is this an array? Missions need their order to be preserved!!!
 var missions_data := []
@@ -70,6 +71,14 @@ func save_user_settings() -> int:
 	else:
 		push_error("Failed to save user settings! Check console for clues!")
 	return _error
+
+func translate(msg_id : String):
+	var translated_text : String = TranslationServer.translate(msg_id)
+	if translated_text != msg_id:
+		return translated_text
+	else:
+		push_error("Could not find translation for msg_id '{0}'!".format([msg_id]))
+		return msg_id
 
 func _unhandled_input(event : InputEvent):
 ## Catch all unhandled input not caught be any other control nodes.
@@ -133,6 +142,13 @@ func get_orphan_value(id : String, key : String, default):
 func get_enemy_value(id : String, key : String, default):
 	if enemies_data.has(id):
 		var data : Dictionary = enemies_data[id]
+		return data.get(key, default)
+	else:
+		return default
+
+func get_perk_value(id : String, key : String, default):
+	if perks_data.has(id):
+		var data : Dictionary = perks_data[id]
 		return data.get(key, default)
 	else:
 		return default

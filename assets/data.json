@@ -5,7 +5,9 @@
             "backstory": "Heir to a rich UK family. Joseph is living it up traveling through Asia to defeat DIO and cure his daughter",
             "portrait_texture": "res://assets/graphics/portraits/regular.png",
             "icon_texture": "res://assets/graphics/characters/Children/TV_Head.png",
-            "perks": ["upgrid"],
+            "perk_ids": [
+                "upgrid"
+            ],
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -20,7 +22,9 @@
             "backstory": "His dog got killed by DIO and now he is fricking pissed!",
             "portrait_texture": "res://assets/graphics/portraits/fast.png",
             "icon_texture": "res://assets/graphics/characters/Children/Dash.png",
-            "perks": ["dash"],
+            "perk_ids": [
+                "dash"
+            ],
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -35,7 +39,10 @@
             "backstory": "He's a vampire that sucks people dry and he killed Jonathan's dog because he was a bit jelly.",
             "portrait_texture": "res://assets/graphics/portraits/littleguy2.png",
             "icon_texture": "res://assets/graphics/characters/Children/Baby.png",
-            "perks": ["disengage", "healer"],
+            "perk_ids": [
+                "disengage",
+                "healer"
+            ],
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -50,7 +57,10 @@
             "backstory": "Strong, built with the frame of a scrapped wrestling bot. The tactical mastermind of the ORPH4N group.",
             "portrait_texture": "res://assets/graphics/portraits/biggie.png",
             "icon_texture": "res://assets/graphics/characters/Children/F1ST0N.png",
-            "perks": ["push", "armor"],
+            "perk_ids": [
+                "push",
+                "armor"
+            ],
             "base_stats": {
                 "health": 5,
                 "damage": 1,
@@ -65,7 +75,9 @@
             "backstory": "A repurposed Italian Catholic Nunbot, you don't want to mess with S0R3114.",
             "portrait_texture": "res://assets/graphics/portraits/sorella.png",
             "icon_texture": "res://assets/graphics/characters/Children/S0R3LL4.png",
-            "perks": ["recharge"],
+            "perk_ids": [
+                "recharge"
+            ],
             "base_stats": {
                 "health": 5,
                 "damage": 2,
@@ -80,7 +92,9 @@
             "backstory": "She risked everything to start a family.",
             "portrait_texture": "res://assets/graphics/portraits/sorella.png",
             "icon_texture": "res://assets/graphics/characters/Children/S0R3LL4.png",
-            "perks": ["armor"],
+            "perk_ids": [
+                "armor"
+            ],
             "base_stats": {
                 "health": 20,
                 "damage": 4,
@@ -277,7 +291,9 @@
             "description": "The first real mission that poses an actual threat to the player",
             "thumbnail_texture": "",
             "packed_scene": "res://src/game/mission/TestMission.tscn",
-            "prerequisites": ["intro"]
+            "prerequisites": [
+                "intro"
+            ]
         }
     ],
     "upgrades": {
@@ -301,7 +317,7 @@
             ]
         },
         "faster_speed_but_decreased_health": {
-            "name": "MXS-OVERCLOCK",
+            "name": "MXS-OVRCLCK",
             "type": "SPEED",
             "description": "Overclock your core to gain more movement speed, but a reduction in health.",
             "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
@@ -498,6 +514,36 @@
                     1
                 ]
             ]
+        }
+    },
+    "perks": {
+        "dash": {
+            "name": "Dash",
+            "description": "Its a dash!!!"
+        },
+        "upgrid": {
+            "name": "Upgrid",
+            "description": "Its an upgrid!!!"
+        },
+        "disengage": {
+            "name": "Disengage",
+            "description": "Its a disengage!!!"
+        },
+        "healer": {
+            "name": "Healer",
+            "description": "Its a healer!!!"
+        },
+        "push": {
+            "name": "Push",
+            "description": "Its a push!!!"
+        },
+        "armor": {
+            "name": "Armor",
+            "description": "Its an armor!!!"
+        },
+        "recharge": {
+            "name": "Recharge",
+            "description": "Its a recharge!!!"
         }
     }
 }
