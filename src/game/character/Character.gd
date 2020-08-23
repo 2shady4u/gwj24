@@ -72,21 +72,43 @@ func shake(shake_size: Vector2):
 	tween.start()
 	yield(tween, "tween_completed")
 	tween.interpolate_property(self, "position", null, original_position, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN)
+	tween.start()
+	yield(tween, "tween_completed")
+
+func move_in(direction: Vector2):
+	print("Moving in ", direction)
+	tween.interpolate_property(self, "position", null, position + direction, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN)
+	tween.start()
+	yield(tween, "tween_completed")
 
 
 func heal_up(points: int, direction: Vector2):
 	self.current_health = min(self.current_health + points, stats.health)
 	shake(direction / 4)
 
-func take_damage(points: int, direction: Vector2):
+func take_damage(points: int):
+	var perks = get_perks()
+	if "armor" in perks:
+		points = int(ceil(points / 2))
 	self.current_health = max(self.current_health - points, 0)
 	if self.current_health == 0:
 		print("I died!")
 		self.queue_free()
 		emit_signal("death", self)
-	else:
-		shake(direction / 2)
+		
+	
+func get_perks():
+	var perks = []
+	if team == "PLAYER":
+		perks = Flow.get_orphan_value(type, "perks", [])
+	elif team == "PLAYER":
+		perks = Flow.get_enemy_value(type, "perks", [])
+	return perks
 
+func recharge():
+	moves_counter = max(0, moves_counter - 1)
+	action_counter = max(0, action_counter - 1)
+	emit_signal("updated_turn_info")
 
 func perform_heal():
 	healing_charges_left = max(0, healing_charges_left - 1)
@@ -148,4 +170,7 @@ func reset_turn():
 	last_action = "none"
 	moves_counter = 0
 	action_counter = 0
+	var perks = get_perks()
+	if "healer" in perks:
+		healing_charges_left = stats.healing_charges
 	emit_signal("updated_turn_info")

@@ -3,6 +3,7 @@ class_name Level
 
 export var intro_text = ""
 export var outro_text = ""
+export var bg_texture: Texture
 
 onready var entities: YSort = $Entities
 onready var camera: Camera2D = $Camera
@@ -48,8 +49,9 @@ func events():
 
 func _ready():
 	# opens up the camera to be used for the characters
+	$BG.texture = bg_texture
 	remove_child(camera)
-	switch_character(characters()[0])
+	switch_character(character_turns()[0])
 	snap_characters()
 	snap_chips()
 	snap_events()
@@ -138,6 +140,39 @@ func get_tile(level_position: Vector2):
 	var tile_position = tiles.world_to_map(level_position)
 	var tile_id = tiles.get_cellv(tile_position)
 	return tiles.tile_set.tile_get_name(tile_id)
+
+
+func shake_character_paused(character: Character, direction: Vector2):
+	set_process(false)
+	yield(character.shake(direction), "completed")
+	set_process(true)
+
+func move_action(character: Character, direction: Vector2):
+	var new_position = get_snapped_position_in_grid(character.position + direction)
+	var perks = character.get_perks()
+	if "dash" in perks:
+		if not is_tile_occupied(new_position):
+			new_position = get_snapped_position_in_grid(character.position + 2 * direction)
+
+	if get_tile(new_position) == "floor":
+		for other_character in characters():
+			if other_character == character:
+				continue
+			if get_snapped_position_in_grid(other_character.position) == new_position:
+				if character.can_perform_action():
+					yield(bump(character, other_character), "completed")
+				else:
+					yield(shake_character_paused(character, direction / 8), "completed")
+				return
+		if character.can_move():
+			character.move()
+			yield(move_character(character, new_position), "completed")
+		else:
+			yield(shake_character_paused(character, direction / 8), "completed")
+	else:
+		yield(shake_character_paused(character, direction / 8), "completed")
+	snap_characters()
+		
 	
 func move_character(character, location: Vector2):
 	tween.stop_all()
@@ -162,29 +197,7 @@ func move_character(character, location: Vector2):
 		for picked_up_chip in picked_up_chips:
 			yield(pickup_chip(picked_up_chip), "completed")
 	set_process(true)
-	
-
-func move_action(character: Character, direction: Vector2):
-	var new_position = get_snapped_position_in_grid(character.position + direction)
-	if get_tile(new_position) == "floor":
-		for other_character in characters():
-			if other_character == character:
-				continue
-			if get_snapped_position_in_grid(other_character.position) == new_position:
-				if character.can_perform_action():
-					yield(bump(character, other_character), "completed")
-				else:
-					yield(character.shake(direction / 8), "completed")
-				return
-		if character.can_move():
-			character.move()
-			yield(move_character(character, new_position), "completed")
-		else:
-			yield(character.shake(direction / 8), "completed")
-	else:
-		yield(character.shake(direction / 8), "completed")
 		
-
 func pickup_chip(chip: Chip):
 	chip_label.set_chip(chip)
 	emit_signal("chip_pickup", chip.identifier)
@@ -199,28 +212,91 @@ func bump(character: Character, other_character: Character):
 	set_process(false)
 	var transition_time = 0.2
 	var original_position = character.position
-	var direction = (other_character.position - character.position) / 2
-	var halfway_position = (other_character.position + character.position) / 2 + direction / 2
+	var end_position = original_position
+	var dashed = get_snapped_position_in_grid(original_position).distance_to(get_snapped_position_in_grid(other_character.position)) == 32
+	var direction = (other_character.position - character.position)
+	var halfway_position = (other_character.position + character.position) / 2 + direction / 4
+	if dashed:
+		direction = direction / 2
+		halfway_position = (other_character.position + character.position) / 2 + direction / 4
+		end_position = get_snapped_position_in_grid((other_character.position + character.position) / 2)
+	var perks = character.get_perks()
 
-	tween.interpolate_property(character, "position", null, halfway_position, transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	tween.start()
-	yield(tween, "tween_completed")
+
 	
-	if other_character.team == character.team and other_character.current_health < other_character.stats.health:
+	if other_character.team == character.team and other_character.current_health < other_character.stats.health and current_character.can_heal():
+		tween.interpolate_property(character, "position", null, halfway_position, transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		tween.start()
+		yield(tween, "tween_completed")
+
 		other_character.heal_up(character.stats.healing, direction)
 		play_healing(other_character.position)
+		character.perform_heal()
 		character.perform_action()
+
+		tween.interpolate_property(character, "position", null, end_position, transition_time / 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		tween.start()
+		yield(tween, "tween_completed")
+		set_process(true)
 	elif other_character.team != character.team:
-		other_character.take_damage(character.stats.damage, direction)
+		if dashed:
+			tween.interpolate_property(character, "position", null, halfway_position, transition_time / 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		else:
+			tween.interpolate_property(character, "position", null, halfway_position, transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		tween.start()
+		yield(tween, "tween_completed")
+
+		if dashed:
+			other_character.take_damage(character.stats.damage + 1)
+		else:
+			other_character.take_damage(character.stats.damage)
+
 		if other_character.team == "PLAYER":
 			play_damage(other_character.position)
 		character.perform_action()
-	
-	tween.interpolate_property(character, "position", null, original_position, transition_time / 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	tween.start()
-	yield(tween, "tween_completed")
-	set_process(true)
-	
+		if other_character.current_health == 0:
+			if "recharge" in perks:
+				character.recharge()
+				
+		if "push" in perks:
+			print("PUSHING!!")
+			if not other_character.current_health == 0:
+				var push_position = other_character.position + direction
+				if not is_tile_occupied(push_position):
+					other_character.move_in(direction)
+		else:
+			if not other_character.current_health == 0:
+				other_character.shake(direction / 2)
+		
+		# very hacky in need of refactor
+		if "disengage" in perks:
+			print("DISENGAGING!!")
+			var disengage_position = end_position - direction
+			if not is_tile_occupied(disengage_position):
+				tween.interpolate_property(character, "position", null, disengage_position, transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+				tween.start()
+				yield(tween, "tween_completed")
+			else:
+				tween.interpolate_property(character, "position", null, end_position, transition_time / 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+				tween.start()
+				yield(tween, "tween_completed")
+		else:
+			tween.interpolate_property(character, "position", null, end_position, transition_time / 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.start()
+			yield(tween, "tween_completed")
+		set_process(true)
+	else:
+		yield(shake_character_paused(character, direction / 8), "completed")
+
+
+
+func is_tile_occupied(tile_position: Vector2):
+	if get_tile(tile_position) != "floor":
+		return true
+	for character in characters():
+		if get_snapped_position_in_grid(character.position) == tile_position:
+			return true
+
 func play_damage(damage_position: Vector2):
 	distortion.position = damage_position
 	distortion.visible = true

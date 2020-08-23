@@ -69,3 +69,7 @@ scale = Vector2( 1.04793, 0.612893 )
 texture = ExtResource( 11 )
 
 [node name="Events" type="Node2D" parent="."]
+
+[node name="BG" type="Sprite" parent="."]
+scale = Vector2( 100, 100 )
+z_index = -100
