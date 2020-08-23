@@ -25,6 +25,9 @@ msgstr "Back"
 msgid "RESUME"
 msgstr "Resume"
 
+msgid "START_MISSION"
+msgstr "Start Mission"
+
 msgid "RESTART"
 msgstr "Restart"
 
@@ -45,6 +48,15 @@ msgstr "Load"
 
 msgid "SAVE"
 msgstr "Save"
+
+msgid "NEW_NOTIFICATION"
+msgstr "Rebooting system... Erasing all data..."
+
+msgid "LOAD_NOTIFICATION"
+msgstr "Loading backup from storage..."
+
+msgid "SAVE_NOTIFICATION"
+msgstr "Generating image backup..."
 
 msgid "SETTINGS"
 msgstr "Settings"

@@ -10,6 +10,10 @@ onready var _new_button := $VBoxContainer/StateHBox/NewButton
 onready var _save_button := $VBoxContainer/StateHBox/SaveButton
 onready var _load_button := $VBoxContainer/StateHBox/LoadButton
 
+const NEW_TEXT := "NEW_NOTIFICATION"
+const SAVE_TEXT := "SAVE_NOTIFICATION"
+const LOAD_TEXT := "LOAD_NOTIFICATION"
+
 func _ready():
 	var _error : int = _mission_button.connect("pressed", self, "_on_mission_button_pressed")
 	_error = _settings_button.connect("pressed", self, "_on_settings_button_pressed")
@@ -37,13 +41,13 @@ func _on_mission_button_pressed():
 	emit_signal("button_pressed", TABS.MISSION)
 
 func _on_new_button_pressed():
-	_status_label.text = "Rebooting system... Erasing all data..."
+	_status_label.text = NEW_TEXT
 	Flow.new_game()
 
 func _on_save_button_pressed():
-	_status_label.text = "Generating image backup..."
+	_status_label.text = SAVE_TEXT
 	Flow.save_game()
 
 func _on_load_button_pressed():
-	_status_label.text = "Loading backup from storage..."
+	_status_label.text = LOAD_TEXT
 	Flow.load_game()

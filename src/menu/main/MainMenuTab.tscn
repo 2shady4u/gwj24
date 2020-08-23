@@ -67,10 +67,10 @@ margin_bottom = 16.0
 rect_min_size = Vector2( 32, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_left = 416.0
+margin_left = 407.0
 margin_top = 204.0
-margin_right = 544.0
-margin_bottom = 421.0
+margin_right = 552.0
+margin_bottom = 417.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 custom_constants/separation = 16
@@ -80,51 +80,39 @@ __meta__ = {
 }
 
 [node name="MissionButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 52.0
-margin_right = 128.0
-margin_bottom = 79.0
+margin_top = 44.0
+margin_right = 145.0
+margin_bottom = 75.0
 rect_min_size = Vector2( 128, 0 )
-focus_neighbour_top = NodePath("../QuitButton")
-focus_neighbour_bottom = NodePath("../SettingsButton")
-focus_next = NodePath("../SettingsButton")
-focus_previous = NodePath("../QuitButton")
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 text = "SELECT_MISSION"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 95.0
-margin_right = 128.0
+margin_top = 91.0
+margin_right = 145.0
 margin_bottom = 122.0
 rect_min_size = Vector2( 128, 0 )
-focus_neighbour_top = NodePath("../MissionButton")
-focus_neighbour_bottom = NodePath("../QuitButton")
-focus_next = NodePath("../QuitButton")
-focus_previous = NodePath("../MissionButton")
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 text = "SETTINGS"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 138.0
-margin_right = 128.0
-margin_bottom = 165.0
+margin_right = 145.0
+margin_bottom = 169.0
 rect_min_size = Vector2( 128, 0 )
-focus_neighbour_top = NodePath("../SettingsButton")
-focus_neighbour_bottom = NodePath("../MissionButton")
-focus_next = NodePath("../MissionButton")
-focus_previous = NodePath("../SettingsButton")
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 text = "QUIT"
 
 [node name="StatusLabel" type="Label" parent="VBoxContainer"]
-margin_top = 445.0
+margin_top = 441.0
 margin_right = 960.0
-margin_bottom = 461.0
+margin_bottom = 457.0
 text = "Loaded..."
 align = 1
 valign = 1
 
 [node name="StateHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 485.0
+margin_top = 481.0
 margin_right = 960.0
 margin_bottom = 512.0
 custom_constants/separation = 64
@@ -133,20 +121,20 @@ alignment = 1
 [node name="NewButton" type="Button" parent="VBoxContainer/StateHBox"]
 margin_left = 224.0
 margin_right = 352.0
-margin_bottom = 27.0
+margin_bottom = 31.0
 rect_min_size = Vector2( 128, 0 )
 text = "NEW"
 
 [node name="SaveButton" type="Button" parent="VBoxContainer/StateHBox"]
 margin_left = 416.0
 margin_right = 544.0
-margin_bottom = 27.0
+margin_bottom = 31.0
 rect_min_size = Vector2( 128, 0 )
 text = "SAVE"
 
 [node name="LoadButton" type="Button" parent="VBoxContainer/StateHBox"]
 margin_left = 608.0
 margin_right = 736.0
-margin_bottom = 27.0
+margin_bottom = 31.0
 rect_min_size = Vector2( 128, 0 )
 text = "LOAD"

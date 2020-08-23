@@ -111,12 +111,12 @@ __meta__ = {
 }
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_left = 448.0
+margin_left = 439.0
 margin_top = 524.0
-margin_right = 543.0
+margin_right = 552.0
 margin_bottom = 544.0
 size_flags_horizontal = 4
-text = "Start Mission"
+text = "START_MISSION"
 
 [node name="StatusLabel" type="Label" parent="VBoxContainer"]
 visible = false

@@ -104,8 +104,8 @@
                 "movement": 4
             },
             "drops": {
-                "more_hp": 0.1,
-                "faster_speed_but_decreased_health": 0.99
+                "more_hp": 0.5,
+                "more_damage": 0.4
             }
         },
         "fish_bot": {
@@ -120,12 +120,12 @@
                 "movement": 6
             },
             "drops": {
-                "more_hp": 0.2,
-                "faster_speed_but_decreased_health": 0.2
+                "more_hp": 0.5,
+                "more_actions": 0.4
             }
         },
-        "big_clam": {
-            "name": "B1G_CL4M",
+        "clam": {
+            "name": "L1L CL4M",
             "perks": [],
             "base_stats": {
                 "health": 2,
@@ -136,7 +136,23 @@
                 "movement": 6
             },
             "drops": {
-                "more_hp": 0.2,
+                "more_healing": 0.2,
+                "more_healing_but_reduced_speed": 0.1
+            }
+        },
+        "BugBot": {
+            "name": "BUGB0T",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_health_but_decreased_speed": 0.2,
                 "faster_speed_but_decreased_health": 0.2
             }
         },
@@ -153,11 +169,12 @@
             },
             "drops": {
                 "more_hp": 0.2,
-                "faster_speed_but_decreased_health": 0.2
+                "even_more_hp": 0.5,
+                "more_damage": 0.5
             }
         },
-        "BugBot": {
-            "name": "BUGB0T",
+        "big_clam": {
+            "name": "B1G_CL4M",
             "perks": [],
             "base_stats": {
                 "health": 2,
@@ -168,24 +185,8 @@
                 "movement": 6
             },
             "drops": {
-                "more_hp": 0.2,
-                "faster_speed_but_decreased_health": 0.2
-            }
-        },
-        "clam": {
-            "name": "L1L CL4M",
-            "perks": [],
-            "base_stats": {
-                "health": 2,
-                "damage": 1,
-                "healing": 1,
-                "healing_charges": 2,
-                "actions": 2,
-                "movement": 6
-            },
-            "drops": {
-                "more_hp": 0.2,
-                "faster_speed_but_decreased_health": 0.2
+                "more_healing": 0.5,
+                "more_healing_but_reduced_speed": 0.2
             }
         },
         "oblivion": {
@@ -200,8 +201,10 @@
                 "movement": 6
             },
             "drops": {
-                "more_hp": 0.2,
-                "faster_speed_but_decreased_health": 0.2
+                "nun_bot": 0.4,
+                "glass_canon": 0.4,
+                "even_more_hp": 0.4,
+                "more_actions": 0.4
             }
         },
         "sentry_mk1": {
@@ -217,6 +220,7 @@
             },
             "drops": {
                 "more_hp": 0.2,
+                "more_damage": 0.2,
                 "faster_speed_but_decreased_health": 0.2
             }
         },
@@ -232,8 +236,10 @@
                 "movement": 6
             },
             "drops": {
-                "more_hp": 0.2,
-                "faster_speed_but_decreased_health": 0.2
+                "more_hp": 0.4,
+                "even_more_hp": 0.2,
+                "more_damage": 0.4,
+                "faster_speed_but_decreased_health": 0.4
             }
         },
         "sentry_mk3": {
@@ -248,8 +254,12 @@
                 "movement": 6
             },
             "drops": {
-                "more_hp": 0.2,
-                "faster_speed_but_decreased_health": 0.2
+                "nun_bot": 0.4,
+                "glass_canon": 0.4,
+                "even_more_hp": 0.4,
+                "more_actions": 0.4,
+                "more_healing_but_reduced_speed": 0.3,
+                "more_healing": 0.2
             }
         }
     },
@@ -272,9 +282,9 @@
     ],
     "upgrades": {
         "more_hp": {
-            "name": "MXU-1",
+            "name": "MXU-HP",
             "type": "HP",
-            "description": "Allows you to move around with more junk to your body.",
+            "description": "Better dynamic alignment of your armor plates result gives you an edge in health on the battlefield.",
             "grid_texture": "res://assets/graphics/upgrades/Chip_HP.png",
             "effect": {
                 "health": 2
@@ -291,13 +301,13 @@
             ]
         },
         "faster_speed_but_decreased_health": {
-            "name": "MXS-SPD-1",
+            "name": "MXS-OVERCLOCK",
             "type": "SPEED",
-            "description": "Allows you to move faster, though you'll need to give up some armor.",
+            "description": "Overclock your core to gain more movement speed, but a reduction in health.",
             "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
             "effect": {
                 "health": -1,
-                "movement": 1
+                "movement": 2
             },
             "grid": [
                 [
@@ -307,6 +317,184 @@
                     1
                 ],
                 [
+                    1
+                ]
+            ]
+        },
+        "even_more_hp": {
+            "name": "MXU-HP+",
+            "type": "HP",
+            "description": "Real-time calculation of the optimum dynamic alignment of your armor plates allows you to shrug off most attacks.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_HP.png",
+            "effect": {
+                "health": 4
+            },
+            "grid": [
+                [
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ]
+            ]
+        },
+        "more_healing": {
+            "name": "BACTA TANK",
+            "type": "HEAL",
+            "description": "Adding an small healing container increases the amount of healing charges.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "effect": {
+                "healing_charges": 1
+            },
+            "grid": [
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        "more_healing_but_reduced_speed": {
+            "name": "BACTA TANK+",
+            "type": "HEAL",
+            "description": "Adding an additional healing container greatly increases the amount of healing charges, but slows you down.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "effect": {
+                "healing_charges": 2,
+                "movement": -1
+            },
+            "grid": [
+                [
+                    1,
+                    1,
+                    1
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ]
+            ]
+        },
+        "more_actions": {
+            "name": "CPU CORE",
+            "type": "ACTION",
+            "description": "Adding an extra core to your CPU allows to perform an additional action during your turn.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "effect": {
+                "actions": 1
+            },
+            "grid": [
+                [
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ]
+            ]
+        },
+        "more_health_but_decreased_speed": {
+            "name": "MXS-CHITIN",
+            "type": "HP",
+            "description": "Hardening your coolant fluid gives you an extra layer of protection, but decreases your mobility.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "effect": {
+                "health": 2,
+                "movement": -1
+            },
+            "grid": [
+                [
+                    1,
+                    1
+                ],
+                [
+                    0,
+                    1
+                ]
+            ]
+        },
+        "nun_bot": {
+            "name": "NUN-BOT ALGORITHM",
+            "type": "HEAL",
+            "description": "S0R3114's original programming allows anyone to better heal their allies by sacrificing their offensive abilities.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "effect": {
+                "healing": 1,
+                "healing_charges": 2,
+                "damage": -5
+            },
+            "grid": [
+                [
+                    1,
+                    1
+                ],
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        "more_damage": {
+            "name": "MXU-DMG",
+            "type": "DAMAGE",
+            "description": "Calculates the optimum piercing trajectory for your attacks, increasing damage as a result.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "effect": {
+                "healing_charges": 2,
+                "movement": -1
+            },
+            "grid": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    1,
+                    1
+                ]
+            ]
+        },
+        "glass_canon": {
+            "name": "MXU-COCOON",
+            "type": "SPECIAL",
+            "description": "Shed all exterior and interior exoskeleton and maximize speed and damage to the ultimate limit.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "effect": {
+                "hp": -3,
+                "movement": 3,
+                "damage": 3
+            },
+            "grid": [
+                [
+                    1,
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
                     1
                 ]
             ]

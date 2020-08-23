@@ -25,6 +25,9 @@ msgstr "Retour"
 msgid "RESUME"
 msgstr "Reprendre"
 
+msgid "START_MISSION"
+msgstr "Commencer la Mission"
+
 msgid "RESTART"
 msgstr "Redémarrer"
 
@@ -45,6 +48,15 @@ msgstr "Charger"
 
 msgid "SAVE"
 msgstr "Sauver"
+
+msgid "NEW_NOTIFICATION"
+msgstr "Redémarrage du système... Effacement de toutes les données..."
+
+msgid "LOAD_NOTIFICATION"
+msgstr "Chargement de la sauvegarde depuis le stockage..."
+
+msgid "SAVE_NOTIFICATION"
+msgstr "Génération de la sauvegarde d'image..."
 
 msgid "SETTINGS"
 msgstr "Paramètres"

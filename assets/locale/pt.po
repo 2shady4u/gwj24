@@ -25,6 +25,9 @@ msgstr "Voltar"
 msgid "RESUME"
 msgstr "Resumo"
 
+msgid "START_MISSION"
+msgstr "Começar a Missão"
+
 msgid "RESTART"
 msgstr "Reiniciar"
 
@@ -45,6 +48,15 @@ msgstr "Carga"
 
 msgid "SAVE"
 msgstr "Salve"
+
+msgid "NEW_NOTIFICATION"
+msgstr "Reinicializando o sistema... Apagando todos os dados..."
+
+msgid "LOAD_NOTIFICATION"
+msgstr "Carregando backup do armazenamento..."
+
+msgid "SAVE_NOTIFICATION"
+msgstr "Gerando backup de imagem..."
 
 msgid "SETTINGS"
 msgstr "Configurações"
