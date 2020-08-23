@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Menu.gd" type="Script" id=1]
 [ext_resource path="res://src/menu/main/MainMenuTab.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/menu/mission/MissionMenuTab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/menu/orphan/OrphanMenuTab.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/themes/theme.tres" type="Theme" id=7]
+[ext_resource path="res://src/CircuitBackground.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -21,6 +22,9 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = "Music"
+
+[node name="CircuitBackground" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0
