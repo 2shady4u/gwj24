@@ -34,7 +34,7 @@ func update_tab():
 		var _error : int = button.connect("pressed", self, "_on_mission_button_pressed", [tab_idx])
 
 
-	AudioEngine.play_background_music("sneaking")
+	AudioEngine.play_background_music("mission_select")
 
 
 func clear_tab():

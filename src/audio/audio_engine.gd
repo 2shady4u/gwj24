@@ -18,7 +18,7 @@ const tracks = {
 	"junkyard": "res://assets/music/junkyard.ogg",
 	"sad": "res://assets/music/sad.ogg",
 	"secret": "res://assets/music/secret.ogg",
-	"sneaking": "res://assets/music/sneaking.ogg",
+	"mission_select": "res://assets/music/mission_select.ogg",
 	"title": "res://assets/music/title.ogg",
 	"upgrid": "res://assets/music/upgrid.ogg",
 }
