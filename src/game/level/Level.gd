@@ -197,15 +197,15 @@ func move_character(character, location: Vector2):
 		for picked_up_chip in picked_up_chips:
 			yield(pickup_chip(picked_up_chip), "completed")
 	set_process(true)
-		
+
 func pickup_chip(chip: Chip):
 	chip_label.set_chip(chip)
 	emit_signal("chip_pickup", chip.identifier)
 	chip_label.rect_position = chip.position - Vector2(20, 16)
+	entities.remove_child(chip)
 	chip.queue_free()
 	chip_label.show()
 	yield(chip_label.start_animation(), "completed")
-
 
 func bump(character: Character, other_character: Character):
 	tween.stop_all()
@@ -223,7 +223,7 @@ func bump(character: Character, other_character: Character):
 	var perks = character.get_perks()
 
 
-	
+
 	if other_character.team == character.team and other_character.current_health < other_character.stats.health and current_character.can_heal():
 		tween.interpolate_property(character, "position", null, halfway_position, transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		tween.start()

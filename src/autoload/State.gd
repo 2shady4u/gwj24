@@ -108,3 +108,8 @@ func set_mission_from_context(mission_context : Dictionary) -> void:
 			if mission.id == mission_id:
 				mission.context = mission_context
 				break
+
+func set_mission_completed(mission_id : String, completed : bool):
+	for mission in missions:
+		if mission.id == mission_id:
+			mission.completed = completed

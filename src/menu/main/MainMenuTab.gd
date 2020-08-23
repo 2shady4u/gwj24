@@ -35,13 +35,13 @@ func _on_mission_button_pressed():
 	emit_signal("button_pressed", TABS.MISSION)
 
 func _on_new_button_pressed():
-	_status_label.text = "Erasing entire saved context..."
+	_status_label.text = "Rebooting system... Erasing all data..."
 	Flow.new_game()
 
 func _on_save_button_pressed():
-	_status_label.text = "Saving game..."
+	_status_label.text = "Generating image backup..."
 	Flow.save_game()
 
 func _on_load_button_pressed():
-	_status_label.text = "Loading game..."
+	_status_label.text = "Loading backup from storage..."
 	Flow.load_game()

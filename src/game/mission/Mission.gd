@@ -96,14 +96,17 @@ func transfer_chips_from_level():
 	chips_picked_up_in_level = []
 	
 func transfer_chips_to_save():
-	# TODO
-	pass
-	
+	for chip in chips_stored:
+		State.add_new_upgrade(chip)
+	# Clear the stored chips...maybe not necessary? Can't hurt!
+	chips_stored.clear()
+
 func mission_completed():
-	print("Mission is finished!!")
+	print("Mission is finished!! Autosaving...")
 	transfer_chips_to_save()
 
-	# TODO set mission completed in state context
+	State.set_mission_completed(identifier, true)
+	Flow.save_game()
 	Flow.change_scene_to("menu")
 	
 func on_level_complete():
