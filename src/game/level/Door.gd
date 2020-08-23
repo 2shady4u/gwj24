@@ -1,5 +1,6 @@
 extends AnimatedSprite
 
+export var identifier = "default"
 
 var state = "closed"
 
