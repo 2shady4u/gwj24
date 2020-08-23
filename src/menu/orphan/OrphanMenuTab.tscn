@@ -30,7 +30,7 @@ tab_type = 3
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 992.0
-margin_bottom = 560.0
+margin_bottom = 544.0
 mouse_filter = 2
 
 [node name="BackButton" type="Button" parent="BackContainer"]
@@ -44,7 +44,7 @@ text = "BACK"
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 992.0
-margin_bottom = 560.0
+margin_bottom = 544.0
 mouse_filter = 2
 custom_constants/separation = 16
 
@@ -82,7 +82,7 @@ text = "~"
 [node name="TopHBox" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 36.0
 margin_right = 960.0
-margin_bottom = 384.0
+margin_bottom = 368.0
 size_flags_vertical = 3
 alignment = 1
 __meta__ = {
@@ -91,7 +91,7 @@ __meta__ = {
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/TopHBox"]
 margin_right = 812.0
-margin_bottom = 348.0
+margin_bottom = 332.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 custom_styles/panel = SubResource( 1 )
@@ -102,7 +102,7 @@ tabs_visible = false
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TopHBox"]
 margin_left = 816.0
 margin_right = 960.0
-margin_bottom = 348.0
+margin_bottom = 332.0
 size_flags_horizontal = 12
 size_flags_vertical = 5
 
@@ -117,14 +117,14 @@ valign = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TopHBox/VBoxContainer"]
 margin_top = 20.0
 margin_right = 144.0
-margin_bottom = 348.0
+margin_bottom = 332.0
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 2 )
 
 [node name="AvailableVBox" type="VBoxContainer" parent="VBoxContainer/TopHBox/VBoxContainer/ScrollContainer"]
 margin_top = 16.0
 margin_right = 144.0
-margin_bottom = 312.0
+margin_bottom = 296.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 16
@@ -133,21 +133,21 @@ alignment = 1
 [node name="UpgradeButton" parent="VBoxContainer/TopHBox/VBoxContainer/ScrollContainer/AvailableVBox" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 108.0
+margin_top = 100.0
 margin_right = 144.0
-margin_bottom = 140.0
+margin_bottom = 132.0
 
 [node name="UpgradeButton2" parent="VBoxContainer/TopHBox/VBoxContainer/ScrollContainer/AvailableVBox" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 156.0
+margin_top = 148.0
 margin_right = 144.0
-margin_bottom = 188.0
+margin_bottom = 180.0
 
 [node name="BottomHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 400.0
+margin_top = 384.0
 margin_right = 960.0
-margin_bottom = 528.0
+margin_bottom = 512.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BottomHBox"]
 margin_right = 478.0
