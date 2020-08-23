@@ -46,11 +46,14 @@ func clear_tab():
 		child.queue_free()
 
 func _on_mission_button_pressed(tab_idx : int):
+	AudioEngine.play_effect("ui_select")
 	_mission_tab_container.current_tab = tab_idx
 
 func _on_back_button_pressed():
+	AudioEngine.play_effect("ui_back")
 	emit_signal("button_pressed", TABS.MAIN)
 
 func _on_orphan_button_pressed():
+	AudioEngine.play_effect("ui_select")
 	emit_signal("button_pressed", TABS.ORPHAN)
 

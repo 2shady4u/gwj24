@@ -26,6 +26,7 @@ func _on_resume_button_pressed():
 
 func _on_restart_button_pressed():
 	LevelFlow.current_mission.restart_level()
+	Flow.toggle_paused()
 
 func _on_settings_button_pressed():
 	emit_signal("button_pressed", TABS.SETTINGS)

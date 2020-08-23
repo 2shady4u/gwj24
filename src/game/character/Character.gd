@@ -83,6 +83,7 @@ func move_in(direction: Vector2):
 
 
 func heal_up(points: int, direction: Vector2):
+	AudioEngine.play_effect("heal")
 	self.current_health = min(self.current_health + points, stats.health)
 	shake(direction / 4)
 
@@ -90,11 +91,18 @@ func take_damage(points: int):
 	var perks = get_perks()
 	if "armor" in perks:
 		points = int(ceil(points / 2))
+		
 	self.current_health = max(self.current_health - points, 0)
 	if self.current_health == 0:
+		AudioEngine.play_effect("explode")
 		print("I died!")
 		self.queue_free()
 		emit_signal("death", self)
+	else:
+		if team == "PLAYER":
+			AudioEngine.play_effect("glitch")
+		else:
+			AudioEngine.play_effect("enemy_hit")
 		
 	
 func get_perks():

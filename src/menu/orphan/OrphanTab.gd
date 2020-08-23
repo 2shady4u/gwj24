@@ -165,6 +165,7 @@ func remove_upgrade_from_grid(upgrade : class_upgrade) -> bool:
 		for grid_position in upgrade.grid_positions:
 			var slot := get_slot_at_grid_position(grid_position)
 			slot.upgrade = null
+		AudioEngine.play_effect("ui_chip_out")
 		self.orphan.remove_upgrade(upgrade)
 		update_stats()
 		return true

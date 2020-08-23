@@ -43,24 +43,31 @@ func update_tab():
 	_mute_sfx_check_box.pressed = ConfigData.mute_sfx
 
 func _on_back_button_pressed():
+	AudioEngine.play_effect("ui_back")
 	emit_signal("button_pressed", TABS.MAIN)
 
 func _on_mute_music_check_box_toggled(button_pressed : bool):
+	AudioEngine.play_effect("ui_select")
 	ConfigData.mute_music = button_pressed
 
 func _on_mute_sfx_check_box_toggled(button_pressed : bool):
+	AudioEngine.play_effect("ui_select")
 	ConfigData.mute_sfx = button_pressed
 
 func _on_master_volume_slider_changed(value : float):
+	AudioEngine.play_effect("ui_select")
 	ConfigData.master_volume = value
 
 func _on_music_volume_slider_changed(value : float):
+	AudioEngine.play_effect("ui_select")
 	ConfigData.music_volume = value
 
 func _on_sfx_volume_slider_changed(value : float):
+	AudioEngine.play_effect("ui_select")
 	ConfigData.sfx_volume = value
 
 func _on_language_button_pressed(increment : int):
+	AudioEngine.play_effect("ui_select")
 	var loaded_locales := TranslationServer.get_loaded_locales()
 	var unique_locales := []
 	# loaded_locales can contain duplicate locales, wihch should be avoided!

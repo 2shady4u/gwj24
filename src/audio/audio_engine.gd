@@ -65,7 +65,7 @@ func _ready():
 
 
 func play_effect(effect_name: String):
-	play_positioned_effect(sfx[effect_name], get_viewport().get_visible_rect().size / 2)
+	play_positioned_effect(effect_name, get_viewport().get_visible_rect().size / 2)
 
 func play_positioned_effect(effect_name: String, position: Vector2 = Vector2(0, 0)):
 	effects.play_effect(sfx[effect_name], position)

@@ -86,7 +86,7 @@ func _ready():
 		
 	set_process(false)
 	
-	AudioEngine.play_background_music("music_track")
+	AudioEngine.play_background_music(music_track)
 	
 func start():
 	set_process(true)

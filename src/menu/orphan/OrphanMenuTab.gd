@@ -90,6 +90,7 @@ func update_upgrades():
 		_available_vbox.get_children()[0].grab_focus()
 
 func _on_upgrade_placed(orphan_tab : class_orphan_tab):
+	AudioEngine.play_effect("ui_chip_in")
 	orphan_tab.active_upgrade = null
 	orphan_tab.set_process_input(false)
 
@@ -121,14 +122,17 @@ func _on_button_pressed(pressed : bool, upgrade_button : class_upgrade_button):
 		button.update_button(orphan.id, self.active_upgrade)
 
 func _on_back_button_pressed():
+	AudioEngine.play_effect("ui_back")
 	emit_signal("button_pressed", TABS.MISSION)
 
 func _input(event):
 	if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
 		var index : int = _tab_container.current_tab
 		if event.is_action_pressed("move_left"):
+			AudioEngine.play_effect("ui_move")
 			index -= 1
 		if event.is_action_pressed("move_right"):
+			AudioEngine.play_effect("ui_move")
 			index += 1
 
 		index = wrapi(index, 0, _tab_container.get_tab_count())

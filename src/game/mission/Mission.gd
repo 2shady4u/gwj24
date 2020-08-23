@@ -21,6 +21,8 @@ func _ready():
 		printerr("No valid identifier for mission")
 	elif not Flow.does_mission_exist(identifier):
 		printerr("Mission identifier does not exist")
+
+	LevelFlow.current_mission = self
 	
 	load_level(levels[0])
 	
