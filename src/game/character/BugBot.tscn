@@ -20,6 +20,7 @@ animations = [ {
 } ]
 
 [node name="BugBot" instance=ExtResource( 2 )]
+type = "bugbot"
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -9 )

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/graphics/ui/move_ui_end.png" type="Texture" id=1]
 [ext_resource path="res://assets/graphics/ui/move_ui_segment.png" type="Texture" id=2]
-[ext_resource path="res://assets/graphics/ui/move_ui_start.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/ui/attack_ui_1_segment.png" type="Texture" id=3]
 [ext_resource path="res://src/UI/ChargesBar.gd" type="Script" id=4]
 
 [node name="ChargesBar" type="HBoxContainer"]

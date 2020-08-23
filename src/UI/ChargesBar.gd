@@ -5,6 +5,7 @@ export(String, "action", "moves", "healing_charges") var type = "action"
 
 onready var sprite_sizes = {
 	"start": Vector2(32, 32),
+	"single": Vector2(48, 32),
 	"segment": Vector2(8, 14),
 	"end": Vector2(16, 16),
 }
@@ -13,11 +14,17 @@ var start_charge = null
 var end_charge =  null
 var segments_in_between = []
 
+var maximum_charges = 0
+
 var active_charges = 0
 # TODO note that currently it's not really supported to have just 1 charge for something
 
 onready var sprites = {
 	"action": {
+		"single": {
+			"filled": preload("res://assets/graphics/ui/energy_ui_1_segment.png"),
+			"empty": preload("res://assets/graphics/ui/energy_ui_1_segment_empty.png"),
+		},
 		"start": {
 			"filled": preload("res://assets/graphics/ui/energy_ui_start.png"),
 			"empty": preload("res://assets/graphics/ui/energy_ui_start_empty.png"),
@@ -32,6 +39,10 @@ onready var sprites = {
 		}
 	}, 
 	"moves": {
+		"single": {
+			"filled": preload("res://assets/graphics/ui/move_ui_1_segment.png"),
+			"empty": preload("res://assets/graphics/ui/move_ui_1_segment_empty.png"),
+		},
 		"start": {
 			"filled": preload("res://assets/graphics/ui/move_ui_start.png"),
 			"empty": preload("res://assets/graphics/ui/move_ui_start_empty.png"),
@@ -46,6 +57,10 @@ onready var sprites = {
 		}
 	}, 
 	"healing_charges": {
+		"single": {
+			"filled": preload("res://assets/graphics/ui/heal_ui_1_segment.png"),
+			"empty": preload("res://assets/graphics/ui/heal_ui_1_segment_empty.png"),
+		},
 		"start": {
 			"filled": preload("res://assets/graphics/ui/heal_ui_start.png"),
 			"empty": preload("res://assets/graphics/ui/heal_ui_start_empty.png"),
@@ -79,8 +94,9 @@ func _ready():
 	
 	
 func set_max_charges(max_charges: int):
+	maximum_charges = max_charges
 	print("Setting max charges to ", max_charges)
-	var number_of_segments = max_charges - 2
+	var number_of_segments = max(0, max_charges - 2)
 	if len(segments_in_between) < number_of_segments:
 		# need to make more segments
 		for _i in range(number_of_segments - len(segments_in_between)):
@@ -101,14 +117,28 @@ func set_max_charges(max_charges: int):
 			deleted_segment.queue_free()
 	
 	move_child(end_charge, max_charges)
+	# nice one
+	if max_charges == 1:
+		end_charge.hide()
+	else:
+		end_charge.show()
+		
 	set_current_charges(active_charges)
 
 
 func set_start_texture(charged: bool):
-	if charged:
-		start_charge.texture = sprites[type].start.filled
+	if maximum_charges == 1:
+		start_charge.rect_min_size = sprite_sizes.single * 2
+		if charged:
+			start_charge.texture = sprites[type].single.filled
+		else:
+			start_charge.texture = sprites[type].single.empty
 	else:
-		start_charge.texture = sprites[type].start.empty
+		start_charge.rect_min_size = sprite_sizes.start * 2
+		if charged:
+			start_charge.texture = sprites[type].start.filled
+		else:
+			start_charge.texture = sprites[type].start.empty
 	
 
 func set_segment_texture(segment_index: int, charged: bool):

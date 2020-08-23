@@ -35,7 +35,7 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[node name="Enemy" instance=ExtResource( 1 )]
+[node name="B1G_CL4M" instance=ExtResource( 1 )]
 type = "big_clam"
 
 [node name="Sprite" parent="." index="0"]

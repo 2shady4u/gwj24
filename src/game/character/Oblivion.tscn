@@ -40,6 +40,7 @@ animations = [ {
 } ]
 
 [node name="Oblivion" instance=ExtResource( 1 )]
+type="oblivion"
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -9 )

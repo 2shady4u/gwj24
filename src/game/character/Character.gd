@@ -8,6 +8,12 @@ onready var healthbar = $HealthBar
 export(String, "PLAYER", "ENEMY", "OBSTACLE") var team = "PLAYER"
 export(String) var type
 
+
+# traditional mode
+# var GAME_SYSTEM = "traditional"
+# this is with the new style where actions and movement is separated
+var GAME_SYSTEM = "rework"
+
 var stats = {
 }
 
@@ -34,7 +40,7 @@ func _ready():
 	if team == "OBSTACLE":
 		pass
 	else:
-		update_stats(get_stats())
+		update_stats(get_stats().duplicate(true))
 	
 func get_stats():
 	print("Getting stats for ", type, " of group ", team)
@@ -55,6 +61,8 @@ func update_stats(new_stats):
 	# TODO we're getting this out of state soon
 	stats = new_stats
 	healthbar.set_health(stats.health)
+	if GAME_SYSTEM == "rework":
+		stats.actions -= 1
 	self.current_health = stats.health
 	healing_charges_left = stats.healing_charges
 
@@ -65,9 +73,9 @@ func shake(shake_size: Vector2):
 	yield(tween, "tween_completed")
 	tween.interpolate_property(self, "position", null, original_position, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN)
 
+
 func heal_up(points: int, direction: Vector2):
 	self.current_health = min(self.current_health + points, stats.health)
-	print("Healed up!")
 	shake(direction / 4)
 
 func take_damage(points: int, direction: Vector2):
@@ -79,17 +87,28 @@ func take_damage(points: int, direction: Vector2):
 	else:
 		shake(direction / 2)
 
+
+func perform_heal():
+	healing_charges_left = max(0, healing_charges_left - 1)
+
 func perform_action():
 	action_counter += 1
 	last_action = "action"
 	emit_signal("updated_turn_info")
 
-func move():
-	if moves_counter == stats.movement:
-		moves_counter = 0
+func can_move():
+	if GAME_SYSTEM == "rework":
+		return moves_counter < stats.movement 
+	return true
 
-	if moves_counter == 0:
-		action_counter += 1
+func move():
+	if GAME_SYSTEM == "traditional":
+		if moves_counter == stats.movement:
+			moves_counter = 0
+
+		if moves_counter == 0:
+			action_counter += 1
+
 	moves_counter += 1
 	
 	last_action = "movement"
@@ -98,12 +117,21 @@ func move():
 func turn_finished():
 	if last_action == "finish":
 		return true
-	if last_action == "action":
-		return action_counter >= stats.actions
-	elif last_action == "movement":
-		if action_counter >= stats.actions:
-			return moves_counter >= stats.movement
-		return false
+
+	if GAME_SYSTEM == "traditional":
+		if last_action == "action":
+			return action_counter >= stats.actions
+		elif last_action == "movement":
+			if action_counter >= stats.actions:
+				return moves_counter >= stats.movement
+			return false
+	elif GAME_SYSTEM == "rework":
+		if last_action == "action":
+			return action_counter >= stats.actions
+		elif last_action == "movement":
+			if action_counter >= stats.actions:
+				return moves_counter >= stats.movement
+			return false
 
 func can_heal():
 	return healing_charges_left > 0
@@ -114,8 +142,10 @@ func finish_turn():
 func can_perform_action():
 	if action_counter < stats.actions:
 		return true
+	return false
 
 func reset_turn():
+	last_action = "none"
 	moves_counter = 0
 	action_counter = 0
 	emit_signal("updated_turn_info")

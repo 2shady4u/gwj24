@@ -15,8 +15,13 @@ onready var distortion = $Distortion
 onready var chip_scene = preload("res://src/game/chips/Chip.tscn")
 
 var current_character : Character = null
+
+# AI
 var astar: AStar2D = AStar2D.new()
 var astar_id_map = {}
+
+var current_target: Character = null
+var current_target_position = null
 
 const directions = {
 	"UP": Vector2(0, -16),
@@ -123,6 +128,10 @@ func switch_character(new_character: Character):
 	print("Using the current character setter!")
 	LevelFlow.current_character = current_character
 
+	# reset AI
+	current_target = null
+	current_target_position = null
+
 	set_process(true)
 
 func get_tile(level_position: Vector2):
@@ -167,8 +176,11 @@ func move_action(character: Character, direction: Vector2):
 				else:
 					yield(character.shake(direction / 8), "completed")
 				return
-		character.move()
-		yield(move_character(character, new_position), "completed")
+		if character.can_move():
+			character.move()
+			yield(move_character(character, new_position), "completed")
+		else:
+			yield(character.shake(direction / 8), "completed")
 	else:
 		yield(character.shake(direction / 8), "completed")
 		
@@ -265,39 +277,6 @@ func get_events(event_position: Vector2):
 		if event.position == event_position:
 			triggered_events.append(event)
 	return triggered_events
-			
-func ai_decision():
-	# can't wait for this hacked together mess
-	snap_characters()
-	var player_characters = get_player_characters()
-	var paths = []
-	for player_character in player_characters:
-		var current_position: int = astar_id_map[current_character.position]
-		var other_position: int = astar_id_map[player_character.position]
-		paths.append(astar.get_point_path(current_position, other_position))
-	var min_size = 999
-	var min_path = null
-	for path in paths:
-		if path.size() < min_size:
-			min_size = path.size()
-			min_path = path
-		elif path.size() == min_size:
-			# TODO add weight on who to attack
-			pass
-	if min_path:
-		if min_path.size() == 2:
-			if not current_character.can_perform_action():
-				current_character.finish_turn()
-				set_process(false)
-				return yield(get_tree().create_timer(0.1), "timeout")
-		var point_to_travel = min_path[1]
-		yield(move_action(current_character, point_to_travel - current_character.position), "completed")
-		set_process(false)
-		yield(get_tree().create_timer(0.1), "timeout")
-		set_process(true)
-	else:
-		yield(get_tree().create_timer(0.1), "timeout")
-		print("This should never happen!!! So it's okay if it crashes here.")
 		
 		
 func filter_characters_team(team: String):
@@ -380,3 +359,146 @@ func check_level_complete():
 		print("END END END")
 		emit_signal("complete")
 		
+
+
+### AI
+
+func remove_occupied_spots():
+	for character in characters():
+		var character_position = get_snapped_position_in_grid(character.position)
+		astar.set_point_disabled(astar_id_map[character_position], true)
+
+# pretty fast solution, I hope without significant performance impacts
+func add_occupied_spots():
+	for id in astar_id_map.values():
+		astar.set_point_disabled(id, false)
+
+
+func get_tiles_next_to_character(character: Character):
+	var tiles_next = []
+	for direction in directions:
+		var direction_vector = directions[direction]
+		var considered_position = get_snapped_position_in_grid(character.position + direction_vector)
+		if considered_position in astar_id_map:
+			if not astar.is_point_disabled(astar_id_map[considered_position]):
+				tiles_next.append(considered_position)
+	return tiles_next
+
+
+func minimum_path(paths):
+	var min_size = 999
+	var min_path = null
+	# TODO idea where you check how busy another node is by the amount of paths you can make to that character.
+	# this is a stretch goal though, but might improve AI perception
+	for path in paths:
+		if path.size() < min_size:
+			min_size = path.size()
+			min_path = path
+		elif path.size() == min_size:
+			# TODO add weight on who to attack
+			pass
+	return min_path
+
+
+func get_minimum_path_for_character(character: Character):
+	var paths = []
+	var possible_positions = get_tiles_next_to_character(character)
+	var current_position: int = astar_id_map[current_character.position]
+	for possible_position in possible_positions:
+		var other_position: int = astar_id_map[possible_position]
+		paths.append(astar.get_point_path(current_position, other_position))
+
+	return minimum_path(paths)
+
+
+func target_selection():
+	var paths = {}
+	var player_characters = get_player_characters()
+
+	for player_character in player_characters:
+		var minimum_path_per_character = get_minimum_path_for_character(player_character)
+		if minimum_path_per_character:
+			paths[player_character] = minimum_path_per_character
+
+	var reachable_paths_this_turn = {}
+	for character in paths:
+		var path = paths[character]
+		if path.size() < current_character.stats.movement:
+			reachable_paths_this_turn[character] = path
+
+	# won't be able to attack anyway
+	if reachable_paths_this_turn.empty():
+		var min_size = 999
+		for character in paths:
+			var path = paths[character]
+			if path.size() < min_size:
+				min_size = path.size()
+				current_target = character
+				current_target_position = path[path.size() - 1]
+	else:
+		var shuffled_characters = reachable_paths_this_turn.keys()
+		shuffled_characters.shuffle()
+		current_target = shuffled_characters[randi() % shuffled_characters.size()]
+		var path = reachable_paths_this_turn[current_target]
+		current_target_position = path[path.size() - 1]
+			
+
+	
+func target_recalculation():
+	var min_path_to_character = get_minimum_path_for_character(current_target)
+	current_target_position = min_path_to_character[min_path_to_character.size() - 1]
+
+func move_or_attack():
+	print("Move or attacking!")
+	var current_position: int = astar_id_map[current_character.position]
+	var other_position: int = astar_id_map[current_target_position]
+	print(current_character, current_character.position)
+
+	var path = astar.get_point_path(current_position, other_position)
+	print(path)
+	# move towards enemy
+	if path.size() > 1:
+		if current_character.can_move():
+			var point_to_travel = path[1]
+			yield(move_action(current_character, point_to_travel - current_character.position), "completed")
+			set_process(false)
+			yield(get_tree().create_timer(0.1), "timeout")
+			set_process(true)
+		else:
+			current_character.finish_turn()
+			set_process(false)
+			return yield(get_tree().create_timer(0.1), "timeout")
+	# attack when next to enemy
+	else:
+		if current_character.can_perform_action():
+			var point_to_travel = get_snapped_position_in_grid(current_target.position)
+			yield(move_action(current_character, point_to_travel - current_character.position), "completed")
+			set_process(false)
+			yield(get_tree().create_timer(0.1), "timeout")
+			set_process(true)
+		else:
+			current_character.finish_turn()
+			set_process(false)
+			return yield(get_tree().create_timer(0.1), "timeout")
+
+func ai_decision():
+	# can't wait for this hacked together mess
+	snap_characters()
+
+	remove_occupied_spots()
+	# enables the ai's spot, since it's no obstacle to itself
+	var current_position: int = astar_id_map[current_character.position]
+	astar.set_point_disabled(current_position, false)
+
+	if not current_target:
+		target_selection()
+	else:
+		target_recalculation()
+
+	# no players left...
+	if not current_character:
+		yield(get_tree().create_timer(0.1), "timeout")
+		print("This should never happen!!! So it's okay if it crashes here.")
+		return
+	
+	yield(move_or_attack(), "completed")

@@ -5,8 +5,10 @@
             "backstory": "Heir to a rich UK family. Joseph is living it up traveling through Asia to defeat DIO and cure his daughter",
             "portrait_texture": "res://assets/graphics/portraits/regular.png",
             "icon_texture": "res://assets/graphics/characters/Children/TV_Head.png",
+            "perks": [],
             "base_stats": {
                 "health": 5,
+                "shield": 1,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
@@ -19,8 +21,10 @@
             "backstory": "His dog got killed by DIO and now he is fricking pissed!",
             "portrait_texture": "res://assets/graphics/portraits/fast.png",
             "icon_texture": "res://assets/graphics/characters/Children/Dash.png",
+            "perks": [],
             "base_stats": {
                 "health": 5,
+                "shield": 1,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
@@ -33,8 +37,10 @@
             "backstory": "He's a vampire that sucks people dry and he killed Jonathan's dog because he was a bit jelly.",
             "portrait_texture": "res://assets/graphics/portraits/littleguy2.png",
             "icon_texture": "res://assets/graphics/characters/Children/Baby.png",
+            "perks": [],
             "base_stats": {
                 "health": 5,
+                "shield": 1,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
@@ -47,8 +53,10 @@
             "backstory": "Strong, built with the frame of a scrapped wrestling bot. The tactical mastermind of the ORPH4N group.",
             "portrait_texture": "res://assets/graphics/portraits/biggie.png",
             "icon_texture": "res://assets/graphics/characters/Children/F1ST0N.png",
+            "perks": [],
             "base_stats": {
                 "health": 5,
+                "shield": 1,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
@@ -61,21 +69,41 @@
             "backstory": "A repurposed Italian Catholic Nunbot, you don't want to mess with S0R3114.",
             "portrait_texture": "res://assets/graphics/portraits/sorella.png",
             "icon_texture": "res://assets/graphics/characters/Children/S0R3LL4.png",
+            "perks": [],
             "base_stats": {
                 "health": 5,
+                "shield": 1,
                 "damage": 2,
                 "healing": 1,
                 "healing_charges": 2,
                 "actions": 2,
                 "movement": 4
             }
+        },
+        "mother": {
+            "name": "M0TH3R",
+            "backstory": "She risked everything to start a family.",
+            "portrait_texture": "res://assets/graphics/portraits/sorella.png",
+            "icon_texture": "res://assets/graphics/characters/Children/S0R3LL4.png",
+            "perks": [],
+            "base_stats": {
+                "health": 20
+                "shield": 1,,
+                "damage": 4,
+                "healing": 4,
+                "healing_charges": 4,
+                "actions": 4,
+                "movement": 6
+            }
         }
     },
     "enemies": {
-        "bad_bot": {
-            "name": "B4DB0T",
+        "blitz_mk1": {
+            "name": "Bl1tzMK1",
+            "perks": [],
             "base_stats": {
                 "health": 1,
+                "shield": 1,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
@@ -89,8 +117,146 @@
         },
         "fish_bot": {
             "name": "FISHB0T 9000",
+            "perks": [],
             "base_stats": {
                 "health": 2,
+                "shield": 1,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
+            }
+        },
+        "big_clam": {
+            "name": "B1G_CL4M",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "shield": 1,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
+            }
+        },
+        "blitz_mk2": {
+            "name": "BlitzMK2",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "shield": 1,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
+            }
+        },
+        "BugBot": {
+            "name": "BUGB0T",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "shield": 1,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
+            }
+        },
+        "clam": {
+            "name": "L1L CL4M",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "shield": 1,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
+            }
+        },
+        "oblivion": {
+            "name": "0BLIVI0N",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "shield": 1,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
+            }
+        },
+        "sentry_mk1": {
+            "name": "S3NTRY MK1",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "shield": 1,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
+            }
+        },
+        "sentry_mk2": {
+            "name": "S3NTRY MK2",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "shield": 1,
+                "damage": 1,
+                "healing": 1,
+                "healing_charges": 2,
+                "actions": 2,
+                "movement": 6
+            },
+            "drops": {
+                "more_hp": 0.2,
+                "faster_speed_but_decreased_health": 0.2
+            }
+        },
+        "sentry_mk3": {
+            "name": "S3NTRY MK3",
+            "perks": [],
+            "base_stats": {
+                "health": 2,
+                "shield": 1,
                 "damage": 1,
                 "healing": 1,
                 "healing_charges": 2,
