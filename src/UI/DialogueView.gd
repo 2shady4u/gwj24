@@ -9,7 +9,7 @@ onready var timer: Timer = $Timer
 signal finished
 
 func _ready():
-	pass
+	LevelFlow.dialogue_overlay_UI = self
 
 func set_conversation(speaker_id, text):
 	# TODO only characters can speak now

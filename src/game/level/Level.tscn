@@ -67,3 +67,5 @@ position = Vector2( 2.9748, 1.34097 )
 rotation = 0.0010775
 scale = Vector2( 1.04793, 0.612893 )
 texture = ExtResource( 11 )
+
+[node name="Events" type="Node2D" parent="."]

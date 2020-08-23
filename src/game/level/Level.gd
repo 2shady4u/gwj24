@@ -34,6 +34,10 @@ func characters():
 	
 func chips():
 	return get_tree().get_nodes_in_group("chips")
+	
+
+func events():
+	return get_tree().get_nodes_in_group("events")
 
 func _ready():
 	# opens up the camera to be used for the characters
@@ -41,6 +45,7 @@ func _ready():
 	switch_character(characters()[0])
 	snap_characters()
 	snap_chips()
+	snap_events()
 	
 	var used_tiles = tiles.get_used_cells()
 	var tile_mapping = {}
@@ -68,8 +73,14 @@ func start():
 func get_snapped_position_in_grid(position_to_snap: Vector2):
 	return Vector2(floor(position_to_snap.x / 16) * 16 + 8, floor(position_to_snap.y / 16) * 16 + 8)
 
+
+func snap_events():
+	for event in events():
+		var current_position = event.position
+		event.position =get_snapped_position_in_grid(current_position)
+		print("set character on ", event.position, " from ", current_position)
+		
 func snap_chips():
-	print("There are this many chips ", chips())
 	for chip in chips():
 		var current_position = chip.position
 		chip.position =get_snapped_position_in_grid(current_position)
@@ -120,6 +131,13 @@ func move_character(character, location: Vector2):
 	yield(tween, "tween_completed")
 	
 	if character.team == "PLAYER":
+		var events = get_events(location)
+		for event in events:
+			if event is DialogueEvent:
+				print("Stepped on event")
+				LevelFlow.dialogue_overlay_UI.set_conversation(event.speaker, event.text)
+				yield(LevelFlow.dialogue_overlay_UI, "finished")
+
 		var picked_up_chips = []
 		for chip in chips():
 			if chip.position == location:
@@ -232,6 +250,13 @@ func level_complete():
 	
 func level_failed():
 	emit_signal("failed")
+
+func get_events(event_position: Vector2):
+	var triggered_events = []
+	for event in events():
+		if event.position == event_position:
+			triggered_events.append(event)
+	return triggered_events
 			
 func ai_decision():
 	# can't wait for this hacked together mess
