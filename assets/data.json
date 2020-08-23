@@ -284,7 +284,7 @@
         "more_hp": {
             "name": "MXU-HP",
             "type": "HP",
-            "description": "Better dynamic alignment of your armor plates result gives you an edge in health on the battlefield.",
+            "description": "Better dynamic alignment of your armor plates gives you an edge in health on the battlefield.",
             "grid_texture": "res://assets/graphics/upgrades/Chip_HP.png",
             "effect": {
                 "health": 2
@@ -351,7 +351,7 @@
             "name": "BACTA TANK",
             "type": "HEAL",
             "description": "Adding an small healing container increases the amount of healing charges.",
-            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Heal.png",
             "effect": {
                 "healing_charges": 1
             },
@@ -366,7 +366,7 @@
             "name": "BACTA TANK+",
             "type": "HEAL",
             "description": "Adding an additional healing container greatly increases the amount of healing charges, but slows you down.",
-            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Heal.png",
             "effect": {
                 "healing_charges": 2,
                 "movement": -1
@@ -387,8 +387,8 @@
         "more_actions": {
             "name": "CPU CORE",
             "type": "ACTION",
-            "description": "Adding an extra core to your CPU allows to perform an additional action during your turn.",
-            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "description": "Adding an extra core to your CPU allows you to perform an additional action during your turn.",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Energy.png",
             "effect": {
                 "actions": 1
             },
@@ -414,7 +414,7 @@
             "name": "MXS-CHITIN",
             "type": "HP",
             "description": "Hardening your coolant fluid gives you an extra layer of protection, but decreases your mobility.",
-            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_HP.png",
             "effect": {
                 "health": 2,
                 "movement": -1
@@ -434,7 +434,7 @@
             "name": "NUN-BOT ALGORITHM",
             "type": "HEAL",
             "description": "S0R3114's original programming allows anyone to better heal their allies by sacrificing their offensive abilities.",
-            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Heal.png",
             "effect": {
                 "healing": 1,
                 "healing_charges": 2,
@@ -455,7 +455,7 @@
             "name": "MXU-DMG",
             "type": "DAMAGE",
             "description": "Calculates the optimum piercing trajectory for your attacks, increasing damage as a result.",
-            "grid_texture": "res://assets/graphics/upgrades/Chip_Movement.png",
+            "grid_texture": "res://assets/graphics/upgrades/Chip_Attack.png",
             "effect": {
                 "healing_charges": 2,
                 "movement": -1
