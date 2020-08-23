@@ -42,6 +42,7 @@ const sfx = {
 	"explode": "res://assets/audio/explode.ogg",
 	"explode1": "res://assets/audio/explode1.ogg",
 	"explode2": "res://assets/audio/explode2.ogg",
+	"bark": "res://assets/audio/bark.ogg",
 }
 
 

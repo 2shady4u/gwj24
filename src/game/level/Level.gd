@@ -310,6 +310,7 @@ func bump(character: Character, other_character: Character):
 	# pet the dog!
 	elif other_character.team != character.team and other_character.team == "PET":
 		yield(shake_character_paused(character, direction / 4), "completed")
+		AudioEngine.play_effect("bark")
 		pet_dog(other_character.position)
 	else:
 		yield(shake_character_paused(character, direction / 8), "completed")
