@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game/mission/Mission.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game/level/level/JunkYardTutorial.tscn" type="PackedScene" id=2]
+
+[node name="FirstJunkYardMission" instance=ExtResource( 1 )]
+identifier = "first_junk_yard_mission"
+levels = [ ExtResource( 2 ) ]

@@ -2,10 +2,7 @@
 
 [ext_resource path="res://src/game/level/events/DialogueEvent.gd" type="Script" id=1]
 
-[node name="DialogueEvent" type="Position2D" groups=[
+[node name="DialogueEvent" type="Node2D" groups=[
 "events",
 ]]
 script = ExtResource( 1 )
-__meta__ = {
-"_gizmo_extents_": 8.0
-}

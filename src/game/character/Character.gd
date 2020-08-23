@@ -90,8 +90,8 @@ func heal_up(points: int, direction: Vector2):
 func take_damage(points: int):
 	var perks = get_perks()
 	if "armor" in perks:
-		points = int(ceil(points / 2))
-		
+		points = int(ceil(float(points) / 2))
+
 	self.current_health = max(self.current_health - points, 0)
 	if self.current_health == 0:
 		AudioEngine.play_effect("explode")

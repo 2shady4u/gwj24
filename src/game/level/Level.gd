@@ -367,7 +367,11 @@ func level_failed():
 func get_events(event_position: Vector2):
 	var triggered_events = []
 	for event in events():
-		if event.position == event_position:
+		var event_triggered = false
+		for point in event.get_points():
+			if get_snapped_position_in_grid(point) == event_position:
+				event_triggered = true
+		if event_triggered:
 			triggered_events.append(event)
 	return triggered_events
 		
