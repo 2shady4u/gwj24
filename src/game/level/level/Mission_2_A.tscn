@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/game/character/SentryMK1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/level/MyNewLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/game/character/SentryMK2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/character/F1SHBOT9000.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game/level/events/DialogueEvent.tscn" type="PackedScene" id=5]
 
 [node name="TestLevel" instance=ExtResource( 2 )]
 
@@ -30,16 +31,16 @@ position = Vector2( 72, 88 )
 position = Vector2( 88, 88 )
 
 [node name="SentryMK1" parent="Entities" index="5" instance=ExtResource( 1 )]
-position = Vector2( 56, -88 )
+position = Vector2( 56, -80.6512 )
 
 [node name="SentryMK2" parent="Entities" index="6" instance=ExtResource( 1 )]
-position = Vector2( 136, -88 )
+position = Vector2( 136, -80.6512 )
 
 [node name="SentryMK3" parent="Entities" index="7" instance=ExtResource( 1 )]
-position = Vector2( 72, -88 )
+position = Vector2( 72, -80.6512 )
 
 [node name="SentryMK4" parent="Entities" index="8" instance=ExtResource( 1 )]
-position = Vector2( 120, -88 )
+position = Vector2( 120, -80.6512 )
 
 [node name="Enemy" parent="Entities" index="9" instance=ExtResource( 4 )]
 position = Vector2( 72, -8 )
@@ -48,16 +49,39 @@ position = Vector2( 72, -8 )
 position = Vector2( 120, -8 )
 
 [node name="SentryMK5" parent="Entities" index="11" instance=ExtResource( 3 )]
-position = Vector2( 72, -136 )
+position = Vector2( 72, -196.358 )
 
 [node name="SentryMK6" parent="Entities" index="12" instance=ExtResource( 3 )]
-position = Vector2( 120, -136 )
+position = Vector2( 120, -196.358 )
 
 [node name="Camera" parent="." index="3"]
 position = Vector2( 100.5, 16.5 )
 
 [node name="Events" parent="." index="9"]
 position = Vector2( -1, 0 )
+
+[node name="DialogueEvent" parent="Events" index="0" instance=ExtResource( 5 )]
+position = Vector2( 90.4507, 54.1643 )
+
+[node name="Position2D" type="Position2D" parent="Events/DialogueEvent" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Events/DialogueEvent" index="1"]
+position = Vector2( 14.9831, 0.561863 )
+
+[node name="Position2D3" type="Position2D" parent="Events/DialogueEvent" index="2"]
+position = Vector2( 31.6517, 17.4178 )
+
+[node name="Position2D4" type="Position2D" parent="Events/DialogueEvent" index="3"]
+position = Vector2( 48.3204, 34.0865 )
+
+[node name="Position2D5" type="Position2D" parent="Events/DialogueEvent" index="4"]
+position = Vector2( -17.4178, 16.6687 )
+
+[node name="Position2D6" type="Position2D" parent="Events/DialogueEvent" index="5"]
+position = Vector2( -34.8356, 34.8356 )
+
+[node name="Position2D7" type="Position2D" parent="Events/DialogueEvent" index="6"]
+position = Vector2( -34.8356, 34.8356 )
 
 [node name="BG" parent="." index="10"]
 visible = false

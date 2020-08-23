@@ -11,8 +11,6 @@
 [ext_resource path="res://src/game/level/Door.tscn" type="PackedScene" id=9]
 
 [node name="TestLevel" instance=ExtResource( 6 )]
-intro_text = "Everything started out great..."
-outro_text = "Until I wanted to leave..."
 bg_texture = ExtResource( 8 )
 
 [node name="Tiles" parent="Tiles" index="0" instance=ExtResource( 3 )]
@@ -36,5 +34,5 @@ position = Vector2( 121.267, 88.939 )
 [node name="B3B3" parent="Entities" index="4" instance=ExtResource( 7 )]
 position = Vector2( 87.4057, 86.876 )
 
-[node name="BG" parent="." index="9"]
+[node name="BG" parent="." index="10"]
 texture = ExtResource( 8 )

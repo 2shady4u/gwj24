@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/game/level/MyNewLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/character/SentryMK1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/game/character/F1SHBOT9000.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game/level/events/DialogueEvent.tscn" type="PackedScene" id=4]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
+intro_text = "You were always brave, S0HN. All my children were always brave."
+outro_text = "You were also lazy, sometimes."
 
 [node name="Tiles" parent="Tiles" index="0"]
 tile_data = PoolIntArray( -917500, 1, 2, -917499, 1, 4, -917498, 1, 6, -917497, 1, 6, -917496, 1, 4, -917495, 1, 10, -851964, 1, 131072, -851963, 1, 65539, -851962, 1, 65542, -851961, 1, 65543, -851960, 1, 65545, -851959, 1, 131084, -786430, 1, 2, -786429, 1, 7, -786428, 1, 65538, -786427, 1, 131075, -786426, 1, 131078, -786425, 1, 131079, -786424, 1, 131081, -786423, 1, 65546, -786422, 1, 7, -786421, 1, 10, -720894, 1, 131072, -720893, 1, 131073, -720892, 1, 131074, -720891, 0, 262145, -720890, 0, 65538, -720889, 0, 65539, -720888, 0, 262145, -720887, 1, 131082, -720886, 1, 131083, -720885, 1, 131084, -655358, 1, 131072, -655357, 1, 196609, -655356, 1, 196610, -655355, 0, 131073, -655354, 0, 65538, -655353, 0, 65539, -655352, 0, 131073, -655351, 1, 196618, -655350, 1, 196619, -655349, 1, 131084, -589824, 1, 2, -589823, 1, 7, -589822, 1, 65538, -589821, 0, 131073, -589820, 0, 131073, -589819, 0, 131073, -589818, 0, 458754, -589817, 0, 458755, -589816, 0, 131073, -589815, 0, 131073, -589814, 0, 131073, -589813, 1, 65546, -589812, 1, 7, -589811, 1, 10, -524288, 1, 131072, -524287, 1, 131073, -524286, 1, 131074, -524285, 0, 131073, -524284, 0, 131073, -524283, 0, 131073, -524282, 0, 458754, -524281, 0, 458755, -524280, 0, 131073, -524279, 0, 131073, -524278, 0, 131073, -524277, 1, 131082, -524276, 1, 131083, -524275, 1, 196620, -458752, 1, 131072, -458751, 1, 196609, -458750, 1, 196610, -458749, 0, 131073, -458748, 0, 131073, -458747, 0, 131073, -458746, 0, 458754, -458745, 0, 458755, -458744, 0, 131073, -458743, 0, 131073, -458742, 0, 131073, -458741, 1, 196618, -458740, 1, 196619, -458739, 1, 196620, -393216, 1, 131072, -393215, 0, 131073, -393214, 0, 131073, -393213, 0, 131073, -393212, 0, 131073, -393211, 0, 131073, -393210, 0, 458754, -393209, 0, 458755, -393208, 0, 131073, -393207, 0, 131073, -393206, 0, 131073, -393205, 0, 131073, -393204, 0, 131073, -393203, 1, 196620, -327680, 1, 131072, -327679, 0, 131073, -327678, 0, 131073, -327677, 0, 131073, -327676, 0, 131073, -327675, 0, 131073, -327674, 0, 458754, -327673, 0, 458755, -327672, 0, 131073, -327671, 0, 131073, -327670, 0, 131073, -327669, 0, 131073, -327668, 0, 131073, -327667, 1, 196620, -262144, 1, 131072, -262143, 0, 196614, -262142, 0, 196608, -262141, 0, 196614, -262140, 0, 196609, -262139, 0, 196612, -262138, 0, 196610, -262137, 0, 196611, -262136, 0, 196612, -262135, 0, 196609, -262134, 0, 196614, -262133, 0, 196613, -262132, 0, 196614, -262131, 1, 196620, -196608, 1, 131072, -196607, 0, 262150, -196606, 0, 262144, -196605, 0, 262150, -196604, 0, 262146, -196603, 0, 262147, -196602, 0, 262148, -196601, 0, 262148, -196600, 0, 262146, -196599, 0, 262147, -196598, 0, 262150, -196597, 0, 262149, -196596, 0, 262150, -196595, 1, 196620, -131072, 1, 131072, -131071, 0, 131073, -131070, 0, 131073, -131069, 0, 131073, -131068, 0, 327682, -131067, 0, 327683, -131066, 0, 131073, -131065, 0, 131073, -131064, 0, 327682, -131063, 0, 327683, -131062, 0, 131073, -131061, 0, 131073, -131060, 0, 131073, -131059, 1, 196620, -65536, 1, 131072, -65535, 0, 131073, -65534, 0, 131073, -65533, 0, 131073, -65532, 0, 458754, -65531, 0, 458755, -65530, 0, 131073, -65529, 0, 131073, -65528, 0, 458754, -65527, 0, 458755, -65526, 0, 131073, -65525, 0, 131073, -65524, 0, 131073, -65523, 1, 196620, 0, 1, 327680, 1, 0, 131073, 2, 0, 131073, 3, 0, 131073, 4, 0, 458754, 5, 0, 458755, 6, 0, 131073, 7, 0, 131073, 8, 0, 458754, 9, 0, 458755, 10, 0, 131073, 11, 0, 131073, 12, 0, 131073, 13, 1, 327692, 65536, 1, 327680, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 131073, 65540, 0, 393218, 65541, 0, 393219, 65542, 0, 131073, 65543, 0, 131073, 65544, 0, 65538, 65545, 0, 65539, 65546, 0, 131073, 65547, 0, 131073, 65548, 0, 131073, 65549, 1, 327692, 131072, 2, 0, 131073, 2, 1, 131074, 2, 1, 131075, 2, 1, 131076, 2, 1, 131077, 2, 1, 131078, 2, 1, 131079, 2, 1, 131080, 2, 1, 131081, 2, 1, 131082, 2, 1, 131083, 2, 1, 131084, 2, 1, 131085, 2, 12, 196612, 1, 12, 196613, 1, 12, 196614, 1, 12, 196615, 1, 12, 196616, 1, 12, 196617, 1, 12, 262148, 1, 12, 262149, 1, 12, 262150, 1, 12, 262151, 1, 12, 262152, 1, 12, 262153, 1, 12, 327684, 1, 12, 327685, 1, 12, 327686, 1, 12, 327687, 1, 12, 327688, 1, 12, 327689, 1, 12, 327690, 1, 12, 393216, 1, 12, 393217, 1, 12, 393218, 1, 12, 393219, 1, 12, 393220, 1, 12, 393221, 1, 12, 393222, 1, 12, 393223, 1, 12, 393224, 1, 12, 393225, 1, 12, 393226, 1, 12, 393227, 1, 12, 393228, 1, 12, 393229, 1, 12, 393230, 1, 12 )
@@ -28,7 +31,7 @@ position = Vector2( 120.208, 25.1064 )
 position = Vector2( 87.6706, 23.8379 )
 
 [node name="SentryMK1" parent="Entities" index="5" instance=ExtResource( 2 )]
-position = Vector2( 136.071, -70.5556 )
+position = Vector2( 136.071, -38.8532 )
 
 [node name="SentryMK2" parent="Entities" index="6" instance=ExtResource( 2 )]
 position = Vector2( 134.882, -104.448 )
@@ -37,7 +40,68 @@ position = Vector2( 134.882, -104.448 )
 position = Vector2( 88.2059, -103.259 )
 
 [node name="SentryMK4" parent="Entities" index="8" instance=ExtResource( 2 )]
-position = Vector2( 88.5032, -70.5556 )
+position = Vector2( 88.5032, -39.8543 )
 
 [node name="Enemy" parent="Entities" index="9" instance=ExtResource( 3 )]
 position = Vector2( 111.488, -150.435 )
+
+[node name="DialogueEvent" parent="Events" index="0" instance=ExtResource( 4 )]
+position = Vector2( 104.488, 4.96064 )
+speaker = "sohn"
+text = "So, we're finally doing this. Let's show these guys what's hell."
+
+[node name="Position2D" type="Position2D" parent="Events/DialogueEvent" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Events/DialogueEvent" index="1"]
+position = Vector2( 16.8661, 0.396851 )
+
+[node name="Position2D3" type="Position2D" parent="Events/DialogueEvent" index="2"]
+position = Vector2( 38.6929, 1.78583 )
+
+[node name="Position2D4" type="Position2D" parent="Events/DialogueEvent" index="3"]
+position = Vector2( 40.4787, 18.652 )
+
+[node name="Position2D5" type="Position2D" parent="Events/DialogueEvent" index="4"]
+position = Vector2( -17.4614, 1.98425 )
+
+[node name="Position2D6" type="Position2D" parent="Events/DialogueEvent" index="5"]
+position = Vector2( -30.9543, 1.5874 )
+
+[node name="Position2D7" type="Position2D" parent="Events/DialogueEvent" index="6"]
+position = Vector2( -49.011, 2.77795 )
+
+[node name="Position2D8" type="Position2D" parent="Events/DialogueEvent" index="7"]
+position = Vector2( -48.6142, 18.652 )
+
+[node name="Position2D9" type="Position2D" parent="Events/DialogueEvent" index="8"]
+position = Vector2( -48.6142, 18.652 )
+
+[node name="DialogueEvent2" parent="Events" index="1" instance=ExtResource( 4 )]
+position = Vector2( 104.488, 4.96064 )
+text = "Yes. However, keep in mind what M0TH3R taught us. We should stick together, without acting rash. I can push these sentries away if need be."
+
+[node name="Position2D" type="Position2D" parent="Events/DialogueEvent2" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Events/DialogueEvent2" index="1"]
+position = Vector2( 16.8661, 0.396851 )
+
+[node name="Position2D3" type="Position2D" parent="Events/DialogueEvent2" index="2"]
+position = Vector2( 38.6929, 1.78583 )
+
+[node name="Position2D4" type="Position2D" parent="Events/DialogueEvent2" index="3"]
+position = Vector2( 40.4787, 18.652 )
+
+[node name="Position2D5" type="Position2D" parent="Events/DialogueEvent2" index="4"]
+position = Vector2( -17.4614, 1.98425 )
+
+[node name="Position2D6" type="Position2D" parent="Events/DialogueEvent2" index="5"]
+position = Vector2( -30.9543, 1.5874 )
+
+[node name="Position2D7" type="Position2D" parent="Events/DialogueEvent2" index="6"]
+position = Vector2( -49.011, 2.77795 )
+
+[node name="Position2D8" type="Position2D" parent="Events/DialogueEvent2" index="7"]
+position = Vector2( -48.6142, 18.652 )
+
+[node name="Position2D9" type="Position2D" parent="Events/DialogueEvent2" index="8"]
+position = Vector2( -48.6142, 18.652 )
