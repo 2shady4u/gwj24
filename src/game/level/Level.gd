@@ -223,7 +223,7 @@ func move_character(character, location: Vector2):
 
 func pickup_chip(chip: Chip):
 	chip_label.set_chip(chip)
-	emit_signal("chip_pickup", chip.identifier)
+	emit_signal("chip_pickup", chip.id)
 	chip_label.rect_position = chip.position - Vector2(20, 16)
 	entities.remove_child(chip)
 	chip.queue_free()
@@ -498,9 +498,8 @@ func spawn_drop(drop: String, drop_position: Vector2):
 
 	entities.add_child(chip)
 	chip.position = get_snapped_position_in_grid(drop_position)
-	chip.identifier = chip_name
+	chip.id = drop
 	chip.set_type(chip_type)
-
 
 func on_character_death(character: Character):
 	if character.team == "ENEMY":
