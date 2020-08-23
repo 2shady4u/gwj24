@@ -2,7 +2,7 @@ extends Node2D
 class_name DialogueEvent
 
 export(String, "fiston", "sonic", "bebe", "sohn", "sorella", "mother", "variable") var speaker: String = "fiston"
-export(String) var text = ""
+export(String, MULTILINE) var text = ""
 export(NodePath) var path
 
 onready var children = get_children()

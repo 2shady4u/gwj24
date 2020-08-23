@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/game/chips/Chip.gd"
 }, {
-"base": "Position2D",
+"base": "Node2D",
 "class": "DialogueEvent",
 "language": "GDScript",
 "path": "res://src/game/level/events/DialogueEvent.gd"
@@ -116,7 +116,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="M0TH3R"
+config/name="Godot Wild Jam 24"
 run/main_scene="res://src/Menu.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"

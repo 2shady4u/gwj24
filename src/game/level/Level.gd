@@ -209,6 +209,8 @@ func move_character(character, location: Vector2):
 				print("Stepped on event")
 				LevelFlow.dialogue_overlay_UI.set_conversation(event.speaker, event.text)
 				yield(LevelFlow.dialogue_overlay_UI, "finished")
+				event.queue_free()
+				$Events.remove_child(event)
 
 		var picked_up_chips = []
 		for chip in chips():
@@ -258,7 +260,7 @@ func bump(character: Character, other_character: Character):
 		tween.start()
 		yield(tween, "tween_completed")
 		set_process(true)
-	elif other_character.team != character.team:
+	elif other_character.team != character.team and (character.team == "PLAYER" and other_character.team == "ENEMY") or (character.team == "ENEMY" and other_character.team == "PLAYER"):
 		if dashed:
 			tween.interpolate_property(character, "position", null, halfway_position, transition_time / 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		else:
@@ -305,10 +307,17 @@ func bump(character: Character, other_character: Character):
 			tween.start()
 			yield(tween, "tween_completed")
 		set_process(true)
+	# pet the dog!
+	elif other_character.team != character.team and other_character.team == "PET":
+		yield(shake_character_paused(character, direction / 4), "completed")
+		pet_dog(other_character.position)
 	else:
 		yield(shake_character_paused(character, direction / 8), "completed")
 
 
+func pet_dog(tile_position: Vector2):
+	$LoveParticles.position = tile_position - Vector2(0, 8)
+	$LoveParticles.emitting = true
 
 func is_tile_occupied(tile_position: Vector2):
 	if get_tile(tile_position) != "floor":
@@ -351,10 +360,10 @@ func _process(_delta):
 			current_character.sprite.flip_h = false
 			yield(move_action(current_character, directions.RIGHT), "completed")
 			yield(validate_turn(), "completed")
-		if Input.is_action_just_pressed("interact"):
-			level_complete()
-		if Input.is_action_just_pressed("toggle_inventory"):
-			level_failed()
+		# if Input.is_action_just_pressed("interact"):
+		# 	level_complete()
+		# if Input.is_action_just_pressed("toggle_inventory"):
+		# 	level_failed()
 
 
 			
@@ -392,7 +401,12 @@ func get_enemy_characters():
 
 func character_turns():
 	# TODO make turn order respectively in here
-	return get_player_characters() + get_enemy_characters()
+	var turn_characters = []
+	var eligible_characters = get_player_characters() + get_enemy_characters()
+	for character in eligible_characters:
+		if character.stats.movement > 0:
+			turn_characters.append(character)
+	return turn_characters
 
 func validate_turn():
 	print(current_character.turn_finished())

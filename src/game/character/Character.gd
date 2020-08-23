@@ -5,7 +5,7 @@ onready var sprite: AnimatedSprite = $Sprite
 onready var tween: Tween = $Tween
 onready var healthbar = $HealthBar
 
-export(String, "PLAYER", "ENEMY", "OBSTACLE") var team = "PLAYER"
+export(String, "PLAYER", "ENEMY", "OBSTACLE", "PET", "NONE") var team = "PLAYER"
 export(String) var type
 
 
@@ -37,7 +37,7 @@ signal death(character)
 signal updated_turn_info
 
 func _ready():
-	if team == "OBSTACLE":
+	if team != "PLAYER" and team != "ENEMY":
 		pass
 	else:
 		update_stats(get_stats().duplicate(true))
