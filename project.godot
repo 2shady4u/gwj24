@@ -126,7 +126,9 @@ AudioEngine="*res://src/audio/AudioEngine.tscn"
 [debug]
 
 gdscript/warnings/return_value_discarded=false
+[locale]
 
+translations=PoolStringArray( "res://assets/locale/en.po", "res://assets/locale/pt.po", "res://assets/locale/fr.po" )
 [display]
 
 window/size/height=576
