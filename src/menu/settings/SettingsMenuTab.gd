@@ -44,6 +44,7 @@ func update_tab():
 
 func _on_back_button_pressed():
 	AudioEngine.play_effect("ui_back")
+	Flow.save_user_settings()
 	emit_signal("button_pressed", TABS.MAIN)
 
 func _on_mute_music_check_box_toggled(button_pressed : bool):

@@ -52,9 +52,9 @@ __meta__ = {
 
 [node name="TitleHBox" type="HBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 448.0
-margin_top = 126.0
+margin_top = 116.0
 margin_right = 576.0
-margin_bottom = 142.0
+margin_bottom = 132.0
 size_flags_horizontal = 4
 alignment = 1
 
@@ -80,9 +80,9 @@ text = "~"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 448.0
-margin_top = 168.0
+margin_top = 158.0
 margin_right = 576.0
-margin_bottom = 407.0
+margin_bottom = 417.0
 size_flags_horizontal = 4
 custom_constants/separation = 16
 __meta__ = {
@@ -91,7 +91,7 @@ __meta__ = {
 
 [node name="ResumeButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
 margin_right = 128.0
-margin_bottom = 27.0
+margin_bottom = 31.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../QuitButton")
 focus_neighbour_bottom = NodePath("../RestartButton")
@@ -103,9 +103,9 @@ __meta__ = {
 }
 
 [node name="RestartButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 43.0
+margin_top = 47.0
 margin_right = 128.0
-margin_bottom = 70.0
+margin_bottom = 78.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../ResumeButton")
 focus_neighbour_bottom = NodePath("../SettingsButton")
@@ -117,17 +117,17 @@ __meta__ = {
 }
 
 [node name="HSeparator1" type="HSeparator" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 86.0
+margin_top = 94.0
 margin_right = 128.0
-margin_bottom = 90.0
+margin_bottom = 98.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SettingsButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 106.0
+margin_top = 114.0
 margin_right = 128.0
-margin_bottom = 133.0
+margin_bottom = 145.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../RestartButton")
 focus_neighbour_bottom = NodePath("../AbortButton")
@@ -139,17 +139,17 @@ __meta__ = {
 }
 
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 149.0
+margin_top = 161.0
 margin_right = 128.0
-margin_bottom = 153.0
+margin_bottom = 165.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AbortButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 169.0
+margin_top = 181.0
 margin_right = 128.0
-margin_bottom = 196.0
+margin_bottom = 212.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../SettingsButton")
 focus_neighbour_bottom = NodePath("../QuitButton")
@@ -161,9 +161,9 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="Button" parent="TabContainer/MainTab/VBoxContainer/VBoxContainer"]
-margin_top = 212.0
+margin_top = 228.0
 margin_right = 128.0
-margin_bottom = 239.0
+margin_bottom = 259.0
 rect_min_size = Vector2( 128, 0 )
 focus_neighbour_top = NodePath("../AbortButton")
 focus_neighbour_bottom = NodePath("../ResumeButton")
@@ -173,9 +173,9 @@ text = "QUIT"
 
 [node name="HintLabel" type="Label" parent="TabContainer/MainTab/VBoxContainer"]
 margin_left = 472.0
-margin_top = 433.0
+margin_top = 443.0
 margin_right = 552.0
-margin_bottom = 449.0
+margin_bottom = 459.0
 size_flags_horizontal = 4
 text = "PAUSE_HINT"
 align = 1

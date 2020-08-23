@@ -3,6 +3,8 @@ extends Node
 enum STATE {MENU, GAME}
 
 const OPTIONS_PATH := "res://options.cfg"
+# Settings are a subset of options that can be modified by the user.
+const USER_SETTINGS_PATH := "user://user_settings.cfg"
 
 const CONTROLS_PATH := "res://controls.json"
 
@@ -58,6 +60,15 @@ func load_settings() -> int:
 		print("----> Succesfully loaded settings!")
 	else:
 		push_error("Failed to load settings! Check console for clues!")
+	return _error
+
+func save_user_settings() -> int:
+	print("----- Saving user-modifiable settings to local system -----")
+	var _error : int = _options_loader.save_settingsCFG()
+	if _error == OK:
+		print("----> Succesfully saved user settings!")
+	else:
+		push_error("Failed to save user settings! Check console for clues!")
 	return _error
 
 func _unhandled_input(event : InputEvent):

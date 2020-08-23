@@ -75,3 +75,7 @@ func _on_language_button_pressed(increment : int):
 		ConfigData.set_locale(unique_locales[0])
 	else:
 		ConfigData.set_locale(unique_locales[index])
+
+func _on_back_button_pressed():
+	Flow.save_user_settings()
+	._on_back_button_pressed()
