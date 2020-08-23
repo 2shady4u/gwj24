@@ -23,9 +23,13 @@ func get_active_upgrade() -> class_upgrade:
 	return _active_upgrade.get_ref()
 var _active_upgrade := WeakRef.new()
 
+const DESCRIPTION_HINT := "Select a character with the left and right arrow keys. Place/remove upgrade chips by clicking them, move them around with your arrow keys and press ENTER to confirm placement."
+
 func _ready():
 	var _error : int = _back_button.connect("pressed", self, "_on_back_button_pressed")
 	_error = connect("visibility_changed", self, "_on_visibility_changed")
+
+	_description_label.text = DESCRIPTION_HINT
 
 	# Disable input initially!
 	set_process_input(false)
@@ -129,10 +133,10 @@ func _on_upgrade_mouse_entered(upgrade : class_upgrade):
 	if upgrade:
 		_description_label.text = upgrade.description
 	else:
-		_description_label.text = ""
+		_description_label.text = DESCRIPTION_HINT
 
 func _on_upgrade_mouse_exited():
-	_description_label.text = ""
+	_description_label.text = DESCRIPTION_HINT
 
 func _on_back_button_pressed():
 	AudioEngine.play_effect("ui_back")

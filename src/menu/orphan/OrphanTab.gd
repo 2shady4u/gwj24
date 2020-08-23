@@ -3,8 +3,8 @@ class_name class_orphan_tab
 
 onready var _grid_container := $GridVBox/PanelContainer/GridContainer
 
-onready var _name_label := $VBoxContainer/BioHBox/VBoxContainer/HBoxContainer/NameLabel
-onready var _back_story_label := $VBoxContainer/BioHBox/VBoxContainer/BackStoryLabel
+onready var _name_label := $VBoxContainer/BioHBox/ScrollContainer/VBoxContainer/HBoxContainer/NameLabel
+onready var _back_story_label := $VBoxContainer/BioHBox/ScrollContainer/VBoxContainer/BackStoryLabel
 onready var _portrait_rect := $VBoxContainer/BioHBox/Control/PortraitRect
 
 onready var _health_label := $VBoxContainer/StatsHBox/GridContainer/HealthLabel

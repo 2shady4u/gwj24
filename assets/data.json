@@ -57,7 +57,7 @@
         },
         "fiston": {
             "name": "F1STON",
-            "backstory": "A large and powerful bot. Of his siblings, he towers above them all. His brute force and reinforced frame make him excellent on the front line.",
+            "backstory": "A large and powerful bot. His brute force and reinforced frame make him excellent on the front line.",
             "portrait_texture": "res://assets/graphics/portraits/biggie.png",
             "icon_texture": "res://assets/graphics/characters/Children/F1ST0N.png",
             "perk_ids": [
@@ -76,7 +76,7 @@
         },
         "sorella": {
             "name": "S0R3114",
-            "backstory": "S0r3114 is by far the most offensively capable of her siblings. Armed with razor sharp claws and a razor sharp wit, she can easily hold her own in the face of danger.",
+            "backstory": "S0r3114 is the most offensively capable of her siblings. With razor sharp claws, she easily holds her own in the face of danger.",
             "portrait_texture": "res://assets/graphics/portraits/sorella.png",
             "icon_texture": "res://assets/graphics/characters/Children/S0R3LL4.png",
             "perk_ids": [
