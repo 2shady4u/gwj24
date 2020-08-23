@@ -216,3 +216,4 @@ margin_bottom = 72.0
 align = 1
 valign = 1
 autowrap = true
+[connection signal="mouse_entered" from="BackContainer/BackButton" to="." method="_on_button_mouse_entered"]

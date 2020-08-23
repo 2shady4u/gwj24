@@ -132,3 +132,5 @@ margin_right = 554.0
 margin_bottom = 512.0
 size_flags_horizontal = 4
 text = "Edit Orphan Layout"
+[connection signal="mouse_entered" from="BackContainer/BackButton" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/OrphanButton" to="." method="_on_button_mouse_entered"]

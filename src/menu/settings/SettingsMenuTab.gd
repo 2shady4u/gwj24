@@ -67,6 +67,9 @@ func _on_sfx_volume_slider_changed(value : float):
 	AudioEngine.play_effect("ui_select")
 	ConfigData.sfx_volume = value
 
+func _on_button_mouse_entered():
+	AudioEngine.play_effect("ui_move")
+
 func _on_language_button_pressed(increment : int):
 	AudioEngine.play_effect("ui_select")
 	var loaded_locales := TranslationServer.get_loaded_locales()

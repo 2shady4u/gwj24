@@ -66,3 +66,6 @@ func encrypt_with_ceaser_cipher(input : String) -> String:
 			output += char((ord(substr) + s - 97) % 26 + 97) 
   
 	return output 
+
+func _on_button_mouse_entered():
+	AudioEngine.play_effect("ui_move")

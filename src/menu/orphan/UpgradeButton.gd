@@ -54,3 +54,6 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	emit_signal("button_mouse_exited")
+
+func _on_button_mouse_entered():
+	AudioEngine.play_effect("ui_move")
