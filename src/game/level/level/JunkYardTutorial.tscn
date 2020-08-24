@@ -60,8 +60,6 @@ position = Vector2( 38.3359, 237.357 )
 
 [node name="Chip" parent="Entities" index="10" instance=ExtResource( 10 )]
 position = Vector2( 41.9965, 342.672 )
-color = "blue"
-identifier = "more_hp"
 
 [node name="SORELLA" parent="Events" index="0" instance=ExtResource( 8 )]
 position = Vector2( -328.256, 264.217 )
