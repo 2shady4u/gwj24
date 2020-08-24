@@ -182,7 +182,7 @@
             "name": "BlitzMK2",
             "perk_ids": [],
             "base_stats": {
-                "health": 4,
+                "health": 5,
                 "damage": 2,
                 "healing": 1,
                 "healing_charges": 2,
@@ -431,7 +431,7 @@
             "description": "Adding an small healing container increases the amount of healing charges.",
             "grid_texture": "res://assets/graphics/upgrades/Chip_Heal.png",
             "effect": {
-                "healing_charges": 1
+                "healing": 1
             },
             "grid": [
                 [
@@ -535,7 +535,7 @@
             "description": "Calculates the optimum piercing trajectory for your attacks, increasing damage as a result.",
             "grid_texture": "res://assets/graphics/upgrades/Chip_Attack.png",
             "effect": {
-                "healing_charges": 2,
+                "damage": 1,
                 "movement": -1
             },
             "grid": [
