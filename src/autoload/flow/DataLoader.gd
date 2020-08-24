@@ -14,6 +14,8 @@ func load_dataJSON() -> int:
 			Flow.upgrades_data = data.get("upgrades", {})
 			Flow.orphans_data = data.get("orphans", {})
 
+
+			Flow.allies_data = data.get("allies", {})
 			Flow.enemies_data = data.get("enemies", {})
 
 			Flow.missions_data = data.get("missions", [])

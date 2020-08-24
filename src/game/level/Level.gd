@@ -39,6 +39,8 @@ const directions = {
 var victory = false
 var opened_doors = false
 
+var player_and_allies = ["PLAYER", "ALLY"]
+
 signal complete
 signal failed
 signal chip_pickup
@@ -202,7 +204,7 @@ func move_character(character, location: Vector2):
 	tween.start()
 	yield(tween, "tween_completed")
 	AudioEngine.play_effect("move1")
-	if character.team == "PLAYER":
+	if character.team in player_and_allies:
 		var events = get_events(location)
 		for event in events:
 			if event is DialogueEvent:
@@ -261,7 +263,7 @@ func bump(character: Character, other_character: Character):
 		tween.start()
 		yield(tween, "tween_completed")
 		set_process(true)
-	elif other_character.team != character.team and (character.team == "PLAYER" and other_character.team == "ENEMY") or (character.team == "ENEMY" and other_character.team == "PLAYER"):
+	elif other_character.team != character.team and (character.team in player_and_allies and other_character.team == "ENEMY") or (character.team == "ENEMY" and other_character.team in player_and_allies):
 		if dashed:
 			tween.interpolate_property(character, "position", null, halfway_position, transition_time / 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		else:
@@ -274,7 +276,7 @@ func bump(character: Character, other_character: Character):
 		else:
 			other_character.take_damage(character.stats.damage)
 
-		if other_character.team == "PLAYER":
+		if other_character.team in player_and_allies:
 			play_damage(other_character.position)
 		character.perform_action()
 		if other_character.current_health == 0:
@@ -344,7 +346,7 @@ func _process(_delta):
 		current_character.finish_turn()
 		yield(validate_turn(), "completed")
 		
-	if current_character.team != "PLAYER":
+	if current_character.team == "ENEMY":
 		yield(ai_decision(), "completed")
 		validate_turn()
 	else:
@@ -397,14 +399,15 @@ func filter_characters_team(team: String):
 
 func get_player_characters():
 	return filter_characters_team("PLAYER")
-
+func get_ally_characters():
+	return filter_characters_team("ALLY")
 func get_enemy_characters():
 	return filter_characters_team("ENEMY")
 
 func character_turns():
 	# TODO make turn order respectively in here
 	var turn_characters = []
-	var eligible_characters = get_player_characters() + get_enemy_characters()
+	var eligible_characters = get_player_characters() + get_ally_characters() + get_enemy_characters()
 	for character in eligible_characters:
 		if character.stats.movement > 0:
 			turn_characters.append(character)
@@ -508,12 +511,12 @@ func on_character_death(character: Character):
 		var drop = get_drop(drops)
 		if drop:
 			spawn_drop(drop, character.position)
-	elif character.team == "PLAYER":
+	elif character.team in player_and_allies:
 		print_debug("Player character dieded!")
 
 
 func check_level_complete() -> bool:
-	var player_characters = get_player_characters()
+	var player_characters = get_player_characters() + get_ally_characters()
 	var enemy_characters = get_enemy_characters()
 
 	if len(player_characters) == 0:
@@ -601,7 +604,7 @@ func get_minimum_path_for_character(character: Character):
 
 func target_selection():
 	var paths = {}
-	var player_characters = get_player_characters()
+	var player_characters = get_player_characters() + get_ally_characters()
 
 	for player_character in player_characters:
 		var minimum_path_per_character = get_minimum_path_for_character(player_character)

@@ -20,10 +20,15 @@ animations = [ {
 } ]
 
 [node name="M0TH3R" instance=ExtResource( 1 )]
+team = "ALLY"
 type = "mother"
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -9 )
 frames = SubResource( 3 )
 animation = "idle"
+frame = 1
 playing = true
+
+[node name="HealthBar" parent="." index="2"]
+position = Vector2( 0, -28.6846 )

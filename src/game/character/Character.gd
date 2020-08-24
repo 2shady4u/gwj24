@@ -5,7 +5,7 @@ onready var sprite: AnimatedSprite = $Sprite
 onready var tween: Tween = $Tween
 onready var healthbar = $HealthBar
 
-export(String, "PLAYER", "ENEMY", "OBSTACLE", "PET", "NONE") var team = "PLAYER"
+export(String, "PLAYER", "ENEMY", "OBSTACLE", "PET", "ALLY", "NONE") var team = "PLAYER"
 export(String) var type
 
 
@@ -37,7 +37,7 @@ signal death(character)
 signal updated_turn_info
 
 func _ready():
-	if team != "PLAYER" and team != "ENEMY":
+	if team != "PLAYER" and team != "ENEMY" and team != "ALLY":
 		healthbar.hide()
 	else:
 		update_stats(get_stats().duplicate(true))
@@ -46,6 +46,15 @@ func get_stats():
 	print("Getting stats for ", type, " of group ", team)
 	if team == "PLAYER":
 		return State.get_orphan_by_id(type).get_stats()
+	elif team == "ALLY":
+		return Flow.get_ally_value(type, "base_stats", {
+			"health": 4,
+			"damage": 1,
+			"healing": 1,
+			"healing_charges": 2,
+			"actions": 2,
+			"movement": 4
+		})
 	elif team == "ENEMY":
 		return Flow.get_enemy_value(type, "base_stats", {
 			"health": 4,

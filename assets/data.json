@@ -91,7 +91,9 @@
                 "actions": 2,
                 "movement": 4
             }
-        },
+        }
+    },
+    "allies": {
         "mother": {
             "name": "M0TH3R",
             "backstory": "She risked everything to start a family.",
@@ -102,7 +104,7 @@
             ],
             "base_columns": 3,
             "base_stats": {
-                "health": 20,
+                "health": 15,
                 "damage": 4,
                 "healing": 4,
                 "healing_charges": 4,

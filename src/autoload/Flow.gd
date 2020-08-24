@@ -24,6 +24,7 @@ var verbose_mode := true
 
 var upgrades_data := {}
 var orphans_data := {}
+var allies_data := {}
 var enemies_data := {}
 var perks_data := {}
 
@@ -142,6 +143,13 @@ func get_upgrade_value(id : String, key : String, default):
 func get_orphan_value(id : String, key : String, default):
 	if orphans_data.has(id):
 		var data : Dictionary = orphans_data[id]
+		return data.get(key, default)
+	else:
+		return default
+
+func get_ally_value(id : String, key : String, default):
+	if allies_data.has(id):
+		var data : Dictionary = allies_data[id]
 		return data.get(key, default)
 	else:
 		return default
