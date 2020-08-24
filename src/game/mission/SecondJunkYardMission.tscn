@@ -4,5 +4,5 @@
 [ext_resource path="res://src/game/mission/Mission.tscn" type="PackedScene" id=2]
 
 [node name="FirstJunkYardMission" instance=ExtResource( 2 )]
-identifier = "first_junk_yard_mission"
+identifier = "second_junk_yard_mission"
 levels = [ ExtResource( 1 ) ]
