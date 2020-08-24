@@ -4,12 +4,10 @@ class_name Chip
 onready var sprite: AnimatedSprite = $Sprite
 
 export(String, "red", "blue", "yellow", "green", "purple", "cyan", "rainbow") var color = "red"
-export(String) var identifier = "MDX-POW"
-
+export(String) var id = "more_hp"
 
 func _ready():
 	set_color(color)
-
 
 func set_type(type: String):
 	match type:
@@ -27,7 +25,6 @@ func set_type(type: String):
 			set_color("rainbow")
 		"ACTION":
 			set_color("yellow")
-
 
 func set_color(new_color: String):
 	if not new_color in sprite.frames.get_animation_names():

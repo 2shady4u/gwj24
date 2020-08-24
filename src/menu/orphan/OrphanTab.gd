@@ -120,9 +120,10 @@ func update_tab():
 			match columns:
 				3:
 					slot.rect_min_size = 64*Vector2.ONE
+					slot.rect_size = 64*Vector2.ONE
 				4:
 					slot.rect_min_size = 48*Vector2.ONE
-			
+					slot.rect_size = 48*Vector2.ONE
 
 	# Place the orphan's upgrades in its grid!
 	for upgrade in self.orphan.upgrades:
